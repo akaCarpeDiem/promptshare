@@ -1,0 +1,949 @@
+/* PromptShare redesign v2 — bright cream paper, enjoy.dev energy.
+   FORCE light-first. Replaces dark-lavender v1 entirely. */
+
+:root {
+  color-scheme: light !important;
+  --void: #fffdf9 !important;
+  --stage: #ffffff !important;
+  --paper: #242422 !important;
+  --paper-2: #4a4a46 !important;
+  --ink: #242422 !important;
+  --ink-soft: #5c5c56 !important;
+  --mist: #63635f !important;
+  --muted: #8a8a84 !important;
+  --line: rgba(36, 36, 34, 0.12) !important;
+  --cyan: #2459e8 !important;
+  --violet: #ed438b !important;
+  --vermillion: #2459e8 !important;
+  --vermillion-deep: #2878ef !important;
+  --shadow: 0 18px 48px rgba(36, 36, 34, 0.1) !important;
+
+  --ps-canvas: #fffdf9;
+  --ps-canvas-2: #f8f6f1;
+  --ps-ink: #242422;
+  --ps-blue: #2459e8;
+  --ps-blue-2: #2878ef;
+  --ps-orange: #f58220;
+  --ps-pink: #ed438b;
+  --ps-pink-deep: #b52d67;
+  --ps-sky: #e5edff;
+  --ps-blush: #ffcbe2;
+  --ps-apricot: #fff0d6;
+  --ps-apricot-2: #ffd392;
+  --ps-surface: #ffffff;
+  --ps-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ps-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Atmosphere (cream wash + stickers) lives in ps-atmosphere-v1.css */
+@keyframes ps-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes ps-pill-bounce {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px) scale(1.04); }
+  60% { transform: translateY(0) scale(1); }
+}
+
+#root,
+.net-shell,
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ——— SEO shell fallback inside #root before mount ——— */
+#root > main {
+  color: var(--ps-ink) !important;
+  background: transparent !important;
+}
+#root > main a {
+  color: var(--ps-blue) !important;
+}
+
+/* ——— Shell / nav ——— */
+.net-shell {
+  width: min(1160px, calc(100% - 1.5rem));
+  padding-top: 0.85rem;
+}
+
+.net-bar,
+.topbar {
+  background: rgba(255, 253, 249, 0.5) !important;
+  backdrop-filter: blur(18px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35) !important;
+  border: 1px solid rgba(36, 36, 34, 0.08) !important;
+  border-bottom: 1px solid rgba(36, 36, 34, 0.08) !important;
+  border-radius: 22px !important;
+  box-shadow:
+    0 10px 32px rgba(36, 36, 34, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset !important;
+  padding: 0.7rem 1.05rem !important;
+  margin: 0 0 0.35rem !important;
+  gap: 0.85rem !important;
+  align-items: center !important;
+}
+
+.net-bar .brand,
+.net-bar .wordmark,
+.net-bar a.brand,
+.topbar .wordmark,
+.brand,
+.brand-name {
+  color: var(--ps-ink) !important;
+  letter-spacing: -0.04em;
+  text-shadow: none !important;
+}
+.brand:hover,
+.wordmark:hover {
+  color: var(--ps-blue) !important;
+}
+.dot {
+  color: var(--ps-orange) !important;
+}
+.logo-mark {
+  filter: none !important;
+}
+
+.net-links a,
+.net-tabbar a,
+.you-link,
+.topbar nav a {
+  color: var(--ps-mist, #63635f) !important;
+  transition:
+    color 0.25s var(--ps-ease),
+    background 0.25s,
+    box-shadow 0.25s,
+    transform 0.28s var(--ps-spring);
+}
+
+.net-links a:hover,
+.net-tabbar a:hover,
+.you-link:hover,
+.topbar nav a:hover {
+  color: var(--ps-ink) !important;
+  background: var(--ps-sky) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ps-blue) 35%, transparent);
+  transform: translateY(-1px) scale(1.03);
+}
+
+.net-links a.is-on,
+.net-tabbar a.is-on,
+.topbar nav a[aria-current="page"] {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--ps-blue), var(--ps-blue-2)) !important;
+  box-shadow: 0 6px 18px rgba(36, 89, 232, 0.28);
+  transform: scale(1.04);
+}
+
+.net-search input,
+.search-form input,
+.editor input,
+.editor textarea,
+.net-dialog input {
+  background: #fff !important;
+  border-color: rgba(36, 36, 34, 0.14) !important;
+  color: var(--ps-ink) !important;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+.net-search input::placeholder {
+  color: #8a8a84 !important;
+}
+.net-search input:focus,
+.search-form input:focus,
+.editor input:focus,
+.editor textarea:focus,
+.net-dialog input:focus {
+  border-color: color-mix(in srgb, var(--ps-blue) 70%, transparent) !important;
+  box-shadow: 0 0 0 3px rgba(36, 89, 232, 0.18) !important;
+  background: #fff !important;
+  outline: none;
+}
+
+.net-tabbar {
+  background: rgba(255, 253, 249, 0.94) !important;
+  border-top: 1px solid rgba(36, 36, 34, 0.1) !important;
+}
+
+/* ——— Page head / hero ——— */
+.page-head {
+  margin: 0.6rem 0 1.6rem !important;
+  padding: 0.35rem 0 0.2rem;
+  position: relative;
+}
+
+.page-head .kicker,
+.kicker,
+.stage-kicker,
+.creation-head .kicker {
+  color: var(--ps-orange) !important;
+  letter-spacing: 0.16em !important;
+  font-size: 0.72rem !important;
+  text-shadow: none !important;
+  font-weight: 650;
+}
+
+.page-head h1,
+.creation h1,
+.empty-panel h2,
+.welcome-banner h2,
+.net-dialog h2,
+.prose h2,
+.wall-head h2,
+.study h1 {
+  color: var(--ps-ink) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  filter: none !important;
+  letter-spacing: -0.045em;
+  font-weight: 620 !important;
+}
+
+.page-head h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+  line-height: 1.05 !important;
+}
+
+.page-head .lede,
+.lede,
+.bio,
+.fine,
+.form-note,
+.net-status,
+.card-prompt {
+  color: var(--ps-ink-soft, #5c5c56) !important;
+}
+
+/* ——— Chips / pills ——— */
+.chips,
+.chip-row {
+  gap: 0.45rem !important;
+  padding: 0.2rem 0 0.55rem;
+}
+
+.chip,
+.chip-row .chip,
+.model-chip {
+  color: var(--ps-ink) !important;
+  background: #fff !important;
+  border: 1.5px solid rgba(36, 36, 34, 0.14) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0.42rem 0.95rem !important;
+  font-size: 0.88rem !important;
+  box-shadow: 0 2px 8px rgba(36, 36, 34, 0.04);
+  transition:
+    border-color 0.28s var(--ps-ease),
+    background 0.28s,
+    color 0.28s,
+    box-shadow 0.28s,
+    transform 0.32s var(--ps-spring) !important;
+}
+
+.chip:hover:not(:disabled),
+.chip-row .chip:hover:not(:disabled) {
+  border-color: var(--ps-blue) !important;
+  color: var(--ps-blue) !important;
+  background: var(--ps-sky) !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(36, 89, 232, 0.15);
+}
+
+.chip.is-on,
+.chips .chip.is-on,
+.chip-row .chip.is-on,
+.screen .chips .chip.is-on {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--ps-orange), #ff9a3c) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 22px rgba(245, 130, 32, 0.35) !important;
+  transform: scale(1.06);
+  animation: ps-pill-bounce 2.8s var(--ps-spring) infinite;
+}
+
+.model-chip {
+  color: var(--ps-pink-deep) !important;
+  background: var(--ps-blush) !important;
+  border-color: color-mix(in srgb, var(--ps-pink) 40%, transparent) !important;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.72rem !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(13.5rem, 48vw);
+}
+
+/* ——— Cards: cream + rotating pastel backs ——— */
+.card-grid {
+  gap: 1.15rem !important;
+}
+
+.card-grid > .card,
+.card-grid > a.card,
+.net-main .card {
+  background: var(--ps-surface) !important;
+  border: 2px solid rgba(36, 36, 34, 0.08) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 12px 32px rgba(36, 36, 34, 0.06);
+  overflow: visible;
+  color: var(--ps-ink) !important;
+  transition:
+    transform 0.45s var(--ps-spring),
+    border-color 0.35s,
+    box-shadow 0.45s var(--ps-ease) !important;
+  will-change: transform;
+}
+
+/* Pastel card backs rotating by nth-child */
+.card-grid > .card:nth-child(3n + 1),
+.card-grid > a.card:nth-child(3n + 1) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-sky)) !important;
+  border-color: color-mix(in srgb, var(--ps-blue) 28%, transparent) !important;
+}
+.card-grid > .card:nth-child(3n + 2),
+.card-grid > a.card:nth-child(3n + 2) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-blush)) !important;
+  border-color: color-mix(in srgb, var(--ps-pink) 28%, transparent) !important;
+}
+.card-grid > .card:nth-child(3n),
+.card-grid > a.card:nth-child(3n) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-apricot)) !important;
+  border-color: color-mix(in srgb, var(--ps-orange) 30%, transparent) !important;
+}
+
+.card-grid > .card:hover,
+.card-grid > a.card:hover,
+.net-main .card:hover {
+  transform: translateY(-8px);
+  border-color: var(--ps-blue) !important;
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--ps-blue) 25%, transparent),
+    0 22px 50px rgba(36, 89, 232, 0.14),
+    0 12px 28px rgba(36, 36, 34, 0.08) !important;
+  color: var(--ps-ink) !important;
+}
+
+.card-media {
+  overflow: hidden;
+  isolation: isolate;
+  place-items: stretch;
+  background: var(--ps-canvas-2) !important;
+}
+.card-media.is-audio,
+.creation .stage.is-audio {
+  background:
+    radial-gradient(120px 80px at 30% 40%, rgba(36, 89, 232, 0.2), transparent 70%),
+    radial-gradient(140px 90px at 70% 60%, rgba(237, 67, 139, 0.18), transparent 70%),
+    var(--ps-sky) !important;
+}
+
+.card-media img,
+.card-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  transition: none !important;
+}
+.card:hover .card-media img,
+.card:hover .card-media video {
+  transform: none;
+}
+
+.card-flag {
+  color: #fff !important;
+  background: var(--ps-blue) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(36, 89, 232, 0.3);
+  letter-spacing: 0.1em !important;
+}
+
+.card-body h3,
+.card-body h3 a,
+.creator-main strong,
+.author-link strong {
+  color: var(--ps-ink) !important;
+}
+
+.card-by,
+.author-link,
+.creator-main,
+.handle {
+  color: var(--ps-mist, #63635f) !important;
+}
+.handle {
+  color: var(--ps-blue) !important;
+}
+
+.avatar-fallback {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--ps-blue), var(--ps-pink)) !important;
+}
+
+/* Accent underlines: words only (never the whole phrase wrapper) */
+.card-prompt.prompt-marks .phrase-btn,
+.card-prompt.prompt-hover .phrase-btn,
+.prompt-marks .phrase-btn,
+.prompt-hover .phrase-btn,
+.mark,
+.phrase-btn,
+.sheet .prompt .phrase-btn,
+.prompt .phrase-btn {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  color: inherit;
+  box-shadow: none !important;
+  transition: background 0.25s;
+}
+.phrase-word {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  box-shadow: 0 1.5px 0 0 var(--ps-blue, #2f6df6) !important;
+}
+.phrase-btn:hover,
+.mark:hover {
+  background: linear-gradient(transparent 55%, rgba(47, 109, 246, 0.14));
+}
+
+/* ——— Reveal motion classes ——— */
+.ps-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s var(--ps-ease), transform 0.75s var(--ps-spring);
+}
+.ps-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+.ps-reveal-delay-1 { transition-delay: 0.05s; }
+.ps-reveal-delay-2 { transition-delay: 0.1s; }
+.ps-reveal-delay-3 { transition-delay: 0.16s; }
+.ps-reveal-delay-4 { transition-delay: 0.22s; }
+.ps-reveal-delay-5 { transition-delay: 0.28s; }
+.ps-reveal-delay-6 { transition-delay: 0.34s; }
+
+/* ——— Featured slot ——— */
+.featured-slot {
+  max-width: none !important;
+  width: 100%;
+  margin: 0 0 1.6rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  border-radius: 28px;
+  background: linear-gradient(160deg, var(--ps-sky), #fff 45%, var(--ps-apricot)) !important;
+  border: 2px solid color-mix(in srgb, var(--ps-blue) 30%, transparent) !important;
+  box-shadow: 0 18px 48px rgba(36, 89, 232, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.featured-slot::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto auto -15%;
+  width: 55%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(255, 203, 226, 0.55), transparent 70%);
+  pointer-events: none;
+  animation: ps-float-a 10s ease-in-out infinite;
+}
+.featured-slot > .kicker {
+  color: var(--ps-blue) !important;
+  letter-spacing: 0.18em !important;
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  margin-bottom: 0.75rem !important;
+  position: relative;
+}
+.featured-slot > .kicker::before {
+  content: "+ ";
+  font-weight: 700;
+  color: var(--ps-orange);
+}
+.featured-slot .card {
+  max-width: 100%;
+  border-radius: 18px !important;
+  background: #fff !important;
+}
+
+.card-flag,
+.frame-badge span {
+  animation: ps-float-a 6s ease-in-out infinite;
+}
+
+/* ——— Creation / plate hero ——— */
+.creation .stage,
+.creation .stage.is-image,
+.creation .stage.is-audio,
+.frame {
+  border-radius: 28px !important;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.15rem !important;
+  background: var(--ps-canvas-2) !important;
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--ps-blue) 22%, transparent),
+    0 24px 60px rgba(36, 36, 34, 0.1) !important;
+  transition: box-shadow 0.45s var(--ps-ease), transform 0.45s var(--ps-spring);
+}
+.creation .stage::after,
+.frame:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(120deg, rgba(36, 89, 232, 0.08), transparent 35%, transparent 65%, rgba(237, 67, 139, 0.08));
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  -webkit-mask: none !important;
+  mask: none !important;
+  padding: 0 !important;
+}
+.creation:hover .stage,
+.feature:hover .frame,
+.stage-hit:hover .frame {
+  box-shadow:
+    0 0 0 2px var(--ps-blue),
+    0 28px 70px rgba(36, 89, 232, 0.18) !important;
+  transform: translateY(-2px);
+}
+/* Transforming a playing <video> ancestor forces it off the overlay decoder
+   path and is a common cause of inline lag vs fullscreen. */
+.creation:hover .stage.is-video {
+  transform: none;
+}
+.creation .stage img,
+.creation .stage video,
+.frame img,
+.frame video {
+  background: var(--ps-canvas-2) !important;
+  transition: none;
+}
+.creation:hover .stage img,
+.creation:hover .stage video {
+  transform: none;
+}
+
+.nav-arrow {
+  color: var(--ps-ink) !important;
+  background: rgba(255, 253, 249, 0.9) !important;
+  border: 1.5px solid rgba(36, 36, 34, 0.14) !important;
+  box-shadow: 0 8px 22px rgba(36, 36, 34, 0.1) !important;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.28s var(--ps-spring) !important;
+}
+.nav-arrow:hover {
+  transform: translateY(-50%) scale(1.1) !important;
+  border-color: var(--ps-blue) !important;
+  background: var(--ps-sky) !important;
+  box-shadow: 0 10px 28px rgba(36, 89, 232, 0.2) !important;
+}
+.nav-arrow:active {
+  transform: translateY(-50%) scale(0.94) !important;
+}
+
+.frame-badge span {
+  color: #fff !important;
+  background: var(--ps-ink) !important;
+}
+
+/* ——— Prompt under media — bright featured chrome ——— */
+.prompt-panel,
+.prompt-panel.prompt-under,
+.empty-panel,
+.welcome-banner,
+.net-dialog,
+.editor,
+.creator-row,
+.sheet {
+  background: #fff !important;
+  border: 2px solid rgba(36, 36, 34, 0.1) !important;
+  border-radius: 22px !important;
+  color: var(--ps-ink) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 14px 40px rgba(36, 36, 34, 0.06);
+}
+
+.welcome-banner {
+  border-color: color-mix(in srgb, var(--ps-blue) 40%, transparent) !important;
+  background: linear-gradient(135deg, var(--ps-sky), #fff 60%, var(--ps-apricot)) !important;
+}
+
+.prompt-panel.prompt-under {
+  background: linear-gradient(165deg, #fff, var(--ps-apricot)) !important;
+  border-color: color-mix(in srgb, var(--ps-orange) 35%, transparent) !important;
+  padding: 1.15rem 1.2rem 1rem !important;
+  margin-top: 0.85rem !important;
+}
+
+.prompt-under .prompt-top h2 {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, Menlo, monospace) !important;
+  font-size: 0 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+  color: var(--ps-blue) !important;
+  margin: 0 !important;
+  text-shadow: none !important;
+}
+.prompt-under .prompt-top h2::before {
+  content: "+ FEATURED PROMPT";
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--ps-blue);
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, Menlo, monospace);
+}
+
+.prompt-body,
+.prompt-marks,
+.prompt-hover,
+.sheet .prompt {
+  color: var(--ps-ink) !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.32rem) !important;
+  line-height: 1.48 !important;
+  letter-spacing: -0.015em;
+}
+
+.prompt-actions .btn-line {
+  color: var(--ps-blue) !important;
+  background: transparent !important;
+  border: 2px solid var(--ps-blue) !important;
+  border-radius: 999px !important;
+  padding: 0.5rem 1rem !important;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.28s var(--ps-spring) !important;
+}
+.prompt-actions .btn-line:hover {
+  background: var(--ps-sky) !important;
+  box-shadow: 0 6px 18px rgba(36, 89, 232, 0.2);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.prompt-actions .btn-ghost {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--ps-pink), var(--ps-pink-deep)) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 0.5rem 1rem !important;
+  box-shadow: 0 6px 18px rgba(237, 67, 139, 0.3);
+  transition: filter 0.25s, transform 0.28s var(--ps-spring) !important;
+}
+.prompt-actions .btn-ghost:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* ——— Buttons ——— */
+.btn {
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.28s var(--ps-spring),
+    filter 0.25s !important;
+  color: var(--ps-ink);
+}
+.btn:active {
+  transform: scale(0.96) !important;
+}
+
+.btn-fill {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--ps-blue), var(--ps-blue-2)) !important;
+  border-color: transparent !important;
+  font-weight: 650;
+  box-shadow: 0 8px 24px rgba(36, 89, 232, 0.32);
+}
+.btn-fill:hover {
+  color: #fff !important;
+  filter: brightness(1.06);
+  box-shadow: 0 12px 32px rgba(36, 89, 232, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-line {
+  color: var(--ps-blue) !important;
+  border: 2px solid var(--ps-blue) !important;
+  background: #fff !important;
+}
+.btn-line:hover {
+  background: var(--ps-sky) !important;
+  box-shadow: 0 6px 18px rgba(36, 89, 232, 0.18);
+  transform: translateY(-1px);
+}
+
+.text-btn {
+  color: var(--ps-blue) !important;
+}
+
+a {
+  color: var(--ps-blue);
+}
+a:hover {
+  color: var(--ps-pink-deep);
+}
+
+::selection {
+  color: #fff;
+  background: var(--ps-blue);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ps-blue);
+  outline-offset: 3px;
+}
+
+/* ——— Modals ——— */
+.net-modal {
+  background: rgba(36, 36, 34, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  animation: ps-modal-in 0.35s var(--ps-ease);
+}
+.net-dialog {
+  background: #fff !important;
+  border: 2px solid rgba(36, 36, 34, 0.1) !important;
+  box-shadow: 0 28px 70px rgba(36, 36, 34, 0.18) !important;
+  animation: ps-dialog-rise 0.4s var(--ps-spring);
+  color: var(--ps-ink) !important;
+}
+@keyframes ps-modal-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ps-dialog-rise {
+  from { opacity: 0; transform: translateY(22px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ——— Misc surfaces ——— */
+.sound {
+  background:
+    radial-gradient(at 50% 120%, rgba(36, 89, 232, 0.18), transparent 55%),
+    var(--ps-sky) !important;
+}
+.sound-bars span {
+  background: linear-gradient(var(--ps-pink), var(--ps-blue)) !important;
+}
+.file-drop {
+  border: 2px dashed color-mix(in srgb, var(--ps-blue) 50%, transparent) !important;
+  background: var(--ps-sky) !important;
+  color: var(--ps-ink) !important;
+}
+.form-error,
+.net-status.is-error {
+  color: var(--ps-pink-deep) !important;
+}
+.legal-links a {
+  color: var(--ps-mist, #63635f) !important;
+}
+.legal-links a:hover {
+  color: var(--ps-blue) !important;
+}
+.foot-brand,
+.section-label,
+.stats,
+.creator-bio,
+.bio.is-quiet {
+  color: var(--ps-mist, #63635f) !important;
+}
+.stats strong {
+  color: var(--ps-ink) !important;
+}
+.chain summary {
+  color: var(--ps-blue) !important;
+}
+.tag-row a {
+  color: var(--ps-pink-deep) !important;
+}
+.about-mark {
+  color: var(--ps-mist, #63635f) !important;
+}
+.about-mark:hover {
+  color: var(--ps-blue) !important;
+}
+.skip {
+  background: var(--ps-blue) !important;
+  color: #fff !important;
+}
+.auth-tab {
+  color: var(--ps-mist, #63635f) !important;
+}
+.auth-tab.is-on,
+.auth-tab[aria-selected="true"] {
+  color: var(--ps-ink) !important;
+  background: var(--ps-sky) !important;
+}
+
+/* tip / notes */
+.ps-word-notes .note-n,
+.tip-more {
+  color: var(--ps-blue) !important;
+}
+
+/* Subtle marquee energy on welcome / empty */
+.welcome-banner h2::after {
+  content: " ✦";
+  color: var(--ps-orange);
+  animation: ps-flutter 3.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 719px) {
+  .page-head h1 {
+    font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+  }
+  .card-grid > .card:hover,
+  .card-grid > a.card:hover {
+    transform: translateY(-4px);
+  }
+  .ps-sticker--sky,
+  .ps-sticker--pink,
+  .ps-sticker--apricot {
+    opacity: 0.35;
+    width: 100px;
+    height: 80px;
+  }
+  .ps-sticker--dot,
+  .ps-sticker--dot2 {
+    display: none;
+  }
+  .prompt-under .prompt-top {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .prompt-actions .btn {
+    font-size: 0.85rem;
+  }
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .ps-sticker,
+  .ps-sticker--sky,
+  .ps-sticker--pink,
+  .ps-sticker--apricot,
+  .ps-sticker--dot,
+  .ps-sticker--dot2,
+  .featured-slot::before,
+  .card-flag,
+  .frame-badge span,
+  .chip.is-on,
+  .welcome-banner h2::after {
+    animation: none !important;
+  }
+  .ps-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .card-grid > .card,
+  .card-grid > a.card,
+  .chip,
+  .btn,
+  .nav-arrow,
+  .creation .stage,
+  .frame {
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  }
+  .card-grid > .card:hover,
+  .card-grid > a.card:hover,
+  .chip:hover,
+  .btn:hover,
+  .btn-fill:hover {
+    transform: none !important;
+  }
+}
+
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after,
+:root[data-motion="off"] *,
+:root[data-motion="off"] *::before,
+:root[data-motion="off"] *::after {
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  animation: none !important;
+}
+
+
+/* Featured Prompts section (Discover home) */
+.card-flag {
+  display: none !important;
+}
+.ps-featured-block {
+  margin-top: 0.35rem;
+}
+.ps-featured-heading {
+  font-family: var(--serif, Newsreader, Georgia, serif);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: var(--ps-ink, #242422);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  margin: 0.55rem 0 1.05rem;
+  line-height: 1.2;
+}
+
+
+/* Following / ghost buttons — keep ink text, glow on hover like Share a creation */
+.btn-ghost {
+  color: var(--ps-ink, #242422) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  border: 1.5px solid rgba(36, 36, 34, 0.14) !important;
+  box-shadow: none;
+}
+.btn-ghost:hover,
+.head-actions .btn-ghost:hover {
+  color: var(--ps-ink, #242422) !important;
+  background: #fff !important;
+  border-color: rgba(36, 89, 232, 0.4) !important;
+  box-shadow:
+    0 6px 18px rgba(36, 89, 232, 0.18),
+    0 0 22px rgba(36, 89, 232, 0.14) !important;
+  transform: translateY(-1px);
+  filter: none !important;
+}
+
+/* Tip labels stay light on dark tip panels even though --cyan is brand blue */
+.tip-card .tip-kind,
+.tip-card .tip-effect > span:first-child,
+.tip-card .tip-line > span,
+.tip .tip-kind,
+.tip .tip-effect > span:first-child {
+  color: #9ef0fa !important;
+}
+.tip-card .tip-effect,
+.tip .tip-effect {
+  color: #f4f1ff !important;
+}
+.tip-card .tip-more,
+.tip .tip-more,
+.ps-word-notes .note-n {
+  color: #9ef0fa !important;
+}
+
+/* Model chips: keep Midjourney the same pill size/shape as Grok (wider text OK). */
+.model-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 1.85rem !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Night Press</title>
+<style>
+html,body{margin:0;height:100%;background:#140e18;overflow:hidden;color:#f7eefc;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:manipulation}
+#hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none;text-shadow:0 1px 4px #000}
+#hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;opacity:.75;pointer-events:none;font-size:.85rem}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(8,4,12,.66)}
+.card{background:#24182c;border:1px solid #e0b6ff55;border-radius:16px;padding:1.2rem 1.4rem;text-align:center;max-width:22rem}
+button{font:inherit;background:#e7c8ff;color:#24102e;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="word">INK</span><span id="sc">0</span></div>
+<div id="hint">Tap the next letter before it passes the platen</div>
+<div id="over"><div class="card"><h1 id="ot"></h1><p id="os"></p><button id="again" type="button">Reset the chase</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const WORDS=["INK","QUILL","FOLIO","CHASE","PLATEN"];
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,round=0,need=0,letters=[],score=0,running=false,last=0,spawn=0,locked="";
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function word(){ return WORDS[round]; }
+  function hud(){ document.getElementById("word").textContent=(locked||"") + word().slice(need); document.getElementById("sc").textContent="score "+score; }
+  function reset(){ round=0; need=0; letters=[]; score=0; running=true; last=0; spawn=0.15; locked=""; document.getElementById("over").style.display="none"; hud(); }
+  function end(title){
+    running=false;
+    document.getElementById("ot").textContent=title;
+    document.getElementById("os").textContent="Score "+score+(round>=WORDS.length?" · edition done":" · stopped at "+(WORDS[round]||""));
+    document.getElementById("over").style.display="grid";
+    psReport("night-press", score);
+  }
+  function advance(){
+    need++; locked=word().slice(0,need);
+    if(need>=word().length){
+      score += word().length * 25 * (round+1);
+      round++; need=0; locked=""; letters=[];
+      if(round>=WORDS.length) end("Edition printed");
+    }
+    hud();
+  }
+  function spawnLetter(){
+    const alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const correct=Math.random()<0.55;
+    const ch=correct? word()[need] : alphabet[Math.floor(Math.random()*alphabet.length)];
+    letters.push({ch, x: 30+Math.random()*Math.max(40,w-60), y:-20, vy: 70+round*18+Math.random()*30});
+  }
+  c.addEventListener("pointerdown", e=>{
+    if(!running) return;
+    const r=c.getBoundingClientRect();
+    const x=e.clientX-r.left, y=e.clientY-r.top;
+    let best=null, bd=28;
+    for(const L of letters){ const d=Math.hypot(L.x-x,L.y-y); if(d<bd){ bd=d; best=L; } }
+    if(!best) return;
+    if(best.ch===word()[need]){ letters=letters.filter(L=>L!==best); advance(); }
+    else end("Wrong sort");
+  });
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    const line=h*0.78;
+    if(running && round<WORDS.length){
+      spawn-=dt;
+      if(spawn<=0){ spawn=Math.max(0.35, 0.85-round*0.08); spawnLetter(); }
+      for(const L of letters) L.y+=L.vy*dt;
+      const missed=letters.some(L=>L.ch===word()[need] && L.y>line+18);
+      letters=letters.filter(L=>L.y<h+30);
+      if(missed) end("Platen dropped");
+    }
+    g.fillStyle="#1a1020"; g.fillRect(0,0,w,h);
+    g.fillStyle="#2a1c34"; g.fillRect(0,line,w,h-line);
+    g.strokeStyle="#e7c8ff"; g.lineWidth=3; g.beginPath(); g.moveTo(0,line); g.lineTo(w,line); g.stroke();
+    g.font="700 28px Georgia, serif";
+    const target = round<WORDS.length ? word()[need] : "";
+    letters.forEach(L=>{
+      g.fillStyle=L.ch===target?"#f7eefc":"#c4a6ff";
+      g.fillText(L.ch, L.x-8, L.y);
+    });
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Pier Watch</title>
+<style>
+html,body{margin:0;height:100%;background:#0c1c24;color:#e7fbff;font-family:system-ui,sans-serif;overflow:hidden}
+canvas{width:100%;height:calc(100% - 56px);display:block;touch-action:manipulation;background:#0c1c24}
+.bar{height:56px;display:flex;gap:6px;align-items:center;padding:0 8px;box-sizing:border-box;background:#102832}
+.bar button{font:inherit;border:1px solid #7ee7f555;background:#143644;color:#e7fbff;border-radius:999px;min-height:40px;padding:0 .7rem;cursor:pointer}
+.bar button.on{background:#7ee7f5;color:#062028;border-color:#7ee7f5}
+#meta{margin-left:auto;font-weight:700;font-size:.9rem}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(4,10,14,.62)}
+.card{background:#12303a;border:1px solid #7ee7f566;border-radius:16px;padding:1.2rem;text-align:center}
+.card button{font:inherit;background:#9ae7f5;color:#062028;border:0;border-radius:999px;padding:.6rem 1rem;font-weight:700;min-height:44px}
+</style></head><body>
+<canvas id="c"></canvas>
+<div class="bar">
+  <button type="button" data-k="lantern">Lantern 50</button>
+  <button type="button" data-k="buoy">Buoy 40</button>
+  <button type="button" data-k="bell">Bell 75</button>
+  <button type="button" id="wave" >Send wave</button>
+  <span id="meta"></span>
+</div>
+<div id="over"><div class="card"><h1 id="ot"></h1><p id="os"></p><button id="again" type="button">Watch again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const PATH=[[0.06,0.18],[0.34,0.18],[0.34,0.42],[0.16,0.42],[0.16,0.72],[0.48,0.72],[0.48,0.28],[0.78,0.28],[0.78,0.82],[0.94,0.82]];
+  const PADS=[[0.22,0.30],[0.46,0.18],[0.28,0.58],[0.08,0.58],[0.36,0.84],[0.62,0.58],[0.64,0.16],[0.90,0.48],[0.58,0.84]];
+  const COST={lantern:50,buoy:40,bell:75};
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,gold,lives,wave,towers,enemies,spawnQ,running,pick,between,last,totalWaves=8;
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function pts(){return PATH.map(p=>[p[0]*w,p[1]*h]);}
+  function pathPos(dist){
+    const p=pts(); let left=dist;
+    for(let i=0;i<p.length-1;i++){ const dx=p[i+1][0]-p[i][0], dy=p[i+1][1]-p[i][1], len=Math.hypot(dx,dy); if(left<=len){ const t=len?left/len:0; return {x:p[i][0]+dx*t, y:p[i][1]+dy*t, done:false}; } left-=len; }
+    return {x:p[p.length-1][0], y:p[p.length-1][1], done:true};
+  }
+  function pathLen(){ const p=pts(); let s=0; for(let i=0;i<p.length-1;i++) s+=Math.hypot(p[i+1][0]-p[i][0], p[i+1][1]-p[i][1]); return s; }
+  function reset(){ gold=130; lives=12; wave=0; towers=[]; enemies=[]; spawnQ=[]; running=true; pick="lantern"; between=true; last=0; document.getElementById("over").style.display="none"; mark(); hud(); }
+  function hud(){ document.getElementById("meta").textContent = "coin "+gold+" · dock "+lives+" · wave "+wave+"/"+totalWaves; }
+  function mark(){ document.querySelectorAll(".bar button[data-k]").forEach(b=>b.classList.toggle("on", b.dataset.k===pick)); }
+  document.querySelectorAll(".bar button[data-k]").forEach(b=>b.onclick=()=>{ pick=b.dataset.k; mark(); });
+  function send(){
+    if(!between||!running) return; wave++; between=false; hud();
+    const n=4+wave*2;
+    for(let i=0;i<n;i++) spawnQ.push({t:i*0.7, kind: (i%4===3||wave>4)&&i%2===1 ? "barge":"skiff"});
+  }
+  document.getElementById("wave").onclick=send;
+  function end(title){ running=false; var pts=wave*100+gold; document.getElementById("ot").textContent=title; document.getElementById("os").textContent="Coin left "+gold+" · wave "+wave+" · score "+pts; document.getElementById("over").style.display="grid"; psReport("pier-watch", pts); }
+  c.addEventListener("pointerdown", e=>{
+    if(!running) return;
+    const r=c.getBoundingClientRect(); const x=e.clientX-r.left, y=e.clientY-r.top;
+    const pads=PADS.map((p,i)=>({i,x:p[0]*w,y:p[1]*h}));
+    const hit=pads.find(p=>Math.hypot(p.x-x,p.y-y)<22);
+    if(!hit) return;
+    const existing=towers.find(t=>t.i===hit.i);
+    if(existing){
+      const up=Math.floor(COST[existing.k]*0.8);
+      if(existing.lv<2 && gold>=up){ gold-=up; existing.lv=2; hud(); }
+      return;
+    }
+    if(gold<COST[pick]) return;
+    gold-=COST[pick]; towers.push({i:hit.i,k:pick,lv:1,cool:0}); hud();
+  });
+  document.getElementById("again").onclick=()=>{ resize(); reset(); };
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running){
+      spawnQ.forEach(s=>s.t-=dt);
+      while(spawnQ.length && spawnQ[0].t<=0){ const s=spawnQ.shift(); enemies.push({kind:s.kind, d:0, hp:s.kind==="barge"?90+wave*12:34+wave*6, slow:1}); }
+      enemies.forEach(en=>{
+        let slow=1;
+        towers.forEach(t=>{ if(t.k!=="buoy") return; const p=PADS[t.i]; const pos=pathPos(en.d); if(Math.hypot(p[0]*w-pos.x,p[1]*h-pos.y)<78) slow=Math.min(slow, t.lv===2?0.4:0.55); });
+        en.slow=slow; en.d += (en.kind==="barge"?42:78) * slow * dt;
+      });
+      for(let i=enemies.length-1;i>=0;i--){
+        if(pathPos(enemies[i].d).done || enemies[i].d>=pathLen()){ lives--; enemies.splice(i,1); hud(); if(lives<=0) end("Dock lost"); }
+      }
+      towers.forEach(t=>{
+        t.cool-=dt; if(t.cool>0) return;
+        const p=PADS[t.i]; const tx=p[0]*w, ty=p[1]*h;
+        if(t.k==="lantern"){
+          let best=null, bd=t.lv===2?120:96;
+          enemies.forEach(en=>{ const pos=pathPos(en.d); const dd=Math.hypot(pos.x-tx,pos.y-ty); if(dd<bd){ bd=dd; best=en; }});
+          if(best){ best.hp -= t.lv===2?28:16; t.cool=0.45; }
+        } else if(t.k==="bell"){
+          const R=t.lv===2?100:78; let hit=false;
+          enemies.forEach(en=>{ const pos=pathPos(en.d); if(Math.hypot(pos.x-tx,pos.y-ty)<R){ en.hp-=t.lv===2?16:10; hit=true; }});
+          if(hit) t.cool=0.85;
+        }
+      });
+      for(let i=enemies.length-1;i>=0;i--){ if(enemies[i].hp<=0){ gold += enemies[i].kind==="barge"?18:8; enemies.splice(i,1); hud(); } }
+      if(!between && !spawnQ.length && !enemies.length){
+        if(wave>=totalWaves) end("Pier held");
+        else between=true;
+      }
+    }
+    g.fillStyle="#0c1c24"; g.fillRect(0,0,w,h);
+    const p=pts(); g.strokeStyle="#1f4e62"; g.lineWidth=28; g.lineJoin="round"; g.lineCap="round"; g.beginPath(); p.forEach((pt,i)=>i?g.lineTo(pt[0],pt[1]):g.moveTo(pt[0],pt[1])); g.stroke();
+    g.strokeStyle="#7ec8d8"; g.lineWidth=2; g.stroke();
+    PADS.forEach((pad,i)=>{ const x=pad[0]*w,y=pad[1]*h; const t=towers.find(tt=>tt.i===i); g.beginPath(); g.arc(x,y,16,0,6.3); g.fillStyle=t?(t.k==="lantern"?"#ffb15a":t.k==="buoy"?"#7ee7f5":"#d7b0ff"):"#16323c"; g.fill(); g.strokeStyle="#ffffff33"; g.stroke(); if(t&&t.lv===2){ g.fillStyle="#fff"; g.font="10px system-ui"; g.fillText("+", x-3,y+3);} });
+    enemies.forEach(en=>{ const pos=pathPos(en.d); g.fillStyle=en.kind==="barge"?"#e7d3b0":"#f4f1ff"; g.fillRect(pos.x-10, pos.y-6, en.kind==="barge"?26:16, 12); });
+    if(between && running){ g.fillStyle="#e7fbff"; g.font="600 16px system-ui"; g.fillText(wave?"Wave clear — send the next":"Place towers, then send wave 1", 16, 28); }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

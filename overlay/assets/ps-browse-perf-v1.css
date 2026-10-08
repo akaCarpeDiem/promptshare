@@ -1,0 +1,55 @@
+/* Browse load skeletons — same card footprint, no chrome/header changes. */
+.ps-browse-skel {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(36, 36, 34, 0.12);
+  border-radius: 0.8rem;
+  background: rgba(255, 253, 249, 0.74);
+  box-shadow: 0 10px 26px rgba(36, 36, 34, 0.08);
+  pointer-events: none;
+}
+.ps-videos-grid > .ps-browse-skel {
+  border: 2px solid rgba(36, 36, 34, 0.08);
+  border-radius: 22px;
+  background: var(--ps-surface, #fffdf9);
+  box-shadow: 0 12px 32px rgba(36, 36, 34, 0.06);
+}
+.ps-browse-skel-media {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(90deg, #e7e3dc 0%, #f4f1ea 50%, #e7e3dc 100%);
+  background-size: 200% 100%;
+}
+.ps-browse-skel.is-video .ps-browse-skel-media,
+.ps-videos-grid .ps-browse-skel-media {
+  aspect-ratio: 16 / 10;
+  border-radius: 20px 20px 0 0;
+  background: #14151f;
+}
+.ps-browse-skel-body {
+  padding: 0.75rem 0.85rem 0.9rem;
+}
+.ps-browse-skel-body span {
+  display: block;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: #ebe6dc;
+  margin-bottom: 0.45rem;
+}
+.ps-browse-skel-body span:last-child {
+  width: 62%;
+  margin-bottom: 0;
+}
+
+/* Featured (untagged): IA shelf only — hide the React .ps-featured-block wall underneath. */
+.ps-ia-featured-block ~ .ps-featured-block,
+.ps-ia-featured-block ~ .card-grid,
+.ps-ia-featured-block ~ .empty-panel {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}

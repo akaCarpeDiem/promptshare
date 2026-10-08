@@ -1,0 +1,88 @@
+/* PromptShare — grid plate media fills the box at rest (no hover grow).
+   Width/height 100% + object-fit:cover was not enough: .card-media is
+   display:grid; place-items:center and .ps-videos-thumb is flex + center,
+   so replaced img/video size to intrinsic aspect and letterbox (cream
+   gaps left/right/bottom). Absolute inset + overflow:hidden crops with
+   cover instead. Title/chip rows stay in .card-body below the media. */
+
+.card-media,
+.ps-home-card .card-media,
+.ps-ia-card-media,
+.ps-videos-thumb {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  place-items: stretch !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+}
+
+.ps-videos-thumb {
+  display: block;
+}
+
+.card-media > img,
+.card-media > video,
+.ps-home-card .card-media > img,
+.ps-home-card .card-media > video,
+.ps-ia-card-media > img,
+.ps-ia-card-media > video,
+.ps-videos-thumb > img,
+.ps-videos-thumb > video,
+img.ps-videos-poster {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+/* No Ken Burns / hover-required grow. Card lift may remain. */
+.card:hover .card-media > img,
+.card:hover .card-media > video,
+a.card:hover .card-media > img,
+a.card:hover .card-media > video,
+a.ps-videos-card:hover .ps-videos-thumb > img,
+a.ps-videos-card:hover .ps-videos-thumb > video,
+a.ps-ia-featured-card:hover .ps-ia-card-media > img,
+a.ps-ia-featured-card:hover .ps-ia-card-media > video {
+  transform: none !important;
+}
+
+/* Flags / badges on the media stay above the filled img/video. */
+.card-media > .card-flag,
+.card-media > .ps-home-badge,
+.ps-home-card .card-media > .ps-home-badge,
+.ps-ia-card-media > .ps-home-badge,
+.card-media > .ps-thumb-btn,
+.ps-ia-card-media > .ps-thumb-btn,
+.ps-videos-thumb > .ps-thumb-btn {
+  z-index: 4;
+}
+
+/* SPA sheet sets .creation .stage img { object-fit:contain; max-height:70vh }
+   after the cover rule, which letterboxes image plates. Fill width; do not
+   give the stage a circular height:100%. Video detail contain stays in
+   ps-gallery (decoder path). */
+.creation .stage.is-image img,
+.stage.is-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  transform: none !important;
+}

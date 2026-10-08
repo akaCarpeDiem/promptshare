@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Wick Line</title>
+<style>
+html,body{margin:0;height:100%;background:#1a120c;overflow:hidden;color:#fff4e4;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:manipulation}
+#hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none;text-shadow:0 1px 4px #000}
+#hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;opacity:.8;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(12,8,4,.62)}
+.card{background:#2a1c12;border:1px solid #f0c27a66;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#f0c27a;color:#2a1608;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0 snips</span><span id="lives">3 wicks</span></div>
+<div id="hint">Tap while the flame crosses the gold band</div>
+<div id="over"><div class="card"><h1>Candle out</h1><p id="os"></p><button id="again" type="button">Light again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,x=0,dir=1,speed=140,band=0.42,bandW=0.22,score=0,lives=3,running=false,last=0,flash=0;
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function hud(){document.getElementById("sc").textContent=score+" snips"; document.getElementById("lives").textContent=lives+" wicks";}
+  function placeBand(){ bandW=Math.max(0.08, 0.22-score*0.008); band=0.12+Math.random()*(0.76-bandW); }
+  function reset(){ x=0.08; dir=1; speed=140; score=0; lives=3; running=true; last=0; flash=0; placeBand(); document.getElementById("over").style.display="none"; hud(); }
+  function end(){ running=false; document.getElementById("os").textContent=score+" snips"; document.getElementById("over").style.display="grid"; psReport("wick-line", score); }
+  function tap(){
+    if(!running) return;
+    if(x>=band && x<=band+bandW){ score++; speed=Math.min(420, speed+16); flash=0.16; placeBand(); }
+    else { lives--; flash=-0.2; if(lives<=0) end(); }
+    hud();
+  }
+  c.addEventListener("pointerdown", tap);
+  addEventListener("keydown", e=>{ if(e.code==="Space"){ e.preventDefault(); tap(); }});
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running){ x+=dir*(speed/w)*dt* (w/320); if(x>0.92){x=0.92;dir=-1;} if(x<0.08){x=0.08;dir=1;} if(flash) flash+= flash>0? -dt: dt; if(Math.abs(flash)<0.01) flash=0; }
+    g.fillStyle="#2a1c14"; g.fillRect(0,0,w,h);
+    const y=h*0.52;
+    g.strokeStyle="#6a5038"; g.lineWidth=8; g.beginPath(); g.moveTo(w*0.06,y); g.lineTo(w*0.94,y); g.stroke();
+    g.fillStyle="rgba(240,194,122,.35)"; g.fillRect(w*band, y-28, w*bandW, 56);
+    g.strokeStyle="#f0c27a"; g.lineWidth=2; g.strokeRect(w*band, y-28, w*bandW, 56);
+    const fx=w*x;
+    const glow=g.createRadialGradient(fx,y-16,2,fx,y-16,36);
+    glow.addColorStop(0,"rgba(255,220,120,.95)"); glow.addColorStop(1,"rgba(255,120,40,0)");
+    g.fillStyle=glow; g.beginPath(); g.arc(fx,y-16,36,0,6.3); g.fill();
+    g.fillStyle=flash<0?"#ff8a6a":"#ffe7a8"; g.beginPath(); g.moveTo(fx,y-34); g.quadraticCurveTo(fx+10,y-16,fx,y); g.quadraticCurveTo(fx-10,y-16,fx,y-34); g.fill();
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

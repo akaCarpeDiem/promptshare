@@ -1,0 +1,203 @@
+/* PromptShare shared hero — one source for the block under the glass bar on
+   /images, /videos and /games: H1, blurb, chip/filter row, Featured heading and
+   the 3-up plate grid. Loaded last on all three pages; scoped by html[data-ps-route]
+   (set statically in each page's HTML so it applies from first paint).
+   Content column = the glass bar column (min(1160px, 100% - 1.5rem)). */
+
+:root{
+  --ps-hero-top:1.5rem;          /* main top -> H1 top */
+  --ps-hero-h1-gap:.4rem;        /* H1 -> blurb */
+  --ps-hero-row-gap:1.6rem;      /* blurb -> chip row */
+  --ps-hero-row-h:3.8rem;        /* chip / filter row box */
+  --ps-hero-feat-gap:1.8rem;     /* chip row -> Featured heading */
+  --ps-hero-cat-gap:1.85rem;      /* chip row -> category plate grid (~28px) */
+  --ps-hero-feat-below:1rem;     /* Featured heading -> grid */
+  --ps-grid-gap:1rem;
+  --ps-grid-gap-3:1.05rem;
+}
+
+/* ---------- Containers: start every hero at the same y ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main{padding-top:0 !important}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page{
+  margin:0 !important;padding:0 0 2rem !important;max-width:none !important;
+}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head{
+  display:block !important;margin:0 !important;padding:var(--ps-hero-top) 0 0 !important;gap:0 !important;
+}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head > div{margin:0 !important;padding:0 !important}
+html[data-ps-route="games"] .ps-gwrap{padding-top:var(--ps-hero-top) !important}
+
+/* ---------- H1 ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head h1,
+html[data-ps-route="games"] .ps-gwrap > h1{
+  margin:0 0 var(--ps-hero-h1-gap) !important;padding:0 !important;
+  font-family:Newsreader,"Iowan Old Style",Georgia,serif !important;
+  font-size:clamp(2rem,5vw,3.2rem) !important;font-weight:620 !important;
+  line-height:1.05 !important;letter-spacing:-.045em !important;
+  color:#242422 !important;text-align:left !important;
+}
+
+/* ---------- Blurb ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head .lede,
+html[data-ps-route="games"] .ps-gwrap > p.lede{
+  margin:0 !important;padding:0 !important;max-width:40rem !important;
+  /* One-line blurb box on all three (hero3): every blurb is now a single line,
+     so reserve exactly one line and keep the chip rows level. */
+  min-height:1.5em !important;box-sizing:content-box !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;
+  font-size:1.05rem !important;font-weight:400 !important;line-height:1.5 !important;
+  color:#5c5c56 !important;text-align:left !important;
+}
+
+/* ---------- Chip / filter row: same box on all three ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .ps-cat-carousel,
+html[data-ps-route="games"] .ps-gwrap > .ps-gfilters{
+  box-sizing:border-box !important;
+  display:flex !important;align-items:center !important;
+  width:100% !important;height:var(--ps-hero-row-h) !important;min-height:0 !important;
+  margin:var(--ps-hero-row-gap) 0 0 !important;padding:0 !important;
+}
+/* Carousel spans the grid: ‹ at the 1st plate's left edge, › at the 3rd plate's right edge. */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-cat-carousel > .ps-cat-arrow.is-prev{margin:0 !important;order:0}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-cat-carousel > .ps-cat-viewport{flex:1 1 auto !important;min-width:0 !important}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-cat-carousel > .ps-cat-arrow.is-next{margin:0 0 0 auto !important}
+html[data-ps-route="games"] .ps-gwrap > .ps-gfilters{gap:.4rem !important;flex-wrap:nowrap !important}
+
+/* ---------- Remove "Image gallery" heading on /images ---------- */
+html[data-ps-route="images"] .ps-featured-heading{display:none !important}
+html[data-ps-route="images"] .net-page > .ps-featured-block{margin:0 !important;padding:0 !important}
+
+/* Category views: comfortable air between chip carousel and plate grid.
+   Featured keeps --ps-hero-feat-gap above .ps-ia-featured-block instead. */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-page > .ps-cat-carousel + .ps-featured-block,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-page > .ps-cat-carousel + .card-grid,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-page > .ps-cat-carousel + .ps-videos-grid,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-page > .ps-cat-carousel + [data-ps-videos],
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-page > .ps-cat-carousel + #ps-videos-mount {
+  margin-top: var(--ps-hero-cat-gap) !important;
+}
+@media (max-width: 640px) {
+  :root { --ps-hero-cat-gap: 1.35rem; } /* ~20px phone */
+}
+
+/* ---------- Featured heading: centered, same type + spacing ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-block{
+  width:100% !important;max-width:none !important;margin:var(--ps-hero-feat-gap) 0 2.6rem !important;padding:0 !important;
+}
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-heading,
+html[data-ps-route="games"] .ps-gwrap > h2.ps-gsec{
+  display:block;
+  margin:0 0 var(--ps-hero-feat-below) !important;padding:0 !important;
+  font-family:Newsreader,"Iowan Old Style",Georgia,serif !important;
+  font-size:clamp(1.5rem,3vw,2.1rem) !important;font-weight:700 !important;
+  line-height:1.5 !important;letter-spacing:-.025em !important;
+  color:#242422 !important;text-align:center !important;
+}
+html[data-ps-route="games"] .ps-gwrap > .ps-gfilters + h2.ps-gsec,
+html[data-ps-route="games"] .ps-gwrap > h2.ps-gsec:not([hidden]){margin-top:var(--ps-hero-feat-gap) !important}
+
+/* ---------- Plate grid: same columns, gap and breakpoints as Images ---------- */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-grid,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid.ps-ggrid-featured{
+  display:grid !important;width:100% !important;margin:0 0 2.6rem !important;
+  grid-template-columns:1fr !important;gap:var(--ps-grid-gap) !important;
+}
+@media (min-width:560px){
+  html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-grid,
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid,
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid.ps-ggrid-featured{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (min-width:900px){
+  html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-grid,
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid,
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-ggrid.ps-ggrid-featured{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:var(--ps-grid-gap-3) !important}
+}
+
+/* ---------- hero3: identical text rendering on all three pages ----------
+   Images/Videos inherit text-rendering:optimizeLegibility and font-synthesis:none
+   from their app CSS; Games did not. Pin every rendering property so the H1,
+   blurb and Featured heading resolve to the same Newsreader/Outfit faces. */
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head h1,
+html[data-ps-route="games"] .ps-gwrap > h1,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .net-main > .net-page > .page-head .lede,
+html[data-ps-route="games"] .ps-gwrap > p.lede,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-ia-featured-heading,
+html[data-ps-route="games"] .ps-gwrap > h2.ps-gsec,
+html:is([data-ps-route="images"],[data-ps-route="videos"]) .ps-cat-track .chip,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button{
+  text-rendering:optimizeLegibility !important;font-synthesis:none !important;
+  font-kerning:auto !important;font-optical-sizing:auto !important;
+  font-variation-settings:normal !important;font-feature-settings:normal !important;
+  font-style:normal !important;font-stretch:100% !important;
+  -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;
+  text-transform:none !important;
+}
+
+/* ---------- hero3: Games filter chips = Images/Videos category chips ----------
+   Same component look: white pill, 1.5px ink border, Outfit .88rem/550,
+   per-position glow; hover = sky/blue; selected = orange gradient + bounce. */
+@keyframes ps-hero-pill-bounce{
+  0%,100%{transform:translateY(0)}
+  40%{transform:translateY(-4px) scale(1.04)}
+  60%{transform:translateY(0) scale(1)}
+}
+html[data-ps-route="games"] .ps-gwrap > .ps-gfilters{gap:.55rem !important}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button{
+  flex:none !important;display:inline-flex !important;align-items:center !important;gap:.4rem !important;
+  box-sizing:border-box !important;min-height:0 !important;height:auto !important;margin:0 !important;
+  padding:.42rem .95rem !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;
+  font-size:.88rem !important;font-weight:550 !important;line-height:1.5 !important;letter-spacing:normal !important;
+  white-space:nowrap !important;text-decoration:none !important;cursor:pointer;
+  color:#242422 !important;background:#fff !important;
+  border:1.5px solid rgba(36,36,34,.14) !important;border-radius:999px !important;
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+  box-shadow:0 3px 10px rgba(36,36,34,.07),0 0 0 1px rgba(255,255,255,.7) inset,0 0 14px rgba(36,89,232,.1) !important;
+  transform:none;animation:none;
+  transition:border-color .28s cubic-bezier(.16,1,.3,1),background .28s,color .28s,box-shadow .28s,transform .32s cubic-bezier(.34,1.56,.64,1) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:nth-child(3n+2){
+  box-shadow:0 3px 10px rgba(36,36,34,.07),0 0 0 1px rgba(255,255,255,.7) inset,0 0 14px rgba(245,130,32,.12) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:nth-child(3n){
+  box-shadow:0 3px 10px rgba(36,36,34,.07),0 0 0 1px rgba(255,255,255,.7) inset,0 0 14px rgba(237,67,139,.1) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button.is-on{
+  color:#fff !important;background:linear-gradient(135deg,#f58220,#ff9a3c) !important;
+  border-color:transparent !important;box-shadow:0 8px 22px rgba(245,130,32,.35) !important;
+  transform:scale(1.06);animation:ps-hero-pill-bounce 2.8s cubic-bezier(.34,1.56,.64,1) infinite;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:hover:not(:disabled){
+  color:#2459e8 !important;background:#e5edff !important;border-color:#2459e8 !important;
+  transform:translateY(-1px);
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:nth-child(3n+1):hover:not(:disabled){
+  box-shadow:0 5px 16px rgba(36,36,34,.09),0 0 18px rgba(36,89,232,.2) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:nth-child(3n+2):hover:not(:disabled){
+  box-shadow:0 5px 16px rgba(36,36,34,.09),0 0 18px rgba(245,130,32,.22) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:nth-child(3n):hover:not(:disabled){
+  box-shadow:0 5px 16px rgba(36,36,34,.09),0 0 18px rgba(237,67,139,.2) !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:focus-visible{
+  outline:3px solid #2459e8;outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button.is-on{animation:none !important}
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button{transition:border-color .2s,box-shadow .2s,background .2s !important}
+  html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gfilters button:hover{transform:none !important}
+}
+
+/* ---------- gamespill1: chips right under media; name only as on-image pill ---------- */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gcard .ps-grow{
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:center !important;
+  gap:0.45rem !important;
+  flex-wrap:nowrap !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gcard .ps-grow > .diff{margin-left:0 !important}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gcard .ps-grow > .model-chip,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) .ps-gcard .ps-grow > .ps-card-thumb{margin-left:0 !important;flex:none !important}

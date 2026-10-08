@@ -1,0 +1,244 @@
+/* PromptShare — thumbs-up chrome (cards + plates). Hides author/date/zero placeholders. */
+
+/* Strip SPA card footer author · date · stray likeCount "0" */
+.card-by > .avatar,
+.card-by > .avatar-fallback,
+.card-by > a.author-link,
+.card-by > span:not(.ps-thumb-count):not(.ps-thumb-label),
+.card-date,
+.card > .card-body .card-count,
+.card-by .card-count,
+.card-meta .card-count {
+  display: none !important;
+}
+
+/* Keep card-by as a flex row for the thumbs control */
+.card-by {
+  min-height: 1.6rem;
+  margin: 0.35rem 0 0;
+  gap: 0.35rem;
+}
+
+/* Plate page: no studio author / published date in the head */
+.net-page.creation .creation-head .author-link,
+.net-page.creation .plate-date,
+.net-page.creation .creation-head .avatar,
+.net-page.creation .creation-head .avatar-fallback {
+  display: none !important;
+}
+
+/* Hide auth-gated Like/Save that require sign-in (gallery has no accounts UX) */
+.net-page.creation .creation-actions .btn[data-ps-auth-like],
+.net-page.creation .creation-actions button.btn:not(.ps-thumb-btn):not([data-ps-keep]) {
+  /* refined in JS — CSS fallback for common Like label */
+}
+
+.net-page.creation .creation-actions button.btn {
+  /* leave Report etc.; JS hides Like/Save by text */
+}
+
+.ps-thumb-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.28rem 0.65rem;
+  min-height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 166, 255, 0.45);
+  background: rgba(28, 30, 42, 0.72);
+  color: var(--paper, #f4f1ff);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 560;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.ps-thumb-btn:hover {
+  border-color: rgba(126, 231, 245, 0.7);
+  background: rgba(36, 40, 58, 0.9);
+}
+
+.ps-thumb-btn:active {
+  transform: scale(0.96);
+}
+
+.ps-thumb-btn.is-on {
+  border-color: rgba(126, 231, 245, 0.85);
+  background: linear-gradient(135deg, rgba(126, 231, 245, 0.22), rgba(196, 166, 255, 0.28));
+  box-shadow: 0 0 18px rgba(126, 231, 245, 0.22);
+}
+
+.ps-thumb-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.ps-thumb-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ps-thumb-count {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  opacity: 0.92;
+  min-width: 0.75rem;
+  text-align: left;
+}
+
+.ps-thumb-btn.is-on .ps-thumb-emoji {
+  filter: saturate(1.2);
+}
+
+/* Plate placement under media / in actions row */
+.ps-thumb-plate-slot {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.15rem 0 0.35rem;
+}
+
+.net-page.creation > .creation-actions.under-stage .ps-thumb-btn,
+.net-page.creation .ps-thumb-plate-slot .ps-thumb-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.92rem;
+}
+
+/* Home / overlay cards: footer is thumbs only */
+.ps-home-card .card-by,
+.ps-videos-card .ps-videos-card-body .ps-thumb-row {
+  margin-top: 0.4rem;
+}
+
+.ps-videos-card-body .ps-thumb-row {
+  display: flex;
+  margin-top: 0.45rem;
+}
+
+.ps-videos-card-body > span:not(.ps-thumb-count) {
+  /* author line removed in JS; hide leftovers */
+}
+
+a.card .ps-thumb-btn,
+a.ps-videos-card .ps-thumb-btn,
+a.ps-home-card .ps-thumb-btn,
+a.ps-ia-featured-card .ps-thumb-btn {
+  /* stop navigation when clicking thumbs inside card links */
+  position: relative;
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-thumb-btn {
+    transition: none;
+  }
+  .ps-thumb-btn:active {
+    transform: none;
+  }
+}
+
+
+/* PromptShare thumbs restyle — v2 (transparent media-corner control). */
+.card-by:empty,
+.card-by[hidden] {
+  display: none !important;
+}
+
+.card-media,
+.ps-videos-thumb,
+.ps-ia-card-media,
+.net-page.creation .stage {
+  position: relative;
+}
+
+/* The count remains available, but the old dark pill is gone. */
+.ps-thumb-btn,
+.ps-thumb-btn:hover,
+.ps-thumb-btn:focus-visible,
+.ps-thumb-btn.is-on {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 4;
+  margin: 0;
+  min-height: 32px;
+  padding: 0.18rem 0.28rem;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  color: #fff;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9), 0 0 9px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.62));
+}
+
+.ps-thumb-btn:hover,
+.ps-thumb-btn:focus-visible {
+  transform: translateY(-1px) scale(1.05);
+}
+
+.ps-thumb-btn:active {
+  transform: scale(0.96);
+}
+
+.ps-thumb-emoji {
+  font-size: 1.12rem;
+}
+
+.ps-thumb-count {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Cards: bottom-right of the media, not below the title. */
+a.card .card-media > .ps-thumb-btn,
+a.ps-videos-card .ps-videos-thumb > .ps-thumb-btn,
+a.ps-ia-featured-card .ps-ia-card-media > .ps-thumb-btn {
+  position: absolute;
+}
+
+/* Plate: bottom-right of the hero media. */
+.net-page.creation .stage > .ps-thumb-plate-slot,
+.ps-thumb-plate-slot {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 4;
+  display: block;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.net-page.creation .stage > .ps-thumb-plate-slot .ps-thumb-btn,
+.ps-thumb-plate-slot .ps-thumb-btn {
+  position: static;
+  pointer-events: auto;
+  min-height: 40px;
+  padding: 0.35rem 0.45rem;
+  font-size: 0.94rem;
+}
+
+@media (max-width: 640px) {
+  .ps-thumb-btn {
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+  .net-page.creation .stage > .ps-thumb-plate-slot,
+  .ps-thumb-plate-slot {
+    right: 0.6rem;
+    bottom: 0.6rem;
+  }
+}

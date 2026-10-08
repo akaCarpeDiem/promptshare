@@ -1,0 +1,576 @@
+/* PromptShare IA — home featured 3×3 + Discover fullscreen split (2026-10-01 fs2) */
+
+/* ——— Home featured ——— */
+.ps-home-page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.5rem 0 2.5rem;
+}
+
+.ps-home-head .lede {
+  max-width: 36rem;
+}
+
+.ps-home-grid.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .ps-home-grid.card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.05rem;
+  }
+}
+
+.ps-home-card .card-media {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.ps-home-card .card-media img,
+.ps-home-card .card-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.ps-home-badge {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  z-index: 2;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 650;
+  color: #fffdf9;
+  background: rgba(20, 21, 31, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hide SPA carousels if they ever remount on home */
+body:has([data-ps-home]) .net-main > .net-page .ps-cat-carousel,
+html[data-ps-ia-v1] .ps-home-page .ps-cat-carousel {
+  display: none !important;
+}
+
+/* ——— Discover hub split ——— */
+.ps-discover-hub {
+  max-width: none !important;
+  width: 100%;
+  margin: 0;
+  padding: 0 !important;
+}
+
+.ps-disc-loading {
+  padding: 2rem 1.25rem;
+}
+
+.ps-disc-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100dvh - 4.5rem);
+  width: 100%;
+  gap: 0;
+}
+
+@media (min-width: 780px) {
+  .ps-disc-split {
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100dvh - 4.2rem);
+  }
+}
+
+.ps-disc-pane {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  min-height: 48vh;
+  outline: none;
+  overflow: hidden;
+}
+
+@media (min-width: 780px) {
+  .ps-disc-pane {
+    min-height: calc(100dvh - 4.2rem);
+  }
+}
+
+.ps-disc-pane:focus-visible {
+  z-index: 3;
+  box-shadow: inset 0 0 0 3px #7ee7f5, inset 0 0 0 6px rgba(196, 166, 255, 0.85);
+}
+
+.ps-disc-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.ps-disc-img,
+.ps-disc-video,
+.ps-disc-video-ph {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ps-disc-video {
+  transform: scale(1.02);
+}
+
+.ps-disc-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 14, 24, 0.55) 0%, rgba(12, 14, 24, 0.15) 42%, rgba(12, 14, 24, 0.72) 100%),
+    radial-gradient(80% 60% at 50% 0%, rgba(126, 231, 245, 0.18), transparent 60%);
+  pointer-events: none;
+  transition: background 0.35s ease, opacity 0.35s ease;
+}
+
+.ps-disc-pane--videos .ps-disc-shade {
+  background:
+    linear-gradient(180deg, rgba(12, 14, 24, 0.55) 0%, rgba(12, 14, 24, 0.12) 40%, rgba(18, 10, 28, 0.78) 100%),
+    radial-gradient(80% 60% at 50% 0%, rgba(196, 166, 255, 0.22), transparent 60%);
+}
+
+.ps-disc-pane:hover .ps-disc-shade,
+.ps-disc-pane:focus-visible .ps-disc-shade {
+  background:
+    linear-gradient(180deg, rgba(12, 14, 24, 0.42) 0%, rgba(12, 14, 24, 0.08) 45%, rgba(12, 14, 24, 0.65) 100%),
+    radial-gradient(90% 70% at 50% 10%, rgba(126, 231, 245, 0.28), transparent 65%);
+}
+
+.ps-disc-pane--videos:hover .ps-disc-shade,
+.ps-disc-pane--videos:focus-visible .ps-disc-shade {
+  background:
+    linear-gradient(180deg, rgba(12, 14, 24, 0.42) 0%, rgba(12, 14, 24, 0.08) 45%, rgba(18, 10, 28, 0.7) 100%),
+    radial-gradient(90% 70% at 50% 10%, rgba(196, 166, 255, 0.32), transparent 65%);
+}
+
+.ps-disc-pane:hover .ps-disc-img,
+.ps-disc-pane:focus-visible .ps-disc-img,
+.ps-disc-pane:hover .ps-disc-video,
+.ps-disc-pane:focus-visible .ps-disc-video {
+  transform: scale(1.045);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ps-disc-img,
+.ps-disc-video {
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ps-disc-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  padding: clamp(1.4rem, 4vw, 2.6rem) clamp(1.1rem, 3vw, 2.2rem) 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  pointer-events: none;
+}
+
+.ps-disc-word {
+  font-family: var(--serif, Newsreader, Georgia, serif);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 0.95;
+  color: #fffdf9;
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(126, 231, 245, 0.25);
+  mix-blend-mode: normal;
+}
+
+.ps-disc-pane--videos .ps-disc-word {
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(196, 166, 255, 0.3);
+}
+
+.ps-disc-sub {
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  color: rgba(255, 253, 249, 0.82);
+  letter-spacing: 0.01em;
+  max-width: 18rem;
+}
+
+/* Widen shell on discover hub so split can go edge-to-edge under header */
+body:has(.ps-discover-hub) .net-shell,
+html:has(.ps-discover-hub) .net-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+body:has(.ps-discover-hub) .net-bar,
+html:has(.ps-discover-hub) .net-bar {
+  width: min(1120px, 100% - 1.5rem);
+  margin-inline: auto;
+}
+
+body:has(.ps-discover-hub) .net-main,
+html:has(.ps-discover-hub) .net-main {
+  padding: 0;
+}
+
+body:has(.ps-discover-hub) .net-foot,
+html:has(.ps-discover-hub) .net-foot {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-disc-img,
+  .ps-disc-video,
+  .ps-disc-pane:hover .ps-disc-img,
+  .ps-disc-pane:hover .ps-disc-video {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* ——— Discover fullscreen immersion (route-scoped) ——— */
+html[data-ps-route="discover"],
+html[data-ps-route="discover"] body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+/* The gallery shell/header are intentionally absent only on Discover. */
+html[data-ps-route="discover"] header,
+html[data-ps-route="discover"] nav,
+html[data-ps-route="discover"] .net-bar,
+html[data-ps-route="discover"] .net-tabbar,
+html[data-ps-route="discover"] .topbar,
+html[data-ps-route="discover"] .net-foot {
+  display: none !important;
+}
+
+html[data-ps-route="discover"] .net-shell,
+html[data-ps-route="discover"] .net-main,
+html[data-ps-route="discover"] .ps-discover-hub {
+  width: 100%;
+  max-width: none !important;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0 !important;
+}
+
+html[data-ps-route="discover"] .ps-disc-split {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: 1fr;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100dvh;
+  gap: 0;
+}
+
+html[data-ps-route="discover"] .ps-disc-pane {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+html[data-ps-route="discover"] .ps-disc-media,
+html[data-ps-route="discover"] .ps-disc-img,
+html[data-ps-route="discover"] .ps-disc-video,
+html[data-ps-route="discover"] .ps-disc-video-ph {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.ps-discover-home {
+  position: fixed;
+  z-index: 20;
+  top: max(0.7rem, env(safe-area-inset-top));
+  left: max(0.8rem, env(safe-area-inset-left));
+  color: rgba(255, 253, 249, 0.9);
+  background: rgba(12, 14, 24, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.32rem 0.58rem;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.ps-discover-home:hover,
+.ps-discover-home:focus-visible {
+  color: #fff;
+  background: rgba(12, 14, 24, 0.7);
+  border-color: rgba(126, 231, 245, 0.75);
+}
+
+@media (max-width: 520px) {
+  .ps-disc-word { font-size: clamp(1.35rem, 8vw, 2.4rem); }
+  .ps-disc-sub { display: none; }
+  .ps-disc-label { padding-inline: 0.7rem; }
+}
+
+/* ——— IA homepage: canonical Images | Videos hub ——— */
+html[data-ps-route="discover"] .ps-disc-word {
+  opacity: 0.5;
+}
+
+html[data-ps-route="discover"] .ps-disc-sub {
+  display: none !important;
+}
+
+html[data-ps-route="discover"] .ps-discover-home {
+  display: none !important;
+}
+
+.ps-hub-legal {
+  position: fixed;
+  z-index: 8;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.7rem, 2vw, 1.35rem);
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.ps-hub-legal a {
+  color: #fff !important;
+  font-size: clamp(0.72rem, 1.4vw, 0.9rem);
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95), 0 0 14px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75));
+}
+
+.ps-hub-legal a:hover,
+.ps-hub-legal a:focus-visible {
+  color: #fff !important;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+/* ——— Featured 9-up shelves on Images and Videos ——— */
+.ps-ia-featured-block {
+  width: min(72rem, 100%);
+  margin: 1.8rem auto 2.6rem;
+}
+
+.ps-ia-featured-heading {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-family: var(--serif, Newsreader, Georgia, serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: -0.025em;
+}
+
+.ps-ia-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 560px) {
+  .ps-ia-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .ps-ia-featured-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.05rem;
+  }
+}
+
+.ps-ia-featured-card {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(36, 36, 34, 0.12);
+  border-radius: 0.8rem;
+  background: rgba(255, 253, 249, 0.74);
+  box-shadow: 0 10px 26px rgba(36, 36, 34, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ps-ia-featured-card:hover,
+.ps-ia-featured-card:focus-visible {
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(36, 36, 34, 0.14);
+}
+
+.ps-ia-card-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #e7e3dc;
+}
+
+.ps-ia-card-media img,
+.ps-ia-card-media video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ps-ia-card-body {
+  padding: 0.75rem 0.85rem 0.9rem;
+}
+
+.ps-ia-card-body h3 {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 520px) {
+  .ps-hub-legal {
+    gap: 0.55rem;
+  }
+  .ps-hub-legal a {
+    font-size: 0.68rem;
+  }
+}
+
+/* Featured cards: same prompt meta as category shelves */
+.ps-ia-card-body .card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ps-ia-card-body .card-prompt {
+  color: var(--ps-ink, #242422);
+  margin: 0.45rem 0 0.7rem;
+  font-size: clamp(0.98rem, 1.5vw, 1.2rem);
+  line-height: 1.48;
+  font-weight: 460;
+  letter-spacing: -0.015em;
+  font-family: Newsreader, Georgia, serif;
+}
+.ps-ia-card-body .card-prompt.prompt-hover,
+.ps-ia-card-body .card-prompt.prompt-marks {
+  display: block;
+  overflow: visible;
+  max-height: none;
+}
+.ps-ia-featured-grid > a.ps-ia-featured-card:has(.phrase.is-open) {
+  transform: none !important;
+  z-index: 5;
+  overflow: visible;
+}
+.ps-ia-featured-card:has(.phrase.is-open) .ps-ia-card-body {
+  overflow: visible;
+}
+a.ps-ia-featured-card .card-prompt,
+a.ps-ia-featured-card .card-prompt *,
+a.ps-ia-featured-card .phrase,
+a.ps-ia-featured-card .phrase-btn {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  -webkit-text-decoration-line: none !important;
+  text-decoration-line: none !important;
+  box-shadow: none !important;
+}
+a.ps-ia-featured-card .phrase-word {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  -webkit-text-decoration-line: none !important;
+  text-decoration-line: none !important;
+  box-shadow: 0 1.5px 0 0 var(--ps-blue, #2f6df6) !important;
+}
+
+/* Sparse influential-word tips: definition + why, not a full-prompt underline */
+.tip-card .tip-def,
+.tip-card .tip-why {
+  display: block !important;
+  margin: 0.38rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #f4f1ff !important;
+}
+.tip-card .tip-def > span,
+.tip-card .tip-why > span,
+.tip .tip-def > span,
+.tip .tip-why > span {
+  display: block;
+  margin: 0 0 0.12rem;
+  font-family: var(--mono, ui-monospace, SFMono-Regular, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9ef0fa !important;
+}
+
+
+/* Category tag browse: Featured overlay must not leave the shelf hidden.
+   ps-games-v1.css uses [hidden]{display:none !important}; beat that here. */
+html[data-ps-tagged] .ps-ia-featured-block {
+  display: none !important;
+}
+html[data-ps-tagged] .ps-featured-block,
+html[data-ps-tagged] .card-grid,
+html[data-ps-tagged] .ps-plate-grid,
+html[data-ps-tagged] .ps-videos-grid,
+html[data-ps-tagged] .empty-panel {
+  display: revert !important;
+}
+html[data-ps-tagged] .card-grid,
+html[data-ps-tagged] .ps-plate-grid {
+  display: grid !important;
+}

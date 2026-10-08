@@ -1,0 +1,175 @@
+/* PromptShare — curated gallery only + Videos scaffold (2026-10-01) */
+
+/* Hide leftover UGC chrome the SPA may still paint */
+.ps-hide-ugc,
+a[href="/upload"],
+a[href="/upload/"],
+.head-actions button[aria-pressed],
+button.ps-hide-ugc {
+  display: none !important;
+}
+
+/* Videos page */
+.ps-videos-page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+}
+
+.ps-videos-page .page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.ps-videos-page .kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b6a66;
+}
+
+.ps-videos-page h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+}
+
+.ps-videos-page .lede {
+  margin: 0.55rem 0 0;
+  max-width: 38rem;
+  color: #3d3c38;
+}
+
+.ps-videos-empty {
+  border: 1px dashed #cfc8b8;
+  background: #fffaf1;
+  border-radius: 1rem;
+  padding: 1.75rem 1.35rem;
+  margin-top: 1.25rem;
+}
+
+.ps-videos-empty h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.ps-videos-empty p {
+  margin: 0;
+  color: #4a4944;
+  max-width: 40rem;
+}
+
+.ps-videos-page .ps-cat-carousel {
+  margin-top: 0.25rem;
+}
+
+.ps-videos-page .chip.is-on {
+  background: #2459e8;
+  color: #fff;
+  border-color: #2459e8;
+}
+
+.ps-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ps-videos-card {
+  border: 1px solid #e7e1d4;
+  border-radius: 0.9rem;
+  background: #fffdf9;
+  padding: 1rem;
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ps-videos-card strong {
+  font-size: 0.95rem;
+}
+
+.ps-videos-card span {
+  font-size: 0.8rem;
+  color: #6b6a66;
+}
+
+.ps-videos-card--live {
+  padding: 0;
+  overflow: hidden;
+  min-height: 0;
+}
+.ps-videos-thumb {
+  aspect-ratio: 16 / 9;
+  background: #1a1a18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ps-videos-thumb video,
+.ps-videos-thumb img,
+.ps-videos-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ps-videos-thumb-ph {
+  color: #cfc8b8;
+  font-size: 0.85rem;
+}
+.ps-videos-card-body {
+  padding: 0.75rem 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.stage.is-video video {
+  width: 100%;
+  max-height: min(70vh, 720px);
+  background: #111;
+  border-radius: 1rem;
+}
+
+/* Video shelf cards: title + model + prompt parity with image category cards */
+.ps-videos-card-body .card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ps-videos-card-body .card-prompt {
+  color: var(--ps-ink-soft, #5c5c56);
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+.ps-videos-card-body .card-prompt.prompt-hover {
+  display: block;
+  overflow: visible;
+}
+a.ps-videos-card .phrase-word {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 1.5px 0 0 var(--ps-blue, #2f6df6) !important;
+}
+a.ps-videos-card .card-prompt,
+a.ps-videos-card .phrase,
+a.ps-videos-card .phrase-btn {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.ps-videos-grid > a.ps-videos-card:has(.phrase.is-open) {
+  z-index: 5;
+  overflow: visible;
+}

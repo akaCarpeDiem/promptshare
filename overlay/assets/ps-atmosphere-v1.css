@@ -1,0 +1,129 @@
+/* PromptShare shared page atmosphere — cream wash + pastel orbs/stickers.
+   Loaded by Images, Videos, and Games browse shells so they cannot drift.
+   Stickers are injected by ps-motion-v2.js (.ps-sticker*). */
+
+:root {
+  --ps-canvas: #fffdf9;
+  --ps-canvas-2: #f8f6f1;
+  --ps-sky: #e5edff;
+  --ps-blush: #ffcbe2;
+  --ps-apricot: #fff0d6;
+  --ps-apricot-2: #ffd392;
+}
+
+html {
+  color-scheme: light !important;
+  background: var(--ps-canvas) !important;
+}
+
+/* ——— Atmosphere: warm cream + soft pastel blobs ——— */
+body {
+  color: #242422 !important;
+  background:
+    radial-gradient(900px 560px at 6% 8%, rgba(229, 237, 255, 0.9), transparent 58%),
+    radial-gradient(820px 520px at 94% 4%, rgba(255, 203, 226, 0.55), transparent 55%),
+    radial-gradient(760px 500px at 88% 92%, rgba(255, 240, 214, 0.85), transparent 58%),
+    radial-gradient(640px 420px at 20% 100%, rgba(255, 211, 146, 0.35), transparent 55%),
+    #fffdf9 !important;
+  background-attachment: fixed;
+  background-color: #fffdf9 !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 42% 36% at 18% 28%, rgba(36, 89, 232, 0.06), transparent 70%),
+    radial-gradient(ellipse 40% 32% at 82% 72%, rgba(237, 67, 139, 0.06), transparent 70%),
+    radial-gradient(ellipse 36% 30% at 60% 12%, rgba(245, 130, 32, 0.05), transparent 70%);
+  animation: ps-blob-drift 26s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: multiply;
+}
+
+@keyframes ps-blob-drift {
+  0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  100% { transform: translate3d(2.5%, 2%, 0) scale(1.05); }
+}
+
+/* Decorative sticker blobs injected by motion JS */
+.ps-sticker {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 47% 49% 41% 46%;
+  opacity: 0.55;
+  will-change: transform;
+}
+.ps-sticker--sky {
+  width: 220px; height: 160px;
+  background: color-mix(in srgb, #e5edff 70%, #fffdf9);
+  top: 12%; left: -40px;
+  animation: ps-float-a 9s ease-in-out infinite;
+}
+.ps-sticker--pink {
+  width: 160px; height: 140px;
+  background: color-mix(in srgb, #ffcbe2 65%, #fffdf9);
+  top: 58%; right: -30px;
+  animation: ps-float-b 11s ease-in-out infinite;
+}
+.ps-sticker--apricot {
+  width: 140px; height: 110px;
+  background: color-mix(in srgb, #ffd392 60%, #fffdf9);
+  bottom: 18%; left: 8%;
+  animation: ps-rock 8s ease-in-out infinite;
+}
+.ps-sticker--dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #2459e8;
+  opacity: 0.35;
+  top: 22%; right: 12%;
+  animation: ps-flutter 5.5s ease-in-out infinite;
+}
+.ps-sticker--dot2 {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #f58220;
+  opacity: 0.4;
+  top: 70%; left: 18%;
+  animation: ps-flutter 7s ease-in-out infinite reverse;
+}
+
+@keyframes ps-float-a {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(12px, -18px, 0) rotate(3deg); }
+}
+@keyframes ps-float-b {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(2deg); }
+  50% { transform: translate3d(-14px, 16px, 0) rotate(-4deg); }
+}
+@keyframes ps-rock {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-10px); }
+}
+@keyframes ps-flutter {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .ps-sticker {
+    animation: none !important;
+  }
+}

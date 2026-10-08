@@ -1,0 +1,35 @@
+/* Verbatim model labels — same chip height/shape, width follows text, ellipsis before the like. */
+.model-chip,
+.card-row > .model-chip,
+.creation-head .model-chip,
+.ps-ia-card-body .model-chip,
+.ps-videos-card-body .model-chip,
+.ps-games-body .model-chip,
+.ps-games-body .ps-title-row .model-chip {
+  text-transform: none !important;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+  max-width: min(13.5rem, 48vw);
+  flex: 0 1 auto !important;
+  min-width: 0;
+}
+
+.card-row > .ps-thumb-btn,
+.ps-grow > .ps-thumb-btn,
+.ps-title-meta > .ps-thumb-btn,
+.creation-head .ps-thumb-btn {
+  flex: none !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .model-chip,
+  .card-row > .model-chip,
+  .creation-head .model-chip,
+  .ps-games-body .model-chip {
+    max-width: min(9.5rem, 42vw);
+  }
+}

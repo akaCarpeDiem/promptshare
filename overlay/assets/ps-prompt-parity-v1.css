@@ -1,0 +1,211 @@
+/* PromptShare — Images/Videos/Games prompt typography parity
+   Reference: Images .card-prompt.prompt-hover (Newsreader clamp → ~19px desktop)
+   Loaded last on browse pages. Do not touch glass header / chip colors / H1 copy.
+*/
+
+.card-prompt.prompt,
+.card-prompt.prompt-hover,
+.card-prompt.prompt-marks,
+.ps-videos-card .card-prompt,
+.ps-videos-card-body .card-prompt,
+a.ps-videos-card .card-prompt,
+.ps-ia-featured-card .card-prompt,
+.ps-ia-card-body .card-prompt,
+.ps-games-body .prompt,
+.ps-gcard .prompt,
+.ps-gcard .body > .prompt {
+  font-family: Newsreader, Georgia, serif !important;
+  font-size: clamp(0.98rem, 1.5vw, 1.2rem) !important;
+  line-height: 1.48 !important;
+  font-weight: 460 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--ps-ink, #242422) !important;
+  margin: 0.45rem 0 0.7rem !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  -webkit-text-decoration-line: none !important;
+  text-decoration-line: none !important;
+}
+
+/* Phrase buttons + underlined key words: inherit prompt face exactly */
+.card-prompt .phrase,
+.card-prompt .phrase-btn,
+.card-prompt .phrase-word,
+.ps-videos-card .phrase,
+.ps-videos-card .phrase-btn,
+.ps-videos-card .phrase-word,
+a.ps-videos-card .phrase,
+a.ps-videos-card .phrase-btn,
+a.ps-videos-card .phrase-word,
+.ps-ia-featured-card .phrase,
+.ps-ia-featured-card .phrase-btn,
+.ps-ia-featured-card .phrase-word,
+.ps-games-body .prompt .phrase,
+.ps-games-body .prompt .phrase-btn,
+.ps-games-body .prompt .phrase-word,
+.ps-gcard .prompt .phrase,
+.ps-gcard .prompt .phrase-btn,
+.ps-gcard .prompt .phrase-word {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  -webkit-text-decoration-line: none !important;
+  text-decoration-line: none !important;
+  background: transparent;
+}
+
+.card-prompt .phrase-word,
+.ps-videos-card .phrase-word,
+a.ps-videos-card .phrase-word,
+.ps-ia-featured-card .phrase-word,
+.ps-games-body .prompt .phrase-word,
+.ps-gcard .prompt .phrase-word {
+  box-shadow: 0 1.5px 0 0 #7ee7f5 !important; /* match Images a.card .phrase-word */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Tip cards keep their own (smaller) type — never inherit prompt size */
+.tip-card,
+.tip-card .tip-kind,
+.tip-card .tip-why,
+.tip-card .tip-def,
+.tip-card .tip-why > span,
+.tip-card .tip-def > span {
+  font-size: revert;
+  letter-spacing: revert;
+  font-weight: revert;
+  line-height: revert;
+  font-family: revert;
+  color: revert;
+  box-shadow: none !important;
+}
+
+.tip-card .tip-kind {
+  font-family: ui-monospace, "IBM Plex Mono", monospace !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #c4a6ff !important;
+  line-height: 1.3 !important;
+}
+.tip-card .tip-why,
+.tip-card .tip-def {
+  font-family: Outfit, "Segoe UI", sans-serif !important;
+  font-size: 0.9rem !important;
+  line-height: 1.35 !important;
+  color: #f4f1ff !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+.tip-card .tip-why > span,
+.tip-card .tip-def > span {
+  display: block !important;
+  font-family: ui-monospace, "IBM Plex Mono", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #7ee7f5 !important;
+  margin-bottom: 0.2rem !important;
+}
+
+/* Title on own line under chips — one size larger (~1.1rem) */
+.card-body h3,
+.ps-videos-card-body h3,
+.ps-ia-card-body h3 {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  color: var(--ps-ink, #242422) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+/* Force EVERY text node in prompt blocks to Images size (overrides .ps-videos-card span 0.8rem) */
+.card-prompt,
+.card-prompt span,
+.ps-videos-card .card-prompt,
+.ps-videos-card .card-prompt span,
+.ps-videos-card-body .card-prompt,
+.ps-videos-card-body .card-prompt span,
+.ps-ia-card-body .card-prompt,
+.ps-ia-card-body .card-prompt span,
+.ps-ia-featured-card .card-prompt,
+.ps-ia-featured-card .card-prompt span,
+.ps-games-body .prompt,
+.ps-games-body .prompt span,
+.ps-gcard .prompt,
+.ps-gcard .prompt span,
+.sheet .prompt,
+.sheet .prompt span,
+.prompt-body,
+.prompt-body span {
+  font-family: Newsreader, Georgia, serif !important;
+  font-size: clamp(0.98rem, 1.5vw, 1.2rem) !important;
+  line-height: 1.48 !important;
+  font-weight: 460 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--ps-ink, #242422) !important;
+}
+
+/* Tips keep compact type */
+.tip-card,
+.tip-card span,
+.card-prompt .tip-card,
+.card-prompt .tip-card span,
+.ps-videos-card .tip-card,
+.ps-videos-card .tip-card span,
+.ps-games-body .tip-card,
+.ps-games-body .tip-card span {
+  font-size: revert !important;
+  line-height: revert !important;
+  font-weight: revert !important;
+  letter-spacing: revert !important;
+  font-family: revert !important;
+  color: revert !important;
+}
+.tip-card .tip-kind {
+  font-family: ui-monospace, "IBM Plex Mono", monospace !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #c4a6ff !important;
+  line-height: 1.3 !important;
+  font-weight: 400 !important;
+}
+.tip-card .tip-why,
+.tip-card .tip-def {
+  font-family: Outfit, "Segoe UI", sans-serif !important;
+  font-size: 0.9rem !important;
+  line-height: 1.35 !important;
+  color: #f4f1ff !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+.tip-card .tip-why > span,
+.tip-card .tip-def > span {
+  display: block !important;
+  font-family: ui-monospace, "IBM Plex Mono", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #7ee7f5 !important;
+  margin-bottom: 0.2rem !important;
+  font-weight: 400 !important;
+}
+
+/* phrase underline stays Images cyan */
+.card-prompt .phrase-word,
+.ps-videos-card .phrase-word,
+.ps-gcard .prompt .phrase-word,
+.ps-games-body .prompt .phrase-word {
+  box-shadow: 0 1.5px 0 0 #7ee7f5 !important;
+}

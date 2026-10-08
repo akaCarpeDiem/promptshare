@@ -1,0 +1,33 @@
+# Policy pages are static files. Do not rewrite /about or /cookies to the app shell.
+# Creators is a real studio directory (SPA), not the homepage hub.
+/creators /creators/ 301
+/search /search/ 301
+/upload / 301
+# upload-closed: public upload UI removed
+/me /me/ 301
+/archive / 301
+/search/ /index.html 200
+/upload/ / 301
+/me/ /index.html 200
+/archive/ / 301
+/archive/* / 301
+/u/* /index.html 200
+# Public plates: Functions serve /p/:id (crawlable). SPA fallback if function misses.
+/p/* /index.html 200
+# Legacy /c/:id plate URLs are 301'd by functions/c/[id].ts — do not SPA-rewrite them here.
+# Category pretty URLs → Images gallery + tag
+/explore /images/ 301
+/explore/ /images/ 301
+/explore/* /images/ 301
+
+# Discover hub is canonical at the fullscreen home.
+/discover / 301
+/discover/ / 301
+
+# Images and Videos are real gallery documents, not the homepage About shell.
+# Do not 200-rewrite them to /index.html (that shell is the explainer).
+/images /images/ 301
+/videos /videos/ 301
+
+# Games gallery — static plates, not the image/video SPA
+/games /games/ 301

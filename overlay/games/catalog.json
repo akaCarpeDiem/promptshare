@@ -1,0 +1,104 @@
+[
+  {
+    "slug": "paper-moths",
+    "title": "Paper Moths",
+    "diff": "simple",
+    "label": "Simple"
+  },
+  {
+    "slug": "gate-comet",
+    "title": "Gate Comet",
+    "diff": "simple",
+    "label": "Simple"
+  },
+  {
+    "slug": "lantern-stack",
+    "title": "Lantern Stack",
+    "diff": "simple",
+    "label": "Simple"
+  },
+  {
+    "slug": "moss-steps",
+    "title": "Moss Steps",
+    "diff": "simple",
+    "label": "Simple"
+  },
+  {
+    "slug": "wick-line",
+    "title": "Wick Line",
+    "diff": "simple",
+    "label": "Simple"
+  },
+  {
+    "slug": "roofline-crane",
+    "title": "Roofline Crane",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "upstream-koi",
+    "title": "Upstream Koi",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "kiln-break",
+    "title": "Kiln Break",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "orchard-serpent",
+    "title": "Orchard Serpent",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "belt-drift",
+    "title": "Belt Drift",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "pulse-lanterns",
+    "title": "Pulse Lanterns",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "loom-shuttle",
+    "title": "Loom Shuttle",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "tide-bell",
+    "title": "Tide Bell",
+    "diff": "mid",
+    "label": "Mid"
+  },
+  {
+    "slug": "pier-watch",
+    "title": "Pier Watch",
+    "diff": "advanced",
+    "label": "Advanced"
+  },
+  {
+    "slug": "courier-of-glass",
+    "title": "Courier of Glass",
+    "diff": "advanced",
+    "label": "Advanced"
+  },
+  {
+    "slug": "soot-lantern",
+    "title": "Soot Lantern",
+    "diff": "advanced",
+    "label": "Advanced"
+  },
+  {
+    "slug": "night-press",
+    "title": "Night Press",
+    "diff": "advanced",
+    "label": "Advanced"
+  }
+]

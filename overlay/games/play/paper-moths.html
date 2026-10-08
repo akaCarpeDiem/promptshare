@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Paper Moths</title>
+<style>
+html,body{margin:0;height:100%;background:#1a1612;overflow:hidden;font-family:system-ui,sans-serif;color:#f6efe4}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;text-shadow:0 1px 4px #000;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(10,8,6,.55)}
+#over .card{background:#2a221c;border:1px solid #f0d8b066;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#f0d2a4;color:#2a1c10;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:700;cursor:pointer;min-height:44px}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="score">0 moths</span><span id="time">40s</span></div>
+<div id="over"><div class="card"><h1>Dusk</h1><p id="os"></p><button id="again" type="button">Play again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c = document.getElementById("c");
+  const g = c.getContext("2d");
+  const hudS = document.getElementById("score");
+  const hudT = document.getElementById("time");
+  const over = document.getElementById("over");
+  let w = 1, h = 1, moths = [], score = 0, left = 40, acc = 0, running = false, last = 0, spawn = 0;
+  function resize() {
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    w = c.clientWidth || 320; h = c.clientHeight || 240;
+    c.width = Math.max(1, Math.floor(w * dpr)); c.height = Math.max(1, Math.floor(h * dpr));
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function spawnMoth() {
+    moths.push({
+      x: 36 + Math.random() * Math.max(20, w - 72),
+      y: 40 + Math.random() * Math.max(20, h - 90),
+      vx: Math.random() * 50 - 25, vy: Math.random() * 30 - 15,
+      a: Math.random() * 6.28, s: 0.75 + Math.random() * 0.7, life: 2.2 + Math.random() * 2.4
+    });
+  }
+  function end() {
+    running = false;
+    document.getElementById("os").textContent = score + " moths tapped";
+    over.style.display = "grid";
+    psReport("paper-moths", score);
+  }
+  function reset() {
+    score = 0; left = 40; acc = 0; moths = []; spawn = 0.2; running = true; last = 0;
+    over.style.display = "none"; hudS.textContent = "0 moths"; hudT.textContent = "40s";
+  }
+  function hit(x, y) {
+    if (!running) return;
+    for (let i = moths.length - 1; i >= 0; i--) {
+      const m = moths[i];
+      const dx = x - m.x, dy = y - m.y, r = 30 * m.s;
+      if (dx * dx + dy * dy < r * r) { moths.splice(i, 1); score++; hudS.textContent = score + " moths"; return; }
+    }
+  }
+  c.addEventListener("pointerdown", (e) => {
+    const r = c.getBoundingClientRect();
+    hit(e.clientX - r.left, e.clientY - r.top);
+  });
+  document.getElementById("again").addEventListener("click", reset);
+  function frame(ts) {
+    if (!last) last = ts;
+    const dt = Math.min(0.033, (ts - last) / 1000); last = ts;
+    if (!w) resize();
+    if (running) {
+      acc += dt; left = Math.max(0, 40 - acc); hudT.textContent = Math.ceil(left) + "s";
+      if (left <= 0) end();
+      spawn -= dt;
+      if (spawn <= 0 && moths.length < 12) { spawn = 0.42; spawnMoth(); }
+      for (const m of moths) {
+        m.a += dt * 7; m.life -= dt;
+        m.x += m.vx * dt; m.y += m.vy * dt;
+        if (m.x < 28 || m.x > w - 28) m.vx *= -1;
+        if (m.y < 28 || m.y > h - 28) m.vy *= -1;
+      }
+      moths = moths.filter((m) => m.life > 0);
+    }
+    g.fillStyle = "#e7d3b0"; g.fillRect(0, 0, w, h);
+    g.fillStyle = "#1a1612";
+    g.fillRect(0, 0, w, 16); g.fillRect(0, h - 16, w, 16); g.fillRect(0, 0, 16, h); g.fillRect(w - 16, 0, 16, h);
+    const lg = g.createRadialGradient(w * 0.5, h * 0.4, 8, w * 0.5, h * 0.4, Math.max(w, h) * 0.48);
+    lg.addColorStop(0, "rgba(255,186,90,.5)"); lg.addColorStop(1, "rgba(255,186,90,0)");
+    g.fillStyle = lg; g.fillRect(0, 0, w, h);
+    for (const m of moths) {
+      g.save(); g.translate(m.x, m.y);
+      const flap = Math.abs(Math.sin(m.a));
+      g.fillStyle = "#2c241c";
+      g.beginPath(); g.ellipse(-11 * m.s, 0, 13 * m.s, 4 + 8 * m.s * flap, -0.5, 0, 6.28); g.fill();
+      g.beginPath(); g.ellipse(11 * m.s, 0, 13 * m.s, 4 + 8 * m.s * flap, 0.5, 0, 6.28); g.fill();
+      g.fillStyle = "#f6efe4"; g.beginPath(); g.ellipse(0, 0, 3.5 * m.s, 8 * m.s, 0, 0, 6.28); g.fill();
+      g.restore();
+    }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script>
+</body>
+</html>

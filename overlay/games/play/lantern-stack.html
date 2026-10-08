@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lantern Stack</title>
+<style>
+html,body{margin:0;height:100%;background:#1c140e;overflow:hidden;color:#fff6ea;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:manipulation}
+#hud{position:absolute;top:12px;left:14px;font-weight:700;text-shadow:0 1px 4px #000;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(12,8,4,.55)}
+.card{background:#2a1c14;border:1px solid #f0c48a66;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#f0c48a;color:#2a160c;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:700;min-height:44px;cursor:pointer}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud">Stack 0</div>
+<div id="over"><div class="card"><h1>Tipped</h1><p id="os"></p><button id="again" type="button">Play again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d"), hud=document.getElementById("hud"), over=document.getElementById("over");
+  let w=1,h=1,blocks=[],mover,score=0,running=false,best=0;
+  try{best=+localStorage.getItem("ps-game-lantern-best")||0;}catch(e){}
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function newMover(width, dir){
+    return {w:width, x: dir>0? 24: w-24-width, dir:dir||1, y: 70, speed: 140+score*12};
+  }
+  function reset(){
+    score=0; running=true; over.style.display="none";
+    const bw=Math.min(160, w*0.38);
+    blocks=[{x:(w-bw)/2, y:h-78, w:bw}];
+    mover=newMover(bw, 1);
+    hud.textContent="Stack 0";
+  }
+  function drop(){
+    if(!running||!mover) return;
+    const prev=blocks[blocks.length-1];
+    const left=Math.max(mover.x, prev.x);
+    const right=Math.min(mover.x+mover.w, prev.x+prev.w);
+    const overlap=right-left;
+    if(overlap<8){ running=false; if(score>best){best=score; try{localStorage.setItem("ps-game-lantern-best", String(best));}catch(e){}} document.getElementById("os").textContent="Height "+score+" · best "+best; over.style.display="grid"; psReport("lantern-stack", score); return; }
+    const y=prev.y-28;
+    blocks.push({x:left, y, w:overlap});
+    score++; hud.textContent="Stack "+score;
+    if(blocks.length>8){ const dy=28; blocks.forEach(b=>b.y+=dy); }
+    mover=newMover(overlap, -mover.dir);
+  }
+  c.addEventListener("pointerdown", drop);
+  addEventListener("keydown", e=>{ if(e.code==="Space"){e.preventDefault(); drop();} });
+  document.getElementById("again").onclick=()=>{ resize(); reset(); };
+  let last=0;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running && mover){
+      mover.x += mover.dir * mover.speed * dt;
+      if(mover.x<16){ mover.x=16; mover.dir=1; }
+      if(mover.x+mover.w>w-16){ mover.x=w-16-mover.w; mover.dir=-1; }
+    }
+    g.fillStyle="#24180f"; g.fillRect(0,0,w,h);
+    g.fillStyle="#3a2818"; g.fillRect(0,h-36,w,36);
+    const cols=["#ffb25a","#ff8d5a","#f0d2a0","#e07a4a"];
+    blocks.forEach((b,i)=>{ g.fillStyle=cols[i%cols.length]; g.fillRect(b.x,b.y,b.w,24); g.fillStyle="rgba(255,255,255,.25)"; g.fillRect(b.x+6,b.y+4,8,8); });
+    if(mover && running){ g.fillStyle="#ffe1a8"; g.fillRect(mover.x, mover.y, mover.w, 24); }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(()=>{ resize(); if(blocks.length<=1){ reset(); running=false; } }).observe(c);
+  reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script>
+</body>
+</html>

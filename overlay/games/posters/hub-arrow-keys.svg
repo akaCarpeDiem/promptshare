@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1400" role="img" aria-label="Arrow keys">
+<defs>
+  <radialGradient id="lilac" cx="50%" cy="82%" r="38%">
+    <stop offset="0%" stop-color="#c4a6ff" stop-opacity="0.28"/>
+    <stop offset="70%" stop-color="#c4a6ff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="cyan" cx="42%" cy="78%" r="34%">
+    <stop offset="0%" stop-color="#7ee7f5" stop-opacity="0.22"/>
+    <stop offset="72%" stop-color="#7ee7f5" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="amber" cx="60%" cy="88%" r="32%">
+    <stop offset="0%" stop-color="#ffc478" stop-opacity="0.26"/>
+    <stop offset="75%" stop-color="#ffc478" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig" cx="50%" cy="82%" r="68%">
+    <stop offset="40%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#02040a" stop-opacity="0.55"/>
+  </radialGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#465072"/>
+    <stop offset="18%" stop-color="#2c3450"/>
+    <stop offset="52%" stop-color="#1c2236"/>
+    <stop offset="100%" stop-color="#121624"/>
+  </linearGradient>
+  <linearGradient id="lip" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#6d7898"/>
+    <stop offset="28%" stop-color="#1a2032"/>
+    <stop offset="100%" stop-color="#070910"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fff" stop-opacity="0.38"/>
+    <stop offset="42%" stop-color="#fff" stop-opacity="0.05"/>
+    <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="keyshadow" x="-40%" y="-40%" width="180%" height="190%">
+    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <radialGradient id="well" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#0e1424" stop-opacity="0.15"/>
+    <stop offset="70%" stop-color="#070b16" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<!-- Keys occupy well under half the canvas height and sit in the lower portion,
+     with a large empty margin above so the Up key clears the Games apex. -->
+<g transform="translate(800 1148) scale(0.5) translate(-797 -549)" filter="url(#keyshadow)">
+  <g id="up" transform="translate(722 380)">
+    <rect x="6" y="12" width="144" height="150" rx="26" fill="url(#lip)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#face)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#sheen)"/>
+    <rect x="6.6" y="0.6" width="142.8" height="140.8" rx="23" fill="none" stroke="#e8eeff" stroke-opacity="0.42" stroke-width="1.4"/>
+    <path d="M78 34 L108 70 H94 V108 H62 V70 H48 Z" fill="#7ee7f5" filter="url(#glow)"/>
+  </g>
+  <g id="left" transform="translate(546 556)">
+    <rect x="6" y="12" width="144" height="150" rx="26" fill="url(#lip)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#face)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#sheen)"/>
+    <rect x="6.6" y="0.6" width="142.8" height="140.8" rx="23" fill="none" stroke="#e8eeff" stroke-opacity="0.42" stroke-width="1.4"/>
+    <path d="M34 71 L70 41 V57 H108 V85 H70 V101 Z" fill="#c4a6ff" filter="url(#glow)"/>
+  </g>
+  <g id="down" transform="translate(722 556)">
+    <rect x="6" y="12" width="144" height="150" rx="26" fill="url(#lip)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#face)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#sheen)"/>
+    <rect x="6.6" y="0.6" width="142.8" height="140.8" rx="23" fill="none" stroke="#e8eeff" stroke-opacity="0.42" stroke-width="1.4"/>
+    <path d="M78 108 L48 72 H62 V34 H94 V72 H108 Z" fill="#ffc478" filter="url(#glow)"/>
+  </g>
+  <g id="right" transform="translate(898 556)">
+    <rect x="6" y="12" width="144" height="150" rx="26" fill="url(#lip)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#face)"/>
+    <rect x="6" y="0" width="144" height="142" rx="24" fill="url(#sheen)"/>
+    <rect x="6.6" y="0.6" width="142.8" height="140.8" rx="23" fill="none" stroke="#e8eeff" stroke-opacity="0.42" stroke-width="1.4"/>
+    <path d="M122 71 L86 41 V57 H48 V85 H86 V101 Z" fill="#7ee7f5" filter="url(#glow)"/>
+  </g>
+</g>
+</svg>

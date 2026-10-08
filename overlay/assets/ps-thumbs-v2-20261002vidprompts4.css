@@ -1,0 +1,272 @@
+/* PromptShare — thumbs-up chrome (cards + plates). Hides author/date/zero placeholders. */
+
+/* Strip SPA card footer author · date · stray likeCount "0" */
+.card-by > .avatar,
+.card-by > .avatar-fallback,
+.card-by > a.author-link,
+.card-by > span:not(.ps-thumb-count):not(.ps-thumb-label),
+.card-date,
+.card > .card-body .card-count,
+.card-by .card-count,
+.card-meta .card-count {
+  display: none !important;
+}
+
+/* Keep card-by as a flex row for the thumbs control */
+.card-by {
+  min-height: 1.6rem;
+  margin: 0.35rem 0 0;
+  gap: 0.35rem;
+}
+
+/* Plate page: no studio author / published date in the head */
+.net-page.creation .creation-head .author-link,
+.net-page.creation .plate-date,
+.net-page.creation .creation-head .avatar,
+.net-page.creation .creation-head .avatar-fallback {
+  display: none !important;
+}
+
+/* Hide auth-gated Like/Save that require sign-in (gallery has no accounts UX) */
+.net-page.creation .creation-actions .btn[data-ps-auth-like],
+.net-page.creation .creation-actions button.btn:not(.ps-thumb-btn):not([data-ps-keep]) {
+  /* refined in JS — CSS fallback for common Like label */
+}
+
+.net-page.creation .creation-actions button.btn {
+  /* leave Report etc.; JS hides Like/Save by text */
+}
+
+.ps-thumb-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.28rem 0.65rem;
+  min-height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 166, 255, 0.45);
+  background: rgba(28, 30, 42, 0.72);
+  color: var(--paper, #f4f1ff);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 560;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.ps-thumb-btn:hover {
+  border-color: rgba(126, 231, 245, 0.7);
+  background: rgba(36, 40, 58, 0.9);
+}
+
+.ps-thumb-btn:active {
+  transform: scale(0.96);
+}
+
+.ps-thumb-btn.is-on {
+  border-color: rgba(126, 231, 245, 0.85);
+  background: linear-gradient(135deg, rgba(126, 231, 245, 0.22), rgba(196, 166, 255, 0.28));
+  box-shadow: 0 0 18px rgba(126, 231, 245, 0.22);
+}
+
+.ps-thumb-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.ps-thumb-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ps-thumb-count {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  opacity: 0.92;
+  min-width: 0.75rem;
+  text-align: left;
+}
+
+.ps-thumb-btn.is-on .ps-thumb-emoji {
+  filter: saturate(1.2);
+}
+
+/* Plate placement under media / in actions row */
+.ps-thumb-plate-slot {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.15rem 0 0.35rem;
+}
+
+.net-page.creation > .creation-actions.under-stage .ps-thumb-btn,
+.net-page.creation .ps-thumb-plate-slot .ps-thumb-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.92rem;
+}
+
+/* Home / overlay cards: footer is thumbs only */
+.ps-home-card .card-by,
+.ps-videos-card .ps-videos-card-body .ps-thumb-row {
+  margin-top: 0.4rem;
+}
+
+.ps-videos-card-body .ps-thumb-row {
+  display: flex;
+  margin-top: 0.45rem;
+}
+
+.ps-videos-card-body > span:not(.ps-thumb-count) {
+  /* author line removed in JS; hide leftovers */
+}
+
+a.card .ps-thumb-btn,
+a.ps-videos-card .ps-thumb-btn,
+a.ps-home-card .ps-thumb-btn,
+a.ps-ia-featured-card .ps-thumb-btn {
+  /* stop navigation when clicking thumbs inside card links */
+  position: relative;
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-thumb-btn {
+    transition: none;
+  }
+  .ps-thumb-btn:active {
+    transform: none;
+  }
+}
+
+
+/* PromptShare thumbs — beside the model chip, not on the media. */
+.card-by:empty,
+.card-by[hidden] {
+  display: none !important;
+}
+
+.ps-thumb-btn,
+.ps-thumb-btn:hover,
+.ps-thumb-btn:focus-visible,
+.ps-thumb-btn.is-on {
+  position: static;
+  right: auto;
+  bottom: auto;
+  z-index: 4;
+  margin: 0 0 0 0.4rem;
+  min-height: 0;
+  padding: 0.1rem 0.15rem;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  color: #242422;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  text-shadow: none;
+  filter: none;
+  flex: none;
+  vertical-align: middle;
+}
+
+.ps-thumb-btn:hover,
+.ps-thumb-btn:focus-visible {
+  transform: scale(1.06);
+}
+
+.ps-thumb-btn:active {
+  transform: scale(0.96);
+}
+
+.ps-thumb-emoji {
+  font-size: 1.05rem;
+}
+
+.ps-thumb-count {
+  color: #242422;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Chip row under media: chips + thumbs flush right (title lives below). */
+.card-body .card-row,
+.ps-videos-card-body .card-row,
+.ps-ia-card-body .card-row,
+.card-row.ps-thumb-row-target {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.card-body .card-row > h3,
+.ps-videos-card-body .card-row > h3,
+.ps-ia-card-body .card-row > h3,
+.card-row.ps-thumb-row-target > h3,
+.card-row.ps-thumb-row-target > h2 {
+  /* Prefer titles as siblings below .card-row (JS reorders leftovers). */
+  flex: 1 1 100%;
+  min-width: 100%;
+  margin: 0;
+}
+
+.card-row > .model-chip,
+.card-row > .ps-thumb-btn,
+.ps-grow > .ps-thumb-btn {
+  flex: none;
+  position: static;
+  margin-left: 0;
+}
+.card-row > .model-chip {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: min(13.5rem, 48vw);
+}
+.card-row > .ps-thumb-btn,
+.ps-grow > .ps-thumb-btn {
+  flex-shrink: 0;
+}
+
+.card-row > .ps-thumb-btn,
+.ps-grow > .ps-thumb-btn,
+.creation-head .ps-thumb-btn {
+  margin-left: 0.35rem;
+}
+
+.creation-head .model-chip,
+.creation-head .ps-thumb-btn {
+  vertical-align: middle;
+}
+
+/* Detail plate: no overlay slot on the hero. */
+.net-page.creation .stage > .ps-thumb-plate-slot,
+.ps-thumb-plate-slot {
+  position: static;
+  display: inline;
+  right: auto;
+  bottom: auto;
+  padding: 0;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.net-page.creation .stage > .ps-thumb-plate-slot .ps-thumb-btn,
+.ps-thumb-plate-slot .ps-thumb-btn {
+  position: static;
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  .ps-thumb-btn {
+    right: auto;
+    bottom: auto;
+  }
+}

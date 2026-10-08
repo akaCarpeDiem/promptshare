@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Pulse Lanterns</title>
+<style>
+html,body{margin:0;height:100%;background:#140e18;overflow:hidden;color:#fff4ff;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(10,6,12,.6)}
+.card{background:#241628;border:1px solid #f0b6ff66;border-radius:16px;padding:1.2rem;text-align:center}
+button{font:inherit;background:#f0b6ff;color:#241018;border:0;border-radius:999px;padding:.6rem 1rem;font-weight:700;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0</span><span id="cb">combo 0</span></div>
+<div id="over"><div class="card"><h1>Song ends</h1><p id="os"></p><button id="again" type="button">Play again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const LANES=4, KEYS=["KeyD","KeyF","KeyJ","KeyK"];
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,notes=[],t=0,spawnI=0,score=0,combo=0,running=false,last=0,chart=[],judges=[];
+  const BPM=120, BEAT=60/BPM;
+  function build(){
+    chart=[];
+    const pat=[0,1,2,3,1,2,0,3,2,2,1,3,0,2,3,1];
+    for(let i=0;i<64;i++){
+      chart.push({time:(i+2)*BEAT*0.5, lane: pat[i%pat.length], hit:false, missed:false});
+      if(i%8===4) chart.push({time:(i+2)*BEAT*0.5, lane:(pat[i%pat.length]+2)%4, hit:false, missed:false});
+    }
+  }
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function reset(){ build(); t=0; score=0; combo=0; running=true; last=0; judges=[]; document.getElementById("over").style.display="none"; hud(); }
+  function hud(){ document.getElementById("sc").textContent=score; document.getElementById("cb").textContent="combo "+combo; }
+  function hitLane(lane){
+    if(!running) return;
+    const line=h*0.78, speed=280;
+    let best=null, bestD=0.12;
+    for(const n of chart){ if(n.hit||n.missed||n.lane!==lane) continue; const y=line-(n.time-t)*speed; const ad=Math.abs(y-line)/speed; if(ad<bestD){ best=n; bestD=ad; } }
+    if(!best){ combo=0; judges.push({text:"miss", life:0.4, lane}); hud(); return; }
+    best.hit=true;
+    if(bestD<0.045){ score+=100+combo*2; combo++; judges.push({text:"perfect", life:0.45, lane}); }
+    else { score+=50; combo++; judges.push({text:"good", life:0.4, lane}); }
+    hud();
+  }
+  addEventListener("keydown", e=>{ const i=KEYS.indexOf(e.code); if(i>=0){ e.preventDefault(); hitLane(i);} });
+  c.addEventListener("pointerdown", e=>{ const r=c.getBoundingClientRect(); const x=e.clientX-r.left; const lane=Math.floor(x / (w/LANES)); if(lane>=0&&lane<4) hitLane(lane); });
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running){
+      t+=dt; const line=h*0.78, speed=280;
+      chart.forEach(n=>{ if(n.hit||n.missed) return; const y=line-(n.time-t)*speed; if(y>line+36){ n.missed=true; combo=0; hud(); }});
+      if(chart.every(n=>n.hit||n.missed) && t>chart[chart.length-1].time+0.4){
+        running=false; const perfect=chart.filter(n=>n.hit).length; document.getElementById("os").textContent=score+" · "+perfect+" hits"; document.getElementById("over").style.display="grid"; psReport("pulse-lanterns", score);
+      }
+    }
+    judges.forEach(j=>j.life-=dt); judges=judges.filter(j=>j.life>0);
+    g.fillStyle="#140e18"; g.fillRect(0,0,w,h);
+    const lw=w/LANES;
+    for(let i=0;i<LANES;i++){ g.fillStyle=i%2?"#1c1424":"#18101e"; g.fillRect(i*lw,0,lw,h); g.fillStyle="#f4e8ff"; g.font="700 16px system-ui"; g.fillText(["D","F","J","K"][i], i*lw+lw/2-6, h-18); }
+    g.strokeStyle="#f0b6ff"; g.lineWidth=3; g.beginPath(); g.moveTo(0,h*0.78); g.lineTo(w,h*0.78); g.stroke();
+    const speed=280, line=h*0.78;
+    chart.forEach(n=>{ if(n.hit||n.missed) return; const y=line-(n.time-t)*speed; if(y<-20||y>h) return; g.fillStyle="#ffd27a"; g.beginPath(); g.arc(n.lane*lw+lw/2, y, 12, 0, 6.3); g.fill(); });
+    judges.forEach(j=>{ g.globalAlpha=Math.max(0,j.life*2); g.fillStyle=j.text==="miss"?"#ff8aa0":"#fff"; g.font="700 14px system-ui"; g.fillText(j.text, j.lane*(w/4)+8, h*0.7); g.globalAlpha=1; });
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

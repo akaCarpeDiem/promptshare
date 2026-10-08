@@ -1,0 +1,301 @@
+/* PromptShare — curated gallery only + Videos scaffold (2026-10-01) */
+
+/* Hide leftover UGC chrome the SPA may still paint */
+.ps-hide-ugc,
+a[href="/upload"],
+a[href="/upload/"],
+.head-actions button[aria-pressed],
+button.ps-hide-ugc {
+  display: none !important;
+}
+
+/* Videos page */
+.ps-videos-page {
+  max-width: none;
+  margin: 0;
+  padding: 0.4rem 0 2rem;
+}
+
+.ps-videos-page .page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.ps-videos-page .kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b6a66;
+}
+
+.ps-videos-page h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+}
+
+.ps-videos-page .lede {
+  margin: 0.55rem 0 0;
+  max-width: 38rem;
+  color: #3d3c38;
+}
+
+.ps-videos-empty {
+  border: 1px dashed #cfc8b8;
+  background: #fffaf1;
+  border-radius: 1rem;
+  padding: 1.75rem 1.35rem;
+  margin-top: 1.25rem;
+}
+
+.ps-videos-empty h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.ps-videos-empty p {
+  margin: 0;
+  color: #4a4944;
+  max-width: 40rem;
+}
+
+.ps-videos-page .ps-cat-carousel {
+  margin-top: 0.25rem;
+}
+
+.ps-videos-page .chip.is-on {
+  background: #2459e8;
+  color: #fff;
+  border-color: #2459e8;
+}
+
+.ps-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 720px) {
+  .ps-videos-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1040px) {
+  .ps-videos-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.ps-videos-card {
+  border: 1px solid #e7e1d4;
+  border-radius: 0.9rem;
+  background: #fffdf9;
+  padding: 1rem;
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ps-videos-card strong,
+.ps-videos-card-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 650;
+  color: var(--ps-ink, #242422);
+}
+
+.ps-videos-card span {
+  /* plain prompt spans inherit card-prompt size (was 0.8rem — mixed sizes) */
+  font-size: inherit;
+  color: inherit;
+}
+.ps-videos-card .tip-card,
+.ps-videos-card .tip-card span {
+  font-size: revert;
+  color: revert;
+}
+
+.ps-videos-card--live {
+  padding: 0;
+  overflow: hidden;
+  min-height: 0;
+  border: 2px solid rgba(36, 36, 34, 0.08);
+  border-radius: 22px;
+  background: var(--ps-surface, #fffdf9);
+  box-shadow: 0 12px 32px rgba(36, 36, 34, 0.06);
+}
+.ps-videos-grid > a.ps-videos-card:nth-child(3n + 1) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-sky, #e7f1ff));
+  border-color: color-mix(in srgb, var(--ps-blue, #2459e8) 28%, transparent);
+}
+.ps-videos-grid > a.ps-videos-card:nth-child(3n + 2) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-blush, #ffe8f2));
+  border-color: color-mix(in srgb, var(--ps-pink, #ed438b) 28%, transparent);
+}
+.ps-videos-grid > a.ps-videos-card:nth-child(3n) {
+  background: linear-gradient(165deg, #ffffff 40%, var(--ps-apricot, #fff1e4));
+  border-color: color-mix(in srgb, var(--ps-orange, #f58220) 30%, transparent);
+}
+.ps-videos-thumb {
+  aspect-ratio: 16 / 10;
+  background: #14151f;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+.ps-videos-thumb video,
+.ps-videos-thumb img,
+.ps-videos-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: none;
+}
+.ps-videos-thumb-ph {
+  color: #cfc8b8;
+  font-size: 0.85rem;
+}
+.ps-videos-card-body {
+  padding: 0.85rem 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.stage.is-video video {
+  width: 100%;
+  max-height: min(70vh, 720px);
+  background: #111;
+  border-radius: 1rem;
+}
+
+/* Video shelf cards: title + model + prompt parity with image category cards */
+.ps-videos-card-body .card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ps-videos-card-body .card-prompt {
+  color: var(--ps-ink-soft, #5c5c56);
+  margin: 0.45rem 0 0.7rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+.ps-videos-card-body .card-prompt.prompt-hover {
+  display: block;
+  overflow: visible;
+}
+a.ps-videos-card .phrase-word {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 1.5px 0 0 var(--ps-blue, #2f6df6) !important;
+}
+a.ps-videos-card .card-prompt,
+a.ps-videos-card .phrase,
+a.ps-videos-card .phrase-btn {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.ps-videos-grid > a.ps-videos-card:has(.phrase.is-open) {
+  z-index: 5;
+  overflow: visible;
+}
+
+/* Hover preview: don't scale the playing frame (that stutters). */
+.ps-videos-thumb video,
+.ps-ia-card-media video,
+.ps-disc-video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+a.ps-videos-card.is-previewing,
+a.ps-videos-card.is-previewing:hover,
+a.ps-ia-featured-card.is-previewing,
+a.ps-ia-featured-card.is-previewing:hover {
+  transform: none !important;
+}
+
+
+/* Grid plates fill the media box at rest — no hover Ken Burns / grow.
+   place-items:center on .card-media left intrinsic-sized imgs letterboxed;
+   stretch + absolute fill is in ps-plate-fill-v1.css (loaded last). */
+.card-media,
+.ps-ia-card-media {
+  position: relative;
+  overflow: hidden;
+  place-items: stretch;
+}
+.card-media img,
+.card-media video,
+.ps-ia-card-media img,
+.ps-ia-card-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  transform: none !important;
+}
+.card:hover .card-media img,
+.card:hover .card-media video,
+a.ps-videos-card:hover .ps-videos-thumb img,
+a.ps-videos-card:hover .ps-videos-thumb video,
+a.ps-ia-featured-card:hover .ps-ia-card-media img,
+a.ps-ia-featured-card:hover .ps-ia-card-media video {
+  transform: none !important;
+}
+
+/* ——— Plate video playback (inline / detail, not fullscreen) ———
+   Fullscreen looks smoother because the OS player composites the decoded
+   frames directly. Inline playback here was paying extra per-frame cost:
+   hover transforms on <video> / ancestors, mix-blend overlays, and Ken Burns.
+   1080p/60 files painted into a ~700px box still downscale on the GPU; that
+   remaining cost is inherent (we do not re-encode). */
+.creation .stage.is-video,
+.stage.is-video {
+  transform: none !important;
+  filter: none !important;
+  isolation: isolate;
+}
+.creation .stage.is-video::after,
+.creation .stage.is-video::before,
+.stage.is-video::after,
+.stage.is-video::before {
+  mix-blend-mode: normal !important;
+  background: none !important;
+  opacity: 0.55;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+.creation .stage.is-video video,
+.stage.is-video video,
+video.ps-plate-video {
+  transform: translateZ(0) !important;
+  filter: none !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  object-fit: contain;
+  object-position: center;
+}
+.creation:hover .stage.is-video,
+.creation:hover .stage.is-video video {
+  transform: translateZ(0) !important;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Roofline Crane</title>
+<style>
+html,body{margin:0;height:100%;background:#141826;overflow:hidden;color:#f4f1ff;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:manipulation}
+#hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none;text-shadow:0 1px 6px #000}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(8,10,18,.55)}
+.card{background:#1c2033;border:1px solid #c4a6ff66;border-radius:16px;padding:1.2rem 1.4rem;text-align:center;max-width:18rem}
+button{font:inherit;background:#d7c6ff;color:#1a1430;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:700;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0</span><span id="best"></span></div>
+<div id="over"><div class="card"><h1>Caught the eave</h1><p id="os"></p><button id="again" type="button">Fly again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,y,vy,pipes=[],score=0,running=false,started=false,last=0,spawn=0,best=0,puffs=[];
+  try{best=+localStorage.getItem("ps-game-roof-best")||0;}catch(e){}
+  const sc=document.getElementById("sc"), bestEl=document.getElementById("best"), over=document.getElementById("over");
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function paintBest(){bestEl.textContent="best "+best;}
+  function reset(){
+    y=h*0.45; vy=0; pipes=[]; score=0; running=false; started=false; spawn=0; puffs=[];
+    over.style.display="none"; sc.textContent="Tap to fly"; paintBest();
+  }
+  function flap(){
+    if(!started){ started=true; running=true; sc.textContent="0"; }
+    if(!running) return;
+    vy=-280; puffs.push({x:w*0.28,y,life:0.35});
+  }
+  function die(){
+    running=false; started=true;
+    if(score>best){best=score; try{localStorage.setItem("ps-game-roof-best", String(best));}catch(e){}}
+    document.getElementById("os").textContent="Eaves cleared: "+score+" · best "+best;
+    over.style.display="grid"; paintBest(); psReport("roofline-crane", score);
+  }
+  c.addEventListener("pointerdown", flap);
+  addEventListener("keydown", e=>{ if(e.code==="Space"){e.preventDefault(); flap();} });
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    const gap=Math.max(128, h*0.32);
+    if(running){
+      vy+=760*dt; y+=vy*dt;
+      spawn-=dt;
+      const spd=150+score*6;
+      if(spawn<=0){ spawn=1.35; const gy=70+Math.random()*(h-gap-120); pipes.push({x:w+20, gy, passed:false}); }
+      pipes.forEach(p=>{ p.x-=spd*dt; if(!p.passed && p.x+54 < w*0.28){ p.passed=true; score++; sc.textContent=String(score);} });
+      pipes=pipes.filter(p=>p.x>-80);
+      const bx=w*0.28, by=y, br=14;
+      if(y<16||y>h-16) die();
+      for(const p of pipes){
+        const inX = bx+br>p.x && bx-br<p.x+54;
+        if(inX && (by-br<p.gy || by+br>p.gy+gap)) die();
+      }
+    }
+    puffs.forEach(p=>p.life-=dt); puffs=puffs.filter(p=>p.life>0);
+    g.fillStyle="#141826"; g.fillRect(0,0,w,h);
+    g.fillStyle="#1c2744"; g.fillRect(0,h*0.72,w,h);
+    g.fillStyle="#2a3558"; for(let i=0;i<6;i++){ g.beginPath(); g.arc((i*180+ (last*0.02)%180), h*0.2+i*8, 28, 0, 6.3); g.fill(); }
+    g.fillStyle="#2a241c";
+    pipes.forEach(p=>{
+      g.fillRect(p.x,0,54,p.gy); g.fillRect(p.x,p.gy+gap,54,h);
+      g.fillStyle="#c45a3a"; g.fillRect(p.x-4,p.gy-12,62,12); g.fillRect(p.x-4,p.gy+gap,62,12); g.fillStyle="#2a241c";
+    });
+    g.save(); g.translate(w*0.28, y); g.rotate(Math.max(-0.6, Math.min(0.8, vy/600)));
+    g.fillStyle="#f4efe4"; g.beginPath(); g.ellipse(0,0,18,11,0,0,6.3); g.fill();
+    g.fillStyle="#e7b3c8"; g.beginPath(); g.moveTo(-6,0); g.lineTo(-22,-8+Math.sin(last/80)*4); g.lineTo(-16,4); g.fill();
+    g.fillStyle="#222"; g.fillRect(8,-3,3,3);
+    g.restore();
+    puffs.forEach(p=>{ g.globalAlpha=p.life*2; g.fillStyle="#fff"; g.beginPath(); g.arc(p.x-10,p.y,6,0,6.3); g.fill(); g.globalAlpha=1; });
+    if(!started){ g.fillStyle="#f4f1ff"; g.font="600 18px system-ui"; g.textAlign="center"; g.fillText("Tap to flap through the eaves", w/2, h*0.22); g.textAlign="left"; }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){reset(); started=true; running=true; sc.textContent="0";};
+})();
+</script></body></html>

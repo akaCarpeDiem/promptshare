@@ -1,0 +1,17 @@
+name = "promptshare"
+compatibility_date = "2026-09-26"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "promptshare"
+database_id = "0489c3e5-5f13-4700-aa9a-4b9050d48aa7"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "promptshare-media"
+
+# Workers AI: game player-name moderation (functions/lib/namemod.js). No extra token permission
+# is needed at runtime; if a call fails the regex filter result stands.
+[ai]
+binding = "AI"

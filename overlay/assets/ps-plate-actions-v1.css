@@ -1,0 +1,93 @@
+/* Plate actions under image via flex order (keeps SPA structure intact) */
+.net-page.creation {
+  display: flex;
+  flex-direction: column;
+}
+.net-page.creation > .stage {
+  order: 1;
+}
+.net-page.creation > .creation-actions.under-stage {
+  order: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.9rem 0.15rem 0.45rem;
+  margin: 0;
+}
+.net-page.creation > .creation-actions.under-stage .btn {
+  margin: 0;
+}
+.net-page.creation > .form-note,
+.net-page.creation > .form-error,
+.net-page.creation > .report-form {
+  order: 3;
+}
+.net-page.creation > .creation-head {
+  order: 4;
+}
+.net-page.creation > .prompt-panel,
+.net-page.creation > .prompt-under {
+  order: 5;
+}
+.net-page.creation > .chain,
+.net-page.creation > .chain-empty {
+  order: 6;
+}
+.net-page.creation > .tag-row {
+  order: 7;
+}
+
+.net-page.creation .report-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 28rem;
+  margin: 0.25rem 0 0.85rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(36, 36, 34, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 253, 249, 0.92);
+}
+.net-page.creation .report-form .fine {
+  margin: 0;
+}
+.net-page.creation .report-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--ps-ink, #1c1c1a);
+  font-size: 0.92rem;
+}
+.net-page.creation .report-form select#ps-report-cat,
+.net-page.creation .report-form select {
+  display: block !important;
+  width: auto !important;
+  max-width: 100%;
+  min-width: 12rem;
+  margin: 0 !important;
+  padding: 0.45rem 2rem 0.45rem 0.7rem !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(36, 36, 34, 0.18) !important;
+  background: #fff !important;
+  color: var(--ps-ink, #1c1c1a) !important;
+  font: inherit;
+  line-height: 1.3;
+  appearance: auto;
+  color-scheme: light;
+}
+.net-page.creation .report-form textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 36, 34, 0.18) !important;
+  background: #fff !important;
+  color: var(--ps-ink, #1c1c1a) !important;
+  font: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.net-page.creation .report-form .btn {
+  margin-top: 0.2rem;
+  justify-self: start;
+}

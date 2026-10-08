@@ -1,0 +1,97 @@
+/* PromptShare — account hover Sign out menu */
+.ps-you-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 40;
+}
+
+.ps-you-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 9.5rem;
+  padding: 0.4rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--paper, #f4f1ff) 18%, transparent);
+  background: color-mix(in srgb, var(--void, #14151f) 92%, #1c1e2a);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #7ee7f5 18%, transparent),
+    0 14px 36px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px) scale(0.98);
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease,
+    visibility 0.12s;
+}
+
+.ps-you-wrap.is-open .ps-you-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.ps-you-menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.ps-signout-btn {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--paper, #f4f1ff) 94%, #ffffff);
+  color: #14151f;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 560;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.2;
+}
+
+.ps-signout-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  display: block;
+  object-fit: contain;
+  /* keep black line-art dark on the light chip */
+  filter: none;
+}
+
+.ps-signout-btn:hover,
+.ps-signout-btn:focus-visible {
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #7ee7f5 35%, transparent);
+}
+
+.ps-signout-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+@media (max-width: 719px) {
+  .ps-you-menu {
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -4px) scale(0.98);
+  }
+  .ps-you-wrap.is-open .ps-you-menu {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
