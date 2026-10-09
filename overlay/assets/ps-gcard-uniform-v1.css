@@ -1,0 +1,69 @@
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-normal-500.woff2) format("woff2")}
+/* uniform1 (2026-10-08): Games cards use the exact Images/Videos plate body —
+   chips + thumbs top right, title one line lower on the left, then the prompt.
+   Also: hidden filter sections really hide (the hero grid rule's display:grid
+   !important used to beat [hidden], leaving the Featured cards above "Simple"). */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body .ps-gwrap [hidden],
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body .ps-gwrap .ps-ggrid[hidden],
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body .ps-gwrap h2.ps-gsec[hidden]{display:none !important}
+
+/* Card frame geometry = Images plate (1px border, 0.8rem radius); tints kept. */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard{
+  border-width:1px !important;border-radius:.8rem !important;
+}
+/* Poster name pill retired: the name lives in the card body like Images/Videos. */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-gcard-title-pill{display:none !important}
+
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .body,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .body *{
+  text-rendering:optimizeLegibility !important;font-synthesis:none !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .body{
+  box-sizing:border-box !important;padding:12px 13.6px 14.4px !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;font-size:16.8px;line-height:25.2px;
+}
+/* Row: top right, 30px, same gap as Images */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow{
+  display:flex !important;justify-content:flex-end !important;align-items:center !important;
+  gap:.45rem !important;flex-wrap:nowrap !important;
+  box-sizing:border-box !important;min-height:30px !important;height:30px !important;margin:0 !important;padding:0 !important;
+}
+/* Model chip + difficulty chip: Images model-chip metrics */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow > .model-chip,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow > .diff{
+  display:flex !important;align-items:center !important;justify-content:center !important;box-sizing:border-box !important;
+  height:29.6px !important;min-height:29.6px !important;padding:6.72px 15.2px !important;margin:0 !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;font-size:11.52px !important;line-height:11.52px !important;
+  font-weight:400 !important;letter-spacing:.01em !important;border-radius:999px !important;border-width:1px !important;border-style:solid !important;
+  box-shadow:0 2px 8px rgba(36,36,34,.04) !important;
+}
+/* Thumbs: same plain thumb as Images (no pill) */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow > .ps-thumb-btn,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow > .ps-thumb-btn:hover,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-grow > .ps-thumb-btn.is-on{
+  display:flex !important;align-items:center !important;gap:5.6px !important;box-sizing:border-box !important;
+  height:auto !important;min-height:0 !important;padding:1.6px 2.4px !important;margin:0 !important;
+  background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:999px !important;vertical-align:middle !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;font-size:13.76px !important;font-weight:560 !important;line-height:13.76px !important;
+  color:#242422 !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-thumb-btn .ps-thumb-emoji{
+  display:block !important;font-size:16.8px !important;line-height:16.8px !important;font-weight:560 !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-thumb-btn .ps-thumb-count{
+  display:block !important;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace !important;font-size:12.8px !important;
+  line-height:12.8px !important;font-weight:700 !important;letter-spacing:.02em !important;opacity:.92 !important;text-align:left !important;min-width:.75rem !important;
+}
+/* Title: visible, one line under the row, on the left (Images h3 metrics) */
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .body > h2.ps-gcard-sr-title{
+  position:static !important;width:100% !important;height:auto !important;max-width:100% !important;overflow:visible !important;
+  clip:auto !important;clip-path:none !important;white-space:normal !important;overflow-wrap:anywhere;
+  display:block !important;box-sizing:border-box !important;margin:3.2px 0 0 !important;padding:0 0 8.8px !important;border:0 !important;
+  font-family:Outfit,"Avenir Next","Segoe UI",sans-serif !important;font-size:17.6px !important;line-height:22.88px !important;
+  font-weight:700 !important;letter-spacing:normal !important;color:#242422 !important;text-align:left !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .body > .prompt{
+  box-sizing:border-box !important;margin:7.2px 0 11.2px !important;text-align:start !important;
+}
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-thumb-btn,
+html:is([data-ps-route="games"],[data-ps-route="games-featured"]) body.ps-games-body a.ps-gcard .ps-thumb-btn *{text-rendering:auto !important;box-sizing:border-box !important}

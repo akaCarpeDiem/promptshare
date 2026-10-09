@@ -988,8 +988,19 @@ export async function handleApi(request: Request, store: Store, env: AuthEnv): P
   if (request.method === "GET" && parts[1] === "media" && parts[2]) {
     const file = await store.getMedia(parts[2]);
     if (!file) return json({ error: "Media not found" }, 404);
+    // User uploads (profile photos): only serve known image types, never as a document or script.
+    const SAFE_TYPES: Record<string, string> = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", gif: "image/gif" };
+    const stored = String(file.contentType || "").toLowerCase().split(";")[0].trim();
+    const ext = (parts[2].split(".").pop() || "").toLowerCase();
+    const safeType = Object.values(SAFE_TYPES).includes(stored) ? stored : SAFE_TYPES[ext] || "";
     return new Response(file.bytes, {
-      headers: { "content-type": file.contentType, "cache-control": "public, max-age=31536000, immutable" },
+      headers: {
+        "content-type": safeType || "application/octet-stream",
+        "content-disposition": safeType ? "inline" : "attachment",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'none'; sandbox",
+        "cache-control": "public, max-age=31536000, immutable",
+      },
     });
   }
 

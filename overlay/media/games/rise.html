@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rise</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #12131c; overflow: hidden; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+let w = 640, h = 360, dpr = 1;
+let y = 0.45, vy = 0, scroll = 0, gates = 0, alive = true;
+let walls = [];
+function fit() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  w = canvas.clientWidth || 640;
+  h = canvas.clientHeight || 360;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+}
+addEventListener("resize", fit);
+function seed() {
+  walls = [];
+  for (let i = 0; i < 4; i++) walls.push({ x: 0.4 + i * 0.38, gap: 0.25 + Math.random() * 0.4, passed: false });
+}
+seed();
+function flap() {
+  if (!alive) { alive = true; y = 0.45; vy = 0; scroll = 0; gates = 0; seed(); return; }
+  vy = -0.85;
+}
+canvas.addEventListener("pointerdown", flap);
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.033, (now - last) / 1000);
+  last = now;
+  fit();
+  if (alive) {
+    vy += dt * 1.8;
+    y += vy * dt;
+    scroll += dt * 0.28;
+    walls.forEach((wall) => {
+      wall.x -= dt * 0.28;
+      if (!wall.passed && wall.x < 0.22) { wall.passed = true; gates += 1; }
+      if (wall.x < -0.1) { wall.x += 1.52; wall.gap = 0.22 + Math.random() * 0.45; wall.passed = false; }
+      const hitX = Math.abs(wall.x - 0.22) < 0.04;
+      const inGap = y > wall.gap && y < wall.gap + 0.28;
+      if (hitX && !inGap) alive = false;
+    });
+    if (y < 0.02 || y > 0.98) alive = false;
+  }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#12131c";
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = "#c4a6ff";
+  walls.forEach((wall) => {
+    const x = wall.x * w;
+    const gapY = wall.gap * h;
+    ctx.fillRect(x, 0, 28, gapY);
+    ctx.fillRect(x, gapY + 0.28 * h, 28, h - (gapY + 0.28 * h));
+  });
+  ctx.fillStyle = "#7ee7f5";
+  ctx.beginPath();
+  ctx.arc(0.22 * w, y * h, 10, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = "#f4f1ff";
+  ctx.font = "600 22px Outfit, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText(String(gates), 16, 32);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const CACHE = "promptshare-shell-v97";
+const CACHE = "promptshare-shell-v98";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
