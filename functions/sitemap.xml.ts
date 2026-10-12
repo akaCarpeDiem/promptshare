@@ -105,30 +105,7 @@ export const onRequest = async (context: { request: Request; env: Env }) => {
         if (onlyFun(loc)) entries.push(urlEntry(loc, row.created_at || null));
       }
 
-      const tagRows = await context.env.DB.prepare(
-        `SELECT tags, media_kind FROM creations
-         WHERE hidden = 0 AND visibility = 'public' AND media_kind IN ('image', 'video')`,
-      ).all<{ tags: string; media_kind: string }>();
-      const counts: Record<string, { image: number; video: number }> = {};
-      for (const slug of BROWSE_CATS) counts[slug] = { image: 0, video: 0 };
-      for (const row of tagRows.results || []) {
-        let tags: string[] = [];
-        try { tags = JSON.parse(row.tags || "[]"); } catch { tags = []; }
-        const kind = row.media_kind === "video" ? "video" : "image";
-        for (const raw of tags) {
-          const slug = String(raw || "").trim().toLowerCase();
-          if (!counts[slug]) continue;
-          counts[slug][kind] += 1;
-        }
-      }
-      // One URL per category that has anything in it. The galleries load more as you scroll, so there are no page numbers.
-      for (const slug of BROWSE_CATS) {
-        for (const [kind, base] of [["image", "/images/"], ["video", "/videos/"]] as const) {
-          if (!counts[slug][kind]) continue;
-          const loc = `${ORIGIN}${base}?tag=${encodeURIComponent(slug)}`;
-          if (onlyFun(loc)) entries.push(urlEntry(loc));
-        }
-      }
+      // Category filters (/images/?tag=…) canonicalize to the gallery page, so they stay out of the sitemap.
     } catch {
       // Fall through with static entries only if D1 is unavailable
     }
