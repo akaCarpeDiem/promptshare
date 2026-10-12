@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shape match</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #12131c; overflow: hidden; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: manipulation; cursor: pointer; }
+  </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+const kinds = ["circle", "triangle", "square", "diamond", "circle", "triangle", "square", "diamond"];
+let deck = kinds.map((kind, i) => ({ kind, i, open: false, done: false })).sort(() => Math.random() - 0.5);
+let picks = [];
+let tries = 0;
+let lock = false;
+let w = 640, h = 360, dpr = 1;
+function fit() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  w = canvas.clientWidth || 640;
+  h = canvas.clientHeight || 360;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+}
+addEventListener("resize", fit);
+function drawShape(kind, x, y, s) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.fillStyle = "#7ee7f5";
+  ctx.beginPath();
+  if (kind === "circle") ctx.arc(0, 0, s * 0.28, 0, Math.PI * 2);
+  else if (kind === "square") ctx.rect(-s * 0.22, -s * 0.22, s * 0.44, s * 0.44);
+  else if (kind === "diamond") { ctx.moveTo(0, -s * 0.28); ctx.lineTo(s * 0.24, 0); ctx.lineTo(0, s * 0.28); ctx.lineTo(-s * 0.24, 0); }
+  else { ctx.moveTo(0, -s * 0.26); ctx.lineTo(s * 0.26, s * 0.22); ctx.lineTo(-s * 0.26, s * 0.22); }
+  ctx.fill();
+  ctx.restore();
+}
+function layout() {
+  const cols = 4, rows = 2, gap = 12;
+  const cw = (w - gap * (cols + 1)) / cols;
+  const ch = Math.min(cw * 0.72, (h - 56 - gap * (rows + 1)) / rows);
+  return { cols, rows, gap, cw, ch };
+}
+canvas.addEventListener("pointerdown", (e) => {
+  if (lock) return;
+  const r = canvas.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  const { cols, gap, cw, ch } = layout();
+  const col = Math.floor((x - gap) / (cw + gap));
+  const row = Math.floor((y - 48) / (ch + gap));
+  if (col < 0 || row < 0 || col >= cols || row >= 2) return;
+  const index = row * cols + col;
+  const card = deck[index];
+  if (!card || card.done || card.open) return;
+  card.open = true;
+  picks.push(card);
+  if (picks.length === 2) {
+    tries += 1;
+    lock = true;
+    const [a, b] = picks;
+    setTimeout(() => {
+      if (a.kind === b.kind) { a.done = true; b.done = true; }
+      else { a.open = false; b.open = false; }
+      picks = [];
+      lock = false;
+      draw();
+    }, 550);
+  }
+  draw();
+});
+function draw() {
+  fit();
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#12131c";
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = "#c4a6ff";
+  ctx.font = "600 20px Outfit, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("Tries " + tries, 16, 30);
+  const { cols, gap, cw, ch } = layout();
+  deck.forEach((card, i) => {
+    const x = gap + (i % cols) * (cw + gap);
+    const y = 48 + Math.floor(i / cols) * (ch + gap);
+    ctx.fillStyle = card.done ? "rgba(126,231,245,0.2)" : "#1c1e2c";
+    ctx.strokeStyle = "rgba(196,166,255,0.7)";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(x, y, cw, ch, 12);
+    ctx.fill();
+    ctx.stroke();
+    if (card.open || card.done) drawShape(card.kind, x + cw / 2, y + ch / 2, Math.min(cw, ch));
+  });
+}
+draw();
+addEventListener("resize", draw);
+</script>
+</body>
+</html>

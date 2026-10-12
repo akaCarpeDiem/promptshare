@@ -1,0 +1,71 @@
+<!-- title: Cookies · PromptShare -->
+<!-- description: Cookies and browser storage for PromptShare, including the Google AdSense notice. -->
+<h1>Cookies</h1>
+    <p class="meta">Last updated: October 11, 2026 · Applies to https://promptshare.co/</p>
+
+    <h2>What this page covers</h2>
+    <p>
+      PromptShare is an educational gallery. This page describes the browser storage the site uses, the cookie the games set, the Google Analytics cookies, and the cookies Google AdSense may set when ads are active.
+      The site has no accounts and no sign-in, so there is no login or session cookie.
+    </p>
+
+    <h2>Storage the gallery uses now</h2>
+    <div class="panel">
+      <p style="margin-bottom:0">
+        The gallery keeps display preferences in your browser, not in HTTP cookies. They stay on your device; PromptShare’s servers do not receive them. Clearing site data for this host removes them.
+      </p>
+    </div>
+    <ul>
+      <li><code>ps-theme</code> (localStorage): light or dark mode, saved only if you use the switch in the header. Without it the site follows your device setting.</li>
+      <li><code>ps-density</code> (localStorage): whether gallery cards show prompts or pictures only.</li>
+      <li><code>ps-video-quality</code> (localStorage): 720p or 1080p playback on video plates.</li>
+      <li><code>ps-ctx</code> (sessionStorage): the list you opened a plate from, so the previous and next arrows follow it. It is cleared when you close the tab.</li>
+    </ul>
+
+    <h2>Storage the games use</h2>
+    <ul>
+      <li><code>ps_player_name</code>, <code>ps_player_id</code>, <code>ps_player_token</code> (localStorage): the display name you chose for leaderboards, a random player id, and a secret token that lets this browser rename that player. <code>ps_player_sync</code> (sessionStorage) records when the name was last checked.</li>
+      <li>Some games remember your best score on this device in localStorage (for example <code>ps-moss-best</code>).</li>
+      <li><code>ps_voter</code> (cookie): the one cookie PromptShare itself sets. A game page sets it when it loads its scoreboard. It holds a random id, is HttpOnly and SameSite=Lax, lasts up to 400 days, and lets us recognise scores posted from the same browser. It is not used for advertising.</li>
+    </ul>
+
+    <h2>What the site does not set</h2>
+    <ul>
+      <li>PromptShare does not set a login or session cookie.</li>
+      <li>PromptShare does not set its own advertising cookie. Google may set cookies when AdSense runs, as described below.</li>
+      <li>Hosting (Cloudflare) may keep standard request logs, described in the <a href="/privacy/">Privacy Policy</a>. Those logs are not a cookie you can read in the gallery.</li>
+    </ul>
+
+    <h2>Analytics cookies (Google Analytics 4)</h2>
+    <ul>
+      <li>PromptShare uses Google Analytics 4 (Google LLC) to measure visits and page usage. It sets first-party analytics cookies, <code>_ga</code> and <code>_ga_&lt;ID&gt;</code>, which last up to about 2 years and are used to count visits and measure traffic in aggregate.</li>
+      <li>To opt out, block or clear cookies for promptshare.co in your browser settings, or install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. More detail is in the <a href="/privacy/">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>Advertising cookies (Google AdSense)</h2>
+    <p>
+      PromptShare loads the Google AdSense script with publisher ID <code>ca-pub-4059575347806121</code> for site review. When ads are approved and shown, Google and its partners may use cookies and similar technologies to serve ads, measure how those ads perform, and, where allowed, personalize ads from visits across sites.
+      Ad slots are not placed above a plate image. See also <a href="/ads.txt">ads.txt</a>.
+    </p>
+    <p>
+      You can read Google’s description and manage ad personalization here:
+    </p>
+    <ul>
+      <li><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google’s Advertising policies and technologies</a></li>
+      <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google Ads Settings</a></li>
+      <li><a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">How Google uses cookies</a></li>
+    </ul>
+
+    <h2>How to control storage</h2>
+    <ul>
+      <li>Use your browser’s site settings to clear cookies and site data for promptshare.co. That removes everything listed above. Clearing the player id and token means this browser can no longer rename its leaderboard name; email us if you need a name changed or removed.</li>
+      <li>Private browsing usually drops localStorage when the session ends.</li>
+      <li>If AdSense is later enabled, use <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Ads Settings</a> to control personalized ads, and your browser to block or delete third-party cookies.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about cookies or privacy:
+      <a href="/contact/">Contact page</a>
+      · <!--email_off--><a href="mailto:support@promptshare.co">support@promptshare.co</a><!--/email_off-->
+    </p>

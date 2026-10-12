@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Belt Drift</title>
+<style>
+html,body{margin:0;height:100%;background:#070910;overflow:hidden;color:#eef3ff;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none}
+.pad{position:absolute;bottom:12px;left:12px;right:12px;display:flex;justify-content:space-between;pointer-events:none}
+.pad button{pointer-events:auto;font:inherit;background:#1c2438cc;color:#eef3ff;border:1px solid #9ab6ff66;border-radius:999px;min-width:72px;min-height:44px;font-weight:700}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(4,6,12,.6)}
+.card{background:#121826;border:1px solid #9ab6ff55;border-radius:16px;padding:1.2rem;text-align:center}
+.card button{font:inherit;background:#c9d8ff;color:#101624;border:0;border-radius:999px;padding:.6rem 1rem;font-weight:700;min-height:44px}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0</span><span id="hp">hull 3</span></div>
+<div class="pad"><button id="left" type="button">Left</button><button id="thrust" type="button">Thrust</button><button id="right" type="button">Right</button></div>
+<div id="over"><div class="card"><h1>Hull cracked</h1><p id="os"></p><button id="again" type="button">Drift again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,ship,rocks=[],score=0,hull=3,inv=0,running=false,last=0,spawn=0,time=0,left=false,right=false,thrust=false;
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function reset(){ ship={x:w*0.5,y:h*0.55,a:-Math.PI/2,vx:0,vy:0}; rocks=[]; score=0; hull=3; inv=0; running=true; spawn=0; time=0; document.getElementById("over").style.display="none"; hud(); }
+  function hud(){ document.getElementById("sc").textContent=Math.floor(score); document.getElementById("hp").textContent="hull "+hull; }
+  function wrap(v,max){ if(v<0) return v+max; if(v>max) return v-max; return v; }
+  document.getElementById("left").addEventListener("pointerdown", e=>{e.preventDefault(); left=true;});
+  document.getElementById("right").addEventListener("pointerdown", e=>{e.preventDefault(); right=true;});
+  document.getElementById("thrust").addEventListener("pointerdown", e=>{e.preventDefault(); thrust=true;});
+  addEventListener("pointerup", ()=>{ left=false; right=false; thrust=false; });
+  addEventListener("keydown", e=>{ if(e.code==="ArrowLeft"||e.code==="KeyA") left=true; if(e.code==="ArrowRight"||e.code==="KeyD") right=true; if(e.code==="ArrowUp"||e.code==="KeyW") thrust=true; });
+  addEventListener("keyup", e=>{ if(e.code==="ArrowLeft"||e.code==="KeyA") left=false; if(e.code==="ArrowRight"||e.code==="KeyD") right=false; if(e.code==="ArrowUp"||e.code==="KeyW") thrust=false; });
+  document.getElementById("again").onclick=()=>{ resize(); reset(); };
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running && ship){
+      time+=dt; score+=dt*8;
+      if(left) ship.a-=2.6*dt; if(right) ship.a+=2.6*dt;
+      if(thrust){ ship.vx+=Math.cos(ship.a)*90*dt; ship.vy+=Math.sin(ship.a)*90*dt; }
+      ship.vx*=Math.pow(0.35, dt); ship.vy*=Math.pow(0.35, dt);
+      ship.x=wrap(ship.x+ship.vx*dt, w); ship.y=wrap(ship.y+ship.vy*dt, h);
+      if(inv>0) inv-=dt;
+      spawn-=dt;
+      if(spawn<=0){ spawn=0.85; const edge=Math.random()<0.5; rocks.push({ x: edge? (Math.random()<0.5?-20:w+20): Math.random()*w, y: edge? Math.random()*h: (Math.random()<0.5?-20:h+20), vx:(Math.random()*80-40), vy:(Math.random()*80-40), r:14+Math.random()*16, near:false }); }
+      rocks.forEach(r=>{ r.x=wrap(r.x+r.vx*dt,w); r.y=wrap(r.y+r.vy*dt,h);
+        let dx=r.x-ship.x, dy=r.y-ship.y; if(dx>w/2)dx-=w; if(dx<-w/2)dx+=w; if(dy>h/2)dy-=h; if(dy<-h/2)dy+=h;
+        const dist=Math.hypot(dx,dy);
+        if(dist<r.r+12 && inv<=0){ hull--; inv=1.1; hud(); if(hull<=0){ running=false; document.getElementById("os").textContent="Score "+Math.floor(score); document.getElementById("over").style.display="grid"; psReport("belt-drift", Math.floor(score)); } }
+        else if(dist<r.r+36 && !r.near){ r.near=true; score+=15; hud(); }
+      });
+      if(rocks.length>18) rocks.shift();
+    }
+    g.fillStyle="#070910"; g.fillRect(0,0,w,h);
+    g.fillStyle="#9aa4c4"; for(let i=0;i<40;i++){ g.fillRect((i*97)%w, (i*53)%h, 2,2); }
+    g.fillStyle="#6d6258"; rocks.forEach(r=>{ g.beginPath(); g.arc(r.x,r.y,r.r,0,6.3); g.fill(); });
+    if(ship){ g.save(); g.translate(ship.x,ship.y); g.rotate(ship.a); g.fillStyle=inv>0&&Math.floor(inv*10)%2? "#888":"#e8f2ff"; g.beginPath(); g.moveTo(16,0); g.lineTo(-10,8); g.lineTo(-6,0); g.lineTo(-10,-8); g.closePath(); g.fill(); if(thrust){ g.fillStyle="#ffb15a"; g.fillRect(-14,-3,8,6);} g.restore(); }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

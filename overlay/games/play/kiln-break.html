@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kiln Break</title>
+<style>
+html,body{margin:0;height:100%;background:#1a1210;overflow:hidden;color:#fff4ea;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:10px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(10,6,4,.55)}
+.card{background:#2a1a16;border:1px solid #ffb08866;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#ffb088;color:#2a120c;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:700;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0</span><span id="lv">lives 3</span></div>
+<div id="over"><div class="card"><h1 id="ot">Kiln cold</h1><p id="os"></p><button id="again" type="button">Fire again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,ball,pad,bricks=[],score=0,lives=3,running=false,won=false,wide=0,last=0,launch=false;
+  const colors=["#f2c9a0","#e07a4c","#c4482d"];
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0); if(pad) pad.y=h-36;}
+  function layout(){
+    bricks=[]; const cols=8, rows=4, bw=(w-40)/cols, bh=22;
+    for(let r=0;r<rows;r++) for(let col=0;col<cols;col++){
+      bricks.push({x:20+col*bw+2, y:54+r*(bh+6), w:bw-4, h:bh, hp: r<2?2:1});
+    }
+  }
+  function serve(){
+    pad={x:w/2-48, w:96, y:h-36};
+    ball={x:w/2, y:h-56, vx:160, vy:-220};
+    launch=true; wide=0;
+  }
+  function reset(){ score=0; lives=3; won=false; running=true; document.getElementById("over").style.display="none"; layout(); serve(); hud(); }
+  function hud(){ document.getElementById("sc").textContent=score; document.getElementById("lv").textContent = won?"cleared":"lives "+lives; }
+  function end(title){ running=false; document.getElementById("ot").textContent=title; document.getElementById("os").textContent="Score "+score; document.getElementById("over").style.display="grid"; psReport("kiln-break", score); }
+  function aim(clientX){ const r=c.getBoundingClientRect(); const x=clientX-r.left; pad.x=Math.max(8, Math.min(w-pad.w-8, x-pad.w/2)); if(launch){ ball.x=pad.x+pad.w/2; } }
+  c.addEventListener("pointermove", e=>aim(e.clientX));
+  c.addEventListener("pointerdown", e=>{ aim(e.clientX); launch=false; });
+  document.getElementById("again").onclick=()=>{ resize(); reset(); };
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.02,(ts-last)/1000); last=ts;
+    if(running && !launch && ball){
+      ball.x+=ball.vx*dt; ball.y+=ball.vy*dt;
+      if(ball.x<10||ball.x>w-10) ball.vx*=-1;
+      if(ball.y<10) ball.vy*=-1;
+      if(ball.y>h+20){ lives--; hud(); if(lives<=0) end("Kiln cold"); else serve(); }
+      if(ball.vy>0 && ball.y>pad.y-10 && ball.y<pad.y+16 && ball.x>pad.x && ball.x<pad.x+pad.w){
+        ball.vy=-Math.abs(ball.vy); const hit=(ball.x-(pad.x+pad.w/2))/(pad.w/2); ball.vx=hit*280; ball.y=pad.y-10;
+      }
+      for(const b of bricks){
+        if(b.hp<=0) continue;
+        if(ball.x>b.x && ball.x<b.x+b.w && ball.y>b.y && ball.y<b.y+b.h){
+          b.hp--; ball.vy*=-1; score+=10; hud();
+          if(b.hp===0 && Math.random()<0.12) wide=6;
+          break;
+        }
+      }
+      if(wide>0){ wide-=dt; pad.w=140; } else pad.w=96;
+      if(bricks.every(b=>b.hp<=0)){ score+=100; layout(); serve(); ball.vy=-260; ball.vx=180; launch=false; hud(); }
+    }
+    g.fillStyle="#1a1210"; g.fillRect(0,0,w,h);
+    bricks.forEach(b=>{ if(b.hp<=0) return; g.fillStyle=colors[Math.max(0,b.hp-1)]; g.fillRect(b.x,b.y,b.w,b.h); });
+    if(pad){ g.fillStyle="#e7d3c4"; g.fillRect(pad.x, pad.y, pad.w, 12); }
+    if(ball){ g.fillStyle="#ffe1a8"; g.beginPath(); g.arc(ball.x,ball.y,8,0,6.3); g.fill(); }
+    if(launch && running){ g.fillStyle="#fff4ea"; g.font="14px system-ui"; g.fillText("Move, then tap to launch", 16, h-52); }
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(()=>{ const first=!bricks.length; resize(); if(first){ reset(); running=false; } }).observe(c);
+  reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

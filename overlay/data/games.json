@@ -1,0 +1,673 @@
+[
+ {
+  "slug": "paper-moths",
+  "title": "Paper Moths",
+  "diff": "simple",
+  "label": "Simple",
+  "model": "Grok",
+  "description": "A paper-screen parlor game where pale moths settle on a warm lantern and you tap them before they lift off, with a soft ink-wash background and a forty-second dusk timer.",
+  "prompt": "A paper-screen parlor game where pale moths settle on a warm lantern and you tap them before they lift off, with a soft ink-wash background and a forty-second dusk timer.",
+  "notes": [
+   {
+    "phrase": "paper-screen parlor game",
+    "kind": "setting",
+    "means": "Names the room, so the playfield reads as paper and wood instead of an empty arcade screen."
+   },
+   {
+    "phrase": "pale moths",
+    "kind": "subject",
+    "means": "Sets the targets as light insects, which decides their size, flutter, and how a tap feels."
+   },
+   {
+    "phrase": "warm lantern",
+    "kind": "lighting",
+    "means": "Puts a glow in the middle of the sheet and pulls the palette toward amber."
+   },
+   {
+    "phrase": "tap them before they lift off",
+    "kind": "action",
+    "means": "Makes the round a timing swat instead of a scene you only watch."
+   },
+   {
+    "phrase": "forty-second dusk timer",
+    "kind": "timing",
+    "means": "Ends the round on a clock so the score is a short burst."
+   }
+  ],
+  "poster": "/games/posters/paper-moths.svg",
+  "featured": true
+ },
+ {
+  "slug": "gate-comet",
+  "title": "Gate Comet",
+  "diff": "simple",
+  "label": "Simple",
+  "model": "Grok",
+  "description": "A single comet looping a dark ring, and you tap only while it crosses a glowing gate arc, tightening the window as the orbit speeds up.",
+  "prompt": "A single comet looping a dark ring, and you tap only while it crosses a glowing gate arc, tightening the window as the orbit speeds up.",
+  "notes": [
+   {
+    "phrase": "single comet",
+    "kind": "subject",
+    "means": "One moving mark, so the whole game is about when you press, not what you steer."
+   },
+   {
+    "phrase": "dark ring",
+    "kind": "setting",
+    "means": "Draws the track as a thin orbit instead of a maze or a lane."
+   },
+   {
+    "phrase": "tap only while it crosses",
+    "kind": "constraint",
+    "means": "Rejects early and late presses, which is the entire scoring rule."
+   },
+   {
+    "phrase": "glowing gate arc",
+    "kind": "focus",
+    "means": "Marks the only slice of the circle that counts as a hit."
+   },
+   {
+    "phrase": "orbit speeds up",
+    "kind": "timing",
+    "means": "Makes the same gesture harder as the streak climbs."
+   }
+  ],
+  "poster": "/games/posters/gate-comet.svg",
+  "featured": false
+ },
+ {
+  "slug": "lantern-stack",
+  "title": "Lantern Stack",
+  "diff": "simple",
+  "label": "Simple",
+  "model": "Grok",
+  "description": "Lanterns drop from a swaying line and you click to set each one on the stack below, keeping the overlap or the tower narrows until it tips.",
+  "prompt": "Lanterns drop from a swaying line and you click to set each one on the stack below, keeping the overlap or the tower narrows until it tips.",
+  "notes": [
+   {
+    "phrase": "Lanterns drop",
+    "kind": "subject",
+    "means": "The pieces are lanterns, which sets the color and the stacked silhouette."
+   },
+   {
+    "phrase": "swaying line",
+    "kind": "motion",
+    "means": "The next piece travels back and forth, so timing is the skill."
+   },
+   {
+    "phrase": "click to set each one",
+    "kind": "action",
+    "means": "One press places the piece. There is no second chance to nudge it."
+   },
+   {
+    "phrase": "keeping the overlap",
+    "kind": "constraint",
+    "means": "Only the shared width survives, which is why a miss shrinks the tower."
+   },
+   {
+    "phrase": "tower narrows",
+    "kind": "detail",
+    "means": "Says the failure mode out loud: the stack gets thinner, then it tips."
+   }
+  ],
+  "poster": "/games/posters/lantern-stack.svg",
+  "featured": false
+ },
+ {
+  "slug": "moss-steps",
+  "title": "Moss Steps",
+  "diff": "simple",
+  "label": "Simple",
+  "model": "Grok",
+  "description": "A firefly hops a line of mossy stepping stones over dark water, and you tap to jump only when a stone is under the glow.",
+  "prompt": "A firefly hops a line of mossy stepping stones over dark water, and you tap to jump only when a stone is under the glow, scoring each new stone before the current one slides away.",
+  "notes": [
+   {
+    "phrase": "firefly hops",
+    "kind": "subject",
+    "means": "The player is a small light, so the mark stays readable on dark water."
+   },
+   {
+    "phrase": "mossy stepping stones",
+    "kind": "setting",
+    "means": "Turns the platforms into a pond path instead of floating bricks."
+   },
+   {
+    "phrase": "tap to jump",
+    "kind": "action",
+    "means": "One press is a hop. There is no steering in the air."
+   },
+   {
+    "phrase": "a stone is under the glow",
+    "kind": "constraint",
+    "means": "A hop that lands in the gap ends the run, which is the whole rule."
+   }
+  ],
+  "poster": "/games/posters/moss-steps.svg",
+  "featured": false
+ },
+ {
+  "slug": "wick-line",
+  "title": "Wick Line",
+  "diff": "simple",
+  "label": "Simple",
+  "model": "Grok",
+  "description": "A candle flame travels a horizontal wick, and you tap while it crosses a gold band.",
+  "prompt": "A candle flame travels a horizontal wick, and you tap while it crosses a gold band, with the window tightening until three late cuts put the candle out.",
+  "notes": [
+   {
+    "phrase": "candle flame",
+    "kind": "subject",
+    "means": "The moving mark is a flame, which sets the glow and the failure as the candle going out."
+   },
+   {
+    "phrase": "horizontal wick",
+    "kind": "setting",
+    "means": "The track is one line, so the game is a timing window and nothing else."
+   },
+   {
+    "phrase": "tap while it crosses",
+    "kind": "action",
+    "means": "The press only counts inside the band. Early and late are misses."
+   },
+   {
+    "phrase": "gold band",
+    "kind": "focus",
+    "means": "Paints the only slice of the wick that scores."
+   },
+   {
+    "phrase": "three late cuts",
+    "kind": "constraint",
+    "means": "Three misses end the round, which keeps it short."
+   }
+  ],
+  "poster": "/games/posters/wick-line.svg",
+  "featured": false
+ },
+ {
+  "slug": "roofline-crane",
+  "title": "Roofline Crane",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A paper crane flaps through a night of tiled eaves, gravity pulling between roof gaps, with parallax clouds, a soft flap burst, and a best score that stays on this browser.",
+  "prompt": "A paper crane flaps through a night of tiled eaves, gravity pulling between roof gaps, with parallax clouds, a soft flap burst, and a best score that stays on this browser.",
+  "notes": [
+   {
+    "phrase": "paper crane",
+    "kind": "subject",
+    "means": "Replaces a generic bird with a folded crane, which sets wings, color, and the flap burst."
+   },
+   {
+    "phrase": "tiled eaves",
+    "kind": "setting",
+    "means": "Turns the obstacles into roofs instead of plain pipes."
+   },
+   {
+    "phrase": "gravity pulling",
+    "kind": "motion",
+    "means": "The crane falls unless you flap, which is the core loop."
+   },
+   {
+    "phrase": "roof gaps",
+    "kind": "composition",
+    "means": "The opening between eaves is the only safe line through each obstacle."
+   },
+   {
+    "phrase": "parallax clouds",
+    "kind": "background",
+    "means": "Adds a slower sky layer so the night has depth without new art files."
+   },
+   {
+    "phrase": "best score that stays",
+    "kind": "parameter",
+    "means": "Stores the record in this browser so a later flight has something to beat."
+   }
+  ],
+  "poster": "/games/posters/roofline-crane.svg",
+  "featured": false
+ },
+ {
+  "slug": "upstream-koi",
+  "title": "Upstream Koi",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "An endless side-on koi run upstream: the fish keeps moving, you leap over river stones and duck hanging nets, snatch gold scales, and the current gets faster.",
+  "prompt": "An endless side-on koi run upstream: the fish keeps moving, you leap over river stones and duck hanging nets, snatch gold scales, and the current gets faster.",
+  "notes": [
+   {
+    "phrase": "endless side-on koi run",
+    "kind": "subject",
+    "means": "Locks the camera to a side view and a fish that never stops swimming."
+   },
+   {
+    "phrase": "leap over river stones",
+    "kind": "action",
+    "means": "Low obstacles are jumped, which gives the run a ground lane."
+   },
+   {
+    "phrase": "duck hanging nets",
+    "kind": "action",
+    "means": "High obstacles need a second move, so one button is not enough."
+   },
+   {
+    "phrase": "gold scales",
+    "kind": "prop",
+    "means": "Adds pickups that score without being the thing that ends the run."
+   },
+   {
+    "phrase": "current gets faster",
+    "kind": "timing",
+    "means": "Speed climbs with distance, which is how an endless run gets harder."
+   }
+  ],
+  "poster": "/games/posters/upstream-koi.svg",
+  "featured": false
+ },
+ {
+  "slug": "kiln-break",
+  "title": "Kiln Break",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A kiln breakout: a clay paddle slides under a glowing ball, bricks fire from pale to cracked across two hits, and a wider paddle shard sometimes falls.",
+  "prompt": "A kiln breakout: a clay paddle slides under a glowing ball, bricks fire from pale to cracked across two hits, and a wider paddle shard sometimes falls.",
+  "notes": [
+   {
+    "phrase": "kiln breakout",
+    "kind": "style",
+    "means": "Names the genre and the clay-kiln look in one phrase."
+   },
+   {
+    "phrase": "clay paddle",
+    "kind": "prop",
+    "means": "The bat is a clay slab you slide, not a spaceship cannon."
+   },
+   {
+    "phrase": "glowing ball",
+    "kind": "subject",
+    "means": "The ball is the only moving threat, and the glow makes it readable on dark bricks."
+   },
+   {
+    "phrase": "two hits",
+    "kind": "parameter",
+    "means": "Most bricks take more than one bounce, so color shows remaining hits."
+   },
+   {
+    "phrase": "wider paddle shard",
+    "kind": "detail",
+    "means": "A rare drop changes paddle width, which is the only power-up."
+   }
+  ],
+  "poster": "/games/posters/kiln-break.svg",
+  "featured": false
+ },
+ {
+  "slug": "orchard-serpent",
+  "title": "Orchard Serpent",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A serpent in an orchard grid eats fruit to grow, but every third fruit sprouts a blossom wall from the edge, and a rare moon pear lets the body turn ghost for a few seconds.",
+  "prompt": "A serpent in an orchard grid eats fruit to grow, but every third fruit sprouts a blossom wall from the edge, and a rare moon pear lets the body turn ghost for a few seconds.",
+  "notes": [
+   {
+    "phrase": "orchard grid",
+    "kind": "setting",
+    "means": "A fenced orchard, not an open wrap-around pit."
+   },
+   {
+    "phrase": "eats fruit to grow",
+    "kind": "action",
+    "means": "The classic growth rule, kept so the twist has something to bend."
+   },
+   {
+    "phrase": "every third fruit",
+    "kind": "timing",
+    "means": "Walls arrive on a count, so the player can see the next one coming."
+   },
+   {
+    "phrase": "blossom wall",
+    "kind": "constraint",
+    "means": "New blocks grow inward from the edge and stay as obstacles."
+   },
+   {
+    "phrase": "moon pear",
+    "kind": "prop",
+    "means": "A rare fruit, distinct from the ordinary apple."
+   },
+   {
+    "phrase": "turn ghost",
+    "kind": "detail",
+    "means": "For a few seconds the body can be crossed, which is the twist."
+   }
+  ],
+  "poster": "/games/posters/orchard-serpent.svg",
+  "featured": false
+ },
+ {
+  "slug": "belt-drift",
+  "title": "Belt Drift",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A small skiff in an asteroid belt: rotate and thrust to slip between rocks, score near misses when a stone passes close, three hull hits and the run ends, and the screen wraps.",
+  "prompt": "A small skiff in an asteroid belt: rotate and thrust to slip between rocks, score near misses when a stone passes close, three hull hits and the run ends, and the screen wraps.",
+  "notes": [
+   {
+    "phrase": "asteroid belt",
+    "kind": "setting",
+    "means": "Rocks drift in open space instead of a scrolling lane."
+   },
+   {
+    "phrase": "rotate and thrust",
+    "kind": "action",
+    "means": "You steer by turning and boosting, not by sliding a paddle."
+   },
+   {
+    "phrase": "near misses",
+    "kind": "detail",
+    "means": "Passing close to a rock scores, so dodging is the point rather than shooting."
+   },
+   {
+    "phrase": "three hull hits",
+    "kind": "constraint",
+    "means": "Three contacts end the run. There is no shield meter beyond that."
+   },
+   {
+    "phrase": "screen wraps",
+    "kind": "parameter",
+    "means": "Leaving one edge brings the skiff back on the opposite edge."
+   }
+  ],
+  "poster": "/games/posters/belt-drift.svg",
+  "featured": false
+ },
+ {
+  "slug": "pulse-lanterns",
+  "title": "Pulse Lanterns",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A four-lane rhythm tap where lantern beats fall to a line at a steady 120, with D F J K or a tap on the lane, perfect and good windows, and the combo breaks on a miss.",
+  "prompt": "A four-lane rhythm tap where lantern beats fall to a line at a steady 120, with D F J K or a tap on the lane, perfect and good windows, and the combo breaks on a miss.",
+  "notes": [
+   {
+    "phrase": "four-lane rhythm tap",
+    "kind": "subject",
+    "means": "Four columns of notes, judged on timing, not a free drum pad."
+   },
+   {
+    "phrase": "lantern beats",
+    "kind": "detail",
+    "means": "The notes are lanterns, which sets the color of each falling mark."
+   },
+   {
+    "phrase": "steady 120",
+    "kind": "timing",
+    "means": "A fixed tempo so the chart does not speed-warp under the player."
+   },
+   {
+    "phrase": "perfect and good windows",
+    "kind": "parameter",
+    "means": "Two hit grades, tighter and wider, instead of a single timing bucket."
+   },
+   {
+    "phrase": "combo breaks on a miss",
+    "kind": "constraint",
+    "means": "A miss resets the streak, which is what makes the score swing."
+   }
+  ],
+  "poster": "/games/posters/pulse-lanterns.svg",
+  "featured": false
+ },
+ {
+  "slug": "loom-shuttle",
+  "title": "Loom Shuttle",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A shuttle races three loom lanes, and you shift it up or down to meet the open warp.",
+  "prompt": "A shuttle races three loom lanes, and you shift it up or down to meet the open warp, scoring each row that clears.",
+  "notes": [
+   {
+    "phrase": "shuttle",
+    "kind": "subject",
+    "means": "The player is a loom shuttle, which decides the shape and the sideways motion."
+   },
+   {
+    "phrase": "three loom lanes",
+    "kind": "setting",
+    "means": "Three horizontal bands, so the choice is which row to sit in."
+   },
+   {
+    "phrase": "shift it up or down",
+    "kind": "action",
+    "means": "One axis of movement. The shuttle does not speed itself up."
+   },
+   {
+    "phrase": "open warp",
+    "kind": "constraint",
+    "means": "Each row has one gap. The other two are snags."
+   },
+   {
+    "phrase": "each row that clears",
+    "kind": "timing",
+    "means": "A pass is a point, and the rows arrive faster as the cloth grows."
+   }
+  ],
+  "poster": "/games/posters/loom-shuttle.svg",
+  "featured": false
+ },
+ {
+  "slug": "tide-bell",
+  "title": "Tide Bell",
+  "diff": "mid",
+  "label": "Mid",
+  "model": "Grok",
+  "description": "A listener on a night shore turns to face bells that ring in a circle before each tone fades.",
+  "prompt": "A listener on a night shore turns to face bells that ring in a circle before each tone fades, with three listens.",
+  "notes": [
+   {
+    "phrase": "night shore",
+    "kind": "setting",
+    "means": "Puts the ring of bells over water instead of in a menu of buttons."
+   },
+   {
+    "phrase": "turns to face",
+    "kind": "action",
+    "means": "You rotate a pointer. You do not run between the bells."
+   },
+   {
+    "phrase": "bells that ring in a circle",
+    "kind": "subject",
+    "means": "Six fixed bells, one of them live, so the read is which direction."
+   },
+   {
+    "phrase": "each tone fades",
+    "kind": "timing",
+    "means": "A shrinking arc is the deadline. Miss it and a listen is spent."
+   },
+   {
+    "phrase": "three listens",
+    "kind": "constraint",
+    "means": "Three late facings end the tide."
+   }
+  ],
+  "poster": "/games/posters/tide-bell.svg",
+  "featured": false
+ },
+ {
+  "slug": "pier-watch",
+  "title": "Pier Watch",
+  "diff": "advanced",
+  "label": "Advanced",
+  "model": "Grok",
+  "description": "A pier tower defense: boats follow a fixed water path, you spend coin on lantern towers, slow buoys, and splash bells in marked pads, upgrade once, and hold the dock across eight w",
+  "prompt": "A pier tower defense: boats follow a fixed water path, you spend coin on lantern towers, slow buoys, and splash bells in marked pads, upgrade once, and hold the dock across eight waves of skiffs and barges.",
+  "notes": [
+   {
+    "phrase": "pier tower defense",
+    "kind": "style",
+    "means": "Says the genre and the dock setting together."
+   },
+   {
+    "phrase": "fixed water path",
+    "kind": "setting",
+    "means": "Boats follow one painted route. You do not draw the path."
+   },
+   {
+    "phrase": "lantern towers, slow buoys, and splash bells",
+    "kind": "subject",
+    "means": "Three tower jobs: single-target, slow, and splash."
+   },
+   {
+    "phrase": "marked pads",
+    "kind": "constraint",
+    "means": "Towers only sit on pads, so placement is a choice among slots."
+   },
+   {
+    "phrase": "upgrade once",
+    "kind": "parameter",
+    "means": "Each tower has a single paid upgrade, not an endless tree."
+   },
+   {
+    "phrase": "eight waves of skiffs and barges",
+    "kind": "timing",
+    "means": "Two hulls, eight waves, then the dock is either held or lost."
+   }
+  ],
+  "poster": "/games/posters/pier-watch.svg",
+  "featured": false
+ },
+ {
+  "slug": "courier-of-glass",
+  "title": "Courier of Glass",
+  "diff": "advanced",
+  "label": "Advanced",
+  "model": "Grok",
+  "description": "A top-down courier across three hand-drawn floors of a glass archive: move and dash, dodge patrolling wardens that chase when you are close, find keys for locked doors, and gather ",
+  "prompt": "A top-down courier across three hand-drawn floors of a glass archive: move and dash, dodge patrolling wardens that chase when you are close, find keys for locked doors, and gather three glass shards before a three-minute dusk timer.",
+  "notes": [
+   {
+    "phrase": "three hand-drawn floors",
+    "kind": "setting",
+    "means": "Three authored maps, not a single arena or a random crawl."
+   },
+   {
+    "phrase": "move and dash",
+    "kind": "action",
+    "means": "Walking plus a short burst, with a cooldown so dash is a resource."
+   },
+   {
+    "phrase": "patrolling wardens that chase",
+    "kind": "subject",
+    "means": "Enemies walk a patrol, then chase only when they can see you."
+   },
+   {
+    "phrase": "keys for locked doors",
+    "kind": "prop",
+    "means": "Doors stay shut until a key from the open side is spent."
+   },
+   {
+    "phrase": "three glass shards",
+    "kind": "detail",
+    "means": "The win condition is carrying all three shards, one on each floor."
+   },
+   {
+    "phrase": "three-minute dusk timer",
+    "kind": "timing",
+    "means": "The run ends at three minutes even if you are still inside."
+   }
+  ],
+  "poster": "/games/posters/courier-of-glass.svg",
+  "featured": false
+ },
+ {
+  "slug": "soot-lantern",
+  "title": "Soot Lantern",
+  "diff": "advanced",
+  "label": "Advanced",
+  "model": "Grok",
+  "description": "A lantern bearer crosses a soot-stained room maze before the oil burns out, collecting drops and avoiding closing shutters.",
+  "prompt": "A lantern bearer crosses a soot-stained room maze before the oil burns out, collecting drops that refill the glass, avoiding closing shutters, and reaching the exit stair.",
+  "notes": [
+   {
+    "phrase": "lantern bearer",
+    "kind": "subject",
+    "means": "The player carries a light, so the visible room is a pool around them."
+   },
+   {
+    "phrase": "soot-stained room maze",
+    "kind": "setting",
+    "means": "Authored corridors, not an open field."
+   },
+   {
+    "phrase": "oil burns out",
+    "kind": "timing",
+    "means": "A draining reserve is the clock. Standing still still costs oil."
+   },
+   {
+    "phrase": "drops that refill the glass",
+    "kind": "prop",
+    "means": "Pickups buy time, which is why the route bends toward them."
+   },
+   {
+    "phrase": "closing shutters",
+    "kind": "constraint",
+    "means": "Marked tiles slam shut on a cycle and block or tax the bearer."
+   },
+   {
+    "phrase": "exit stair",
+    "kind": "detail",
+    "means": "The run is won by leaving, not by clearing every room."
+   }
+  ],
+  "poster": "/games/posters/soot-lantern.svg",
+  "featured": false
+ },
+ {
+  "slug": "night-press",
+  "title": "Night Press",
+  "diff": "advanced",
+  "label": "Advanced",
+  "model": "Grok",
+  "description": "A letterpress shows a short word, and you tap falling type blocks in order before they pass the platen.",
+  "prompt": "A letterpress shows a short word, and you tap falling type in order before they pass the platen, with longer words each round.",
+  "notes": [
+   {
+    "phrase": "letterpress",
+    "kind": "style",
+    "means": "Names the machine, so letters are type blocks and the deadline is a platen."
+   },
+   {
+    "phrase": "short word",
+    "kind": "subject",
+    "means": "The target is a word you can hold in your head, not a random string."
+   },
+   {
+    "phrase": "tap falling type",
+    "kind": "action",
+    "means": "You strike the next letter out of a shower of sorts."
+   },
+   {
+    "phrase": "in order",
+    "kind": "constraint",
+    "means": "Only the next character counts. A wrong sort ends the edition."
+   },
+   {
+    "phrase": "pass the platen",
+    "kind": "timing",
+    "means": "Letters that cross the line are missed, which drops the press."
+   },
+   {
+    "phrase": "longer words each round",
+    "kind": "parameter",
+    "means": "INK through PLATEN, so the same gesture gets stricter."
+   }
+  ],
+  "poster": "/games/posters/night-press.svg",
+  "featured": false
+ }
+]

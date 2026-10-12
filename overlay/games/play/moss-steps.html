@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Moss Steps</title>
+<style>
+html,body{margin:0;height:100%;background:#102018;overflow:hidden;color:#f3ffe8;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:manipulation}
+#hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none;text-shadow:0 1px 4px #000}
+#hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;opacity:.8;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(6,12,8,.6)}
+.card{background:#1a2a20;border:1px solid #b7e3a266;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#d5f5b0;color:#142014;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0 stones</span><span id="best"></span></div>
+<div id="hint">Tap to hop when a stone sits under the firefly</div>
+<div id="over"><div class="card"><h1>Into the water</h1><p id="os"></p><button id="again" type="button">Hop again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c = document.getElementById("c"), g = c.getContext("2d");
+  let w=1,h=1,stones=[],score=0,running=false,last=0,flyY=0,vy=0,onStone=true,scroll=90,best=0;
+  try{best=+localStorage.getItem("ps-moss-best")||0;}catch(e){}
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function ground(){return h*0.62;}
+  function addStone(x, got){ stones.push({x, w: 86+Math.random()*28, moss: Math.random(), got: !!got}); }
+  function overlaps(s){ const fx=w*0.28; return fx>s.x+4 && fx<s.x+s.w-4; }
+  function under(){ return stones.find(overlaps); }
+  function reset(){
+    score=0; running=true; onStone=true; vy=0; flyY=0; scroll=92; stones=[]; last=0;
+    addStone(w*0.28-46, true);
+    let x=stones[0].x+stones[0].w+78;
+    for(let i=0;i<8;i++){ addStone(x, false); x += stones[stones.length-1].w + 72+Math.random()*48; }
+    document.getElementById("over").style.display="none";
+    document.getElementById("sc").textContent="0 stones";
+    document.getElementById("best").textContent="best "+best;
+  }
+  function end(){
+    running=false;
+    if(score>best){best=score; try{localStorage.setItem("ps-moss-best", String(best));}catch(e){}}
+    document.getElementById("os").textContent=score+" stones · best "+best;
+    document.getElementById("over").style.display="grid";
+    psReport("moss-steps", score);
+  }
+  function hop(){
+    if(!running) return;
+    if(onStone){ onStone=false; vy=-460; }
+  }
+  c.addEventListener("pointerdown", hop);
+  addEventListener("keydown", e=>{ if(e.code==="Space"){ e.preventDefault(); hop(); }});
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts;
+    const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(!w) resize();
+    if(running){
+      const spd=scroll+score*6;
+      stones.forEach(s=>s.x-=spd*dt);
+      if(stones.length && stones[stones.length-1].x<w+40){
+        const lastS=stones[stones.length-1];
+        addStone(lastS.x+lastS.w+90+Math.random()*80);
+      }
+      stones=stones.filter(s=>s.x+s.w>-40);
+      if(!onStone){
+        vy+=980*dt; flyY+=vy*dt;
+        if(flyY>=0){
+          flyY=0; vy=0;
+          const s=under();
+          if(s){ onStone=true; if(!s.got){ s.got=true; score++; document.getElementById("sc").textContent=score+" stones"; } }
+          else end();
+        }
+      } else if(!under()) end();
+    }
+    const water=g.createLinearGradient(0,0,0,h);
+    water.addColorStop(0,"#16324a"); water.addColorStop(1,"#0c1c16");
+    g.fillStyle=water; g.fillRect(0,0,w,h);
+    g.fillStyle="rgba(180,220,255,.18)";
+    for(let i=0;i<6;i++){ g.fillRect(0, ground()+18+i*16, w, 2); }
+    stones.forEach(s=>{
+      g.fillStyle="#3d4a34"; g.beginPath(); g.ellipse(s.x+s.w/2, ground()+16, s.w/2, 16, 0, 0, 6.3); g.fill();
+      g.fillStyle=s.moss>0.5?"#6ea84a":"#8fbf62"; g.beginPath(); g.ellipse(s.x+s.w/2, ground(), s.w/2, 14, 0, 0, 6.3); g.fill();
+    });
+    const fx=w*0.28, fy=ground()-18+flyY;
+    g.fillStyle="#e8ff9a"; g.beginPath(); g.arc(fx, fy, 7, 0, 6.3); g.fill();
+    g.strokeStyle="rgba(232,255,154,.7)"; g.lineWidth=2;
+    g.beginPath(); g.moveTo(fx-10,fy+2); g.quadraticCurveTo(fx, fy-16, fx+12, fy); g.stroke();
+    g.beginPath(); g.moveTo(fx+10,fy+2); g.quadraticCurveTo(fx, fy-12, fx-8, fy+4); g.stroke();
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

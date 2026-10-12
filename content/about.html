@@ -1,0 +1,83 @@
+<!-- title: About · PromptShare -->
+<!-- description: About PromptShare, an educational gallery of AI-generated outputs shown with the prompts that created them. -->
+<h1>About PromptShare</h1>
+    <p class="meta">Last updated: October 11, 2026 · Applies to https://promptshare.co/</p>
+
+    <h2>What this site is</h2>
+    <p>
+      PromptShare is an educational gallery of AI-generated images, videos, and small browser games.
+      Each plate shows the output together with the prompt that created it, so you can study which words did the work.
+    </p>
+    <div class="panel">
+      <p style="margin-bottom:0">
+        The purpose is study and learning. PromptShare is not a model vendor, not a prompt marketplace, and not a place to generate a new image or video.
+        It is an educational curated gallery of operator-published plates. There are no accounts and no sign-in: everything on the site can be browsed as it is.
+        Public visitor uploads and community publishing are not offered.
+      </p>
+    </div>
+
+    <h2>AI-generated media</h2>
+    <p>
+      The media on this site is AI-generated. A still, clip, or game can be fictional, stylized, or unlike a record of a real event.
+      A plate is a study pair — this file, this prompt — not a news report and not professional advice.
+    </p>
+    <ul>
+      <li>Every plate in the gallery is a PromptShare studio plate: PromptShare wrote the prompt and generated the file with the model named on the plate.</li>
+      <li>The prompt shown is the text that was sent. A pair is left out when the prompt and the file cannot be checked against each other.</li>
+      <li>Notes beside a prompt are PromptShare’s reading of that wording. They are interpretations, not a statement from the model’s maker, and the same phrase can land differently in another prompt or another model.</li>
+    </ul>
+
+    <h2>How plates and categories work</h2>
+    <p>
+      A plate page shows the output first, then the prompt. The phrases that did the work are marked in the colour of the job they do:
+      subject, place, style, light and weather, camera and framing, motion and time, detail, or guardrail (what to leave out).
+      Each mark has a short note, listed in order beside the prompt.
+    </p>
+    <p>
+      The <a href="/words/">Words</a> page collects phrases that recur across the gallery. Pick one to read what it usually changes and to compare every image and video whose prompt uses it.
+    </p>
+    <p>
+      Images and Videos share one category list: Landscapes, International Cities, US Cities, Street, People, Portraits, Cyberpunk, Futuristic, Animals, Fictional Animals, Myths, Comic book art, Anime, Food, Architecture, Space, Fantasy, Vehicles, and Nature.
+      New plates are added by the operator, one prompt at a time.
+    </p>
+    <p>
+      <a href="/games/">Games</a> are small playable browser games, each written by an AI model from a single prompt. The prompt is the spec the game was built from.
+      A game keeps a Top 10; scores are saved under a display name you choose, and no account is needed.
+    </p>
+
+    <h2>Advertising</h2>
+    <p>
+      PromptShare loads the Google AdSense script for site review. When ads are approved, they may appear on the site; they are not placed above a plate image.
+      The <a href="/privacy/">Privacy Policy</a> and <a href="/cookies/">Cookies</a> page describe what that means.
+    </p>
+
+
+    <h2 id="developers">Plate JSON for apps</h2>
+    <p>
+      Curated plates are available as JSON from the existing API. A future native app can reuse the same payload; there is no separate app product on this site.
+    </p>
+    <p>Canonical app fields (also returned on creation objects):</p>
+    <ul>
+      <li><code>id</code> — plate id</li>
+      <li><code>imageURL</code> — media URL (alias of API <code>mediaUrl</code>)</li>
+      <li><code>prompt</code> — final prompt text</li>
+      <li><code>model</code> — model name</li>
+      <li><code>notes</code> — array of step/note objects (<code>id</code>, <code>position</code>, <code>prompt</code>, <code>model</code>, <code>text</code> / <code>note</code>)</li>
+      <li><code>creatorHandle</code> — author handle (from <code>author.handle</code>)</li>
+      <li><code>visibility</code> — <code>public</code> or <code>unlisted</code></li>
+      <li><code>createdAt</code> — ISO-8601 publish time</li>
+    </ul>
+    <p>
+      Endpoints: <code>GET /api/creations/{id}</code>, <code>GET /api/feed</code>. Each creation also includes a nested <code>plate</code> object with the same canonical fields.
+      Current API names (<code>mediaUrl</code>, <code>steps</code>, <code>author</code>, <code>userId</code>, <code>title</code>, <code>tags</code>, <code>mediaKind</code>) remain for existing clients.
+    </p>
+    <p class="meta">Permalink HTML for crawlers stays at <code>/p/{id}</code>.</p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about the gallery, privacy, or these pages:
+    </p>
+    <ul>
+      <li>Email: <!--email_off--><a href="mailto:support@promptshare.co">support@promptshare.co</a><!--/email_off--></li>
+<li><a href="/contact/">Contact page</a></li>
+    </ul>

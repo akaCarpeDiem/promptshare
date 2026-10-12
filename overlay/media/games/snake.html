@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grid snake</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #12131c; overflow: hidden; color: #f4f1ff; font-family: Outfit, sans-serif; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+  </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+const COLS = 22, ROWS = 12;
+let dpr = 1, w = 640, h = 360;
+let snake = [{ x: 6, y: 6 }, { x: 5, y: 6 }, { x: 4, y: 6 }];
+let dir = { x: 1, y: 0 };
+let next = { x: 1, y: 0 };
+let pellet = { x: 12, y: 6 };
+let alive = true;
+let lengthShown = 3;
+let acc = 0;
+function fit() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  w = canvas.clientWidth || 640;
+  h = canvas.clientHeight || 360;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+}
+addEventListener("resize", fit);
+function placePellet() {
+  for (let n = 0; n < 80; n++) {
+    const spot = { x: 1 + Math.floor(Math.random() * (COLS - 2)), y: 1 + Math.floor(Math.random() * (ROWS - 2)) };
+    if (!snake.some((part) => part.x === spot.x && part.y === spot.y)) { pellet = spot; return; }
+  }
+}
+function turn(x, y) {
+  if (alive && x === -dir.x && y === -dir.y) return;
+  next = { x, y };
+}
+addEventListener("keydown", (e) => {
+  const map = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
+  if (!map[e.key]) return;
+  e.preventDefault();
+  turn(map[e.key][0], map[e.key][1]);
+});
+let touchX = 0, touchY = 0;
+canvas.addEventListener("pointerdown", (e) => { touchX = e.clientX; touchY = e.clientY; });
+canvas.addEventListener("pointerup", (e) => {
+  const dx = e.clientX - touchX, dy = e.clientY - touchY;
+  if (Math.hypot(dx, dy) < 12) return;
+  if (Math.abs(dx) > Math.abs(dy)) turn(Math.sign(dx), 0);
+  else turn(0, Math.sign(dy));
+});
+function step() {
+  dir = next;
+  const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+  if (head.x < 0 || head.y < 0 || head.x >= COLS || head.y >= ROWS || snake.some((part) => part.x === head.x && part.y === head.y)) {
+    alive = false;
+    lengthShown = snake.length;
+    return;
+  }
+  snake.unshift(head);
+  if (head.x === pellet.x && head.y === pellet.y) placePellet();
+  else snake.pop();
+  lengthShown = snake.length;
+}
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  fit();
+  if (alive) {
+    acc += dt;
+    if (acc > 0.14) { acc = 0; step(); }
+  }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#12131c";
+  ctx.fillRect(0, 0, w, h);
+  const cell = Math.min((w - 24) / COLS, (h - 24) / ROWS);
+  const ox = (w - cell * COLS) / 2, oy = (h - cell * ROWS) / 2;
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) ctx.strokeRect(ox + x * cell, oy + y * cell, cell, cell);
+  ctx.fillStyle = "#c4a6ff";
+  ctx.fillRect(ox + pellet.x * cell + 3, oy + pellet.y * cell + 3, cell - 6, cell - 6);
+  snake.forEach((part, i) => {
+    ctx.fillStyle = i === 0 ? "#7ee7f5" : "#9fd";
+    ctx.fillRect(ox + part.x * cell + 2, oy + part.y * cell + 2, cell - 4, cell - 4);
+  });
+  if (!alive) {
+    ctx.fillStyle = "rgba(18,19,28,0.72)";
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "#f4f1ff";
+    ctx.textAlign = "center";
+    ctx.font = "600 28px Outfit, sans-serif";
+    ctx.fillText("Length " + lengthShown, w / 2, h / 2);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

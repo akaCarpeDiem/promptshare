@@ -1,0 +1,103 @@
+<!-- title: Privacy Policy · PromptShare -->
+<!-- description: Privacy Policy for PromptShare, an educational gallery of AI outputs paired with their prompts. -->
+<h1>Privacy Policy</h1>
+    <p class="meta">Last updated: October 11, 2026 · Applies to https://promptshare.co/</p>
+
+    <h2>What this site is</h2>
+    <p>
+      PromptShare is an educational curated gallery of AI images, videos, and small browser games, each shown with the prompt that created it.
+      The site has no accounts and no sign-in. Public visitor publishing, uploads, profiles, follows, likes, and saves are not offered.
+      Browsing does not send your words to an image, video, or audio model, and the site does not create a new output for you.
+    </p>
+
+    <h2>Infrastructure (honest stack)</h2>
+    <p>
+      PromptShare runs on Cloudflare Pages. Curated plate records live in Cloudflare D1. Media files (images now; video via R2 and later Cloudflare Stream) live in object storage — not inside the Pages deploy bundle — so the site shell stays small under the Pages size limit.
+      Sign-in endpoints may remain configured for operator maintenance, but the site does not offer sign-in to visitors. A local development server can keep the same records in a file on that machine. That file is not the production database.
+    </p>
+
+    <h2>AI-generated content</h2>
+    <p>
+      Plates on PromptShare show AI-generated media: still images, videos, and small playable games.
+      Each plate is shown with the prompt that belongs to that file. Every plate in the gallery is a PromptShare studio plate: PromptShare wrote the prompt and generated the file with the model named on the plate.
+      An output can be fictional or unlike a record of a real event. It is a study pair, not a statement of fact.
+    </p>
+
+    <h2>Information we collect</h2>
+    <ul>
+      <li><strong>No accounts.</strong> The site does not offer sign-in, so browsing creates no account, profile, or session cookie. If you signed in during an earlier version of the site, we may still hold the email address, display name, handle, and profile details you gave then. Email us to have them deleted (see Deletion requests).</li>
+      <li><strong>Game scores.</strong> Games keep a Top 10. If you play, we store the display name you choose and your scores. Your browser keeps a random player id and a secret token in localStorage so you can rename yourself later; our server keeps only a hash of that token. A game page also sets one first-party cookie, <code>ps_voter</code>, a random id that lets us recognise scores posted from the same browser. To limit abuse we store a salted hash of your IP address that changes every day; we do not store the address itself with your scores. Display names are checked by an automated filter before they are saved, and for that check the name you type is sent to a Cloudflare Workers AI model.</li>
+      <li><strong>Curated plates (operator content).</strong> Gallery media is published by the site operator into Cloudflare R2 (and Stream later for video). Plate metadata (prompt, model, tags, title) lives in D1. Public visitor uploads are disabled.</li>
+      <li><strong>Optional image safety scan.</strong> When Sightengine API credentials are configured on the server, images the operator uploads may be sent to Sightengine to check for nudity/sexual content and minors-related signals before the file is stored. This is an automated, imperfect check — it is not 100% accurate and does not replace reports or human review. If those credentials are not configured, uploads are not sent to Sightengine; text-based prohibited-content checks still run.</li>
+      <li><strong>Reports.</strong> Each plate has a Report link that opens an email to us. We receive what you send, including your email address, so we can review the plate and reply. Follows, likes, and saves are not offered.</li>
+      <li><strong>Technical / server logs.</strong> Hosting (Cloudflare Pages and related edge infrastructure) may automatically receive standard request metadata such as IP address, user agent, timestamps, and requested URLs for security, reliability, and abuse prevention.</li>
+      <li><strong>Browser storage.</strong> The gallery keeps a few display preferences in your browser: light or dark mode if you use the switch, the card style you pick on a gallery page, and your video quality choice. These values stay on your device and are not sent to our servers. Details are on the <a href="/cookies/">Cookies</a> page.</li>
+      <li><strong>Contact.</strong> If you email or message us, we receive whatever you choose to send so we can respond.</li>
+    </ul>
+
+    <h2>Analytics (Google Analytics 4)</h2>
+    <p>
+      PromptShare uses <strong>Google Analytics 4</strong>, a service of Google LLC, to measure visits and how pages are used, such as which pages are viewed,
+      roughly where visits come from, and what kind of device and browser are used. Google Analytics sets cookies
+      (<code>_ga</code> and <code>_ga_&lt;ID&gt;</code>) and collects usage data like the page address, referring page, approximate location,
+      and device information. We use this data only in aggregate to measure traffic and improve the site. We do not send
+      email addresses or game display names to Google Analytics, and we do not use it to identify you personally.
+      Cloudflare’s hosting edge may also keep standard request logs as described above.
+    </p>
+    <p>
+      Google processes this data under its own policies. See
+      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites that use its services</a>
+      and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
+      You can opt out by blocking or clearing cookies in your browser settings or by installing the
+      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.
+    </p>
+
+    <h2>Advertising (Google AdSense)</h2>
+    <div class="panel">
+      <p>
+        The site loads the Google AdSense script with publisher ID <code>ca-pub-4059575347806121</code> for Google’s site review.
+        When ads are approved and shown, Google and its partners may use cookies and similar technologies to serve ads, measure performance, and (where applicable)
+        personalize ads based on your browsing activity across sites. You can learn more and manage ad settings at
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google’s Advertising policies</a>
+        and
+        <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Ads Settings</a>.
+      </p>
+      <p style="margin-bottom:0">
+        Ad slots are not placed above a plate image. See also the <a href="/cookies/">Cookies</a> page and <a href="/ads.txt">ads.txt</a>.
+      </p>
+    </div>
+
+    <h2>Third-party media and hosts</h2>
+    <p>
+      Gallery files are served with this site from Cloudflare. A plate names the model that generated it (for example Grok Imagine or Midjourney); browsing a plate does not contact that model’s maker.
+      Cloudflare, and any site we link to, has its own privacy practices. PromptShare does not control their servers or policies.
+      Google’s ad systems are an additional third party when ads are active, as described above.
+    </p>
+
+    <h2>How we use information</h2>
+    <ul>
+      <li>Operate the curated Images, Videos, and Games gallery</li>
+      <li>Operate and improve the gallery</li>
+      <li>Diagnose outages and abuse</li>
+      <li>Remember display preferences on your device</li>
+      <li>Run game leaderboards and keep them free of abusive names</li>
+      <li>Respond to contact and deletion-request messages</li>
+      <li>Display advertising via Google and partners as described above</li>
+    </ul>
+
+    <h2>Deletion requests</h2>
+    <p>
+      To ask us to delete a leaderboard name or score, or account data from an earlier version of the site, email <!--email_off--><a href="mailto:support@promptshare.co">support@promptshare.co</a><!--/email_off-->.
+      Say what you want removed. For a leaderboard entry, give the game and the display name; for old account data, write from the address that was on the account when possible.
+    </p>
+
+    <h2>Children</h2>
+    <p>This site is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+
+    <h2>Changes</h2>
+    <p>We may update this policy as the gallery, analytics, or advertising setup changes. The “Last updated” date at the top will change when we do.</p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about privacy: <!--email_off--><a href="mailto:support@promptshare.co">support@promptshare.co</a><!--/email_off--> · <a href="/contact/">Contact page</a>
+    </p>

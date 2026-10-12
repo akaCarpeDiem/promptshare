@@ -1,0 +1,702 @@
+[
+ {
+  "t": "blue hour",
+  "role": "light",
+  "means": "The short window after sunset or before sunrise. It usually gives a deep blue sky while city and window lights are already on, so warm and cool tones sit side by side."
+ },
+ {
+  "t": "golden hour",
+  "role": "light",
+  "means": "Low sun shortly after sunrise or before sunset. Expect warm, soft, directional light and long shadows."
+ },
+ {
+  "t": "dusk",
+  "role": "light",
+  "means": "Fading evening light. It darkens the sky and brings out lamps, windows and signs without going fully to night."
+ },
+ {
+  "t": "dawn",
+  "role": "light",
+  "means": "First light of the day. Tends toward cool, pale tones, low contrast and empty, quiet scenes."
+ },
+ {
+  "t": "sunrise",
+  "role": "light",
+  "means": "Puts a low, warm sun at the horizon. Often adds haze, long shadows and a gradient sky."
+ },
+ {
+  "t": "sunset",
+  "role": "light",
+  "means": "A low sun with strong orange and pink in the sky. Subjects in front of it tend to fall into silhouette."
+ },
+ {
+  "t": "night",
+  "role": "light",
+  "means": "Sets the scene after dark, so artificial light does the work: windows, street lamps, signs, the moon."
+ },
+ {
+  "t": "late afternoon",
+  "role": "light",
+  "means": "Warm, slanted light that is softer than midday but brighter than golden hour."
+ },
+ {
+  "t": "midday",
+  "role": "light",
+  "also": [
+   "noon"
+  ],
+  "means": "High, hard sun. Colours are bright, shadows are short and sit directly under things."
+ },
+ {
+  "t": "morning light",
+  "role": "light",
+  "means": "Clean, gentle light with a slightly cool cast. Reads as fresh and calm."
+ },
+ {
+  "t": "last light",
+  "role": "light",
+  "also": [
+   "first light"
+  ],
+  "means": "The thin band of light at the very edge of the day. It usually lands only on the highest parts of the scene."
+ },
+ {
+  "t": "window light",
+  "role": "light",
+  "also": [
+   "soft window light"
+  ],
+  "means": "Light from one side through a window. It shapes faces and objects softly and falls off into shadow on the far side."
+ },
+ {
+  "t": "natural light",
+  "role": "light",
+  "means": "Asks for daylight only, with no visible flash or studio lamps. The look is softer and less staged."
+ },
+ {
+  "t": "soft light",
+  "role": "light",
+  "means": "Diffuse light with gentle shadow edges. Flattering on faces and food, and lower in contrast."
+ },
+ {
+  "t": "warm light",
+  "role": "light",
+  "means": "Pushes the light toward amber. Scenes feel later in the day, lamp-lit or cosy."
+ },
+ {
+  "t": "overcast",
+  "role": "light",
+  "means": "Cloud cover acting as one huge soft light. Shadows nearly disappear and colours stay even."
+ },
+ {
+  "t": "lantern light",
+  "role": "light",
+  "also": [
+   "lamplight",
+   "lanterns",
+   "string lights"
+  ],
+  "means": "Small warm light sources inside the scene. They make pools of glow and leave the rest darker."
+ },
+ {
+  "t": "neon",
+  "role": "light",
+  "means": "Saturated coloured light from signs. It tints nearby surfaces and looks strongest on wet streets at night."
+ },
+ {
+  "t": "glowing",
+  "role": "light",
+  "also": [
+   "glow"
+  ],
+  "means": "Makes something a light source in its own right, with a soft halo around it."
+ },
+ {
+  "t": "bioluminescent",
+  "role": "light",
+  "means": "Living things that give off their own cool blue-green light, usually in an otherwise dark scene."
+ },
+ {
+  "t": "moonlight",
+  "role": "light",
+  "also": [
+   "moonlit"
+  ],
+  "means": "Cool, dim, single-source light. Colours go blue and shadows stay soft but deep."
+ },
+ {
+  "t": "rim light",
+  "role": "light",
+  "also": [
+   "backlight"
+  ],
+  "means": "Light from behind the subject. It draws a bright edge around it and separates it from the background."
+ },
+ {
+  "t": "long shadows",
+  "role": "light",
+  "means": "Implies a low sun and adds strong lines of dark across the ground."
+ },
+ {
+  "t": "sunbeams",
+  "role": "light",
+  "also": [
+   "god rays",
+   "volumetric"
+  ],
+  "means": "Visible shafts of light through haze, dust or trees. They need something in the air to show up."
+ },
+ {
+  "t": "aurora",
+  "role": "light",
+  "means": "Ribbons of green and violet light in a night sky, usually reflected in snow or water below."
+ },
+ {
+  "t": "fog",
+  "role": "light",
+  "means": "Hides distance and lowers contrast. Shapes further away fade out, which adds depth."
+ },
+ {
+  "t": "mist",
+  "role": "light",
+  "means": "A lighter veil than fog. It softens edges and catches light without hiding the scene."
+ },
+ {
+  "t": "haze",
+  "role": "light",
+  "means": "Thin atmosphere that fades far objects and makes light look warmer and softer."
+ },
+ {
+  "t": "rain",
+  "role": "light",
+  "means": "Adds wet, reflective surfaces and streaks in the air. Lights at night double up in puddles."
+ },
+ {
+  "t": "snow",
+  "role": "light",
+  "means": "Brightens the ground, simplifies shapes and bounces light up into shadows.",
+  "notBefore": [
+   "leopard"
+  ]
+ },
+ {
+  "t": "storm",
+  "role": "light",
+  "means": "Dark, heavy cloud and uneven light. Raises drama and contrast."
+ },
+ {
+  "t": "steam",
+  "role": "light",
+  "also": [
+   "rising steam"
+  ],
+  "means": "Soft white vapour that catches light. In food and street scenes it signals heat and freshness.",
+  "notBefore": [
+   "locomotive",
+   "loco"
+  ]
+ },
+ {
+  "t": "smoke",
+  "role": "light",
+  "means": "Drifting grey haze that shows light beams and adds texture to the air."
+ },
+ {
+  "t": "wet pavement",
+  "role": "light",
+  "also": [
+   "wet asphalt"
+  ],
+  "means": "A dark, glossy ground that mirrors lights above it. A common way to get reflections in street scenes."
+ },
+ {
+  "t": "reflections",
+  "role": "light",
+  "means": "Asks for mirrored light on water, glass or wet ground, which adds brightness to the lower half of the frame."
+ },
+ {
+  "t": "heat shimmer",
+  "role": "light",
+  "means": "The wavering air above hot ground. It softens distant detail and reads as desert or road heat."
+ },
+ {
+  "t": "photoreal",
+  "role": "style",
+  "also": [
+   "ultra-realistic"
+  ],
+  "means": "Asks for the result to look like a photograph rather than an illustration: real lens behaviour, real materials, natural light."
+ },
+ {
+  "t": "cinematic",
+  "role": "style",
+  "means": "Borrows the look of a film frame: wide composition, controlled colour, deliberate lighting and some depth."
+ },
+ {
+  "t": "documentary",
+  "role": "style",
+  "means": "Unposed and observational. People are caught mid-action and the lighting looks found, not arranged."
+ },
+ {
+  "t": "candid",
+  "role": "style",
+  "means": "An unposed moment. Subjects are not looking at the camera and expressions are natural."
+ },
+ {
+  "t": "editorial",
+  "role": "style",
+  "also": [
+   "magazine"
+  ],
+  "means": "The polished look of a magazine spread: clean styling, careful light and a clear subject."
+ },
+ {
+  "t": "lifestyle",
+  "role": "style",
+  "means": "Everyday scenes shot to look relaxed and appealing, with warm light and tidy surroundings."
+ },
+ {
+  "t": "street photography",
+  "role": "style",
+  "means": "Public places and passers-by, shot as found. Usually wide enough to show the surroundings."
+ },
+ {
+  "t": "food photography",
+  "role": "style",
+  "means": "Close, appetising framing of a dish with soft side light and shallow focus."
+ },
+ {
+  "t": "wildlife photography",
+  "role": "style",
+  "means": "A long-lens look: the animal sharp, the background blurred, natural behaviour."
+ },
+ {
+  "t": "nature photography",
+  "role": "style",
+  "means": "Landscapes and plants shot realistically, with natural colour and light."
+ },
+ {
+  "t": "architectural photography",
+  "role": "style",
+  "means": "Buildings with straight verticals, clean lines and even light, so the structure itself is the subject."
+ },
+ {
+  "t": "vehicle photography",
+  "role": "style",
+  "means": "The car, train or craft as hero: low viewpoint, clean reflections, uncluttered background."
+ },
+ {
+  "t": "beauty photography",
+  "role": "style",
+  "means": "Close portraits with soft, even light and attention to skin, hair and eyes."
+ },
+ {
+  "t": "still life",
+  "role": "style",
+  "means": "Objects arranged on purpose and lit carefully, with nothing moving."
+ },
+ {
+  "t": "studio",
+  "role": "style",
+  "means": "A controlled indoor setup: plain background, deliberate lights, no stray detail."
+ },
+ {
+  "t": "concept art",
+  "role": "style",
+  "means": "The look of design paintings made for films and games: painterly, atmospheric, built to sell an idea of a place."
+ },
+ {
+  "t": "digital painting",
+  "role": "style",
+  "means": "Visible brushwork and painted light instead of photographic detail."
+ },
+ {
+  "t": "fantasy illustration",
+  "role": "style",
+  "also": [
+   "illustration"
+  ],
+  "means": "A drawn or painted picture, not a photo. Shapes are cleaner and colour is more deliberate."
+ },
+ {
+  "t": "space art",
+  "role": "style",
+  "means": "Painted or rendered views of planets, moons and deep sky, usually with strong scale contrast."
+ },
+ {
+  "t": "anime",
+  "role": "style",
+  "means": "Japanese animation style: clean line work, flat colour areas, expressive eyes and simplified shading."
+ },
+ {
+  "t": "cel shading",
+  "role": "style",
+  "also": [
+   "soft cel shading",
+   "flat cel colors"
+  ],
+  "means": "Colour in flat steps with hard edges between light and shadow, as in hand-painted animation frames."
+ },
+ {
+  "t": "comic book",
+  "role": "style",
+  "also": [
+   "comic",
+   "splash panel"
+  ],
+  "means": "Printed comic style: inked outlines, bold flat colour and dynamic poses."
+ },
+ {
+  "t": "halftone",
+  "role": "style",
+  "also": [
+   "ben-day"
+  ],
+  "means": "The dot pattern of old colour printing. It makes an image read as a printed comic page."
+ },
+ {
+  "t": "ink outlines",
+  "role": "style",
+  "also": [
+   "bold ink",
+   "thick ink outlines",
+   "bold black outlines"
+  ],
+  "means": "Heavy black contour lines around shapes, which flatten the image and make it graphic."
+ },
+ {
+  "t": "sci-fi",
+  "role": "style",
+  "means": "Science-fiction design language: advanced machines, clean or industrial surfaces, artificial light."
+ },
+ {
+  "t": "cyberpunk",
+  "role": "style",
+  "means": "Dense future city at night: neon, rain, cables and screens, with high contrast between glow and shadow."
+ },
+ {
+  "t": "noir",
+  "role": "style",
+  "means": "Dark, high-contrast and moody, with hard shadows and little colour."
+ },
+ {
+  "t": "vintage",
+  "role": "style",
+  "means": "An older photographic look: faded colour, softer detail, period objects."
+ },
+ {
+  "t": "painterly",
+  "role": "style",
+  "means": "Soft edges and visible strokes, as if made with a brush."
+ },
+ {
+  "t": "pastel",
+  "role": "style",
+  "means": "Pale, low-saturation colours. The mood turns gentle and light."
+ },
+ {
+  "t": "black and white",
+  "role": "style",
+  "means": "Removes colour so shape, light and texture carry the picture."
+ },
+ {
+  "t": "high contrast",
+  "role": "style",
+  "means": "Deep blacks and bright highlights with little in between. Punchier and more dramatic."
+ },
+ {
+  "t": "dramatic",
+  "role": "style",
+  "means": "Stronger light and shadow, bigger skies, more tension. A general push away from a flat, neutral look."
+ },
+ {
+  "t": "epic",
+  "role": "style",
+  "means": "Pushes scale: vast spaces, tiny figures, towering forms."
+ },
+ {
+  "t": "quiet",
+  "role": "style",
+  "means": "Calms the scene: fewer people, stiller air, softer light."
+ },
+ {
+  "t": "wide",
+  "role": "camera",
+  "also": [
+   "wide shot",
+   "wide angle"
+  ],
+  "means": "Pulls the camera back to show the whole scene. The subject gets smaller and the setting matters more.",
+  "notBefore": [
+   "constellation",
+   "city street",
+   "river",
+   "bay",
+   "sky",
+   "shallow",
+   "desert"
+  ]
+ },
+ {
+  "t": "expansive",
+  "role": "camera",
+  "means": "An even broader view than wide, emphasising how far the scene stretches."
+ },
+ {
+  "t": "panorama",
+  "role": "camera",
+  "means": "A very wide, level view across a landscape or city, often from a distance."
+ },
+ {
+  "t": "aerial",
+  "role": "camera",
+  "also": [
+   "drone view",
+   "drone panorama",
+   "drone-like"
+  ],
+  "means": "Looks down from the air. Patterns and layout show up; individual people do not."
+ },
+ {
+  "t": "overhead",
+  "role": "camera",
+  "also": [
+   "top-down"
+  ],
+  "means": "Camera pointing straight down. Common for food and tabletop scenes.",
+  "notBefore": [
+   "light",
+   "fluorescent",
+   "lamps"
+  ],
+  "notAfter": [
+   "lights"
+  ]
+ },
+ {
+  "t": "elevated",
+  "role": "camera",
+  "means": "A raised viewpoint, such as a rooftop or hillside, looking across the scene instead of up at it.",
+  "notBefore": [
+   "desert",
+   "monorail",
+   "highway",
+   "metro",
+   "track"
+  ]
+ },
+ {
+  "t": "street level",
+  "role": "camera",
+  "means": "Camera at standing height on the ground, inside the scene."
+ },
+ {
+  "t": "low angle",
+  "role": "camera",
+  "means": "Camera near the ground looking up. Subjects look taller and more powerful."
+ },
+ {
+  "t": "close-up",
+  "role": "camera",
+  "means": "Fills the frame with the subject and drops most of the background."
+ },
+ {
+  "t": "macro",
+  "role": "camera",
+  "means": "Extreme close range on something small, with a very thin slice in focus."
+ },
+ {
+  "t": "portrait",
+  "role": "camera",
+  "means": "Frames one person or animal as the subject, usually head and shoulders with a soft background."
+ },
+ {
+  "t": "shallow depth of field",
+  "role": "camera",
+  "also": [
+   "depth of field"
+  ],
+  "means": "Only a thin slice is sharp. The background melts away and attention goes to the subject."
+ },
+ {
+  "t": "bokeh",
+  "role": "camera",
+  "means": "Out-of-focus lights turned into soft discs behind the subject."
+ },
+ {
+  "t": "motion blur",
+  "role": "camera",
+  "means": "Streaks on moving things. It shows speed while still parts stay sharp."
+ },
+ {
+  "t": "light trails",
+  "role": "camera",
+  "means": "Moving lights drawn out into lines, as in a long exposure of traffic at night."
+ },
+ {
+  "t": "long exposure",
+  "role": "camera",
+  "means": "A slow shutter. Anything that moves, water, clouds, traffic, stars, smooths into soft streaks while still things stay sharp."
+ },
+ {
+  "t": "silhouette",
+  "role": "camera",
+  "means": "The subject as a dark shape against a brighter background. Outline matters; inner detail goes."
+ },
+ {
+  "t": "foreground",
+  "role": "camera",
+  "means": "Puts something close to the lens, which adds depth in front of the main subject."
+ },
+ {
+  "t": "distant",
+  "role": "camera",
+  "means": "Keeps something small and far away. Often used to stop people or landmarks taking over the frame."
+ },
+ {
+  "t": "skyline",
+  "role": "setting",
+  "also": [
+   "cityscape"
+  ],
+  "means": "The outline of a city's buildings seen from outside it. Sets the view far enough back to read the whole shape."
+ },
+ {
+  "t": "downtown",
+  "role": "setting",
+  "means": "The dense centre of a city: tall buildings, lit windows, busy streets."
+ },
+ {
+  "t": "waterfront",
+  "role": "setting",
+  "also": [
+   "riverfront",
+   "harbor"
+  ],
+  "means": "A city or town edge on water, which brings reflections and an open foreground."
+ },
+ {
+  "t": "gentle camera drift",
+  "role": "motion",
+  "also": [
+   "camera drift"
+  ],
+  "means": "A slow, smooth glide of the camera. Enough movement to feel alive without pans, zooms or shake."
+ },
+ {
+  "t": "steady camera",
+  "role": "motion",
+  "also": [
+   "static camera"
+  ],
+  "means": "Holds the camera still so only things inside the scene move."
+ },
+ {
+  "t": "slow push-in",
+  "role": "motion",
+  "also": [
+   "push-in",
+   "push in",
+   "slow push"
+  ],
+  "means": "The camera moves slowly toward the subject, tightening attention on it."
+ },
+ {
+  "t": "slow orbit",
+  "role": "motion",
+  "means": "The camera circles the subject, showing it from changing sides. It works best on one object with open space round it.",
+  "also": [
+   "orbit around"
+  ]
+ },
+ {
+  "t": "slowly",
+  "role": "motion",
+  "means": "Tells the model to keep motion unhurried. Fast movement is where video models most often break."
+ },
+ {
+  "t": "ripple",
+  "role": "motion",
+  "also": [
+   "ripples"
+  ],
+  "means": "Small repeating movement on water or cloth. An easy, believable motion for a short clip."
+ },
+ {
+  "t": "flicker",
+  "role": "motion",
+  "means": "Light that wavers in brightness: lanterns, neon, screens. It gives a still scene a small, constant change, which helps a clip read as video.",
+  "also": [
+   "flickers",
+   "flickering"
+  ]
+ },
+ {
+  "t": "drift",
+  "role": "motion",
+  "means": "Slow, floating movement. Of the camera, a smooth glide in one direction. Of things in the scene, fog, steam or clouds moving gently. Either way it adds life without changing the layout.",
+  "also": [
+   "drifts",
+   "drifting"
+  ]
+ },
+ {
+  "t": "sway",
+  "role": "motion",
+  "means": "A slow side-to-side movement of something hanging or rooted, such as lanterns, grass or branches. A gentle motion that video models tend to keep stable.",
+  "also": [
+   "sways",
+   "swaying"
+  ]
+ },
+ {
+  "t": "no text",
+  "role": "guard",
+  "also": [
+   "no logos",
+   "no speech bubbles",
+   "speech-free"
+  ],
+  "means": "Asks the model to leave out lettering, which it often renders as gibberish."
+ },
+ {
+  "t": "no watermark",
+  "role": "guard",
+  "means": "Asks for a clean frame with no stamp or signature in the corners."
+ },
+ {
+  "t": "no readable faces",
+  "role": "guard",
+  "means": "Keeps people small, turned away or soft, so nobody is identifiable."
+ },
+ {
+  "t": "no people",
+  "role": "guard",
+  "means": "Empties the scene of figures, so the place itself is the subject."
+ },
+ {
+  "t": "adults only",
+  "role": "guard",
+  "also": [
+   "no minors"
+  ],
+  "means": "States that everyone shown is an adult."
+ },
+ {
+  "t": "not street level",
+  "role": "guard",
+  "also": [
+   "not a skyline"
+  ],
+  "means": "Rules out one viewpoint, which pushes the model toward the other one named in the prompt."
+ },
+ {
+  "t": "original",
+  "role": "guard",
+  "also": [
+   "invented",
+   "original character design"
+  ],
+  "means": "Asks for a new design instead of an existing character or brand."
+ }
+]

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Courier of Glass</title>
+<style>
+html,body{margin:0;height:100%;background:#0c1020;color:#f4f1ff;font-family:system-ui,sans-serif;overflow:hidden}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:8px;left:10px;right:10px;display:flex;gap:10px;align-items:center;font-weight:700;pointer-events:none;text-shadow:0 1px 4px #000;font-size:14px}
+#msg{position:absolute;top:36px;left:10px;right:10px;pointer-events:none;color:#b7ecff}
+#dash{position:absolute;right:12px;bottom:88px;z-index:6;font:inherit;background:#c4a6ff;color:#1a1030;border:0;border-radius:999px;min-height:48px;min-width:84px;font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.28)}
+#start,#over{position:absolute;inset:0;display:grid;place-items:center;background:rgba(6,8,16,.72)}
+.card{background:#16182a;border:1px solid #c4a6ff66;border-radius:18px;padding:1.2rem 1.3rem;max-width:22rem;text-align:center}
+button{font:inherit;background:#d7c6ff;color:#1a1030;border:0;border-radius:999px;padding:.6rem 1rem;font-weight:800;min-height:44px;cursor:pointer}
+.card p{color:#c8c3d8}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="hearts"></span><span id="shards"></span><span id="keys"></span><span id="clock"></span><span id="floor"></span></div>
+<div id="msg"></div>
+<button id="dash" type="button">Dash</button>
+<div id="start"><div class="card"><h1>Courier of Glass</h1><p>Carry three shards out of the archive before dusk. WASD or the left-side stick to move. Shift, Space, or Dash to burst. Keys open doors. The violet button drops glass gates.</p><button id="begin" type="button">Begin the run</button></div></div>
+<div id="over" style="display:none"><div class="card"><h1 id="ot"></h1><p id="os"></p><button id="again" type="button">Run again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+const MAPS = [['############################', '#...............#..........#', '#.P.....E.......#..........#', '#..######.......#..........#', '#..#....#.......#..........#', '#..#.S..#.......#..........#', '#..#....#.......D..........#', '#..###.##.......#..........#', '#...............#..........#', '#...............#..........#', '#...K...........#..........#', '#.....E.........#..........#', '#...............#..........#', '#...............#.......>..#', '#...............#..........#', '############################'], ['############################', '#..........................#', '#.>......................<.#', '#..######.......########...#', '#..#....#.E.....#......#...#', '#..#.B..#.......#......#...#', '#..#....#.......G..S...#...#', '#..##.###.......#......#...#', '#...........G...#......#...#', '#...............########...#', '#.............#............#', '#.......K.....#............#', '#.............D.....W......#', '#.............#............#', '#.............#............#', '############################'], ['############################', '#..........................#', '#.>........................#', '#...######.E...............#', '#...#....#....########.....#', '#...#.S..#....#......#.....#', '#...#....#.K..#......#.....#', '#...#....#....#......#.....#', '#...###.##....D..X...#.....#', '#.............#......#.....#', '#.............#......#..E..#', '#.............########.....#', '#.....W....................#', '#..........................#', '#..........................#', '############################']];
+(() => {
+  const c = document.getElementById("c"), g = c.getContext("2d");
+  const keysDown = {};
+  let w=1,h=1,floor=0,grid,px,py,face=0,hp,inv,shards,keyN,timeLeft,enemies,running=false,won=false,dead=false,last=0,dashT=0,dashCd=0,msg="",msgT=0,gates,arrive=0,paused=false;
+  let joy=null, jx=0, jy=0;
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function solidAt(x,y,forPlayer){
+    if(y<0||x<0||y>=grid.length||x>=grid[0].length) return true;
+    const ch=grid[y][x];
+    if(ch==="#") return true;
+    if(ch==="D") return true;
+    if(ch==="G" && !gates[floor]) return true;
+    return false;
+  }
+  function blocked(ent,forPlayer){
+    const r=0.28;
+    for (const [ox,oy] of [[-r,-r],[r,-r],[-r,r],[r,r]]){
+      if(solidAt(Math.floor(ent.x+ox), Math.floor(ent.y+oy), forPlayer)) return true;
+    }
+    return false;
+  }
+  function move(ent, dx, dy, forPlayer){
+    ent.x += dx; if(blocked(ent, forPlayer)) ent.x -= dx;
+    ent.y += dy; if(blocked(ent, forPlayer)) ent.y -= dy;
+  }
+  function tryDoor(nx, ny){
+    if(ny<0||nx<0||ny>=grid.length||nx>=grid[0].length) return;
+    if(grid[ny][nx]==="D" && keyN>0){ keyN--; grid[ny][nx]="."; say("Door unlocked"); }
+  }
+  function loadFloor(i, atChar){
+    floor=i; grid=MAPS[i].map(r=>r.split(""));
+    enemies=[];
+    let placed=false;
+    for(let y=0;y<grid.length;y++) for(let x=0;x<grid[0].length;x++){
+      const ch=grid[y][x];
+      if(ch==="E"||ch==="W"){ enemies.push({x:x+0.5,y:y+0.5,kind:ch,tx:x+0.5,ty:y+0.5,wait:0.4}); grid[y][x]="."; }
+      if(ch==="P"){ if(!atChar){ px=x+0.5; py=y+0.5; placed=true; } grid[y][x]="."; }
+      if(atChar && ch===atChar && !placed){ px=x+0.5; py=y+0.5; placed=true; }
+    }
+    arrive=0.45;
+  }
+  function reset(){
+    hp=5; inv=0; shards=0; keyN=0; timeLeft=180; gates=[false,false,false]; dashT=0; dashCd=0; won=false; dead=false; running=true; paused=false; msg=""; 
+    loadFloor(0, null);
+    document.getElementById("over").style.display="none";
+    document.getElementById("start").style.display="none";
+    hud();
+  }
+  function hud(){
+    document.getElementById("hearts").textContent = "♥".repeat(Math.max(0,hp)) + "♡".repeat(Math.max(0,5-hp));
+    document.getElementById("shards").textContent = "shards "+shards+"/3";
+    document.getElementById("keys").textContent = "keys "+keyN;
+    const t=Math.max(0,Math.ceil(timeLeft));
+    document.getElementById("clock").textContent = String(Math.floor(t/60)).padStart(1,"0")+":"+String(t%60).padStart(2,"0");
+    document.getElementById("floor").textContent = "floor "+(floor+1)+"/3";
+  }
+  function say(s){ msg=s; msgT=2.2; }
+  function finish(title, body){ running=false; var pts=shards*1000+Math.max(0,Math.floor(timeLeft))+hp*10; document.getElementById("ot").textContent=title; document.getElementById("os").textContent=body+" Score "+pts+"."; document.getElementById("over").style.display="grid"; psReport("courier-of-glass", pts); }
+  function los(x0,y0,x1,y1){
+    const steps=10; 
+    for(let i=1;i<=steps;i++){
+      const x=x0+(x1-x0)*i/steps, y=y0+(y1-y0)*i/steps;
+      const ch=grid[Math.floor(y)] && grid[Math.floor(y)][Math.floor(x)];
+      if(ch==="#"||ch==="D"||(ch==="G"&&!gates[floor])) return false;
+    }
+    return true;
+  }
+  function tileCenter(tx,ty){ return {x:tx+0.5,y:ty+0.5}; }
+  function interact(){
+    const x=Math.floor(px), y=Math.floor(py);
+    if(!grid[y] || grid[y][x]===undefined) return;
+    const here=grid[y][x];
+    if(here==="K"){ grid[y][x]="."; keyN++; say("Key taken"); }
+    else if(here==="S"){ grid[y][x]="."; shards++; say("Glass shard "+shards+"/3"); }
+    else if(here==="B"){ gates[floor]=true; grid[y][x]="."; say("Gates dropped"); }
+    else if(here===">" && floor<2 && arrive<=0){ loadFloor(floor+1, ">"); say("Up a floor"); }
+    else if(here==="<" && floor>0 && arrive<=0){ loadFloor(floor-1, "<"); say("Down a floor"); }
+    else if(here==="X"){ if(shards>=3) finish("Archive clear", "You carried every shard out before dusk."); else say("The exit stays dark without all three shards"); }
+  }
+  addEventListener("keydown", e=>{ keysDown[e.code]=true; if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.code)) e.preventDefault(); if(e.code==="Escape" && running) paused=!paused; if(e.code==="ShiftLeft"||e.code==="ShiftRight"||e.code==="Space") startDash(); });
+  addEventListener("keyup", e=>{ keysDown[e.code]=false; });
+  function startDash(){ if(running && dashCd<=0 && dashT<=0){ dashT=0.14; dashCd=0.75; inv=Math.max(inv,0.14);} }
+  document.getElementById("dash").onclick=startDash;
+  document.getElementById("begin").onclick=()=>{ resize(); reset(); };
+  document.getElementById("again").onclick=()=>{ resize(); reset(); };
+  c.addEventListener("pointerdown", e=>{
+    const r=c.getBoundingClientRect(); const x=e.clientX-r.left, y=e.clientY-r.top;
+    if(x < w*0.62){ joy={id:e.pointerId, x, y}; jx=0; jy=0; c.setPointerCapture(e.pointerId); }
+  });
+  c.addEventListener("pointermove", e=>{
+    if(!joy || e.pointerId!==joy.id) return;
+    const r=c.getBoundingClientRect();
+    let dx=e.clientX-r.left-joy.x, dy=e.clientY-r.top-joy.y;
+    const m=Math.hypot(dx,dy)||1; const k=Math.min(1, m/48); jx=dx/m*k; jy=dy/m*k;
+  });
+  function endJoy(e){ if(joy && e.pointerId===joy.id){ joy=null; jx=0; jy=0; } }
+  c.addEventListener("pointerup", endJoy); c.addEventListener("pointercancel", endJoy);
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    if(running && !paused && grid){
+      timeLeft-=dt; if(timeLeft<=0){ finish("Dusk", "The glass went dark. Shards carried: "+shards+"/3."); }
+      if(inv>0) inv-=dt; if(dashT>0) dashT-=dt; if(dashCd>0) dashCd-=dt; if(arrive>0) arrive-=dt; if(msgT>0) msgT-=dt;
+      let ix=0, iy=0;
+      if(keysDown.ArrowLeft||keysDown.KeyA) ix-=1;
+      if(keysDown.ArrowRight||keysDown.KeyD) ix+=1;
+      if(keysDown.ArrowUp||keysDown.KeyW) iy-=1;
+      if(keysDown.ArrowDown||keysDown.KeyS) iy+=1;
+      ix+=jx; iy+=jy;
+      const mag=Math.hypot(ix,iy);
+      if(mag>0){ ix/=mag; iy/=mag; face=Math.atan2(iy,ix); }
+      const speed=(dashT>0?7.2:3.15);
+      const ent={x:px,y:py};
+      const nx=px+ix*speed*dt, ny=py+iy*speed*dt;
+      // open a door we are walking into
+      tryDoor(Math.floor(nx+ix*0.3), Math.floor(py));
+      tryDoor(Math.floor(px), Math.floor(ny+iy*0.3));
+      move(ent, ix*speed*dt, iy*speed*dt, true);
+      px=ent.x; py=ent.y;
+      interact();
+      enemies.forEach(e=>{
+        const dx=px-e.x, dy=py-e.y, dist=Math.hypot(dx,dy);
+        const aggro=e.kind==="W"?6.2:4.0;
+        let tx=e.tx, ty=e.ty, sp=e.kind==="W"?1.55:1.15;
+        if(dist<aggro && los(e.x,e.y,px,py)){ tx=px; ty=py; sp=e.kind==="W"?2.35:1.85; }
+        else {
+          e.wait-=dt;
+          if(e.wait<=0 || Math.hypot(e.tx-e.x, e.ty-e.y)<0.2){
+            e.wait=0.8+Math.random()*1.2;
+            for(let n=0;n<8;n++){
+              const rx=Math.floor(e.x)+(Math.floor(Math.random()*7)-3), ry=Math.floor(e.y)+(Math.floor(Math.random()*7)-3);
+              if(grid[ry] && grid[ry][rx]==="."){ e.tx=rx+0.5; e.ty=ry+0.5; break; }
+            }
+            tx=e.tx; ty=e.ty;
+          }
+        }
+        const mx=tx-e.x, my=ty-e.y, md=Math.hypot(mx,my)||1;
+        const ee={x:e.x,y:e.y};
+        move(ee, mx/md*sp*dt, my/md*sp*dt, false);
+        e.x=ee.x; e.y=ee.y;
+        if(dist<0.55 && inv<=0 && dashT<=0){ hp--; inv=0.9; hud(); if(hp<=0) finish("Caught", "A warden stopped the courier. Shards: "+shards+"/3."); }
+      });
+      hud();
+    }
+    draw();
+    requestAnimationFrame(frame);
+  }
+  function draw(){
+    g.fillStyle="#0c1020"; g.fillRect(0,0,w,h);
+    if(!grid) return;
+    const ts=Math.min(42, Math.floor(Math.min(w,h)/12));
+    const camX=px*ts - w/2, camY=py*ts - h/2;
+    for(let y=0;y<grid.length;y++) for(let x=0;x<grid[0].length;x++){
+      const sx=x*ts-camX, sy=y*ts-camY;
+      if(sx<-ts||sy<-ts||sx>w||sy>h) continue;
+      const ch=grid[y][x];
+      g.fillStyle = (x+y)%2 ? "#171b30" : "#14182a";
+      if(ch==="#") g.fillStyle="#2a3158";
+      if(ch==="D") g.fillStyle="#6a4a28";
+      if(ch==="G") g.fillStyle = gates[floor] ? "#1c2438" : "#7d6cff";
+      g.fillRect(sx,sy,ts-1,ts-1);
+      if(ch==="K"){ g.fillStyle="#f2c14e"; g.fillRect(sx+ts*0.3, sy+ts*0.25, ts*0.4, ts*0.2); g.fillRect(sx+ts*0.55, sy+ts*0.35, ts*0.12, ts*0.28); }
+      if(ch==="S"){ g.fillStyle="#7ee7f5"; g.beginPath(); g.moveTo(sx+ts/2, sy+6); g.lineTo(sx+ts-6, sy+ts-8); g.lineTo(sx+6, sy+ts-8); g.fill(); }
+      if(ch==="B"){ g.fillStyle="#c4a6ff"; g.beginPath(); g.arc(sx+ts/2, sy+ts/2, ts*0.22, 0, 6.3); g.fill(); }
+      if(ch===">"||ch==="<"){ g.fillStyle="#9ad7ff"; g.fillRect(sx+6, sy+ts/2-3, ts-12, 6); }
+      if(ch==="X"){ g.strokeStyle = shards>=3 ? "#b6ffb0" : "#888"; g.lineWidth=2; g.strokeRect(sx+6, sy+6, ts-12, ts-12); }
+    }
+    enemies.forEach(e=>{
+      const sx=e.x*ts-camX, sy=e.y*ts-camY;
+      g.fillStyle = e.kind==="W" ? "#ff6b7a" : "#ffb15a";
+      g.beginPath(); g.arc(sx, sy, e.kind==="W"?11:8, 0, 6.3); g.fill();
+    });
+    const psx=px*ts-camX, psy=py*ts-camY;
+    g.fillStyle = inv>0 && Math.floor(inv*12)%2 ? "#888" : "#f4f1ff";
+    g.beginPath(); g.arc(psx, psy, 9, 0, 6.3); g.fill();
+    g.strokeStyle="#7ee7f5"; g.beginPath(); g.moveTo(psx, psy); g.lineTo(psx+Math.cos(face)*14, psy+Math.sin(face)*14); g.stroke();
+    // minimap
+    const mm=4; const mx0=w-grid[0].length*mm-10, my0=h-grid.length*mm-10;
+    for(let y=0;y<grid.length;y++) for(let x=0;x<grid[0].length;x++){
+      const ch=grid[y][x];
+      g.fillStyle = ch==="#"? "#445" : "#223";
+      if(ch==="S"||ch==="X"||ch==="K") g.fillStyle="#7ee7f5";
+      g.fillRect(mx0+x*mm, my0+y*mm, mm-0.5, mm-0.5);
+    }
+    g.fillStyle="#fff"; g.fillRect(mx0+px*mm-1, my0+py*mm-1, 3, 3);
+    if(msgT>0) document.getElementById("msg").textContent=msg; else document.getElementById("msg").textContent = paused? "Paused — Esc to resume" : "";
+    if(!running && document.getElementById("start").style.display!=="none"){
+      /* title sits above */
+    }
+  }
+  resize(); new ResizeObserver(resize).observe(c);
+  loadFloor(0, null); running=false;
+  requestAnimationFrame(frame);
+  window.psBeginGame=function(){ resize(); reset(); };
+})();
+  // gate replaces native begin
+</script></body></html>

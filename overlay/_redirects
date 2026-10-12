@@ -1,0 +1,30 @@
+# Every page is a real HTML file written by scripts/build-site.mjs. Plates (/p/:id) are served by
+# functions/p/[id].ts; the rewrite below is only the fallback if that function is unavailable.
+/p/* /index.html 200
+# Legacy /c/:id plate URLs are 301'd by functions/c/[id].ts — do not rewrite them here.
+
+# Sections without a trailing slash
+/images /images/ 301
+/videos /videos/ 301
+/games /games/ 301
+/words /words/ 301
+/search /search/ 301
+
+# Pages that no longer exist. Creator, profile and sign-in pages were retired in the 2026-10 rebuild.
+/creators / 301
+/creators/ / 301
+/u/* / 301
+/me / 301
+/me/ / 301
+/upload / 301
+/upload/ / 301
+/archive / 301
+/archive/ / 301
+/archive/* / 301
+/discover / 301
+/discover/ / 301
+/explore /images/ 301
+/explore/ /images/ 301
+/explore/* /images/ 301
+/games/featured /games/ 301
+/games/featured/ /games/ 301

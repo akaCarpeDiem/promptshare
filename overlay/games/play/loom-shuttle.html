@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Loom Shuttle</title>
+<style>
+html,body{margin:0;height:100%;background:#241820;overflow:hidden;color:#fff0f6;font-family:system-ui,sans-serif}
+canvas{width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-weight:700;pointer-events:none;text-shadow:0 1px 4px #000}
+#hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;opacity:.8;pointer-events:none}
+#over{position:absolute;inset:0;display:none;place-items:center;background:rgba(16,8,14,.62)}
+.card{background:#2c1824;border:1px solid #f0b6d066;border-radius:16px;padding:1.2rem 1.4rem;text-align:center}
+button{font:inherit;background:#f3c1dc;color:#2a1020;border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;min-height:44px;cursor:pointer}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="sc">0 rows</span><span>↑↓ or tap halves</span></div>
+<div id="hint">Shift lanes so the shuttle meets the open warp</div>
+<div id="over"><div class="card"><h1>Snagged</h1><p id="os"></p><button id="again" type="button">Weave again</button></div></div>
+<script src="/games/play/ps-score.js?v=20261007id1"></script>
+<script src="/games/play/ps-gate.js?v=20261007id1"></script>
+<script>
+(() => {
+  const c=document.getElementById("c"), g=c.getContext("2d");
+  let w=1,h=1,lane=1,rows=[],score=0,running=false,last=0,spawn=0,speed=120;
+  function resize(){const d=Math.min(2,devicePixelRatio||1); w=c.clientWidth||320; h=c.clientHeight||240; c.width=Math.floor(w*d); c.height=Math.floor(h*d); g.setTransform(d,0,0,d,0,0);}
+  function reset(){ lane=1; rows=[]; score=0; running=true; last=0; spawn=0.2; speed=120; document.getElementById("over").style.display="none"; document.getElementById("sc").textContent="0 rows"; }
+  function end(){ running=false; document.getElementById("os").textContent=score+" rows woven"; document.getElementById("over").style.display="grid"; psReport("loom-shuttle", score); }
+  function shift(d){ if(!running) return; lane=Math.max(0, Math.min(2, lane+d)); }
+  addEventListener("keydown", e=>{
+    if(e.code==="ArrowUp"||e.code==="KeyW"){ e.preventDefault(); shift(-1); }
+    if(e.code==="ArrowDown"||e.code==="KeyS"){ e.preventDefault(); shift(1); }
+  });
+  c.addEventListener("pointerdown", e=>{
+    const r=c.getBoundingClientRect();
+    shift((e.clientY-r.top) < r.height/2 ? -1 : 1);
+  });
+  document.getElementById("again").onclick=reset;
+  function frame(ts){
+    if(!last) last=ts; const dt=Math.min(0.033,(ts-last)/1000); last=ts;
+    const lh=h/3;
+    if(running){
+      speed=Math.min(280, 120+score*4);
+      spawn-=dt;
+      if(spawn<=0){ spawn=Math.max(0.7, 1.35-score*0.03); rows.push({x:w+20, open: Math.floor(Math.random()*3), passed:false}); }
+      rows.forEach(row=>{
+        row.x-=speed*dt;
+        if(!row.passed && row.x<w*0.22){
+          row.passed=true;
+          if(row.open===lane){ score++; document.getElementById("sc").textContent=score+" rows"; }
+          else end();
+        }
+      });
+      rows=rows.filter(r=>r.x>-40);
+    }
+    g.fillStyle="#1a1018"; g.fillRect(0,0,w,h);
+    for(let i=0;i<3;i++){
+      g.fillStyle=i===lane?"#3a2434":"#241820"; g.fillRect(0,i*lh,w,lh-4);
+      g.strokeStyle="rgba(243,193,220,.25)"; g.lineWidth=1;
+      for(let x=0;x<w;x+=18){ g.beginPath(); g.moveTo(x, i*lh+8); g.lineTo(x, (i+1)*lh-10); g.stroke(); }
+    }
+    rows.forEach(row=>{
+      for(let i=0;i<3;i++){
+        if(i===row.open) continue;
+        g.fillStyle="#6a3048"; g.fillRect(row.x, i*lh+10, 28, lh-24);
+      }
+      g.fillStyle="#f3c1dc"; g.fillRect(row.x, row.open*lh+lh/2-6, 28, 12);
+    });
+    const sy=lane*lh+lh/2;
+    g.fillStyle="#fff4ea"; g.beginPath(); g.moveTo(w*0.22-18, sy); g.lineTo(w*0.22+16, sy-12); g.lineTo(w*0.22+16, sy+12); g.closePath(); g.fill();
+    requestAnimationFrame(frame);
+  }
+  resize(); new ResizeObserver(resize).observe(c); reset(); running=false; requestAnimationFrame(frame);
+  window.psBeginGame=function(){ if(typeof reset==="function") reset(); };
+})();
+</script></body></html>

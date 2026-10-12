@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tower drop</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #12131c; overflow: hidden; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+let w = 640, h = 360, dpr = 1;
+const blocks = [{ x: 0.3, width: 0.4, y: 0 }];
+let sliding = { x: 0.05, width: 0.4, dir: 1 };
+let over = false;
+function fit() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  w = canvas.clientWidth || 640;
+  h = canvas.clientHeight || 360;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+}
+addEventListener("resize", fit);
+function drop() {
+  if (over) {
+    blocks.splice(0, blocks.length, { x: 0.3, width: 0.4, y: 0 });
+    sliding = { x: 0.05, width: 0.4, dir: 1 };
+    over = false;
+    return;
+  }
+  const prev = blocks[blocks.length - 1];
+  const left = Math.max(sliding.x, prev.x);
+  const right = Math.min(sliding.x + sliding.width, prev.x + prev.width);
+  const width = right - left;
+  if (width < 0.04) { over = true; return; }
+  blocks.push({ x: left, width, y: blocks.length });
+  sliding = { x: sliding.dir > 0 ? 0 : 1 - width, width, dir: -sliding.dir };
+}
+canvas.addEventListener("pointerdown", drop);
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.033, (now - last) / 1000);
+  last = now;
+  fit();
+  if (!over) {
+    sliding.x += sliding.dir * dt * 0.55;
+    if (sliding.x < 0) { sliding.x = 0; sliding.dir = 1; }
+    if (sliding.x + sliding.width > 1) { sliding.x = 1 - sliding.width; sliding.dir = -1; }
+  }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#12131c";
+  ctx.fillRect(0, 0, w, h);
+  const bh = 22;
+  const base = h - 36;
+  const camera = Math.max(0, blocks.length - 8) * bh;
+  blocks.forEach((block, i) => {
+    ctx.fillStyle = i % 2 ? "#c4a6ff" : "#efeaff";
+    ctx.fillRect(block.x * w, base - i * bh + camera, block.width * w, bh - 3);
+  });
+  if (!over) {
+    const y = base - blocks.length * bh + camera;
+    ctx.fillStyle = "#7ee7f5";
+    ctx.fillRect(sliding.x * w, y, sliding.width * w, bh - 3);
+  } else {
+    ctx.fillStyle = "#f4f1ff";
+    ctx.font = "600 26px Outfit, sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("Missed the tower", w / 2, 48);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
