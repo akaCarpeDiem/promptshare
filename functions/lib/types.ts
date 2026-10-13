@@ -68,19 +68,9 @@ export interface PublicUser {
   followed: boolean;
 }
 
-export interface AuthEnv {
-  DEV_AUTH?: string;
-  GOOGLE_CLIENT_ID?: string;
-  GOOGLE_CLIENT_SECRET?: string;
-  MICROSOFT_CLIENT_ID?: string;
-  MICROSOFT_CLIENT_SECRET?: string;
-  RESEND_API_KEY?: string;
-  MAIL_FROM?: string;
-  PUBLIC_ORIGIN?: string;
-  /** Optional Sightengine image moderation (nudity + minor signals). */
-  SIGHTENGINE_API_USER?: string;
-  SIGHTENGINE_API_SECRET?: string;
-}
+/** Shared Pages env shape. Sign-in, accounts and outbound mail were removed. */
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface AuthEnv {}
 
 export interface Store {
   kind: "file" | "d1";

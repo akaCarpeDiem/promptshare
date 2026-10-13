@@ -99,7 +99,6 @@ export function plate(root, ctx) {
       </section>` : ""}
       <div class="plate-actions">
         <button type="button" class="btn" data-copy-link>${icon.link}Copy link</button>
-        <a class="btn btn-quiet" href="mailto:support@promptshare.co?subject=${encodeURIComponent("Report plate " + p.id)}">${icon.flag}Report</a>
       </div>
       <p class="fine disclaimer">A study pair: this file, this prompt. Outputs can be fictional or stylised, and running the same prompt again will not give the same result.</p>
     </div>

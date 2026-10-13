@@ -6,25 +6,13 @@ See `DEPLOY.md` for the steps and `FRONTEND.md` for how the front end is put tog
 
 Canonical: https://promptshare.co/
 
-## Optional Sightengine image safety scan
-
-When both secrets are set on the Pages project, every image upload (creation + avatar) is checked with Sightengine (`nudity-2.0` + `face-attributes`) before R2 storage. If either secret is missing, the vision check is skipped entirely (text prohibited-content blocklist still runs). This is automated and not 100% accurate.
-
-| Secret | Purpose |
-| --- | --- |
-| `SIGHTENGINE_API_USER` | Sightengine API user id |
-| `SIGHTENGINE_API_SECRET` | Sightengine API secret |
-
-Set them in Cloudflare Dashboard → Pages → `promptshare` → Settings → Environment variables (Production + Preview as needed). Rejected uploads return: `This image was flagged by our safety check and can’t be published.`
-
 ## Dynamic sitemap
 
 `functions/sitemap.xml.ts` serves `/sitemap.xml` from D1 (static pages, category pages and public non-hidden plates). Do not ship a static `dist/sitemap.xml` that would fight the function. `robots.txt` already points at `https://promptshare.co/sitemap.xml`.
 
-## Email login (OTP)
+## No sign-in or outbound email
 
-Sign-in uses a 6-digit email code (Resend), not a magic link. See `OTP_AUTH_MIGRATION.md` for the D1 `login_codes` table and API shapes.
-
+Sign-in, accounts, sessions, OAuth, password/OTP login, Resend mail and the emailed plate report were removed (2026-10-12). The only public contact is support@promptshare.co (contact page). Old auth tables may still exist in D1 but no code reads them.
 
 ## Media storage (R2 / Stream — not Pages 10GB)
 
@@ -40,4 +28,4 @@ Operator uploads go to object storage; D1 holds plate metadata. This keeps the P
 
 ## Gallery-only product lock
 
-Public UX is a curated educational gallery. Visitor upload UI and Following feed are removed/hidden. `POST /api/creations` returns 403. Auth APIs may remain dormant for operator use.
+Public UX is a curated educational gallery. Visitor upload UI and Following feed are removed/hidden. There is no `POST /api/creations`; write routes return 404.

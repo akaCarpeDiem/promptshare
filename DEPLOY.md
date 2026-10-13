@@ -12,8 +12,8 @@ the React bundle and the old header do not.
 ## Positioning (locked)
 
 Educational **curated gallery**: operator content only. No public uploads, no accounts to browse.
-Since the rebuild the site no longer shows like counts, studio/creator pages or sign-in. Nothing was
-removed from D1 or from the API; those pages just have no front end (`/creators`, `/u/*`, `/me` → 301 `/`).
+Since the rebuild the site no longer shows like counts, studio/creator pages or sign-in. On 2026-10-12 the
+sign-in/account/Resend API code was removed too (D1 data untouched); those pages have no front end (`/creators`, `/u/*`, `/me` → 301 `/`).
 
 ## Deploy
 

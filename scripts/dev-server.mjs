@@ -190,7 +190,6 @@ const fn = (rel) => import(pathToFileURL(join(REPO, "functions", rel)).href);
 const DB = d1(arg("db", ":memory:"));
 const env = {
   DB,
-  PUBLIC_ORIGIN: ORIGIN,
   SCORE_SALT: "local-dev",
   ASSETS: {
     fetch: async (input) => {

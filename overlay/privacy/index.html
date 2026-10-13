@@ -36,14 +36,14 @@
     <meta name="twitter:image" content="https://promptshare.co/og.png" />
     <link rel="preload" href="/fonts/outfit-normal-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/fraunces-normal-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/app/app.css?v=b58f1b8bba" />
-    <link rel="modulepreload" href="/app/app.js?v=b58f1b8bba" />
+    <link rel="stylesheet" href="/app/app.css?v=dbda5ca3dd" />
+    <link rel="modulepreload" href="/app/app.js?v=dbda5ca3dd" />
     <link rel="modulepreload" href="/app/data.js" />
     <link rel="modulepreload" href="/app/ui.js" />
     <link rel="modulepreload" href="/app/card.js" />
     <link rel="modulepreload" href="/app/marks.js" />
     <link rel="modulepreload" href="/app/roles.js" />
-    <script type="module" src="/app/app.js?v=b58f1b8bba"></script>
+    <script type="module" src="/app/app.js?v=dbda5ca3dd"></script>
   </head>
   <body data-shell="page">
 <a class="skip" href="#main">Skip to content</a>
@@ -83,7 +83,7 @@
     <h2>Infrastructure (honest stack)</h2>
     <p>
       PromptShare runs on Cloudflare Pages. Curated plate records live in Cloudflare D1. Media files (images now; video via R2 and later Cloudflare Stream) live in object storage — not inside the Pages deploy bundle — so the site shell stays small under the Pages size limit.
-      Sign-in endpoints may remain configured for operator maintenance, but the site does not offer sign-in to visitors. A local development server can keep the same records in a file on that machine. That file is not the production database.
+      The site has no sign-in code and sends no email. A local development server can keep the same records in a file on that machine. That file is not the production database.
     </p>
 
     <h2>AI-generated content</h2>
@@ -98,8 +98,8 @@
       <li><strong>No accounts.</strong> The site does not offer sign-in, so browsing creates no account, profile, or session cookie. If you signed in during an earlier version of the site, we may still hold the email address, display name, handle, and profile details you gave then. Email us to have them deleted (see Deletion requests).</li>
       <li><strong>Game scores.</strong> Games keep a Top 10. If you play, we store the display name you choose and your scores. Your browser keeps a random player id and a secret token in localStorage so you can rename yourself later; our server keeps only a hash of that token. A game page also sets one first-party cookie, <code>ps_voter</code>, a random id that lets us recognise scores posted from the same browser. To limit abuse we store a salted hash of your IP address that changes every day; we do not store the address itself with your scores. Display names are checked by an automated filter before they are saved, and for that check the name you type is sent to a Cloudflare Workers AI model.</li>
       <li><strong>Curated plates (operator content).</strong> Gallery media is published by the site operator into Cloudflare R2 (and Stream later for video). Plate metadata (prompt, model, tags, title) lives in D1. Public visitor uploads are disabled.</li>
-      <li><strong>Optional image safety scan.</strong> When Sightengine API credentials are configured on the server, images the operator uploads may be sent to Sightengine to check for nudity/sexual content and minors-related signals before the file is stored. This is an automated, imperfect check — it is not 100% accurate and does not replace reports or human review. If those credentials are not configured, uploads are not sent to Sightengine; text-based prohibited-content checks still run.</li>
-      <li><strong>Reports.</strong> Each plate has a Report link that opens an email to us. We receive what you send, including your email address, so we can review the plate and reply. Follows, likes, and saves are not offered.</li>
+      <li><strong>No image uploads from visitors.</strong> PromptShare publishes its own plates. Visitors cannot upload files, so no visitor images are sent to any third-party scanning service.</li>
+      <li><strong>Questions and removal requests.</strong> There are no accounts, sign-in, follows, likes, or saves. To ask about or flag a plate, contact support@promptshare.co. If you email us, we receive your message and email address so we can review the request and reply.</li>
       <li><strong>Technical / server logs.</strong> Hosting (Cloudflare Pages and related edge infrastructure) may automatically receive standard request metadata such as IP address, user agent, timestamps, and requested URLs for security, reliability, and abuse prevention.</li>
       <li><strong>Browser storage.</strong> The gallery keeps a few display preferences in your browser: light or dark mode if you use the switch, the card style you pick on a gallery page, and your video quality choice. These values stay on your device and are not sent to our servers. Details are on the <a href="/cookies/">Cookies</a> page.</li>
       <li><strong>Contact.</strong> If you email or message us, we receive whatever you choose to send so we can respond.</li>
