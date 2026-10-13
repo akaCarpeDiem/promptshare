@@ -23,24 +23,6 @@ CREATE TABLE IF NOT EXISTS users (
 -- ALTER TABLE users ADD COLUMN password_salt TEXT NOT NULL DEFAULT '';
 -- ALTER TABLE users ADD COLUMN password_updated_at TEXT NOT NULL DEFAULT '';
 
-CREATE TABLE IF NOT EXISTS sessions (
-  id TEXT PRIMARY KEY,
-  user_id TEXT NOT NULL,
-  expires_at INTEGER NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS magic_links (
-  token TEXT PRIMARY KEY,
-  email TEXT NOT NULL,
-  expires_at INTEGER NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS oauth_states (
-  state TEXT PRIMARY KEY,
-  provider TEXT NOT NULL,
-  expires_at INTEGER NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS creations (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL,
@@ -83,14 +65,6 @@ CREATE TABLE IF NOT EXISTS saves (
   PRIMARY KEY (user_id, creation_id)
 );
 
-CREATE TABLE IF NOT EXISTS reports (
-  id TEXT PRIMARY KEY,
-  creation_id TEXT NOT NULL,
-  reporter_id TEXT NOT NULL,
-  reason TEXT NOT NULL,
-  created_at TEXT NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS rate_limits (
   bucket TEXT NOT NULL,
   at INTEGER NOT NULL
@@ -98,14 +72,6 @@ CREATE TABLE IF NOT EXISTS rate_limits (
 
 CREATE INDEX IF NOT EXISTS creations_feed ON creations (hidden, visibility, created_at);
 CREATE INDEX IF NOT EXISTS steps_creation ON steps (creation_id, position);
-
--- Email OTP login codes (replaces magic-link click flow for sign-in)
-CREATE TABLE IF NOT EXISTS login_codes (
-  email TEXT PRIMARY KEY,
-  code_hash TEXT NOT NULL,
-  expires_at INTEGER NOT NULL,
-  attempts INTEGER NOT NULL DEFAULT 0
-);
 
 -- Anonymous gallery thumbs (one vote per browser voter_key; no account required)
 CREATE TABLE IF NOT EXISTS thumbs (

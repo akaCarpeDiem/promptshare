@@ -19,10 +19,6 @@ export interface R2Bucket {
   get(key: string): Promise<{ arrayBuffer(): Promise<ArrayBuffer>; httpMetadata?: { contentType?: string } } | null>;
 }
 
-
-const LOGIN_CODE_TTL_MS = 1000 * 60 * 15;
-const LOGIN_CODE_MAX_ATTEMPTS = 5;
-
 /** Bump only when seed catalog content (seed.ts) changes. */
 // HARD LOCK: every published video plate must be >=30fps (prefer 60) before it goes to R2.
 // New US Cities and Street clips are not publishable below 30fps. Do not re-add culled 24fps plates.
@@ -32,32 +28,6 @@ declare const globalThis: {
   __psSeedEnsure?: { revision: string; done: boolean };
 };
 
-
-function bytesToHex(buf: ArrayBuffer): string {
-  return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
-}
-
-async function hashLoginCode(email: string, code: string): Promise<string> {
-  const data = new TextEncoder().encode(`ps-otp:${email}:${code}`);
-  return bytesToHex(await crypto.subtle.digest("SHA-256", data));
-}
-
-function randomDigits(n: number): string {
-  const bytes = new Uint8Array(n);
-  crypto.getRandomValues(bytes);
-  let out = "";
-  for (let i = 0; i < n; i++) out += String(bytes[i]! % 10);
-  return out;
-}
-
-function timingSafeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i)! ^ b.charCodeAt(i)!;
-  return diff === 0;
-}
-
-
 interface UserRow {
   id: string; email: string; handle: string; display_name: string; bio: string; website: string; avatar_url: string; socials: string; created_at: string;
   username_set?: number | null; password_hash?: string | null; password_salt?: string | null; password_updated_at?: string | null;
@@ -65,7 +35,6 @@ interface UserRow {
 interface CreationRow {
   id: string; user_id: string; title: string; prompt: string; model: string; tags: string; visibility: string; media_url: string; media_kind: string; featured: number; hidden: number; created_at: string;
 }
-
 
 function parseTags(raw: string): string[] {
   try {
@@ -116,12 +85,6 @@ export function createD1Store(db: D1Database, media?: R2Bucket): Store {
     if (gate?.done && gate.revision === SEED_REVISION) return;
     if (seeded && gate?.revision === SEED_REVISION) return;
 
-    await db.prepare(`CREATE TABLE IF NOT EXISTS login_codes (
-      email TEXT PRIMARY KEY,
-      code_hash TEXT NOT NULL,
-      expires_at INTEGER NOT NULL,
-      attempts INTEGER NOT NULL DEFAULT 0
-    )`).run();
     await db.prepare(`CREATE TABLE IF NOT EXISTS thumbs (
       creation_id TEXT NOT NULL,
       voter_key TEXT NOT NULL,
@@ -327,123 +290,6 @@ export function createD1Store(db: D1Database, media?: R2Bucket): Store {
       const row = await db.prepare("SELECT * FROM users WHERE id = ?").bind(id).first<UserRow>();
       return row ? userFrom(row) : null;
     },
-    async getUserByEmail(email) {
-      const row = await db.prepare("SELECT * FROM users WHERE email = ?").bind(email).first<UserRow>();
-      return row ? userFrom(row) : null;
-    },
-    async getUserByHandle(handle) {
-      const normalized = String(handle || "").trim().toLowerCase();
-      const row = await db.prepare("SELECT * FROM users WHERE lower(handle) = ?").bind(normalized).first<UserRow>();
-      return row ? userFrom(row) : null;
-    },
-    async createUser(input) {
-      const usernameSet = input.usernameSet !== false;
-      const user: User = {
-        id: crypto.randomUUID(),
-        email: input.email,
-        handle: input.handle,
-        displayName: input.displayName,
-        bio: "",
-        website: "",
-        avatarUrl: "",
-        socials: [],
-        createdAt: new Date().toISOString(),
-        usernameSet,
-        passwordHash: "",
-        passwordSalt: "",
-        passwordUpdatedAt: "",
-      };
-      await db.prepare("INSERT INTO users (id, email, handle, display_name, bio, website, avatar_url, socials, created_at, username_set, password_hash, password_salt, password_updated_at) VALUES (?, ?, ?, ?, '', '', '', '[]', ?, ?, '', '', '')")
-        .bind(user.id, user.email, user.handle, user.displayName, user.createdAt, usernameSet ? 1 : 0).run();
-      return user;
-    },
-    async updateUser(id, patch) {
-      const current = await this.getUserById(id);
-      if (!current) throw new Error("User not found");
-      const next = { ...current, ...patch };
-      await db.prepare("UPDATE users SET handle = ?, display_name = ?, bio = ?, website = ?, avatar_url = ?, socials = ?, username_set = ?, password_hash = ?, password_salt = ?, password_updated_at = ? WHERE id = ?")
-        .bind(next.handle, next.displayName, next.bio, next.website, next.avatarUrl, JSON.stringify(next.socials), next.usernameSet ? 1 : 0, next.passwordHash || "", next.passwordSalt || "", next.passwordUpdatedAt || "", id).run();
-      return next;
-    },
-    async deleteAccount(userId) {
-      const user = await this.getUserById(userId);
-      if (!user) return;
-      const creations = await db.prepare("SELECT id FROM creations WHERE user_id = ?").bind(userId).all<{ id: string }>();
-      const ids = (creations.results || []).map((row) => row.id);
-      for (const id of ids) {
-        await db.prepare("DELETE FROM steps WHERE creation_id = ?").bind(id).run();
-        await db.prepare("DELETE FROM likes WHERE creation_id = ?").bind(id).run();
-        await db.prepare("DELETE FROM saves WHERE creation_id = ?").bind(id).run();
-        await db.prepare("DELETE FROM reports WHERE creation_id = ?").bind(id).run();
-      }
-      await db.prepare("DELETE FROM likes WHERE user_id = ?").bind(userId).run();
-      await db.prepare("DELETE FROM saves WHERE user_id = ?").bind(userId).run();
-      await db.prepare("DELETE FROM follows WHERE follower_id = ? OR followee_id = ?").bind(userId, userId).run();
-      await db.prepare("DELETE FROM reports WHERE reporter_id = ?").bind(userId).run();
-      await db.prepare("DELETE FROM sessions WHERE user_id = ?").bind(userId).run();
-      await db.prepare("DELETE FROM creations WHERE user_id = ?").bind(userId).run();
-      await db.prepare("DELETE FROM login_codes WHERE email = ?").bind(user.email).run();
-      await db.prepare("DELETE FROM users WHERE id = ?").bind(userId).run();
-    },
-
-    async handleTaken(handle, exceptUserId) {
-      const normalized = String(handle || "").trim().toLowerCase();
-      const row = await db.prepare("SELECT id FROM users WHERE lower(handle) = ?").bind(normalized).first<{ id: string }>();
-      return Boolean(row && row.id !== exceptUserId);
-    },
-    async createSession(userId) {
-      const id = crypto.randomUUID();
-      const expiresAt = Date.now() + 1000 * 60 * 60 * 24 * 30;
-      await db.prepare("INSERT INTO sessions (id, user_id, expires_at) VALUES (?, ?, ?)").bind(id, userId, expiresAt).run();
-      return { id, expiresAt };
-    },
-    async userForSession(sessionId) {
-      const row = await db.prepare("SELECT user_id, expires_at FROM sessions WHERE id = ?").bind(sessionId).first<{ user_id: string; expires_at: number }>();
-      if (!row || row.expires_at < Date.now()) return null;
-      return this.getUserById(row.user_id);
-    },
-    async deleteSession(sessionId) {
-      await db.prepare("DELETE FROM sessions WHERE id = ?").bind(sessionId).run();
-    },
-    async createLoginCode(email) {
-      const code = randomDigits(6);
-      const codeHash = await hashLoginCode(email, code);
-      const expiresAt = Date.now() + LOGIN_CODE_TTL_MS;
-      await db.prepare(
-        "INSERT INTO login_codes (email, code_hash, expires_at, attempts) VALUES (?, ?, ?, 0) ON CONFLICT(email) DO UPDATE SET code_hash = excluded.code_hash, expires_at = excluded.expires_at, attempts = 0",
-      ).bind(email, codeHash, expiresAt).run();
-      return { code, expiresAt };
-    },
-    async verifyLoginCode(email, code) {
-      const trimmed = String(code || "").trim();
-      if (!/^\d{6}$/.test(trimmed)) return "invalid";
-      const row = await db.prepare("SELECT code_hash, expires_at, attempts FROM login_codes WHERE email = ?").bind(email).first<{ code_hash: string; expires_at: number; attempts: number }>();
-      if (!row) return "invalid";
-      if (row.expires_at < Date.now()) {
-        await db.prepare("DELETE FROM login_codes WHERE email = ?").bind(email).run();
-        return "expired";
-      }
-      if (row.attempts >= LOGIN_CODE_MAX_ATTEMPTS) return "locked";
-      const expect = await hashLoginCode(email, trimmed);
-      if (!timingSafeEqual(expect, row.code_hash)) {
-        const attempts = row.attempts + 1;
-        await db.prepare("UPDATE login_codes SET attempts = ? WHERE email = ?").bind(attempts, email).run();
-        if (attempts >= LOGIN_CODE_MAX_ATTEMPTS) return "locked";
-        return "invalid";
-      }
-      await db.prepare("DELETE FROM login_codes WHERE email = ?").bind(email).run();
-      return "ok";
-    },
-    async createOauthState(provider) {
-      const state = crypto.randomUUID();
-      await db.prepare("INSERT INTO oauth_states (state, provider, expires_at) VALUES (?, ?, ?)").bind(state, provider, Date.now() + 1000 * 60 * 15).run();
-      return state;
-    },
-    async consumeOauthState(state, provider) {
-      const row = await db.prepare("SELECT expires_at FROM oauth_states WHERE state = ? AND provider = ?").bind(state, provider).first<{ expires_at: number }>();
-      await db.prepare("DELETE FROM oauth_states WHERE state = ?").bind(state).run();
-      return Boolean(row && row.expires_at >= Date.now());
-    },
     async listFeed({ q, model, tag, following, limit, offset, viewerId, mediaKind }) {
       const needle = (q || "").trim().toLowerCase();
       const tagNeedle = (tag || "").trim().toLowerCase();
@@ -557,68 +403,11 @@ export function createD1Store(db: D1Database, media?: R2Bucket): Store {
       if (!row || (row.media_kind !== "image" && row.media_kind !== "video")) return null;
       return hydrate(row, viewerId);
     },
-    async createCreation(input) {
-      await db.prepare("INSERT INTO creations (id, user_id, title, prompt, model, tags, visibility, media_url, media_kind, featured, hidden, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?)")
-        .bind(input.id, input.userId, input.title, input.prompt, input.model, JSON.stringify(input.tags), input.visibility, input.mediaUrl, input.mediaKind, input.createdAt).run();
-      for (const [index, step] of input.steps.entries()) {
-        await db.prepare("INSERT INTO steps (id, creation_id, position, prompt, model, note) VALUES (?, ?, ?, ?, ?, ?)")
-          .bind(crypto.randomUUID(), input.id, index, step.prompt, step.model, step.note).run();
-      }
-      const created = await this.getCreation(input.id, input.userId);
-      if (!created) throw new Error("Create failed");
-      return created;
-    },
-    async setFeatured(userId, creationId) {
-      await db.prepare("UPDATE creations SET featured = 0 WHERE user_id = ?").bind(userId).run();
-      await db.prepare("UPDATE creations SET featured = 1 WHERE id = ? AND user_id = ?").bind(creationId, userId).run();
-    },
-    async hideCreation(userId, creationId) {
-      const row = await db.prepare("SELECT id FROM creations WHERE id = ? AND user_id = ?").bind(creationId, userId).first();
-      if (!row) return false;
-      await db.prepare("UPDATE creations SET hidden = 1, featured = 0 WHERE id = ?").bind(creationId).run();
-      return true;
-    },
-    async toggleLike(userId, creationId) {
-      const existing = await db.prepare("SELECT 1 AS n FROM likes WHERE user_id = ? AND creation_id = ?").bind(userId, creationId).first();
-      if (existing) await db.prepare("DELETE FROM likes WHERE user_id = ? AND creation_id = ?").bind(userId, creationId).run();
-      else await db.prepare("INSERT INTO likes (user_id, creation_id) VALUES (?, ?)").bind(userId, creationId).run();
-      const count = await db.prepare("SELECT COUNT(*) AS n FROM likes WHERE creation_id = ?").bind(creationId).first<{ n: number }>();
-      return { liked: !existing, likeCount: count?.n || 0 };
-    },
-    async toggleSave(userId, creationId) {
-      const existing = await db.prepare("SELECT 1 AS n FROM saves WHERE user_id = ? AND creation_id = ?").bind(userId, creationId).first();
-      if (existing) await db.prepare("DELETE FROM saves WHERE user_id = ? AND creation_id = ?").bind(userId, creationId).run();
-      else await db.prepare("INSERT INTO saves (user_id, creation_id) VALUES (?, ?)").bind(userId, creationId).run();
-      const count = await db.prepare("SELECT COUNT(*) AS n FROM saves WHERE creation_id = ?").bind(creationId).first<{ n: number }>();
-      return { saved: !existing, saveCount: count?.n || 0 };
-    },
-    async setFollow(followerId, followeeId, follow) {
-      await db.prepare("DELETE FROM follows WHERE follower_id = ? AND followee_id = ?").bind(followerId, followeeId).run();
-      if (follow) await db.prepare("INSERT INTO follows (follower_id, followee_id) VALUES (?, ?)").bind(followerId, followeeId).run();
-    },
-    async report(input) {
-      await db.prepare("INSERT INTO reports (id, creation_id, reporter_id, reason, created_at) VALUES (?, ?, ?, ?, ?)")
-        .bind(input.id, input.creationId, input.reporterId, input.reason, input.createdAt).run();
-    },
-    async putMedia(bytes, contentType, ext) {
-      if (!media) throw new Error("R2 binding MEDIA is not configured.");
-      const id = `${crypto.randomUUID()}.${ext.replace(/[^a-z0-9]/gi, "") || "bin"}`;
-      await media.put(id, bytes, { httpMetadata: { contentType } });
-      return `/api/media/${id}`;
-    },
     async getMedia(id) {
       if (!media || !/^[\w.-]+$/.test(id)) return null;
       const object = await media.get(id);
       if (!object) return null;
       return { bytes: new Uint8Array(await object.arrayBuffer()), contentType: object.httpMetadata?.contentType || "application/octet-stream" };
-    },
-    async rateLimit(key, limit, windowMs) {
-      const now = Date.now();
-      await db.prepare("DELETE FROM rate_limits WHERE at < ?").bind(now - windowMs).run();
-      const count = await db.prepare("SELECT COUNT(*) AS n FROM rate_limits WHERE bucket = ?").bind(key).first<{ n: number }>();
-      if ((count?.n || 0) >= limit) return false;
-      await db.prepare("INSERT INTO rate_limits (bucket, at) VALUES (?, ?)").bind(key, now).run();
-      return true;
     },
   };
 }
