@@ -8157,5 +8157,545 @@
    "kind": "light",
    "means": "Street lighting below a clear, darkening sky."
   }
+ ],
+ "seed_video_myths_medusa_stone_garden": [
+  {
+   "phrase": "Medusa hissing with snakes as stone warriors surround her in a ruined garden",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_kraken_galleon": [
+  {
+   "phrase": "the Kraken's tentacles crushing a wooden galleon in moonlit fog",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_aphrodite_shell": [
+  {
+   "phrase": "Aphrodite rising from a glowing seashell on moonlit waves",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_wendigo_pines": [
+  {
+   "phrase": "the Wendigo silhouetted in a blizzard-lit pine forest",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_golem_of_prague": [
+  {
+   "phrase": "the Golem of Prague awakening with glowing Hebrew letters on its chest",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_pegasus_storm": [
+  {
+   "phrase": "Pegasus galloping through storm clouds above a mountain temple",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_chimera_fire": [
+  {
+   "phrase": "Chimera breathing fire over a ruined Greek city at night",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_rusalka_lake": [
+  {
+   "phrase": "Rusalka water spirits rising from a misty lake at twilight",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_fates_thread": [
+  {
+   "phrase": "the Fates weaving a glowing thread of destiny in a dark chamber",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_banshee_cliff": [
+  {
+   "phrase": "Banshee wailing on a moonlit Irish cliff with streaming hair",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_dracula_castle": [
+  {
+   "phrase": "Dracula's castle perched on a cliff with bats swirling around a blood moon",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_icarus_falling": [
+  {
+   "phrase": "Icarus falling past a burning sun toward a dark sea",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_anansi_web": [
+  {
+   "phrase": "Anansi weaving a golden web between shadowy trees at night",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_perseus_medusa_head": [
+  {
+   "phrase": "Perseus holding Medusa's severed head aloft in a ruined temple",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_mjolnir_peak": [
+  {
+   "phrase": "Thor's hammer Mjolnir resting on a lightning-struck mountain peak",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_loki_bound": [
+  {
+   "phrase": "Loki bound with glowing serpent venom in a cave",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_quetzalcoatl_pyramid": [
+  {
+   "phrase": "Quetzalcoatl coiling over a jungle pyramid at dawn",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_kitsune_shrine": [
+  {
+   "phrase": "nine-tailed kitsune with flame-tipped tails in a lantern shrine",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_minotaur_labyrinth": [
+  {
+   "phrase": "the Minotaur pacing a spark-lit labyrinth",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
+ ],
+ "seed_video_myths_anubis_heart": [
+  {
+   "phrase": "Anubis weighing a glowing heart on golden scales in a torchlit hall",
+   "kind": "subject",
+   "means": "Names the myth and the action in one line, so the clip has a clear story beat to animate."
+  },
+  {
+   "phrase": "cinematic",
+   "kind": "style",
+   "means": "Pushes toward film framing and grading rather than an illustration look."
+  },
+  {
+   "phrase": "volumetric light",
+   "kind": "light",
+   "means": "Asks for light you can see in the air, which gives the motion depth."
+  },
+  {
+   "phrase": "photoreal detail",
+   "kind": "style",
+   "means": "Keeps textures realistic so the creature reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text",
+   "kind": "constraint",
+   "means": "Keeps captions and watermarks out of the frame."
+  }
  ]
 }

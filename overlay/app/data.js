@@ -2,7 +2,7 @@
 import { CATEGORY } from "./roles.js";
 import { compileLexicon, segment } from "./marks.js";
 
-const V = "20261011a"; // bump when the files in /data change
+const V = "20261014myths"; // bump when the files in /data change
 const getJson = async (url) => {
   const res = await fetch(url, { headers: { accept: "application/json" } });
   if (!res.ok) throw new Error(`${url} → ${res.status}`);

@@ -1418,6 +1418,166 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/fantasy-v-sandship-deck.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/myths-v-medusa-stone-garden.mp4": {
+    key: "media/video/myths-v-medusa-stone-garden.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-medusa-stone-garden.jpg": {
+    key: "media/posters/myths-v-medusa-stone-garden.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-kraken-galleon.mp4": {
+    key: "media/video/myths-v-kraken-galleon.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-kraken-galleon.jpg": {
+    key: "media/posters/myths-v-kraken-galleon.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-aphrodite-shell.mp4": {
+    key: "media/video/myths-v-aphrodite-shell.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-aphrodite-shell.jpg": {
+    key: "media/posters/myths-v-aphrodite-shell.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-wendigo-pines.mp4": {
+    key: "media/video/myths-v-wendigo-pines.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-wendigo-pines.jpg": {
+    key: "media/posters/myths-v-wendigo-pines.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-golem-of-prague.mp4": {
+    key: "media/video/myths-v-golem-of-prague.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-golem-of-prague.jpg": {
+    key: "media/posters/myths-v-golem-of-prague.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-pegasus-storm.mp4": {
+    key: "media/video/myths-v-pegasus-storm.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-pegasus-storm.jpg": {
+    key: "media/posters/myths-v-pegasus-storm.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-chimera-fire.mp4": {
+    key: "media/video/myths-v-chimera-fire.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-chimera-fire.jpg": {
+    key: "media/posters/myths-v-chimera-fire.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-rusalka-lake.mp4": {
+    key: "media/video/myths-v-rusalka-lake.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-rusalka-lake.jpg": {
+    key: "media/posters/myths-v-rusalka-lake.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-fates-thread.mp4": {
+    key: "media/video/myths-v-fates-thread.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-fates-thread.jpg": {
+    key: "media/posters/myths-v-fates-thread.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-banshee-cliff.mp4": {
+    key: "media/video/myths-v-banshee-cliff.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-banshee-cliff.jpg": {
+    key: "media/posters/myths-v-banshee-cliff.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-dracula-castle.mp4": {
+    key: "media/video/myths-v-dracula-castle.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-dracula-castle.jpg": {
+    key: "media/posters/myths-v-dracula-castle.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-icarus-falling.mp4": {
+    key: "media/video/myths-v-icarus-falling.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-icarus-falling.jpg": {
+    key: "media/posters/myths-v-icarus-falling.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-anansi-web.mp4": {
+    key: "media/video/myths-v-anansi-web.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-anansi-web.jpg": {
+    key: "media/posters/myths-v-anansi-web.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-perseus-medusa-head.mp4": {
+    key: "media/video/myths-v-perseus-medusa-head.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-perseus-medusa-head.jpg": {
+    key: "media/posters/myths-v-perseus-medusa-head.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-mjolnir-peak.mp4": {
+    key: "media/video/myths-v-mjolnir-peak.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-mjolnir-peak.jpg": {
+    key: "media/posters/myths-v-mjolnir-peak.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-loki-bound.mp4": {
+    key: "media/video/myths-v-loki-bound.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-loki-bound.jpg": {
+    key: "media/posters/myths-v-loki-bound.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-quetzalcoatl-pyramid.mp4": {
+    key: "media/video/myths-v-quetzalcoatl-pyramid.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-quetzalcoatl-pyramid.jpg": {
+    key: "media/posters/myths-v-quetzalcoatl-pyramid.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-kitsune-shrine.mp4": {
+    key: "media/video/myths-v-kitsune-shrine.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-kitsune-shrine.jpg": {
+    key: "media/posters/myths-v-kitsune-shrine.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-minotaur-labyrinth.mp4": {
+    key: "media/video/myths-v-minotaur-labyrinth.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-minotaur-labyrinth.jpg": {
+    key: "media/posters/myths-v-minotaur-labyrinth.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/myths-v-anubis-heart.mp4": {
+    key: "media/video/myths-v-anubis-heart.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/myths-v-anubis-heart.jpg": {
+    key: "media/posters/myths-v-anubis-heart.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 
