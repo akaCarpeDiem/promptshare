@@ -2,7 +2,7 @@
 import { CATEGORY } from "./roles.js";
 import { compileLexicon, segment } from "./marks.js";
 
-const V = "20261014myths"; // bump when the files in /data change
+const V = "20261014hd60"; // bump when the files in /data change
 const getJson = async (url) => {
   const res = await fetch(url, { headers: { accept: "application/json" } });
   if (!res.ok) throw new Error(`${url} → ${res.status}`);
@@ -74,7 +74,7 @@ export function load() {
 export const posterOf = (p) => (p.mediaKind === "video" ? p.poster || "" : p.mediaUrl);
 export const thumbOf = (p) => p.thumbUrl || posterOf(p);
 /** Lighter 720p copy of a video, used for hover previews and default playback. */
-export const previewOf = (p) => String(p.mediaUrl || "").split("?")[0].replace("/media/video/", "/media/video-preview/");
+export const previewOf = (p) => String(p.mediaUrl || "").replace("/media/video/", "/media/video-preview/");
 
 export function filter({ kind = "", tag = "", model = "", word = "", q = "" } = {}) {
   let list = db.plates;
