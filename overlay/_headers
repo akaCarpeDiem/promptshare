@@ -33,3 +33,8 @@
 /robots.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=300
+
+# Bare game screens are loaded in an iframe on /games/<slug>/. Keep them out of search so the
+# real game page gets the credit (each file also carries a meta robots + canonical).
+/games/play/*
+  X-Robots-Tag: noindex
