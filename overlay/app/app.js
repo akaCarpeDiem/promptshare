@@ -3,6 +3,7 @@
 import { load } from "./data.js";
 import { initTheme, $, $$, reducedMotion } from "./ui.js";
 import "./card.js";
+import "./carousel.js";
 
 const root = $("#root");
 const html = document.documentElement;

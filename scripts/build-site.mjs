@@ -105,7 +105,7 @@ const browseFirst = (kind) => {
     <p class="lede">${kind === "video" ? "Short clips, each beside the exact prompt that made it. Hover a card to play it." : "Each picture sits beside the exact prompt that made it."} Marked phrases are the ones doing the work.</p>
   </header>
   <div class="filters">
-    <nav class="chips" aria-label="Categories"><div class="chips-track">
+    <nav class="chips carousel" aria-label="Categories"><div class="chips-track">
       <a class="chip" href="/${kind === "video" ? "videos" : "images"}/" aria-pressed="true">All</a>
       ${CATEGORIES.filter((c) => perTag.get(c.slug)).map((c) => `<a class="chip" href="/${kind === "video" ? "videos" : "images"}/?tag=${c.slug}">${esc(c.label)} <span class="num">${perTag.get(c.slug)}</span></a>`).join("")}
     </div></nav>
@@ -218,7 +218,7 @@ const FOOTER = `<footer class="foot">
 </footer>`;
 
 // Modules app.js imports, listed so the browser fetches them in parallel instead of discovering them one by one.
-const SHARED_MODULES = ["data.js", "ui.js", "card.js", "marks.js", "roles.js"];
+const SHARED_MODULES = ["data.js", "ui.js", "card.js", "carousel.js", "marks.js", "roles.js"];
 const VIEW_MODULES = ["views/home.js", "views/browse.js", "views/plate.js"];
 
 /**

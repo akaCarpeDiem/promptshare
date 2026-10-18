@@ -60,7 +60,7 @@ export function browse(kind) {
     <p class="lede">${kind === "video" ? "Short clips, each beside the exact prompt that made it. Hover a card to play it." : "Each picture sits beside the exact prompt that made it."} Marked phrases are the ones doing the work.</p>
   </header>
   <div class="filters">
-    <nav class="chips" aria-label="Categories"><div class="chips-track">
+    <nav class="chips carousel" aria-label="Categories"><div class="chips-track">
       <button type="button" class="chip" data-tag="">All</button>
       ${CATEGORIES.filter((c) => perTag.get(c.slug)).map((c) => `<button type="button" class="chip" data-tag="${c.slug}">${esc(c.label)} <span class="num">${perTag.get(c.slug)}</span></button>`).join("")}
     </div></nav>
