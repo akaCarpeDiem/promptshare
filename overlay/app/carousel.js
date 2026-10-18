@@ -1,5 +1,5 @@
-// Category rows on Images and Videos (<nav class="chips carousel">): left/right arrow buttons that
-// only show when the row can scroll that way, and a vertical mouse wheel that moves the row sideways
+// Category rows on Images and Videos (<nav class="chips carousel">): left/right arrow buttons in their
+// own slots beside the row (never over a chip) that only show when the row can scroll that way, and a vertical mouse wheel that moves the row sideways
 // while hovering it. Trackpad sideways scroll and touch swipe are left to the browser.
 const STEP = 0.8; // an arrow click moves this share of the visible width
 
@@ -7,7 +7,8 @@ function update(nav) {
   const track = nav.querySelector(".chips-track");
   if (!track) return;
   const max = track.scrollWidth - track.clientWidth;
-  nav.classList.toggle("can-left", track.scrollLeft > 1);
+  nav.classList.toggle("has-overflow", max > 1);
+  nav.classList.toggle("can-left", max > 1 && track.scrollLeft > 1);
   nav.classList.toggle("can-right", track.scrollLeft < max - 1);
 }
 

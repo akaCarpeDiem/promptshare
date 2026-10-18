@@ -265,16 +265,20 @@ p { text-wrap: pretty; }
 .chip[aria-pressed="true"], .chip[aria-current="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
 .chip .num { color: var(--faint); font-size: 0.8rem; }
 .chip[aria-pressed="true"] .num, .chip[aria-current="true"] .num { color: inherit; opacity: 0.7; }
-/* Category row arrows (app/carousel.js): shown only when the row can scroll that way. */
-.carousel .chips-track { scroll-behavior: auto; }
+/* Category row arrows (app/carousel.js): flex layout [left slot][row][right slot], so an arrow never
+   sits on a chip. Each slot keeps its width while its arrow is hidden, so chips don't jump; both slots
+   collapse only when the row doesn't overflow at all. */
+.carousel { display: flex; align-items: flex-start; gap: 8px; }
+.carousel .chips-track { flex: 1 1 auto; min-width: 0; scroll-behavior: auto; position: relative; }
 .carousel::after { opacity: 0; transition: opacity 0.15s ease; }
 .carousel.can-right::after { opacity: 1; }
 .carousel::before { content: ""; position: absolute; top: 0; left: 0; bottom: 10px; width: 48px; background: linear-gradient(270deg, transparent, var(--bg)); pointer-events: none; opacity: 0; transition: opacity 0.15s ease; z-index: 1; }
 .carousel.can-left::before { opacity: 1; }
+.carousel.has-overflow::before { left: 44px; }
+.carousel.has-overflow::after { right: 44px; }
 .chips-arrow {
-  position: absolute;
-  top: 2px;
-  z-index: 2;
+  flex: none;
+  margin-top: 2px;
   display: none;
   align-items: center;
   justify-content: center;
@@ -287,13 +291,12 @@ p { text-wrap: pretty; }
   color: var(--muted);
   cursor: pointer;
   box-shadow: 0 1px 6px color-mix(in oklab, var(--text) 12%, transparent);
-  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
 .chips-arrow:hover { color: var(--text); border-color: var(--line-strong); }
 .chips-arrow:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
-.chips-arrow-left { left: 0; }
-.chips-arrow-right { right: 0; }
-.carousel.can-left .chips-arrow-left, .carousel.can-right .chips-arrow-right { display: inline-flex; }
+.carousel.has-overflow .chips-arrow { display: inline-flex; visibility: hidden; opacity: 0; pointer-events: none; }
+.carousel.can-left .chips-arrow-left, .carousel.can-right .chips-arrow-right { visibility: visible; opacity: 1; pointer-events: auto; }
 .chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--role, var(--faint)); }
 
 .seg { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
