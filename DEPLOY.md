@@ -31,13 +31,14 @@ find dist -mindepth 1 -maxdepth 1 ! -name media ! -name fonts -exec rm -rf {} +
 
 # 3. Sync and deploy, as before.
 cp -a overlay/. dist/
-rm -f dist/sitemap.xml   # /sitemap.xml is served by functions/sitemap.xml.ts
+# /sitemap.xml is a static file (overlay/sitemap.xml) and is excluded from Functions in overlay/_routes.json.
+# It was generated from the old functions/sitemap.xml.ts output on 2026-10-17; regenerate it when public plates change.
 export WRANGLER_CACHE_DIR=/tmp/wrangler-cache
 npx wrangler pages deploy dist --project-name=promptshare
 ```
 
 Keep `functions/` beside `dist/`. This deploy changes three functions: `functions/lib/handler.ts`
-(new `GET /api/catalog`), `functions/p/[id].ts` (plate page markup) and `functions/sitemap.xml.ts`.
+(new `GET /api/catalog`), `functions/p/[id].ts` (plate page markup) (sitemap is now static, see above).
 No D1 migration and no new secret.
 
 ## Check after deploy

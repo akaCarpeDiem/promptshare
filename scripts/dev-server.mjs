@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Local PromptShare: serves a site folder and runs the real Pages Functions
- * (functions/api, functions/p, functions/sitemap.xml) under Node, with
+ * (functions/api, functions/p; /sitemap.xml is now a static file) under Node, with
  * SQLite standing in for D1 and the repo's media folder standing in for R2.
  * No wrangler, no network.
  *
@@ -225,10 +225,6 @@ const server = createServer(async (req, res) => {
   try {
     if (path.startsWith("/api/")) {
       const { onRequest } = await fn("api/[[path]].ts");
-      return sendResponse(res, await onRequest({ request: await toRequest(req), env }));
-    }
-    if (path === "/sitemap.xml") {
-      const { onRequest } = await fn("sitemap.xml.ts");
       return sendResponse(res, await onRequest({ request: await toRequest(req), env }));
     }
     let m;
