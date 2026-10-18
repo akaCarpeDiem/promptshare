@@ -38,3 +38,12 @@
 # real game page gets the credit (each file also carries a meta robots + canonical).
 /games/play/*
   X-Robots-Tag: noindex
+
+# pages.dev copies are served without a function now (www → promptshare.co is a zone redirect
+# rule), so keep them out of search. /api, /p, /c and /media on pages.dev still 301 via
+# functions/_middleware.ts.
+https://promptshare-6is.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:alias.promptshare-6is.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

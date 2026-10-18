@@ -31,7 +31,7 @@ find dist -mindepth 1 -maxdepth 1 ! -name media ! -name fonts -exec rm -rf {} +
 
 # 3. Sync and deploy, as before.
 cp -a overlay/. dist/
-# /sitemap.xml is a static file (overlay/sitemap.xml) and is excluded from Functions in overlay/_routes.json.
+# /sitemap.xml is a static file. overlay/_routes.json sends only /api/*, /p/*, /c/* and /media/* to Functions; every other page is static.
 # It was generated from the old functions/sitemap.xml.ts output on 2026-10-17; regenerate it when public plates change.
 export WRANGLER_CACHE_DIR=/tmp/wrangler-cache
 npx wrangler pages deploy dist --project-name=promptshare
