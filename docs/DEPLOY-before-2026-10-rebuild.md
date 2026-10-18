@@ -167,7 +167,7 @@ npx wrangler d1 execute promptshare --remote --command "INSERT OR REPLACE INTO n
 - **CSS:** `assets/ps-header-v1.css` only (px units — legal.css has a 17px root). It hides React's `header.net-bar` /
   `nav.net-tabbar` (`header.ps-gbar ~ #root …`), zeroes `.net-shell` top padding, and adds `body{padding-top:13.6px}` via
   `html[data-ps-hdr]`, so content offsets are unchanged. Legal pages use `data-ps-hdr="dark"` (opaque cream glass).
-- **Home has NO bar** (Logan): `html[data-ps-route="discover"] header.ps-gbar{display:none}`. The route attr is set by the
+- **Home has NO bar**: `html[data-ps-route="discover"] header.ps-gbar{display:none}`. The route attr is set by the
   inline head script before body parse, so the bar never paints on `/`.
 - **Active section:** inline script after the bar sets `aria-current="page"` (orange) from the path (`/images`, `/videos`,
   `/games/*`; plates by `.stage.is-video|is-image` / `data-ps-plate-kind`). It re-runs on history changes.

@@ -6,7 +6,7 @@ Every published video plate keeps its full master at /media/video/<name>.mp4
 (plate / detail / fullscreen). Grid + featured cards play a lighter proxy on
 hover from /media/video-preview/<name>.mp4 (R2 key media/video-preview/<name>.mp4).
 
-Encode spec (locked 2026-10-07, approved by Logan):
+Encode spec (locked 2026-10-07, approved):
   scale=-2:720, fps=60, H.264 High, yuv420p, CRF 23, maxrate 4M, bufsize 8M,
   +faststart, no audio.
 
