@@ -1746,6 +1746,198 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/portraits-v-grainy-glance.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/street-v-hanoi-train-street.mp4": {
+    key: "media/video/street-v-hanoi-train-street.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/street-v-hanoi-train-street.jpg": {
+    key: "media/posters/street-v-hanoi-train-street.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/street-v-jaipur-shutters.mp4": {
+    key: "media/video/street-v-jaipur-shutters.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/street-v-jaipur-shutters.jpg": {
+    key: "media/posters/street-v-jaipur-shutters.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/street-v-valletta-steps.mp4": {
+    key: "media/video/street-v-valletta-steps.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/street-v-valletta-steps.jpg": {
+    key: "media/posters/street-v-valletta-steps.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cities-v-goreme-balloons.mp4": {
+    key: "media/video/cities-v-goreme-balloons.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cities-v-goreme-balloons.jpg": {
+    key: "media/posters/cities-v-goreme-balloons.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cities-v-tbilisi-domes.mp4": {
+    key: "media/video/cities-v-tbilisi-domes.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cities-v-tbilisi-domes.jpg": {
+    key: "media/posters/cities-v-tbilisi-domes.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cities-v-matera-lights.mp4": {
+    key: "media/video/cities-v-matera-lights.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cities-v-matera-lights.jpg": {
+    key: "media/posters/cities-v-matera-lights.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/landscapes-v-uyuni-storm.mp4": {
+    key: "media/video/landscapes-v-uyuni-storm.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/landscapes-v-uyuni-storm.jpg": {
+    key: "media/posters/landscapes-v-uyuni-storm.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/landscapes-v-danxia-shadows.mp4": {
+    key: "media/video/landscapes-v-danxia-shadows.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/landscapes-v-danxia-shadows.jpg": {
+    key: "media/posters/landscapes-v-danxia-shadows.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/landscapes-v-glowing-surf.mp4": {
+    key: "media/video/landscapes-v-glowing-surf.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/landscapes-v-glowing-surf.jpg": {
+    key: "media/posters/landscapes-v-glowing-surf.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/us-cities-v-pittsburgh-incline.mp4": {
+    key: "media/video/us-cities-v-pittsburgh-incline.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/us-cities-v-pittsburgh-incline.jpg": {
+    key: "media/posters/us-cities-v-pittsburgh-incline.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/us-cities-v-santa-fe-farolitos.mp4": {
+    key: "media/video/us-cities-v-santa-fe-farolitos.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/us-cities-v-santa-fe-farolitos.jpg": {
+    key: "media/posters/us-cities-v-santa-fe-farolitos.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/us-cities-v-duluth-lift-bridge.mp4": {
+    key: "media/video/us-cities-v-duluth-lift-bridge.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/us-cities-v-duluth-lift-bridge.jpg": {
+    key: "media/posters/us-cities-v-duluth-lift-bridge.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-glassblower.mp4": {
+    key: "media/video/people-v-glassblower.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-glassblower.jpg": {
+    key: "media/posters/people-v-glassblower.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-lavender-beekeeper.mp4": {
+    key: "media/video/people-v-lavender-beekeeper.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-lavender-beekeeper.jpg": {
+    key: "media/posters/people-v-lavender-beekeeper.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-plaza-tango.mp4": {
+    key: "media/video/people-v-plaza-tango.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-plaza-tango.jpg": {
+    key: "media/posters/people-v-plaza-tango.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-rooftop-tai-chi.mp4": {
+    key: "media/video/people-v-rooftop-tai-chi.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-rooftop-tai-chi.jpg": {
+    key: "media/posters/people-v-rooftop-tai-chi.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-lighthouse-keeper.mp4": {
+    key: "media/video/people-v-lighthouse-keeper.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-lighthouse-keeper.jpg": {
+    key: "media/posters/people-v-lighthouse-keeper.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-calligrapher.mp4": {
+    key: "media/video/people-v-calligrapher.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-calligrapher.jpg": {
+    key: "media/posters/people-v-calligrapher.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-night-baker.mp4": {
+    key: "media/video/people-v-night-baker.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-night-baker.jpg": {
+    key: "media/posters/people-v-night-baker.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-ridge-astronomer.mp4": {
+    key: "media/video/people-v-ridge-astronomer.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-ridge-astronomer.jpg": {
+    key: "media/posters/people-v-ridge-astronomer.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-longboard-nose.mp4": {
+    key: "media/video/people-v-longboard-nose.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-longboard-nose.jpg": {
+    key: "media/posters/people-v-longboard-nose.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-harvest-dawn.mp4": {
+    key: "media/video/people-v-harvest-dawn.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-harvest-dawn.jpg": {
+    key: "media/posters/people-v-harvest-dawn.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-ice-huts.mp4": {
+    key: "media/video/people-v-ice-huts.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-ice-huts.jpg": {
+    key: "media/posters/people-v-ice-huts.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/people-v-bridge-cellist.mp4": {
+    key: "media/video/people-v-bridge-cellist.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/people-v-bridge-cellist.jpg": {
+    key: "media/posters/people-v-bridge-cellist.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 

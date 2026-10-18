@@ -9599,5 +9599,958 @@
    "kind": "constraint",
    "means": "Keeps captions, logos and watermarks out of the clip."
   }
+ ],
+ "seed_video_street_hanoi_train_street": [
+  {
+   "phrase": "Tilt-shift view looking down on Hanoi's narrow train street at blue hour",
+   "kind": "camera",
+   "means": "Tilt-shift blur makes a real street look like a model town."
+  },
+  {
+   "phrase": "residents sip tea on tiny plastic stools beside the rails",
+   "kind": "subject",
+   "means": "Everyday life squeezed against the tracks is the whole story."
+  },
+  {
+   "phrase": "paper lanterns glow above doorways",
+   "kind": "light",
+   "means": "Warm points of light against the blue evening."
+  },
+  {
+   "phrase": "laundry sways on lines overhead",
+   "kind": "motion",
+   "means": "Small, gentle movement across the top of the frame."
+  },
+  {
+   "phrase": "slow sideways drift",
+   "kind": "camera",
+   "means": "A calm move that keeps the miniature effect believable."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_street_jaipur_shutters": [
+  {
+   "phrase": "Gentle cinematic POV from a slow-moving cycle rickshaw",
+   "kind": "camera",
+   "means": "Puts the viewer in a seat, rolling through the street."
+  },
+  {
+   "phrase": "rolling through a Jaipur bazaar street at first light",
+   "kind": "subject",
+   "means": "Place and hour in one line."
+  },
+  {
+   "phrase": "pink sandstone arcades",
+   "kind": "setting",
+   "means": "The city's signature color sets the palette."
+  },
+  {
+   "phrase": "shopkeepers raise rolling metal shutters",
+   "kind": "motion",
+   "means": "The street waking up gives the clip a beginning."
+  },
+  {
+   "phrase": "pigeons lift from a cornice",
+   "kind": "motion",
+   "means": "A burst of motion that catches the eye."
+  },
+  {
+   "phrase": "soft rose-gold haze",
+   "kind": "light",
+   "means": "Morning dust and low sun make the air glow."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_street_valletta_steps": [
+  {
+   "phrase": "Gentle cinematic slow rising shot up a stepped street in Valletta after rain",
+   "kind": "camera",
+   "means": "Climbing the steps reveals the street one balcony at a time."
+  },
+  {
+   "phrase": "rows of brightly painted enclosed wooden balconies",
+   "kind": "subject",
+   "means": "Malta's gallarija balconies make the scene unmistakable."
+  },
+  {
+   "phrase": "wet limestone steps mirror warm streetlamps",
+   "kind": "light",
+   "means": "Reflections double the light on the ground."
+  },
+  {
+   "phrase": "a cat pads across a landing",
+   "kind": "detail",
+   "means": "One small, unscripted moment of life."
+  },
+  {
+   "phrase": "night sky deep indigo at the top of the street",
+   "kind": "light",
+   "means": "A cool color that frames the warm street."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cities_goreme_balloons": [
+  {
+   "phrase": "Aerial drift from inside a slowly rising hot-air balloon basket",
+   "kind": "camera",
+   "means": "An unusual vantage that looks out across the other balloons."
+  },
+  {
+   "phrase": "over the cave houses and fairy chimneys of Göreme at sunrise",
+   "kind": "subject",
+   "means": "The town and its rock spires below give the scale."
+  },
+  {
+   "phrase": "dozens of balloons lift in staggered layers",
+   "kind": "motion",
+   "means": "Layers of balloons create depth from foreground to horizon."
+  },
+  {
+   "phrase": "burner flame flares warm in the foreground",
+   "kind": "light",
+   "means": "A close, bright flicker that frames the wide view."
+  },
+  {
+   "phrase": "long apricot shadows across the valley",
+   "kind": "light",
+   "means": "Low sun carves the rock shapes."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cities_tbilisi_domes": [
+  {
+   "phrase": "Gentle cinematic low drone glide over the brick domes of Tbilisi's sulfur baths at twilight",
+   "kind": "camera",
+   "means": "Skimming the round roofs gives a rhythmic foreground."
+  },
+  {
+   "phrase": "carved wooden balconies stacked up the hillside",
+   "kind": "setting",
+   "means": "The old town's distinctive houses rise behind the domes."
+  },
+  {
+   "phrase": "steam curls from the dome vents",
+   "kind": "motion",
+   "means": "Warm vapor in cool air shows the hot springs below."
+  },
+  {
+   "phrase": "the fortress on the ridge lit gold",
+   "kind": "light",
+   "means": "A lit landmark anchors the skyline."
+  },
+  {
+   "phrase": "lights flicker on across the old town",
+   "kind": "motion",
+   "means": "The city switching on marks the time of day."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cities_matera_lights": [
+  {
+   "phrase": "Time-lapse from a fixed tripod across the Sassi of Matera at nightfall",
+   "kind": "camera",
+   "means": "A locked frame lets the light change be the motion."
+  },
+  {
+   "phrase": "cave houses and stone terraces stacked down the ravine",
+   "kind": "subject",
+   "means": "The ancient town's shape fills the frame."
+  },
+  {
+   "phrase": "windows and lanes blink on one by one",
+   "kind": "motion",
+   "means": "The town lighting up is the clip's arc."
+  },
+  {
+   "phrase": "sky fades from lavender to deep blue",
+   "kind": "light",
+   "means": "A full color shift that shows time passing."
+  },
+  {
+   "phrase": "swallows streak through the frame",
+   "kind": "detail",
+   "means": "Quick motion blur that marks the speed of the time-lapse."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_landscapes_uyuni_storm": [
+  {
+   "phrase": "Gentle cinematic ground-level shot across a flooded salt flat at night",
+   "kind": "camera",
+   "means": "Shooting low makes the water a perfect mirror."
+  },
+  {
+   "phrase": "the Milky Way doubled in the still water",
+   "kind": "subject",
+   "means": "Stars above and below erase the horizon."
+  },
+  {
+   "phrase": "a distant thunderstorm flickers violet on the horizon",
+   "kind": "light",
+   "means": "Silent lightning gives the night a pulse."
+  },
+  {
+   "phrase": "faint ripples spread across the mirror",
+   "kind": "motion",
+   "means": "A barely moving surface keeps the reflection alive."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_landscapes_danxia_shadows": [
+  {
+   "phrase": "Slow aerial glide high above the striped Danxia ridges of Zhangye at golden hour",
+   "kind": "camera",
+   "means": "Altitude turns the bands of rock into flowing patterns."
+  },
+  {
+   "phrase": "layers of red, orange and cream sandstone",
+   "kind": "subject",
+   "means": "Names the colors so the stripes come out right."
+  },
+  {
+   "phrase": "cloud shadows slide across the ridges",
+   "kind": "motion",
+   "means": "Moving shade shows the folds of the land."
+  },
+  {
+   "phrase": "raking low sun sharpens every crease",
+   "kind": "light",
+   "means": "Side light gives the terrain depth."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_landscapes_glowing_surf": [
+  {
+   "phrase": "Gentle cinematic surf-level shot on a black sand beach at night",
+   "kind": "camera",
+   "means": "A camera at wave height puts the glow right in front of you."
+  },
+  {
+   "phrase": "waves break in electric blue bioluminescence",
+   "kind": "subject",
+   "means": "The ocean itself is the light source."
+  },
+  {
+   "phrase": "foam glows and fades as it slides up the sand",
+   "kind": "motion",
+   "means": "Describes how the light should behave as the water moves."
+  },
+  {
+   "phrase": "Milky Way arches over a dark headland",
+   "kind": "setting",
+   "means": "A night sky that matches the blue glow."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_us_cities_pittsburgh_incline": [
+  {
+   "phrase": "POV from the window of a wooden incline car climbing Mount Washington at dusk",
+   "kind": "camera",
+   "means": "An unusual rising viewpoint as the city drops away."
+  },
+  {
+   "phrase": "downtown Pittsburgh where three rivers meet",
+   "kind": "subject",
+   "means": "The skyline and the rivers give the place away."
+  },
+  {
+   "phrase": "yellow bridges glow over dark water",
+   "kind": "light",
+   "means": "The city's signature bridges as bright lines."
+  },
+  {
+   "phrase": "the car's brass fittings catch the last light",
+   "kind": "detail",
+   "means": "A close foreground that frames the view."
+  },
+  {
+   "phrase": "city lights twinkle on below",
+   "kind": "motion",
+   "means": "The evening arriving as we climb."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_us_cities_santa_fe_farolitos": [
+  {
+   "phrase": "Gentle cinematic slow walk along a Santa Fe adobe street in the first snow",
+   "kind": "camera",
+   "means": "A walking pace suits a quiet winter night."
+  },
+  {
+   "phrase": "rows of glowing paper-bag farolitos line the rooftops and walls",
+   "kind": "subject",
+   "means": "The local tradition is the clip's light source."
+  },
+  {
+   "phrase": "snowflakes drift through warm candlelight",
+   "kind": "motion",
+   "means": "Soft particles in front of the warm glow."
+  },
+  {
+   "phrase": "rounded earthen walls dusted white",
+   "kind": "setting",
+   "means": "Adobe shapes under snow are unique to the place."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_us_cities_duluth_lift_bridge": [
+  {
+   "phrase": "Gentle cinematic low shot from the canal pier in Duluth at dusk",
+   "kind": "camera",
+   "means": "Looking up at the bridge makes it feel enormous."
+  },
+  {
+   "phrase": "the aerial lift bridge deck rises as a long lake freighter glides beneath",
+   "kind": "subject",
+   "means": "The bridge and the ship moving together is the event."
+  },
+  {
+   "phrase": "Lake Superior fog rolls in",
+   "kind": "motion",
+   "means": "Fog adds mood and hides the far shore."
+  },
+  {
+   "phrase": "bridge lights blur into halos",
+   "kind": "light",
+   "means": "Fog softens every lamp into a glow."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_glassblower": [
+  {
+   "phrase": "Gentle cinematic macro-to-medium pull-back in a glassblowing studio",
+   "kind": "camera",
+   "means": "Starts on the glowing glass, then reveals the maker."
+  },
+  {
+   "phrase": "a woman in her fifties turns a molten orange gather on a long pipe",
+   "kind": "subject",
+   "means": "Age, craft and action are all stated."
+  },
+  {
+   "phrase": "the furnace mouth glows behind her",
+   "kind": "light",
+   "means": "A strong warm source that lights the scene."
+  },
+  {
+   "phrase": "heat shimmer warps the air",
+   "kind": "detail",
+   "means": "Shows the heat without saying it."
+  },
+  {
+   "phrase": "calm focused expression",
+   "kind": "detail",
+   "means": "Keeps the mood quiet and skilled."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_lavender_beekeeper": [
+  {
+   "phrase": "Gentle cinematic slow push-in at dawn in a lavender field",
+   "kind": "camera",
+   "means": "Moves toward the work as the light rises."
+  },
+  {
+   "phrase": "a beekeeper in a pale veil lifts a frame of honeycomb from a hive",
+   "kind": "subject",
+   "means": "A clear action with a clear prop."
+  },
+  {
+   "phrase": "bees spiral in golden backlight",
+   "kind": "motion",
+   "means": "Backlit bees read as glowing specks."
+  },
+  {
+   "phrase": "wisps of smoke from a smoker drift across the rows",
+   "kind": "motion",
+   "means": "Soft haze that layers the frame."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_plaza_tango": [
+  {
+   "phrase": "Gentle cinematic slow orbit around a couple in their sixties dancing tango",
+   "kind": "camera",
+   "means": "Circling a couple matches the turns of the dance."
+  },
+  {
+   "phrase": "in an empty rain-washed plaza at night",
+   "kind": "setting",
+   "means": "An empty public space makes the dance private."
+  },
+  {
+   "phrase": "her skirt swirls and his shoes slide on wet stone",
+   "kind": "motion",
+   "means": "Specific movement for each dancer."
+  },
+  {
+   "phrase": "a single café lamp reflects in the puddles",
+   "kind": "light",
+   "means": "One light source keeps the mood intimate."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_rooftop_tai_chi": [
+  {
+   "phrase": "Top-down drone view slowly rotating above a rooftop tai chi class at sunrise",
+   "kind": "camera",
+   "means": "Overhead turns a group into a moving pattern."
+  },
+  {
+   "phrase": "a dozen older practitioners in loose white clothes move in unison",
+   "kind": "subject",
+   "means": "Unison movement is what makes the overhead shot work."
+  },
+  {
+   "phrase": "long morning shadows stretch across the roof",
+   "kind": "light",
+   "means": "Shadows repeat every pose as a second figure."
+  },
+  {
+   "phrase": "city towers soft in haze around the edges",
+   "kind": "setting",
+   "means": "Places the calm class inside a busy city."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_lighthouse_keeper": [
+  {
+   "phrase": "Gentle cinematic slow orbit inside a lighthouse lantern room at dusk",
+   "kind": "camera",
+   "means": "Circling inside the glass room makes the lens glitter."
+  },
+  {
+   "phrase": "a keeper in his seventies polishes the giant Fresnel lens with a soft cloth",
+   "kind": "subject",
+   "means": "A quiet ritual with an extraordinary object."
+  },
+  {
+   "phrase": "prisms throw rainbow slivers across his face",
+   "kind": "light",
+   "means": "The lens itself paints the character with light."
+  },
+  {
+   "phrase": "the beam begins its first sweep over a dark sea",
+   "kind": "motion",
+   "means": "The light switching on marks the start of the night."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_calligrapher": [
+  {
+   "phrase": "Extreme macro of a calligrapher's brush meeting rice paper",
+   "kind": "camera",
+   "means": "So close that the bristles and fibers become the landscape."
+  },
+  {
+   "phrase": "black ink blooms into the paper fibers",
+   "kind": "subject",
+   "means": "The ink spreading is the subject of the clip."
+  },
+  {
+   "phrase": "an older hand guides the stroke in one unbroken motion",
+   "kind": "motion",
+   "means": "A single confident gesture."
+  },
+  {
+   "phrase": "soft north window light",
+   "kind": "light",
+   "means": "Even daylight that keeps the blacks rich."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_night_baker": [
+  {
+   "phrase": "Gentle cinematic slow push-in in a bakery at four in the morning",
+   "kind": "camera",
+   "means": "The hour sets a quiet, private mood."
+  },
+  {
+   "phrase": "a baker in his forties slides crusty loaves out of a wood-fired oven on a long peel",
+   "kind": "subject",
+   "means": "A clear action with the oven as the stage."
+  },
+  {
+   "phrase": "flour dust drifts through a single hanging bulb",
+   "kind": "light",
+   "means": "Lit particles make the air visible."
+  },
+  {
+   "phrase": "embers glow in the oven mouth",
+   "kind": "detail",
+   "means": "Warm color at the center of the frame."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_ridge_astronomer": [
+  {
+   "phrase": "Time-lapse from a fixed camera on a high desert ridge",
+   "kind": "camera",
+   "means": "A locked frame lets the sky wheel overhead."
+  },
+  {
+   "phrase": "an astronomer in a red headlamp adjusts a large telescope",
+   "kind": "subject",
+   "means": "A small human figure against a huge sky."
+  },
+  {
+   "phrase": "the Milky Way wheels slowly overhead",
+   "kind": "motion",
+   "means": "Star motion is the main movement."
+  },
+  {
+   "phrase": "red light glows softly on the rocks",
+   "kind": "light",
+   "means": "Red light keeps night vision and colors the foreground."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_longboard_nose": [
+  {
+   "phrase": "Water-level tracking shot beside a longboard surfer at sunset",
+   "kind": "camera",
+   "means": "Shot from inside the wave's face, at the surfer's height."
+  },
+  {
+   "phrase": "a man in his thirties cross-steps to the nose of the board",
+   "kind": "subject",
+   "means": "A graceful, specific surf move."
+  },
+  {
+   "phrase": "the glassy wave face glows amber",
+   "kind": "light",
+   "means": "Low sun through the water turns it gold."
+  },
+  {
+   "phrase": "water droplets on the lens catch the light",
+   "kind": "detail",
+   "means": "Makes the camera feel like it's really in the water."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_harvest_dawn": [
+  {
+   "phrase": "Gentle cinematic slow dolly down a vineyard row at dawn",
+   "kind": "camera",
+   "means": "Moves along the vines with the workers."
+  },
+  {
+   "phrase": "a harvest crew of adults in sun hats snip grape clusters into crates",
+   "kind": "subject",
+   "means": "A group at work with simple, readable actions."
+  },
+  {
+   "phrase": "mist lifts from the valley floor",
+   "kind": "motion",
+   "means": "Morning fog clearing as the sun rises."
+  },
+  {
+   "phrase": "dew sparkles on the leaves",
+   "kind": "detail",
+   "means": "Small highlights that make the morning feel cool."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_ice_huts": [
+  {
+   "phrase": "Tilt-shift aerial looking straight down on a frozen lake",
+   "kind": "camera",
+   "means": "Tilt-shift makes the village look like a toy model."
+  },
+  {
+   "phrase": "a scattered village of colorful ice-fishing huts",
+   "kind": "subject",
+   "means": "Bright huts as dots of color on white."
+  },
+  {
+   "phrase": "adults in parkas walk between huts and auger new holes",
+   "kind": "motion",
+   "means": "Small figures going about their day."
+  },
+  {
+   "phrase": "long blue afternoon shadows on the snow",
+   "kind": "light",
+   "means": "Shadows show the shape of each hut."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_people_bridge_cellist": [
+  {
+   "phrase": "Gentle cinematic slow arc around a street cellist under a stone bridge at blue hour",
+   "kind": "camera",
+   "means": "A half-circle reveals the river behind her."
+  },
+  {
+   "phrase": "a woman in her twenties plays with her eyes closed",
+   "kind": "subject",
+   "means": "Clearly adult, absorbed in the music."
+  },
+  {
+   "phrase": "the bow moves in long, slow strokes",
+   "kind": "motion",
+   "means": "Gives the model a precise, gentle action."
+  },
+  {
+   "phrase": "string lights on the arch reflect in the river",
+   "kind": "light",
+   "means": "Warm points against the blue water."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }
