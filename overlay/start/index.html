@@ -36,8 +36,8 @@
     <meta name="twitter:image" content="https://promptshare.co/og.png" />
     <link rel="preload" href="/fonts/outfit-normal-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/fraunces-normal-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/app/app.css?v=87d07b9c8b" />
-    <link rel="modulepreload" href="/app/app.js?v=87d07b9c8b" />
+    <link rel="stylesheet" href="/app/app.css?v=3dcaa96a67" />
+    <link rel="modulepreload" href="/app/app.js?v=3dcaa96a67" />
     <link rel="modulepreload" href="/app/data.js" />
     <link rel="modulepreload" href="/app/ui.js" />
     <link rel="modulepreload" href="/app/card.js" />
@@ -47,7 +47,7 @@
     <link rel="modulepreload" href="/app/views/browse.js" />
     <link rel="modulepreload" href="/app/views/plate.js" />
     <link rel="preload" href="/api/catalog" as="fetch" crossorigin />
-    <script type="module" src="/app/app.js?v=87d07b9c8b"></script>
+    <script type="module" src="/app/app.js?v=3dcaa96a67"></script>
   </head>
   <body data-shell="app">
 <a class="skip" href="#main">Skip to content</a>
@@ -78,8 +78,92 @@
   <h1 class="display">The output, then the prompt.</h1>
   <p class="lede">A curated gallery of AI images, videos and games. Each one sits beside the exact prompt that made it, with the phrases that did the work marked and explained.</p>
   <div class="hero-go"><a class="btn btn-solid" href="/images/">Browse images</a><a class="btn" href="/videos/">Watch videos</a><a class="btn" href="/games/">Play games</a></div>
-</div><div class="demo" aria-hidden="true"><div class="demo-shot skel"></div></div></section></div></main></div>
-    <noscript><p class="wrap fine" style="padding-block:16px">PromptShare needs JavaScript to draw the gallery. The <a href="/about/">About</a> page and the policy pages work without it.</p></noscript>
+  <p class="hero-words"><a href="/words/">Words</a>: the phrases that do the work, each one explained, with every prompt here that uses it.</p>
+  <p class="hero-counts num"><span><b>391</b> images</span><span><b>101</b> videos</span><span><b>17</b> games</span><span><b>1,543</b> prompt notes</span></p>
+</div><div class="demo" aria-label="Example: a prompt read phrase by phrase">
+        <div class="demo-shot"><img class="is-on" src="/media/images/cities-q-istanbul-bosphorus.webp" alt="Istanbul Bosphorus" width="1920" height="1080" fetchpriority="high" decoding="async"><a href="/p/seed_cities_q_istanbul_bosphorus" aria-label="Open this plate"></a></div>
+        <div class="demo-read">
+          <p class="prompt">Wide <span class="mk is-on" data-role="subject" data-k="0">Istanbul skyline along the Bosphorus</span> at dusk with <span class="mk" data-role="detail" data-k="1">mosque domes and minarets among dense hills</span>, <span class="mk" data-role="detail" data-k="2">ferry wakes on dark water</span>, <span class="mk" data-role="camera" data-k="3">expansive strait city panorama from elevated distance</span> — not street level.</p>
+          <p class="demo-note" aria-live="off" data-role="subject"><b>Subject</b><span>Names the city and the strait, so the picture is built round the waterfront and not a street.</span></p>
+        </div>
+        <div class="demo-bar"><span></span><a class="fine" href="/p/seed_cities_q_istanbul_bosphorus" data-demo-link>Open this plate</a></div>
+      </div></section>
+  <section class="band"><div class="row-head"><h2 class="h2">Featured images</h2><a href="/images/">All images</a></div><div class="grid" data-row="images"><a class="card" href="/p/seed_landscapes_sea_stacks" data-id="seed_landscapes_sea_stacks">
+  <div class="card-media"><img src="/media/thumbs/images/studio-sea-stacks.webp" data-full="/media/images/studio-sea-stacks.webp" alt="Sea stacks dawn" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Sea stacks dawn</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">Coastal sea stacks</span> in morning <span class="mk" data-role="light">mist</span>, <span class="mk" data-role="detail">surf rings</span>, <span class="mk" data-role="setting">rugged shoreline</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_architecture_boiler_house" data-id="seed_architecture_boiler_house">
+  <div class="card-media"><img src="/media/thumbs/images/studio-boiler-house.webp" data-full="/media/images/studio-boiler-house.webp" alt="Boiler house" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Boiler house</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">An industrial boiler house with tall windows and brick</span>, <span class="mk" data-role="style">functional architecture</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_animals_penguins" data-id="seed_animals_penguins">
+  <div class="card-media"><img src="/media/thumbs/images/studio-penguins.webp" data-full="/media/images/studio-penguins.webp" alt="Penguin huddle" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Penguin huddle</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">A colony of penguins on blue ice</span>, <span class="mk" data-role="detail">clustered warmth against wind</span>, <span class="mk" data-role="style">wildlife still</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_nature_geyser" data-id="seed_nature_geyser">
+  <div class="card-media"><img src="/media/thumbs/images/studio-geyser.webp" data-full="/media/images/studio-geyser.webp" alt="Morning geyser" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Morning geyser</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">A geyser erupting at sunrise with golden spray and rainbow fringe</span>, <span class="mk" data-role="setting">geothermal landscape</span>, <span class="mk" data-role="camera">wide shot</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_vehicles_violet_tram" data-id="seed_vehicles_violet_tram">
+  <div class="card-media"><img src="/media/thumbs/images/studio-violet-tram.webp" data-full="/media/images/studio-violet-tram.webp" alt="Violet tram" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Violet tram</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">A violet vintage tram turning a rainy corner</span>, <span class="mk" data-role="detail">reflections</span>, <span class="mk" data-role="setting">European street</span>, <span class="mk" data-role="style">cinematic</span> vehicle <span class="mk" data-role="camera">portrait</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_fantasy_carved_door" data-id="seed_fantasy_carved_door">
+  <div class="card-media"><img src="/media/thumbs/images/studio-carved-door.webp" data-full="/media/images/studio-carved-door.webp" alt="Rune door" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Rune door</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">An ancient carved wooden door set in a living tree</span>, <span class="mk" data-role="detail">glowing runes in the grain</span>, <span class="mk" data-role="setting">forest dusk</span>, <span class="mk" data-role="style">high fantasy still</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_space_observatory" data-id="seed_space_observatory">
+  <div class="card-media"><img src="/media/thumbs/images/studio-observatory.webp" data-full="/media/images/studio-observatory.webp" alt="Dome night" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Dome night</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">A mountain observatory dome open under the Milky Way</span>, <span class="mk" data-role="camera">long exposure stars</span>, cold alpine air, <span class="mk" data-role="style">astrophotography</span>.</p>
+  </div>
+</a><a class="card" href="/p/seed_food_grilled_peaches" data-id="seed_food_grilled_peaches">
+  <div class="card-media"><img src="/media/thumbs/images/studio-grilled-peaches.webp" data-full="/media/images/studio-grilled-peaches.webp" alt="Grilled peaches" width="640" height="360" loading="lazy" decoding="async"></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Grilled peaches</h3><span class="card-model">Grok Imagine 2.0</span></div>
+    <p class="prompt"><span class="mk" data-role="subject">Grilled peach halves with thyme and honey on a dark plate</span>, <span class="mk" data-role="detail">charcoal marks</span>, <span class="mk" data-role="light">summer evening light</span>, <span class="mk" data-role="style">food magazine</span>.</p>
+  </div>
+</a></div></section>
+  <section class="band"><div class="row-head"><h2 class="h2">Featured videos</h2><a href="/videos/">All videos</a></div><div class="grid" data-row="videos"><a class="card" href="/p/seed_video_people_bookstore" data-id="seed_video_people_bookstore" data-preview="/media/video-preview/people-bookstore.mp4?v=20261003peoplebook60" data-master="/media/video/people-bookstore.mp4?v=20261003peoplebook60">
+  <div class="card-media"><img src="/media/thumbs/posters/people-bookstore.webp?v=20261003peoplebook60" data-full="/media/posters/people-bookstore.jpg?v=20261003peoplebook60" alt="Bookstore aisle" width="640" height="360" loading="lazy" decoding="async"><span class="card-kind"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z"/></svg>Video</span></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Bookstore aisle</h3><span class="card-model">Grok Imagine Video 1.5</span></div>
+    <p class="prompt">Adult bookstore aisle <span class="mk" data-role="style">cinematic</span>, <span class="mk" data-role="subject">adults browsing tall shelves in a quiet bookstore</span>, <span class="mk" data-role="light">warm reading lamps</span>, <span class="mk" data-role="motion">gentle camera drift</span>, <span class="mk" data-role="style">photoreal</span> <span class="mk" data-role="style">documentary</span>, <span class="mk" data-role="guard">adults only</span>, <span class="mk" data-role="guard">no minors</span>, <span class="mk" data-role="guard">no text</span>, <span class="mk" data-role="guard">no watermark</span></p>
+  </div>
+</a><a class="card" href="/p/seed_video_street_edinburgh_close" data-id="seed_video_street_edinburgh_close" data-preview="/media/video-preview/street-edinburgh-close.mp4?v=20261003streetedin60" data-master="/media/video/street-edinburgh-close.mp4?v=20261003streetedin60">
+  <div class="card-media"><img src="/media/thumbs/posters/street-edinburgh-close.webp?v=20261003streetedin60" data-full="/media/posters/street-edinburgh-close.jpg?v=20261003streetedin60" alt="Edinburgh close dusk" width="640" height="360" loading="lazy" decoding="async"><span class="card-kind"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z"/></svg>Video</span></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Edinburgh close dusk</h3><span class="card-model">Grok Imagine Video 1.5</span></div>
+    <p class="prompt">Edinburgh close <span class="mk" data-role="light">dusk</span> <span class="mk" data-role="style">cinematic</span>, <span class="mk" data-role="setting">a narrow stone close between tall tenements</span>, <span class="mk" data-role="light">warm lamp light in the passage</span>, <span class="mk" data-role="motion">gentle camera drift</span>, <span class="mk" data-role="style">photoreal</span> street, <span class="mk" data-role="guard">no readable faces</span>, <span class="mk" data-role="guard">no text</span>, <span class="mk" data-role="guard">no watermark</span></p>
+  </div>
+</a><a class="card" href="/p/seed_video_cities_vancouver_seawall" data-id="seed_video_cities_vancouver_seawall" data-preview="/media/video-preview/cities-vancouver-seawall.mp4?v=20261003citiesvanc60" data-master="/media/video/cities-vancouver-seawall.mp4?v=20261003citiesvanc60">
+  <div class="card-media"><img src="/media/thumbs/posters/cities-vancouver-seawall.webp?v=20261003citiesvanc60" data-full="/media/posters/cities-vancouver-seawall.jpg?v=20261003citiesvanc60" alt="Vancouver seawall dusk" width="640" height="360" loading="lazy" decoding="async"><span class="card-kind"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z"/></svg>Video</span></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Vancouver seawall dusk</h3><span class="card-model">Grok Imagine Video 1.5</span></div>
+    <p class="prompt">Vancouver seawall <span class="mk" data-role="light">dusk</span> <span class="mk" data-role="style">cinematic</span>, <span class="mk" data-role="setting">a waterfront path and mountains across a calm inlet</span>, <span class="mk" data-role="light">warm skyline light on the water</span>, <span class="mk" data-role="motion">gentle camera drift</span>, <span class="mk" data-role="style">photoreal</span> city, <span class="mk" data-role="guard">no readable faces</span>, <span class="mk" data-role="guard">no text</span>, <span class="mk" data-role="guard">no watermark</span></p>
+  </div>
+</a><a class="card" href="/p/seed_video_landscapes_tundra_river" data-id="seed_video_landscapes_tundra_river" data-preview="/media/video-preview/landscapes-tundra-river.mp4?v=20261003tund1080" data-master="/media/video/landscapes-tundra-river.mp4?v=20261003tund1080">
+  <div class="card-media"><img src="/media/thumbs/posters/landscapes-tundra-river.webp?v=20261003tund1080" data-full="/media/posters/landscapes-tundra-river.jpg?v=20261003tund1080" alt="Tundra river summer" width="640" height="360" loading="lazy" decoding="async"><span class="card-kind"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z"/></svg>Video</span></div>
+  <div class="card-body">
+    <div class="card-head"><h3 class="card-title">Tundra river summer</h3><span class="card-model">Grok Imagine Video 1.5</span></div>
+    <p class="prompt">Tundra river summer <span class="mk" data-role="style">cinematic</span>, <span class="mk" data-role="setting">a braided river crossing open tundra under a wide sky</span>, <span class="mk" data-role="light">cool clear light on the gravel bars</span>, <span class="mk" data-role="motion">gentle camera drift</span>, <span class="mk" data-role="style">photoreal</span> landscape, <span class="mk" data-role="guard">no readable faces</span>, <span class="mk" data-role="guard">no text</span>, <span class="mk" data-role="guard">no watermark</span></p>
+  </div>
+</a></div></section>
+</div></main></div>
+    <noscript><p class="wrap fine" style="padding-block:16px">The first plates are shown above. Filtering, search and the rest of the gallery need JavaScript; the <a href="/about/">About</a> page and the policy pages work without it.</p></noscript>
 <footer class="foot">
   <div class="wrap foot-in">
     <div>

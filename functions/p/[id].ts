@@ -1,6 +1,20 @@
 import { createD1Store, type D1Database, type R2Bucket } from "../lib/d1.ts";
 import type { AuthEnv, Creation, User } from "../lib/types.ts";
 import { displayModel } from "../lib/modelLabel.ts";
+import { cleanDisplayPrompt } from "../lib/promptClean.ts";
+import { dimsOf } from "../lib/mediaDims.ts";
+// The same marking the browser does (overlay/app/marks.js), done here so the marked phrases and
+// their explanations are in the HTML that crawlers and no-JS readers get.
+import { compileLexicon, segment, renderPrompt } from "../../overlay/app/marks.js";
+import { ROLES, ROLE } from "../../overlay/app/roles.js";
+import NOTES from "../../overlay/data/notes.json" with { type: "json" };
+import LEXICON from "../../overlay/data/lexicon.json" with { type: "json" };
+
+let matcher: ReturnType<typeof compileLexicon> | null = null;
+function marksFor(id: string, prompt: string) {
+  matcher ||= compileLexicon(LEXICON as any);
+  return segment(prompt, (NOTES as Record<string, any[]>)[id] || [], matcher) as any[];
+}
 
 interface Env extends AuthEnv {
   DB?: D1Database;
@@ -85,7 +99,7 @@ export const onRequest = async (context: {
   html = swapRoot(
     html,
     renderPlateBody(creation, alt),
-    "The marked phrases and notes need JavaScript. The picture and its prompt are above.",
+    "The picture, its prompt and the notes are above. Copying the prompt and stepping between plates need JavaScript.",
   );
 
   return new Response(html, {
@@ -134,8 +148,26 @@ function swapRoot(html: string, body: string, noscript: string): string {
 function buildDescription(creation: Creation, _author: User | null): string {
   const modelLabel = displayModel(creation);
   const model = modelLabel ? ` Model: ${modelLabel}.` : "";
-  const excerpt = creation.prompt.replace(/\s+/g, " ").trim().slice(0, 140);
-  return `${creation.title || "Plate"}.${model} Prompt: ${excerpt}`.slice(0, 180);
+  const head = `${creation.title || "Plate"}.${model} Prompt: `;
+  return head + wholePhrases(cleanDisplayPrompt(creation.prompt), Math.max(60, 180 - head.length));
+}
+
+/** As much of the prompt as fits in `max` characters, cut after a whole comma-separated phrase. */
+function wholePhrases(prompt: string, max: number): string {
+  const text = prompt.replace(/\s+/g, " ").trim();
+  if (text.length <= max) return text;
+  const parts = text.split(/,\s*/);
+  let out = "";
+  for (const part of parts) {
+    const next = out ? `${out}, ${part}` : part;
+    if (next.length > max - 1) break;
+    out = next;
+  }
+  if (!out) {
+    // One very long phrase: stop at the last whole word.
+    out = text.slice(0, max - 1).replace(/\s+\S*$/, "");
+  }
+  return `${out.replace(/[,;:\s]+$/, "")}…`;
 }
 
 function buildJsonLd(
@@ -144,37 +176,54 @@ function buildJsonLd(
   canonical: string,
   imageAbs: string,
 ): string {
-  const steps = [...creation.steps].sort((a, b) => a.position - b.position);
-  const notes = steps
-    .map((s) => s.note)
-    .filter(Boolean)
+  const prompt = cleanDisplayPrompt(creation.prompt);
+  const dims = dimsOf(creation.id);
+  const studio = { "@type": "Organization", name: "PromptShare studio", url: CANONICAL };
+  const notes = ((NOTES as Record<string, Array<{ phrase: string; means: string }>>)[creation.id] || [])
+    .map((n) => `${n.phrase}: ${n.means}`)
     .join(" ");
   const obj: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: creation.title || creation.prompt.slice(0, 80),
+    name: creation.title || prompt.slice(0, 80),
     url: canonical,
-    text: creation.prompt,
-    description: creation.prompt.slice(0, 300),
+    text: prompt,
+    description: wholePhrases(prompt, 300),
     image: imageAbs,
     dateCreated: creation.createdAt,
     keywords: creation.tags?.join(", ") || undefined,
+    creator: studio,
+    publisher: { "@type": "Organization", name: "PromptShare", url: CANONICAL },
+    isAccessibleForFree: true,
   };
   const modelLabel = displayModel(creation);
   if (modelLabel) {
-    obj.creativeWorkStatus = modelLabel;
-    obj.additionalProperty = [
-      { "@type": "PropertyValue", name: "model", value: modelLabel },
-    ];
+    obj.additionalProperty = [{ "@type": "PropertyValue", name: "model", value: modelLabel }];
   }
   if (notes) obj.comment = notes;
-  // Also expose ImageObject for share scrapers
-  obj.associatedMedia = {
-    "@type": "ImageObject",
-    contentUrl: imageAbs,
-    name: creation.title || "Plate image",
-    caption: creation.prompt.slice(0, 200),
-  };
+  obj.associatedMedia =
+    creation.mediaKind === "video"
+      ? {
+          "@type": "VideoObject",
+          name: creation.title || "Plate video",
+          description: wholePhrases(prompt, 200),
+          contentUrl: new URL(creation.mediaUrl, CANONICAL).toString(),
+          thumbnailUrl: new URL(appPosterUrl(creation), CANONICAL).toString(),
+          uploadDate: creation.createdAt,
+          width: dims.width,
+          height: dims.height,
+          creator: studio,
+        }
+      : {
+          "@type": "ImageObject",
+          contentUrl: imageAbs,
+          name: creation.title || "Plate image",
+          caption: wholePhrases(prompt, 200),
+          width: dims.width,
+          height: dims.height,
+          creator: studio,
+          creditText: "PromptShare studio",
+        };
   return JSON.stringify(obj).replace(/</g, "\\u003c");
 }
 
@@ -183,9 +232,30 @@ function renderPlateBody(creation: Creation, alt: string): string {
   const home = video ? "/videos/" : "/images/";
   const mediaUrl = appMediaUrl(creation);
   // preload="none": the app swaps in its own player a moment later, so don't fetch the clip twice.
+  const { width, height } = dimsOf(creation.id);
   const media = video
-    ? `<video src="${escapeHtml(platePreviewUrl(mediaUrl))}" poster="${escapeHtml(appPosterUrl(creation))}" controls playsinline preload="none" width="1280" height="720"></video>`
-    : `<img src="${escapeHtml(mediaUrl)}" alt="${alt}" width="1280" height="720" decoding="async" fetchpriority="high">`;
+    ? `<video src="${escapeHtml(platePreviewUrl(mediaUrl))}" poster="${escapeHtml(appPosterUrl(creation))}" controls playsinline preload="none" width="${width}" height="${height}"></video>`
+    : `<img src="${escapeHtml(mediaUrl)}" alt="${alt}" width="${width}" height="${height}" decoding="async" fetchpriority="high">`;
+  const prompt = cleanDisplayPrompt(creation.prompt);
+  const segments = marksFor(creation.id, prompt);
+  const marks = segments.filter((m) => m.role);
+  const rolesUsed = ROLES.filter((r) => marks.some((m) => m.role === r.id));
+  const seen = new Set<string>();
+  const listed = marks.filter((m) => {
+    const key = m.note ? "n:" + m.n : "t:" + m.term.t;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const written = listed.filter((m) => m.note).length;
+  const noteItem = (m: any) => {
+    const role = (ROLE as Record<string, { name: string }>)[m.role];
+    const means = m.note ? m.note.means : m.term.means;
+    const inner = `<span><span class="note-kind">${escapeHtml(role.name)}</span><span class="note-phrase">${escapeHtml(m.text)}</span><span class="note-means">${escapeHtml(means)}</span></span>`;
+    return m.note
+      ? `<li><div class="note" data-role="${m.role}" data-n="${m.n}">${inner}</div></li>`
+      : `<li><a class="note" data-role="${m.role}" data-n="${m.n}" href="/words/?w=${encodeURIComponent(m.term.t)}">${inner}</a></li>`;
+  };
   const modelLabel = displayModel(creation);
   return `<main class="wrap" id="main">
   <nav class="crumbs" aria-label="Where you are"><a href="${home}">${video ? "Videos" : "Images"}</a></nav>
@@ -196,8 +266,14 @@ function renderPlateBody(creation: Creation, alt: string): string {
       <p class="facts">${modelLabel ? `<span class="tag">${escapeHtml(modelLabel)}</span>` : ""}<span class="tag">${video ? "Video" : "Image"}</span></p>
       <section class="panel" aria-label="The prompt">
         <div class="panel-head"><h2>The prompt</h2></div>
-        <p class="prompt" id="prompt">${escapeHtml(creation.prompt)}</p>
+        <p class="prompt" id="prompt">${renderPrompt(segments)}</p>
+        ${rolesUsed.length ? `<ul class="legend">${rolesUsed.map((r) => `<li data-role="${r.id}"><i></i>${escapeHtml(r.name)}</li>`).join("")}</ul>` : ""}
       </section>
+      ${listed.length ? `<section class="notes">
+        <h2 class="h2">What each part does</h2>
+        <p class="fine">${written ? "Notes are PromptShare's reading of this prompt, not the creator's commentary." : "These are general notes on common prompt phrases, not a study of this picture."}</p>
+        <ol>${listed.map(noteItem).join("")}</ol>
+      </section>` : ""}
       <p class="fine disclaimer">A study pair: this file, this prompt. Outputs can be fictional or stylised, and running the same prompt again will not give the same result.</p>
     </div>
   </article>

@@ -76,10 +76,11 @@ export function home(root) {
           <a class="btn" href="/videos/">Watch videos</a>
           <a class="btn" href="/games/">Play games</a>
         </div>
+        <p class="hero-words"><a href="/words/">Words</a>: the phrases that do the work, each one explained, with every prompt here that uses it.</p>
         <p class="hero-counts num"><span><b>${fmt(images.length)}</b> images</span><span><b>${fmt(videos.length)}</b> videos</span><span><b>${fmt(db.games.length)}</b> games</span><span><b>${fmt(Object.values(db.notes).reduce((n, list) => n + list.length, 0))}</b> prompt notes</span></p>
       </div>
       ${demos.length ? `<div class="demo" aria-label="Example: a prompt read phrase by phrase">
-        <div class="demo-shot">${demos.map((p, i) => `<img src="${esc(p.mediaUrl)}" alt="${esc(p.title)}" width="1280" height="720" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async">`).join("")}<a href="#" aria-label="Open this plate"></a></div>
+        <div class="demo-shot">${demos.map((p, i) => `<img src="${esc(p.mediaUrl)}" alt="${esc(p.title)}" width="${p.width || 1280}" height="${p.height || 720}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async">`).join("")}<a href="#" aria-label="Open this plate"></a></div>
         <div class="demo-read">
           <p class="prompt"></p>
           <p class="demo-note" aria-live="off"></p>

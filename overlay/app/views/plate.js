@@ -20,9 +20,9 @@ function neighbours(plate) {
 }
 
 function mediaHtml(p) {
-  if (p.mediaKind !== "video") return `<img src="${esc(p.mediaUrl)}" alt="${esc(p.title)}" width="1280" height="720" decoding="async" fetchpriority="high">`;
+  if (p.mediaKind !== "video") return `<img src="${esc(p.mediaUrl)}" alt="${esc(p.title)}" width="${p.width || 1280}" height="${p.height || 720}" decoding="async" fetchpriority="high">`;
   const src = quality() === "1080" ? p.mediaUrl : previewOf(p);
-  return `<video src="${esc(src)}" data-master="${esc(p.mediaUrl)}" data-preview="${esc(previewOf(p))}" poster="${esc(p.poster || "")}" controls loop muted autoplay playsinline preload="auto" width="1280" height="720"></video>`;
+  return `<video src="${esc(src)}" data-master="${esc(p.mediaUrl)}" data-preview="${esc(previewOf(p))}" poster="${esc(p.poster || "")}" controls loop muted autoplay playsinline preload="auto" width="${p.width || 1280}" height="${p.height || 720}"></video>`;
 }
 
 export function plate(root, ctx) {

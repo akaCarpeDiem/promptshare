@@ -518,6 +518,8 @@ div.note { cursor: default; }
 .hero h1 em { font-style: italic; font-weight: 440; }
 .hero .lede { margin-top: 18px; }
 .hero-go { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.hero-words { margin-top: 18px; color: var(--muted); font-size: 0.98rem; }
+.hero-words a { color: var(--text); font-weight: 600; }
 .hero-counts { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 26px; color: var(--muted); font-size: 0.92rem; }
 .hero-counts b { color: var(--text); font-weight: 600; }
 

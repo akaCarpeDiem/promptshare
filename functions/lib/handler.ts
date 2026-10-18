@@ -1,3 +1,4 @@
+import { dimsOf } from "./mediaDims.ts";
 import type { AuthEnv, Creation, Store } from "./types.ts";
 import { gridThumbUrl } from "./mediaThumbs.ts";
 import { displayModel } from "./modelLabel.ts";
@@ -580,6 +581,7 @@ export function plateAppFields(creation: Creation & { author?: { handle: string;
   return {
     id: creation.id,
     imageURL: appMediaUrl(creation),
+    ...dimsOf(creation.id),
     poster: curatedPoster(creation),
     prompt: cleanDisplayPrompt(creation.prompt),
     model: creation.model,
@@ -709,18 +711,12 @@ export async function handleApi(request: Request, store: Store, env: AuthEnv): P
   }
 
   if (request.method === "GET" && path === "/api/creators") {
-    try {
-      return json({ creators: await store.listCreators(url.searchParams.get("q") || "") });
-    } catch {
-      return json({ creators: [] });
-    }
+    // No per-person creator pages: everything is credited to the studio.
+    return json({ creators: [] });
   }
 
   if (request.method === "GET" && parts[1] === "users" && parts[2] && !parts[3]) {
-    const profile = await store.publicUser(parts[2].toLowerCase(), undefined);
-    if (!profile) return json({ error: "No creator with that handle." }, 404);
-    const creations = await attachAuthors(store, await store.listByUser(profile.id, undefined, false));
-    return json({ profile, creations });
+    return json({ error: "No creator with that handle." }, 404);
   }
 
   if (request.method === "GET" && parts[1] === "creations" && parts[2] && !parts[3]) {
@@ -754,8 +750,11 @@ function toCardFields(card: Creation & {
     imageURL: mediaUrl,
     poster,
     thumbUrl: gridThumbUrl(preview),
+    ...dimsOf(card.id),
   };
 }
+
+const STUDIO_AUTHOR = { handle: "studio", displayName: "PromptShare studio", avatarUrl: "" };
 
 async function attachAuthors(store: Store, items: Creation[]) {
   const cache = new Map<string, Awaited<ReturnType<Store["getUserById"]>>>();
@@ -766,10 +765,11 @@ async function attachAuthors(store: Store, items: Creation[]) {
     }),
   );
   return items.map((item) => {
+    // Every plate is credited to the studio, whichever internal account added it.
     const author = cache.get(item.userId);
     const card = {
       ...item,
-      author: author ? { handle: author.handle, displayName: author.displayName, avatarUrl: author.avatarUrl } : null,
+      author: author ? STUDIO_AUTHOR : null,
     };
     return {
       ...card,
@@ -780,6 +780,7 @@ async function attachAuthors(store: Store, items: Creation[]) {
       poster: curatedPoster(card),
       thumbUrl: gridThumbUrl(card.mediaKind === "video" ? curatedPoster(card) || appMediaUrl(card) : appMediaUrl(card)),
       creatorHandle: card.author?.handle || "",
+      ...dimsOf(card.id),
       notes: [...card.steps]
         .sort((a, b) => a.position - b.position)
         .map((s) => ({ id: s.id, position: s.position, prompt: s.prompt, model: s.model, text: s.note || "", note: s.note || "" })),

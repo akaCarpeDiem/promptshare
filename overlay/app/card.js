@@ -29,7 +29,7 @@ export function plateCard(p, { highlight = "", word = "", heading = "h3" } = {})
   const segments = word ? excerpt(p.segments, word) : p.segments;
   const video = p.mediaKind === "video";
   return `<a class="card" href="/p/${encodeURIComponent(p.id)}" data-id="${esc(p.id)}"${video ? ` data-preview="${esc(previewOf(p))}" data-master="${esc(p.mediaUrl)}"` : ""}>
-  <div class="card-media"><img src="${esc(thumbOf(p))}" data-full="${esc(video ? p.poster || "" : p.mediaUrl)}" alt="${esc(p.title)}" width="640" height="360" loading="lazy" decoding="async">${video ? `<span class="card-kind">${icon.play}Video</span>` : ""}</div>
+  <div class="card-media"><img src="${esc(thumbOf(p))}" data-full="${esc(video ? p.poster || "" : p.mediaUrl)}" alt="${esc(p.title)}" width="${p.thumbWidth || 640}" height="${p.thumbHeight || 360}" loading="lazy" decoding="async">${video ? `<span class="card-kind">${icon.play}Video</span>` : ""}</div>
   <div class="card-body">
     <div class="card-head"><${heading} class="card-title">${highlight ? renderPrompt([{ text: p.title }], { highlight }) : esc(p.title)}</${heading}><span class="card-model">${esc(p.displayModel || "")}</span></div>
     <p class="prompt">${renderPrompt(segments, { highlight, emphasize: word })}</p>
