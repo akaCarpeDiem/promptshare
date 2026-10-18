@@ -1938,6 +1938,198 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/people-v-bridge-cellist.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/animals-v-mantis-shrimp.mp4": {
+    key: "media/video/animals-v-mantis-shrimp.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-mantis-shrimp.jpg": {
+    key: "media/posters/animals-v-mantis-shrimp.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-murmuration.mp4": {
+    key: "media/video/animals-v-murmuration.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-murmuration.jpg": {
+    key: "media/posters/animals-v-murmuration.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-snow-monkeys.mp4": {
+    key: "media/video/animals-v-snow-monkeys.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-snow-monkeys.jpg": {
+    key: "media/posters/animals-v-snow-monkeys.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-mudskippers.mp4": {
+    key: "media/video/animals-v-mudskippers.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-mudskippers.jpg": {
+    key: "media/posters/animals-v-mudskippers.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-manta-night.mp4": {
+    key: "media/video/animals-v-manta-night.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-manta-night.jpg": {
+    key: "media/posters/animals-v-manta-night.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-flamingo-lift.mp4": {
+    key: "media/video/animals-v-flamingo-lift.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-flamingo-lift.jpg": {
+    key: "media/posters/animals-v-flamingo-lift.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-arctic-fox-blizzard.mp4": {
+    key: "media/video/animals-v-arctic-fox-blizzard.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-arctic-fox-blizzard.jpg": {
+    key: "media/posters/animals-v-arctic-fox-blizzard.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-leafcutter-march.mp4": {
+    key: "media/video/animals-v-leafcutter-march.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-leafcutter-march.jpg": {
+    key: "media/posters/animals-v-leafcutter-march.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-bison-steam.mp4": {
+    key: "media/video/animals-v-bison-steam.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-bison-steam.jpg": {
+    key: "media/posters/animals-v-bison-steam.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-firefly-sync.mp4": {
+    key: "media/video/animals-v-firefly-sync.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-firefly-sync.jpg": {
+    key: "media/posters/animals-v-firefly-sync.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-octopus-color.mp4": {
+    key: "media/video/animals-v-octopus-color.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-octopus-color.jpg": {
+    key: "media/posters/animals-v-octopus-color.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-barn-owl.mp4": {
+    key: "media/video/animals-v-barn-owl.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-barn-owl.jpg": {
+    key: "media/posters/animals-v-barn-owl.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-moss-tortoise.mp4": {
+    key: "media/video/fictional-animals-v-moss-tortoise.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-moss-tortoise.jpg": {
+    key: "media/posters/fictional-animals-v-moss-tortoise.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-origami-starlings.mp4": {
+    key: "media/video/fictional-animals-v-origami-starlings.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-origami-starlings.jpg": {
+    key: "media/posters/fictional-animals-v-origami-starlings.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-aurora-whale.mp4": {
+    key: "media/video/fictional-animals-v-aurora-whale.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-aurora-whale.jpg": {
+    key: "media/posters/fictional-animals-v-aurora-whale.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-clockwork-hummingbird.mp4": {
+    key: "media/video/fictional-animals-v-clockwork-hummingbird.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-clockwork-hummingbird.jpg": {
+    key: "media/posters/fictional-animals-v-clockwork-hummingbird.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-ember-salamander.mp4": {
+    key: "media/video/fictional-animals-v-ember-salamander.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-ember-salamander.jpg": {
+    key: "media/posters/fictional-animals-v-ember-salamander.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-cloud-sheep.mp4": {
+    key: "media/video/fictional-animals-v-cloud-sheep.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-cloud-sheep.jpg": {
+    key: "media/posters/fictional-animals-v-cloud-sheep.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-stained-glass-beetle.mp4": {
+    key: "media/video/fictional-animals-v-stained-glass-beetle.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-stained-glass-beetle.jpg": {
+    key: "media/posters/fictional-animals-v-stained-glass-beetle.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-dune-leviathan.mp4": {
+    key: "media/video/fictional-animals-v-dune-leviathan.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-dune-leviathan.jpg": {
+    key: "media/posters/fictional-animals-v-dune-leviathan.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-bamboo-moths.mp4": {
+    key: "media/video/fictional-animals-v-bamboo-moths.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-bamboo-moths.jpg": {
+    key: "media/posters/fictional-animals-v-bamboo-moths.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-coral-deer.mp4": {
+    key: "media/video/fictional-animals-v-coral-deer.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-coral-deer.jpg": {
+    key: "media/posters/fictional-animals-v-coral-deer.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-frost-hare.mp4": {
+    key: "media/video/fictional-animals-v-frost-hare.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-frost-hare.jpg": {
+    key: "media/posters/fictional-animals-v-frost-hare.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-kelp-horse.mp4": {
+    key: "media/video/fictional-animals-v-kelp-horse.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-kelp-horse.jpg": {
+    key: "media/posters/fictional-animals-v-kelp-horse.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 

@@ -10552,5 +10552,868 @@
    "kind": "constraint",
    "means": "Keeps captions, logos and watermarks out of the clip."
   }
+ ],
+ "seed_video_animals_mantis_shrimp": [
+  {
+   "phrase": "Gentle cinematic underwater macro of a peacock mantis shrimp peering from its burrow",
+   "kind": "camera",
+   "means": "Macro makes a small reef animal fill the frame."
+  },
+  {
+   "phrase": "rainbow-plated shell and stalked eyes swiveling independently",
+   "kind": "detail",
+   "means": "Its strangest feature, described so the model animates it."
+  },
+  {
+   "phrase": "tiny particles drift past in turquoise water",
+   "kind": "motion",
+   "means": "Suspended specks show the water and the scale."
+  },
+  {
+   "phrase": "soft dappled sunlight from above",
+   "kind": "light",
+   "means": "Natural caustics on the sand."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_murmuration": [
+  {
+   "phrase": "Wide low-angle shot from a reed marsh at dusk looking up at the sky",
+   "kind": "camera",
+   "means": "Looking up puts the flock against a bright sky so its shape reads."
+  },
+  {
+   "phrase": "a vast dark starling murmuration of thousands of birds folds and ripples like smoke",
+   "kind": "subject",
+   "means": "Compares the flock to smoke so it moves as one body."
+  },
+  {
+   "phrase": "the shape splits and merges again",
+   "kind": "motion",
+   "means": "Gives the swarm an arc to follow."
+  },
+  {
+   "phrase": "a peach and lilac sky behind the black swarm",
+   "kind": "light",
+   "means": "A bright sky behind dark birds keeps them readable."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_snow_monkeys": [
+  {
+   "phrase": "Gentle cinematic eye-level shot at the edge of a steaming mountain hot spring",
+   "kind": "camera",
+   "means": "At water level the viewer sits with the monkeys."
+  },
+  {
+   "phrase": "a Japanese macaque with snow on its head closes its eyes in the warm water",
+   "kind": "subject",
+   "means": "One calm face tells the story."
+  },
+  {
+   "phrase": "steam curls around its face",
+   "kind": "motion",
+   "means": "Warm vapor in cold air."
+  },
+  {
+   "phrase": "heavy snowflakes fall in the background",
+   "kind": "motion",
+   "means": "Soft motion that makes the warmth feel earned."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_mudskippers": [
+  {
+   "phrase": "Low macro shot at mud level on a mangrove flat at low tide",
+   "kind": "camera",
+   "means": "Getting down at eye level makes tiny fish look heroic."
+  },
+  {
+   "phrase": "two mudskippers raise their dorsal fins and hop at each other",
+   "kind": "subject",
+   "means": "A small, funny standoff as the story."
+  },
+  {
+   "phrase": "wet mud glistens with tiny puddles",
+   "kind": "detail",
+   "means": "Shiny textures for the macro lens."
+  },
+  {
+   "phrase": "mangrove roots blurred behind them",
+   "kind": "setting",
+   "means": "Shallow focus keeps the habitat as a soft backdrop."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_manta_night": [
+  {
+   "phrase": "Underwater upward view at night",
+   "kind": "camera",
+   "means": "Looking up turns the surface into a dark ceiling."
+  },
+  {
+   "phrase": "a giant manta ray barrel-rolls through a beam of light, feeding",
+   "kind": "subject",
+   "means": "Its signature feeding loop."
+  },
+  {
+   "phrase": "plankton glitters like snow in the beam",
+   "kind": "detail",
+   "means": "The light makes the food visible."
+  },
+  {
+   "phrase": "gill slits and white belly pass overhead",
+   "kind": "detail",
+   "means": "Close details that show its size."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_flamingo_lift": [
+  {
+   "phrase": "Top-down drone view over a shallow pink salt lake",
+   "kind": "camera",
+   "means": "Overhead turns the birds into a moving pattern."
+  },
+  {
+   "phrase": "a flock of flamingos runs across the water and lifts off together",
+   "kind": "subject",
+   "means": "The takeoff is the event."
+  },
+  {
+   "phrase": "splash trails stitch lines across the surface",
+   "kind": "motion",
+   "means": "Their running leaves graphic marks on the water."
+  },
+  {
+   "phrase": "long shadows of the birds move with them",
+   "kind": "light",
+   "means": "Low sun doubles every bird."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_arctic_fox_blizzard": [
+  {
+   "phrase": "Gentle cinematic long-lens shot on a windswept tundra in a blizzard",
+   "kind": "camera",
+   "means": "A long lens compresses the snow into a soft curtain."
+  },
+  {
+   "phrase": "an arctic fox curls into a ball and wraps its tail over its nose",
+   "kind": "subject",
+   "means": "A specific survival behavior."
+  },
+  {
+   "phrase": "snow streaks sideways past the lens",
+   "kind": "motion",
+   "means": "Wind direction shown through the snow."
+  },
+  {
+   "phrase": "frost builds on its white fur",
+   "kind": "detail",
+   "means": "Close texture that shows the cold."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_leafcutter_march": [
+  {
+   "phrase": "Macro tracking shot at ground level along a rainforest floor",
+   "kind": "camera",
+   "means": "The camera moves with the ants like a parade."
+  },
+  {
+   "phrase": "leafcutter ants march in a line carrying bright green leaf pieces",
+   "kind": "subject",
+   "means": "Small sails of leaf make the line readable."
+  },
+  {
+   "phrase": "tiny ants ride on top of the leaf pieces",
+   "kind": "detail",
+   "means": "A true, surprising detail."
+  },
+  {
+   "phrase": "shafts of green light through the canopy",
+   "kind": "light",
+   "means": "Rainforest light from far above."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_bison_steam": [
+  {
+   "phrase": "Gentle cinematic slow push through drifting geyser steam at dawn",
+   "kind": "camera",
+   "means": "Moving through steam reveals the herd slowly."
+  },
+  {
+   "phrase": "a bison herd grazes on frosted grass",
+   "kind": "subject",
+   "means": "Big animals in a quiet, cold scene."
+  },
+  {
+   "phrase": "frost coats their shaggy shoulders",
+   "kind": "detail",
+   "means": "Shows the cold on the animals themselves."
+  },
+  {
+   "phrase": "low sun turns the steam gold",
+   "kind": "light",
+   "means": "Backlit steam glows."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_firefly_sync": [
+  {
+   "phrase": "Fixed low camera in a dark hardwood forest on a summer night",
+   "kind": "camera",
+   "means": "A still frame lets the light do all the work."
+  },
+  {
+   "phrase": "thousands of tiny individual fireflies blink in synchronized waves",
+   "kind": "subject",
+   "means": "A rare natural event; tiny and individual keeps them as points of light."
+  },
+  {
+   "phrase": "pinpoint green-gold flashes ripple between the trees and fade",
+   "kind": "motion",
+   "means": "Describes how the light travels and stops."
+  },
+  {
+   "phrase": "faint moonlight outlines the trunks",
+   "kind": "light",
+   "means": "Just enough to see the forest."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_octopus_color": [
+  {
+   "phrase": "Underwater macro glide over a coral garden",
+   "kind": "camera",
+   "means": "Close and slow, matching the octopus."
+  },
+  {
+   "phrase": "an octopus flows over the rocks and changes color from rust to pale sand",
+   "kind": "subject",
+   "means": "The color shift is the event."
+  },
+  {
+   "phrase": "skin texture rises into bumps to match the coral",
+   "kind": "detail",
+   "means": "Its camouflage, described physically."
+  },
+  {
+   "phrase": "rippling caustic light",
+   "kind": "light",
+   "means": "Sunlight patterns that move across its skin."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_barn_owl": [
+  {
+   "phrase": "Slow-motion head-on shot inside an old timber barn at night",
+   "kind": "camera",
+   "means": "The owl flies straight at the camera."
+  },
+  {
+   "phrase": "a barn owl glides toward the lens on silent wings",
+   "kind": "subject",
+   "means": "Pale face and wide wings fill the frame."
+  },
+  {
+   "phrase": "moonbeams through gaps in the boards",
+   "kind": "light",
+   "means": "Thin beams the owl passes through."
+  },
+  {
+   "phrase": "dust and loose straw drift in the beams",
+   "kind": "detail",
+   "means": "Floating specks that catch the light."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_moss_tortoise": [
+  {
+   "phrase": "Gentle cinematic low tracking shot across a dawn meadow",
+   "kind": "camera",
+   "means": "At ground level the tortoise looks like a moving hill."
+  },
+  {
+   "phrase": "an ancient tortoise carries a tiny living forest of moss, ferns and saplings on its shell",
+   "kind": "subject",
+   "means": "A whole ecosystem riding on one animal."
+  },
+  {
+   "phrase": "a tiny waterfall trickles off the shell's edge",
+   "kind": "detail",
+   "means": "A small magic detail that rewards a second look."
+  },
+  {
+   "phrase": "dew-wet grass glows in low sun",
+   "kind": "light",
+   "means": "Warm backlight on wet grass."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_origami_starlings": [
+  {
+   "phrase": "Gentle cinematic slow follow through a sunlit attic",
+   "kind": "camera",
+   "means": "Following the flock through a cozy, specific room."
+  },
+  {
+   "phrase": "a flock of origami starlings folded from old maps flutters in formation",
+   "kind": "subject",
+   "means": "Birds made of a surprising material."
+  },
+  {
+   "phrase": "creased paper wings flap with soft crinkles",
+   "kind": "motion",
+   "means": "Tells the model how paper birds should move."
+  },
+  {
+   "phrase": "dust motes glow in a beam from a round window",
+   "kind": "light",
+   "means": "A single warm beam for the flock to cross."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_aurora_whale": [
+  {
+   "phrase": "Wide low-angle shot from a frozen tundra lake at night",
+   "kind": "camera",
+   "means": "Looking up makes the sky feel like an ocean."
+  },
+  {
+   "phrase": "a translucent whale made of aurora light swims slowly across the sky",
+   "kind": "subject",
+   "means": "The northern lights take the shape of a whale."
+  },
+  {
+   "phrase": "its tail sweeps ribbons of green and violet light",
+   "kind": "motion",
+   "means": "The aurora's movement becomes the whale's swimming."
+  },
+  {
+   "phrase": "stars show through its body",
+   "kind": "detail",
+   "means": "Transparency that keeps it otherworldly."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_clockwork_hummingbird": [
+  {
+   "phrase": "Extreme macro in a Victorian glasshouse",
+   "kind": "camera",
+   "means": "Close enough to see every gear."
+  },
+  {
+   "phrase": "a clockwork hummingbird of brass gears and enamel feathers hovers at a glass flower",
+   "kind": "subject",
+   "means": "A mechanical version of a real behavior."
+  },
+  {
+   "phrase": "tiny gears spin inside its chest",
+   "kind": "detail",
+   "means": "Shows the machinery working."
+  },
+  {
+   "phrase": "wings blur with a faint golden shimmer",
+   "kind": "motion",
+   "means": "Fast wings rendered as a soft blur."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_ember_salamander": [
+  {
+   "phrase": "Close low macro shot filling the frame on cooling black lava at dusk",
+   "kind": "camera",
+   "means": "Close and low makes a small creature dramatic and readable."
+  },
+  {
+   "phrase": "a large ember salamander with charcoal-black skin walks slowly toward camera, glowing orange cracks along its back",
+   "kind": "subject",
+   "means": "Its body echoes the lava it lives on."
+  },
+  {
+   "phrase": "sparks drift up from each footstep",
+   "kind": "motion",
+   "means": "A small magic effect tied to its movement."
+  },
+  {
+   "phrase": "faint heat haze above the rock",
+   "kind": "detail",
+   "means": "Shows warmth without flames."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_cloud_sheep": [
+  {
+   "phrase": "Gentle cinematic slow pan across a high mountain pasture above the clouds",
+   "kind": "camera",
+   "means": "A wide move across a dreamlike landscape."
+  },
+  {
+   "phrase": "a flock of sheep whose fleece is literally billowing white cloud vapor grazes",
+   "kind": "subject",
+   "means": "Real animals with one impossible material, stated unmistakably."
+  },
+  {
+   "phrase": "wisps of misty cloud peel off their backs and float away in the breeze",
+   "kind": "motion",
+   "means": "The cloud fleece behaving like real cloud."
+  },
+  {
+   "phrase": "bright morning sun and a sea of clouds below",
+   "kind": "light",
+   "means": "Clean, airy light for a gentle mood."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_stained_glass_beetle": [
+  {
+   "phrase": "Macro shot on a stone windowsill in an old chapel",
+   "kind": "camera",
+   "means": "Close on a small creature in a quiet place."
+  },
+  {
+   "phrase": "a beetle with wing cases of leaded stained glass opens them slowly",
+   "kind": "subject",
+   "means": "The reveal of the colored wings is the event."
+  },
+  {
+   "phrase": "sunlight passes through, scattering colored light on the stone",
+   "kind": "light",
+   "means": "The creature casts its own colored light."
+  },
+  {
+   "phrase": "delicate legs step across the sill",
+   "kind": "motion",
+   "means": "Small, insect-true movement."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_dune_leviathan": [
+  {
+   "phrase": "Aerial drone shot over endless golden sand dunes at sunrise",
+   "kind": "camera",
+   "means": "Height shows the creature's scale."
+  },
+  {
+   "phrase": "a huge sand-colored leviathan breaches from a dune like a whale",
+   "kind": "subject",
+   "means": "Desert as ocean; a whale-like creature made of the land."
+  },
+  {
+   "phrase": "sand pours off its back in streams",
+   "kind": "motion",
+   "means": "Sand behaving like water."
+  },
+  {
+   "phrase": "long blue shadows in the dune troughs",
+   "kind": "light",
+   "means": "Low sun shapes the dunes."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_bamboo_moths": [
+  {
+   "phrase": "Gentle cinematic slow drift through a bamboo grove at night",
+   "kind": "camera",
+   "means": "Tall stalks slide past as the camera moves."
+  },
+  {
+   "phrase": "owl-sized moths with softly glowing paper-lantern wings flutter between the stalks",
+   "kind": "subject",
+   "means": "Moths that are their own lanterns."
+  },
+  {
+   "phrase": "warm light flickers on the bamboo as they pass",
+   "kind": "light",
+   "means": "Moving light sources that paint the grove."
+  },
+  {
+   "phrase": "light mist hangs low",
+   "kind": "detail",
+   "means": "Atmosphere that catches the glow."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_coral_deer": [
+  {
+   "phrase": "Gentle cinematic underwater glide over a seagrass meadow",
+   "kind": "camera",
+   "means": "A calm swim alongside the herd."
+  },
+  {
+   "phrase": "deer with branching coral antlers graze on the seafloor",
+   "kind": "subject",
+   "means": "A land animal remade for the sea."
+  },
+  {
+   "phrase": "small fish dart through the antlers",
+   "kind": "detail",
+   "means": "Shows the antlers are living coral."
+  },
+  {
+   "phrase": "sun rays shimmer down through green water",
+   "kind": "light",
+   "means": "Underwater light that sets the scene."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_frost_hare": [
+  {
+   "phrase": "Gentle cinematic slow-motion tracking shot across a moonlit snowfield",
+   "kind": "camera",
+   "means": "Slow motion shows every bound."
+  },
+  {
+   "phrase": "a frost hare with crystalline fur leaps",
+   "kind": "subject",
+   "means": "An ice-touched version of a real animal."
+  },
+  {
+   "phrase": "each bound sheds a cloud of glittering snowflakes",
+   "kind": "motion",
+   "means": "Its movement leaves a magic trail."
+  },
+  {
+   "phrase": "silver-blue moonlight and long shadows",
+   "kind": "light",
+   "means": "Cold light for a winter night."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_kelp_horse": [
+  {
+   "phrase": "Low tracking shot at water level along a misty beach",
+   "kind": "camera",
+   "means": "At wave height the spray hits the lens."
+  },
+  {
+   "phrase": "a horse with a flowing mane and tail of olive kelp gallops through the surf",
+   "kind": "subject",
+   "means": "Sea plants as hair, on a familiar animal."
+  },
+  {
+   "phrase": "waves burst into spray around its legs",
+   "kind": "motion",
+   "means": "Big, physical water motion."
+  },
+  {
+   "phrase": "soft overcast morning light",
+   "kind": "light",
+   "means": "Even light that keeps the greens rich."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }
