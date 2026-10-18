@@ -1578,6 +1578,174 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/myths-v-anubis-heart.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/animals-v-savanna-dust.mp4": {
+    key: "media/video/animals-v-savanna-dust.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-savanna-dust.jpg": {
+    key: "media/posters/animals-v-savanna-dust.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-kelp-otter.mp4": {
+    key: "media/video/animals-v-kelp-otter.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-kelp-otter.jpg": {
+    key: "media/posters/animals-v-kelp-otter.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-mist-wolf.mp4": {
+    key: "media/video/animals-v-mist-wolf.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-mist-wolf.jpg": {
+    key: "media/posters/animals-v-mist-wolf.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-canopy-macaw.mp4": {
+    key: "media/video/animals-v-canopy-macaw.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-canopy-macaw.jpg": {
+    key: "media/posters/animals-v-canopy-macaw.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/animals-v-breach.mp4": {
+    key: "media/video/animals-v-breach.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/animals-v-breach.jpg": {
+    key: "media/posters/animals-v-breach.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-glassshell-slug.mp4": {
+    key: "media/video/fictional-animals-v-glassshell-slug.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-glassshell-slug.jpg": {
+    key: "media/posters/fictional-animals-v-glassshell-slug.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-sky-ray.mp4": {
+    key: "media/video/fictional-animals-v-sky-ray.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-sky-ray.jpg": {
+    key: "media/posters/fictional-animals-v-sky-ray.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-crystal-stag.mp4": {
+    key: "media/video/fictional-animals-v-crystal-stag.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-crystal-stag.jpg": {
+    key: "media/posters/fictional-animals-v-crystal-stag.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fictional-animals-v-tidepool-fox.mp4": {
+    key: "media/video/fictional-animals-v-tidepool-fox.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fictional-animals-v-tidepool-fox.jpg": {
+    key: "media/posters/fictional-animals-v-tidepool-fox.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-living-library.mp4": {
+    key: "media/video/fantasy-v-living-library.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-living-library.jpg": {
+    key: "media/posters/fantasy-v-living-library.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-mushroom-village.mp4": {
+    key: "media/video/fantasy-v-mushroom-village.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-mushroom-village.jpg": {
+    key: "media/posters/fantasy-v-mushroom-village.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-portal-bridge.mp4": {
+    key: "media/video/fantasy-v-portal-bridge.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-portal-bridge.jpg": {
+    key: "media/posters/fantasy-v-portal-bridge.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-orbital-greenhouse.mp4": {
+    key: "media/video/futuristic-v-orbital-greenhouse.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-orbital-greenhouse.jpg": {
+    key: "media/posters/futuristic-v-orbital-greenhouse.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-maglev-orchard.mp4": {
+    key: "media/video/futuristic-v-maglev-orchard.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-maglev-orchard.jpg": {
+    key: "media/posters/futuristic-v-maglev-orchard.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-desert-array.mp4": {
+    key: "media/video/futuristic-v-desert-array.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-desert-array.jpg": {
+    key: "media/posters/futuristic-v-desert-array.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-neon-street-rain.mp4": {
+    key: "media/video/cyberpunk-v-neon-street-rain.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-neon-street-rain.jpg": {
+    key: "media/posters/cyberpunk-v-neon-street-rain.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-alley-repair.mp4": {
+    key: "media/video/cyberpunk-v-alley-repair.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-alley-repair.jpg": {
+    key: "media/posters/cyberpunk-v-alley-repair.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-noodle-window.mp4": {
+    key: "media/video/cyberpunk-v-noodle-window.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-noodle-window.jpg": {
+    key: "media/posters/cyberpunk-v-noodle-window.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-freckled-close-up.mp4": {
+    key: "media/video/portraits-v-freckled-close-up.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-freckled-close-up.jpg": {
+    key: "media/posters/portraits-v-freckled-close-up.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-harbor-fisherman.mp4": {
+    key: "media/video/portraits-v-harbor-fisherman.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-harbor-fisherman.jpg": {
+    key: "media/posters/portraits-v-harbor-fisherman.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-grainy-glance.mp4": {
+    key: "media/video/portraits-v-grainy-glance.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-grainy-glance.jpg": {
+    key: "media/posters/portraits-v-grainy-glance.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 

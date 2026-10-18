@@ -8697,5 +8697,907 @@
    "kind": "constraint",
    "means": "Keeps captions and watermarks out of the frame."
   }
+ ],
+ "seed_video_animals_savanna_dust": [
+  {
+   "phrase": "Gentle cinematic slow tracking shot",
+   "kind": "camera",
+   "means": "Sets a slow, film-style move that follows the herd instead of cutting around."
+  },
+  {
+   "phrase": "African elephant family walking through golden savanna dust",
+   "kind": "subject",
+   "means": "Names the animals, the action and the setting in one line."
+  },
+  {
+   "phrase": "trunks sway naturally",
+   "kind": "motion",
+   "means": "Gives the model a small, believable movement to animate."
+  },
+  {
+   "phrase": "warm backlight rims their ears",
+   "kind": "light",
+   "means": "Puts the sun behind the herd so their outlines glow."
+  },
+  {
+   "phrase": "dust drifts in the air",
+   "kind": "motion",
+   "means": "Adds slow particles that make the light visible and the air feel thick."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized or cartoon animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_kelp_otter": [
+  {
+   "phrase": "Gentle cinematic slow drift",
+   "kind": "camera",
+   "means": "A slow sideways move that matches the calm of floating water."
+  },
+  {
+   "phrase": "sea otter floating on its back in a kelp forest canopy",
+   "kind": "subject",
+   "means": "Places the animal in its real habitat so the scene feels observed."
+  },
+  {
+   "phrase": "holding a small shell on its chest",
+   "kind": "detail",
+   "means": "A specific, recognizable otter behavior to anchor the shot."
+  },
+  {
+   "phrase": "it rolls slightly and paddles with its paws",
+   "kind": "motion",
+   "means": "Small actions keep the animal alive without fast movement."
+  },
+  {
+   "phrase": "cool overcast coastal light",
+   "kind": "light",
+   "means": "Soft, even light with no harsh shadows on wet fur."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized or cartoon animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_mist_wolf": [
+  {
+   "phrase": "Gentle cinematic slow push-in",
+   "kind": "camera",
+   "means": "Moves closer over the clip, which builds a little tension."
+  },
+  {
+   "phrase": "gray wolf standing in a misty boreal forest at dawn",
+   "kind": "subject",
+   "means": "Animal, habitat and time of day in one phrase."
+  },
+  {
+   "phrase": "it turns its head alertly",
+   "kind": "motion",
+   "means": "One clear action gives the clip a beat."
+  },
+  {
+   "phrase": "breathes out visible vapor",
+   "kind": "detail",
+   "means": "Shows the cold without saying the temperature."
+  },
+  {
+   "phrase": "fog drifts between spruce trunks",
+   "kind": "motion",
+   "means": "Layers of fog add depth between camera and wolf."
+  },
+  {
+   "phrase": "soft cold light",
+   "kind": "light",
+   "means": "Keeps the palette blue-gray and quiet."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized or cartoon animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_canopy_macaw": [
+  {
+   "phrase": "Gentle cinematic slow orbit",
+   "kind": "camera",
+   "means": "Circles the bird so the background slides and the shot feels three-dimensional."
+  },
+  {
+   "phrase": "scarlet macaw perched on a rainforest canopy branch",
+   "kind": "subject",
+   "means": "A single clear subject on a simple perch."
+  },
+  {
+   "phrase": "ruffles vivid red, blue and yellow feathers",
+   "kind": "detail",
+   "means": "Names the colors so the plumage comes out saturated and correct."
+  },
+  {
+   "phrase": "leaves sway",
+   "kind": "motion",
+   "means": "Background movement that keeps the frame alive."
+  },
+  {
+   "phrase": "dappled sunlight",
+   "kind": "light",
+   "means": "Broken light through leaves, typical of a canopy."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized or cartoon animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_animals_breach": [
+  {
+   "phrase": "Gentle cinematic slow rising shot",
+   "kind": "camera",
+   "means": "The camera lifts with the whale, which exaggerates its size."
+  },
+  {
+   "phrase": "humpback whale breaches from a dark gray ocean",
+   "kind": "subject",
+   "means": "The big action of the clip, against a dark field so the whale stands out."
+  },
+  {
+   "phrase": "water sheets pour off its body",
+   "kind": "motion",
+   "means": "Describes the water physics the model should animate."
+  },
+  {
+   "phrase": "spray hangs in the air",
+   "kind": "detail",
+   "means": "Suggests a slow-motion feel without asking for slow motion."
+  },
+  {
+   "phrase": "soft diffuse coastal light",
+   "kind": "light",
+   "means": "Overcast light keeps highlights on wet skin under control."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal wildlife documentary",
+   "kind": "style",
+   "means": "Asks for a nature-film look instead of a stylized or cartoon animal."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_glassshell_slug": [
+  {
+   "phrase": "Gentle cinematic slow drift around",
+   "kind": "camera",
+   "means": "A slow partial orbit that shows the creature from more than one side."
+  },
+  {
+   "phrase": "glass-shelled mist slug",
+   "kind": "subject",
+   "means": "An invented animal built from two familiar ideas, so the model can picture it."
+  },
+  {
+   "phrase": "softly glowing bioluminescent veins",
+   "kind": "detail",
+   "means": "Gives the creature its own light source in a dim scene."
+  },
+  {
+   "phrase": "crawling over wet mossy stones in a foggy forest",
+   "kind": "setting",
+   "means": "A real-world habitat makes the invented creature believable."
+  },
+  {
+   "phrase": "droplets glisten",
+   "kind": "detail",
+   "means": "Small highlights that sell the wet surfaces."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_sky_ray": [
+  {
+   "phrase": "Gentle cinematic slow follow",
+   "kind": "camera",
+   "means": "The camera keeps pace with the creature, so it stays centered."
+  },
+  {
+   "phrase": "a creature with kite-like wings and long trailing ribbon fins",
+   "kind": "subject",
+   "means": "Defines the invented name right after using it, so the model knows what to draw."
+  },
+  {
+   "phrase": "gliding above golden sunset clouds",
+   "kind": "setting",
+   "means": "A simple, bright backdrop that keeps the silhouette readable."
+  },
+  {
+   "phrase": "wings flex gently",
+   "kind": "motion",
+   "means": "A slow, repeating motion that reads as flight."
+  },
+  {
+   "phrase": "clouds roll below",
+   "kind": "motion",
+   "means": "Moving background that adds speed and depth."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_crystal_stag": [
+  {
+   "phrase": "Gentle cinematic slow orbit",
+   "kind": "camera",
+   "means": "Circles the stag so the glowing antlers catch the eye from different angles."
+  },
+  {
+   "phrase": "forest stag with translucent crystal ice antlers",
+   "kind": "subject",
+   "means": "One fantastical change to a real animal keeps it grounded."
+  },
+  {
+   "phrase": "glowing soft cyan",
+   "kind": "light",
+   "means": "Makes the antlers the main light source and sets the color."
+  },
+  {
+   "phrase": "snowy pine grove at night",
+   "kind": "setting",
+   "means": "Dark, cold surroundings that make the cyan glow stand out."
+  },
+  {
+   "phrase": "it steps forward and lowers its head",
+   "kind": "motion",
+   "means": "A calm, natural action for the clip."
+  },
+  {
+   "phrase": "snow falls gently",
+   "kind": "motion",
+   "means": "Slow particles that fill the frame with movement."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fictional_animals_tidepool_fox": [
+  {
+   "phrase": "Gentle cinematic slow follow",
+   "kind": "camera",
+   "means": "Tracks the animal as it moves through the rocks."
+  },
+  {
+   "phrase": "tidepool fox whose fur ends in soft anemone-like fronds",
+   "kind": "subject",
+   "means": "Mixes a land animal with a sea creature's texture."
+  },
+  {
+   "phrase": "exploring wet rocks at low tide",
+   "kind": "setting",
+   "means": "Explains where the creature lives and why it is wet."
+  },
+  {
+   "phrase": "it sniffs and steps carefully",
+   "kind": "motion",
+   "means": "Cautious, animal-like behavior that keeps the motion slow."
+  },
+  {
+   "phrase": "shallow pools shimmer",
+   "kind": "detail",
+   "means": "Reflections that make the shore feel alive."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_living_library": [
+  {
+   "phrase": "Gentle cinematic slow forward drift",
+   "kind": "camera",
+   "means": "Moves into the room as if the viewer is walking in."
+  },
+  {
+   "phrase": "enchanted library with floating glowing books",
+   "kind": "subject",
+   "means": "The magic in one phrase: books that hover and give off light."
+  },
+  {
+   "phrase": "spiral staircase grown from living wood",
+   "kind": "detail",
+   "means": "A centerpiece that gives the room shape and a sense of age."
+  },
+  {
+   "phrase": "books turn slowly in the air",
+   "kind": "motion",
+   "means": "Tells the model how the magic should move."
+  },
+  {
+   "phrase": "warm lantern light flickers",
+   "kind": "light",
+   "means": "Warm, uneven light for a cozy, old-world mood."
+  },
+  {
+   "phrase": "dust motes drift",
+   "kind": "detail",
+   "means": "Floating specks that make the light beams visible."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_mushroom_village": [
+  {
+   "phrase": "Gentle cinematic slow glide",
+   "kind": "camera",
+   "means": "A low, smooth move that makes the houses feel tiny."
+  },
+  {
+   "phrase": "fairy village of mushroom houses with tiny glowing windows",
+   "kind": "subject",
+   "means": "Scale is implied by the windows, so no characters are needed."
+  },
+  {
+   "phrase": "mossy woodland at night",
+   "kind": "setting",
+   "means": "A dark green setting that lets the warm windows pop."
+  },
+  {
+   "phrase": "soft bioluminescence pulses",
+   "kind": "light",
+   "means": "Slowly changing glow adds motion without anything moving fast."
+  },
+  {
+   "phrase": "fireflies drift",
+   "kind": "motion",
+   "means": "Small points of light moving through the scene."
+  },
+  {
+   "phrase": "mist rolls low",
+   "kind": "motion",
+   "means": "Ground fog that adds depth and mood."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_portal_bridge": [
+  {
+   "phrase": "Gentle cinematic slow tracking shot",
+   "kind": "camera",
+   "means": "Follows the knight across the bridge."
+  },
+  {
+   "phrase": "armored knight walking across a rope bridge over a misty chasm",
+   "kind": "subject",
+   "means": "Character, action and danger in a single line."
+  },
+  {
+   "phrase": "toward a glowing stone portal gate",
+   "kind": "detail",
+   "means": "Gives the walk a destination and the frame a bright focal point."
+  },
+  {
+   "phrase": "the bridge sways",
+   "kind": "motion",
+   "means": "A small, physical movement that adds tension."
+  },
+  {
+   "phrase": "portal light shimmers on the armor",
+   "kind": "light",
+   "means": "Ties the light source to the character with reflections."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_orbital_greenhouse": [
+  {
+   "phrase": "Gentle cinematic slow forward drift",
+   "kind": "camera",
+   "means": "Moves down the corridor so the curve of the ring reads."
+  },
+  {
+   "phrase": "glass orbital greenhouse ring",
+   "kind": "subject",
+   "means": "Sets the idea: farming in space."
+  },
+  {
+   "phrase": "rows of plants sway under artificial dawn light",
+   "kind": "detail",
+   "means": "Familiar plants and warm light make the future feel livable."
+  },
+  {
+   "phrase": "Earth turns slowly beyond the curved windows",
+   "kind": "motion",
+   "means": "A huge, slow background motion that shows where we are."
+  },
+  {
+   "phrase": "condensation beads on the glass",
+   "kind": "detail",
+   "means": "A small realistic touch that sells the humidity inside."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_maglev_orchard": [
+  {
+   "phrase": "Gentle cinematic slow aerial glide",
+   "kind": "camera",
+   "means": "A drone-like move alongside the train."
+  },
+  {
+   "phrase": "sleek silent maglev train",
+   "kind": "subject",
+   "means": "Future transport that is quiet and clean, not loud sci-fi."
+  },
+  {
+   "phrase": "terraced orchard at golden hour",
+   "kind": "setting",
+   "means": "Puts the technology inside farmland for contrast."
+  },
+  {
+   "phrase": "leaves flutter in its wake",
+   "kind": "motion",
+   "means": "Shows the train's speed through what it disturbs."
+  },
+  {
+   "phrase": "long warm shadows",
+   "kind": "light",
+   "means": "Low sun gives the hills shape."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_desert_array": [
+  {
+   "phrase": "Gentle cinematic slow push",
+   "kind": "camera",
+   "means": "Moves over the panels so the rows stream past."
+  },
+  {
+   "phrase": "vast desert solar array at dawn",
+   "kind": "subject",
+   "means": "Scale and time of day in one line."
+  },
+  {
+   "phrase": "rows of panels tilt in unison toward the rising sun",
+   "kind": "motion",
+   "means": "A coordinated machine motion that feels purposeful."
+  },
+  {
+   "phrase": "heat haze shimmers",
+   "kind": "detail",
+   "means": "Warping air that says desert without showing heat."
+  },
+  {
+   "phrase": "fine dust drifts",
+   "kind": "detail",
+   "means": "Particles that catch the low sunlight."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_neon_street_rain": [
+  {
+   "phrase": "Gentle cinematic slow forward drift",
+   "kind": "camera",
+   "means": "Moves down the street like a walking viewer."
+  },
+  {
+   "phrase": "cyberpunk megacity street at night",
+   "kind": "subject",
+   "means": "The genre and setting in one phrase."
+  },
+  {
+   "phrase": "dense neon signs in invented glyphs",
+   "kind": "detail",
+   "means": "Lots of signage without real words or brand names."
+  },
+  {
+   "phrase": "rain-slick asphalt reflections ripple",
+   "kind": "light",
+   "means": "Doubles the neon on the ground, the classic look of the genre."
+  },
+  {
+   "phrase": "distant hover-bikes glide by",
+   "kind": "motion",
+   "means": "Background traffic that keeps the city busy."
+  },
+  {
+   "phrase": "steam rises from vents",
+   "kind": "motion",
+   "means": "Soft vapor that catches colored light."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_alley_repair": [
+  {
+   "phrase": "Gentle cinematic slow push-in",
+   "kind": "camera",
+   "means": "Closes in on the work as the clip goes on."
+  },
+  {
+   "phrase": "small cyberpunk repair stall in a rainy alley",
+   "kind": "setting",
+   "means": "A tight, lived-in location."
+  },
+  {
+   "phrase": "a chrome service drone carefully fixes a glowing prosthetic hand",
+   "kind": "subject",
+   "means": "The story beat: a machine repairing machine parts."
+  },
+  {
+   "phrase": "under magenta neon",
+   "kind": "light",
+   "means": "One strong color sets the mood."
+  },
+  {
+   "phrase": "rain beads on chrome",
+   "kind": "detail",
+   "means": "Small highlights on metal sell the wet night."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_noodle_window": [
+  {
+   "phrase": "Gentle cinematic slow push toward",
+   "kind": "camera",
+   "means": "Brings the viewer up to the glass, like stopping outside."
+  },
+  {
+   "phrase": "cyberpunk noodle shop window in heavy rain",
+   "kind": "subject",
+   "means": "A small, warm place in a cold, wet city."
+  },
+  {
+   "phrase": "neon invented glyphs glow and warp through wet glass",
+   "kind": "light",
+   "means": "Distortion from rain on the glass adds texture to the light."
+  },
+  {
+   "phrase": "steam rises from bowls inside",
+   "kind": "motion",
+   "means": "Warm motion inside contrasts the rain outside."
+  },
+  {
+   "phrase": "a lone figure sits still at the counter",
+   "kind": "detail",
+   "means": "A still person gives the scene a quiet, lonely mood."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_freckled_close_up": [
+  {
+   "phrase": "very slow push-in, nearly static camera",
+   "kind": "camera",
+   "means": "Keeps a face shot stable so small expressions read."
+  },
+  {
+   "phrase": "close-up portrait of a woman in her thirties",
+   "kind": "subject",
+   "means": "Frames tightly and sets a clear age."
+  },
+  {
+   "phrase": "freckles and light green eyes",
+   "kind": "detail",
+   "means": "Specific features keep the face from looking generic."
+  },
+  {
+   "phrase": "she blinks naturally",
+   "kind": "motion",
+   "means": "A tiny action that makes a portrait clip feel alive."
+  },
+  {
+   "phrase": "soft window light",
+   "kind": "light",
+   "means": "Gentle side light that flatters skin texture."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps the subject clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_harbor_fisherman": [
+  {
+   "phrase": "Gentle cinematic slow push-in",
+   "kind": "camera",
+   "means": "Draws the viewer toward the face."
+  },
+  {
+   "phrase": "elderly fisherman with a weathered face and white beard",
+   "kind": "subject",
+   "means": "Age and texture that give the portrait character."
+  },
+  {
+   "phrase": "on a harbor dock at dawn",
+   "kind": "setting",
+   "means": "A background that tells his story without words."
+  },
+  {
+   "phrase": "he looks toward camera and smiles slightly",
+   "kind": "motion",
+   "means": "A small, warm expression change to end on."
+  },
+  {
+   "phrase": "warm low sun",
+   "kind": "light",
+   "means": "Golden side light that brings out the lines in the face."
+  },
+  {
+   "phrase": "shallow depth of field",
+   "kind": "camera",
+   "means": "Blurs the boats so the face stays the subject."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_grainy_glance": [
+  {
+   "phrase": "Gentle cinematic slow push-in",
+   "kind": "camera",
+   "means": "Moves in slowly on the face."
+  },
+  {
+   "phrase": "man in his forties glancing over his shoulder",
+   "kind": "subject",
+   "means": "A natural pose that suggests a moment caught on film."
+  },
+  {
+   "phrase": "windy hillside",
+   "kind": "setting",
+   "means": "Wind gives the hair and coat something to do."
+  },
+  {
+   "phrase": "grainy black and white film look",
+   "kind": "style",
+   "means": "Sets the whole look: monochrome with visible grain."
+  },
+  {
+   "phrase": "soft contrast",
+   "kind": "light",
+   "means": "Keeps grays gentle instead of harsh black and white."
+  },
+  {
+   "phrase": "subtle breathing",
+   "kind": "motion",
+   "means": "Barely-there movement that keeps the shot alive."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene is the only thing that moves."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the scene reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }
