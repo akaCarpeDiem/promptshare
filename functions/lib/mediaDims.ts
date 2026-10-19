@@ -1,6 +1,18 @@
 // Pixel sizes of each plate's media and its browse thumbnail: id → [width, height, thumbWidth, thumbHeight].
 // Generated 2026-10-17 from the files on promptshare.co. Plates missing here fall back to 16:9.
 export const MEDIA_DIMS: Record<string, [number, number, number, number]> = {
+  "seed_video_cyberpunk_rooftop_rice_paddies": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_memory_tailor": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_desert_data_oasis": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_underwater_arcade": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_snow_shrine_drones": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_vertical_garden_market": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_chrome_koi": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_maglev_sleeper": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_solar_sail_dockyard": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_hologram_tea_ceremony": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_aerial_cable_favela": [1920, 1080, 640, 360],
+  "seed_video_cyberpunk_bioluminescent_tattoo": [1920, 1080, 640, 360],
   "seed_video_fantasy_ember_boats": [1920, 1080, 640, 360],
   "seed_video_fantasy_sky_tea_terraces": [1920, 1080, 640, 360],
   "seed_video_fantasy_glowworm_trunk_city": [1920, 1080, 640, 360],

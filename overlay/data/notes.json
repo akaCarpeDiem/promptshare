@@ -12328,5 +12328,454 @@
    "kind": "constraint",
    "means": "Keeps captions, logos and watermarks out of the clip."
   }
+ ],
+ "seed_video_cyberpunk_rooftop_rice_paddies": [
+  {
+   "phrase": "Slow aerial glide across terraced rice paddies built on top of a megatower at dawn",
+   "kind": "camera",
+   "means": "Starts in nature, reveals the city underneath."
+  },
+  {
+   "phrase": "farmers in reflective rain capes wade between glowing irrigation lines",
+   "kind": "subject",
+   "means": "Ordinary labor in a high-tech place."
+  },
+  {
+   "phrase": "a sea of hazy skyscrapers stretches to the horizon below",
+   "kind": "setting",
+   "means": "Scale comes from what lies beneath the farm."
+  },
+  {
+   "phrase": "pale gold sunrise mixes with violet city glow",
+   "kind": "light",
+   "means": "Natural and artificial light meet."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_memory_tailor": [
+  {
+   "phrase": "Macro close-up on weathered hands at a cluttered workbench",
+   "kind": "camera",
+   "means": "Macro makes a strange craft feel tactile."
+  },
+  {
+   "phrase": "a tailor stitches a jacket with threads of living fiber optic light",
+   "kind": "subject",
+   "means": "Clothing woven from light, an unseen craft."
+  },
+  {
+   "phrase": "each stitch sends a pulse of color along the seam",
+   "kind": "motion",
+   "means": "The garment reacts like a nervous system."
+  },
+  {
+   "phrase": "dusty brass lamps and spools glint in the background",
+   "kind": "setting",
+   "means": "Old-world tools against new material."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_desert_data_oasis": [
+  {
+   "phrase": "Wide slow pan across red desert dunes at blue hour",
+   "kind": "camera",
+   "means": "Takes cyberpunk out of the rainy city."
+  },
+  {
+   "phrase": "a circular server farm glows cyan like an oasis, cooled by mirror pools",
+   "kind": "subject",
+   "means": "Infrastructure framed as a sanctuary."
+  },
+  {
+   "phrase": "a caravan of electric camels with cargo racks approaches",
+   "kind": "motion",
+   "means": "An ancient image made futuristic."
+  },
+  {
+   "phrase": "heat shimmer bends the lights",
+   "kind": "detail",
+   "means": "Desert air makes the glow tremble."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_underwater_arcade": [
+  {
+   "phrase": "Gentle cinematic glide through a flooded arcade beneath a harbor",
+   "kind": "camera",
+   "means": "Drifting turns the room into a dream."
+  },
+  {
+   "phrase": "old arcade cabinets still glow pink and teal under clear green water",
+   "kind": "subject",
+   "means": "Neon kept alive underwater."
+  },
+  {
+   "phrase": "a school of silver fish swirls through the light of the screens",
+   "kind": "motion",
+   "means": "Life reclaiming the machines."
+  },
+  {
+   "phrase": "sunbeams slant down from the surface",
+   "kind": "light",
+   "means": "Daylight from above against neon below."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_snow_shrine_drones": [
+  {
+   "phrase": "Slow push up a long stone staircase through a snowy mountain shrine at night",
+   "kind": "camera",
+   "means": "Climbing builds quiet anticipation."
+  },
+  {
+   "phrase": "hundreds of small lantern drones hover along the steps like floating paper lanterns",
+   "kind": "subject",
+   "means": "Tradition reinvented with machines."
+  },
+  {
+   "phrase": "snowflakes catch their warm amber light",
+   "kind": "detail",
+   "means": "Soft particles make the light visible."
+  },
+  {
+   "phrase": "a holographic torii gate flickers gently at the top",
+   "kind": "setting",
+   "means": "A glowing goal for the climb."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_vertical_garden_market": [
+  {
+   "phrase": "Upward tilt from the floor of a vast tower atrium",
+   "kind": "camera",
+   "means": "Looking up reveals dozens of levels."
+  },
+  {
+   "phrase": "hanging market stalls and gardens spiral up a hundred floors",
+   "kind": "subject",
+   "means": "A city stacked like a beehive."
+  },
+  {
+   "phrase": "delivery drones weave between vines and paper signs",
+   "kind": "motion",
+   "means": "Constant small traffic brings it alive."
+  },
+  {
+   "phrase": "a skylight pours soft daylight down the shaft",
+   "kind": "light",
+   "means": "Breaks the cliché of eternal night."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_chrome_koi": [
+  {
+   "phrase": "Top-down macro view over a black stone koi pond",
+   "kind": "camera",
+   "means": "Overhead turns ripples into patterns."
+  },
+  {
+   "phrase": "mechanical koi with mirror-chrome scales glide in slow circles",
+   "kind": "subject",
+   "means": "A quiet, beautiful machine."
+  },
+  {
+   "phrase": "their scales reflect passing holographic leaves",
+   "kind": "detail",
+   "means": "Reflection layers the image."
+  },
+  {
+   "phrase": "ripples spread in perfect rings",
+   "kind": "motion",
+   "means": "Calm, hypnotic movement."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_maglev_sleeper": [
+  {
+   "phrase": "POV from a sleeper cabin window on a maglev train at night",
+   "kind": "camera",
+   "means": "The viewer becomes the traveler."
+  },
+  {
+   "phrase": "a megacity of layered towers slides past in streaks of amber and teal",
+   "kind": "subject",
+   "means": "The city seen in motion, not from the street."
+  },
+  {
+   "phrase": "a steaming cup of tea trembles on the window ledge",
+   "kind": "detail",
+   "means": "A cozy foreground anchors the speed."
+  },
+  {
+   "phrase": "reflections of the cabin lamp float over the view",
+   "kind": "light",
+   "means": "Glass reflections add depth."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_solar_sail_dockyard": [
+  {
+   "phrase": "Wide slow dolly along a coastal dockyard at golden hour",
+   "kind": "camera",
+   "means": "Sideways movement shows the scale of the ships."
+  },
+  {
+   "phrase": "enormous cargo ships unfurl iridescent solar sails",
+   "kind": "subject",
+   "means": "Industry as spectacle."
+  },
+  {
+   "phrase": "welders' sparks fall from scaffolding like fireworks",
+   "kind": "motion",
+   "means": "Bright bursts of motion."
+  },
+  {
+   "phrase": "gulls circle above the cranes",
+   "kind": "detail",
+   "means": "Old harbor life persists."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_hologram_tea_ceremony": [
+  {
+   "phrase": "Gentle cinematic eye-level shot in a minimalist tatami room",
+   "kind": "camera",
+   "means": "Calm framing for a ritual."
+  },
+  {
+   "phrase": "a tea master whisks matcha for a translucent hologram guest made of soft blue light",
+   "kind": "subject",
+   "means": "Human tradition meets digital presence."
+  },
+  {
+   "phrase": "steam rises through the hologram, scattering its pixels",
+   "kind": "motion",
+   "means": "Physical and digital touch."
+  },
+  {
+   "phrase": "paper screens glow with distant city light",
+   "kind": "light",
+   "means": "The city is felt, not shown."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_aerial_cable_favela": [
+  {
+   "phrase": "Slow descending aerial shot over a dense hillside city at dusk",
+   "kind": "camera",
+   "means": "Height shows the web of the city."
+  },
+  {
+   "phrase": "thousands of fiber cables strung between rooftops pulse with traveling light",
+   "kind": "subject",
+   "means": "The network made visible."
+  },
+  {
+   "phrase": "rooftop gardens and laundry lines sway in warm wind",
+   "kind": "detail",
+   "means": "Human texture inside the tech."
+  },
+  {
+   "phrase": "a deep orange sky fades to indigo over the bay",
+   "kind": "light",
+   "means": "Warm sky instead of rain."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_cyberpunk_bioluminescent_tattoo": [
+  {
+   "phrase": "Extreme macro tracking shot along a forearm",
+   "kind": "camera",
+   "means": "Skin becomes a landscape."
+  },
+  {
+   "phrase": "a bioluminescent tattoo of vines slowly grows and blooms beneath the skin",
+   "kind": "subject",
+   "means": "Body art that lives."
+  },
+  {
+   "phrase": "tiny glowing flowers open in sequence",
+   "kind": "motion",
+   "means": "A small, magical event."
+  },
+  {
+   "phrase": "soft dark studio background",
+   "kind": "setting",
+   "means": "Nothing distracts from the glow."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic cyberpunk realism",
+   "kind": "style",
+   "means": "Grounded, filmic sci-fi texture instead of a video-game look."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }

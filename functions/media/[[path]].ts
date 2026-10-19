@@ -2322,6 +2322,102 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/futuristic-v-europa-station.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/cyberpunk-v-rooftop-rice-paddies.mp4": {
+    key: "media/video/cyberpunk-v-rooftop-rice-paddies.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-rooftop-rice-paddies.jpg": {
+    key: "media/posters/cyberpunk-v-rooftop-rice-paddies.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-memory-tailor.mp4": {
+    key: "media/video/cyberpunk-v-memory-tailor.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-memory-tailor.jpg": {
+    key: "media/posters/cyberpunk-v-memory-tailor.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-desert-data-oasis.mp4": {
+    key: "media/video/cyberpunk-v-desert-data-oasis.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-desert-data-oasis.jpg": {
+    key: "media/posters/cyberpunk-v-desert-data-oasis.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-underwater-arcade.mp4": {
+    key: "media/video/cyberpunk-v-underwater-arcade.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-underwater-arcade.jpg": {
+    key: "media/posters/cyberpunk-v-underwater-arcade.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-snow-shrine-drones.mp4": {
+    key: "media/video/cyberpunk-v-snow-shrine-drones.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-snow-shrine-drones.jpg": {
+    key: "media/posters/cyberpunk-v-snow-shrine-drones.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-vertical-garden-market.mp4": {
+    key: "media/video/cyberpunk-v-vertical-garden-market.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-vertical-garden-market.jpg": {
+    key: "media/posters/cyberpunk-v-vertical-garden-market.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-chrome-koi.mp4": {
+    key: "media/video/cyberpunk-v-chrome-koi.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-chrome-koi.jpg": {
+    key: "media/posters/cyberpunk-v-chrome-koi.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-maglev-sleeper.mp4": {
+    key: "media/video/cyberpunk-v-maglev-sleeper.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-maglev-sleeper.jpg": {
+    key: "media/posters/cyberpunk-v-maglev-sleeper.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-solar-sail-dockyard.mp4": {
+    key: "media/video/cyberpunk-v-solar-sail-dockyard.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-solar-sail-dockyard.jpg": {
+    key: "media/posters/cyberpunk-v-solar-sail-dockyard.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-hologram-tea-ceremony.mp4": {
+    key: "media/video/cyberpunk-v-hologram-tea-ceremony.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-hologram-tea-ceremony.jpg": {
+    key: "media/posters/cyberpunk-v-hologram-tea-ceremony.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-aerial-cable-favela.mp4": {
+    key: "media/video/cyberpunk-v-aerial-cable-favela.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-aerial-cable-favela.jpg": {
+    key: "media/posters/cyberpunk-v-aerial-cable-favela.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/cyberpunk-v-bioluminescent-tattoo.mp4": {
+    key: "media/video/cyberpunk-v-bioluminescent-tattoo.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/cyberpunk-v-bioluminescent-tattoo.jpg": {
+    key: "media/posters/cyberpunk-v-bioluminescent-tattoo.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 
