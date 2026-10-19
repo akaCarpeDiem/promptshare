@@ -20645,7 +20645,7 @@ export function seedBundle(): SeedBundle {
     {
       id: "seed_video_animals_murmuration",
       userId: "user_mira",
-      title: "Starling murmuration, aerial",
+      title: "Starling murmuration over the marsh",
       prompt: "Wide low-angle shot from a reed marsh at dusk looking up at the sky, a vast dark starling murmuration of thousands of birds folds and ripples like smoke, the shape splits and merges again, a peach and lilac sky behind the black swarm, steady camera, photoreal wildlife documentary, no text, no watermark",
       model: "Grok",
       tags: ["animals", "starlings", "murmuration", "aerial", "video", "grok"],
