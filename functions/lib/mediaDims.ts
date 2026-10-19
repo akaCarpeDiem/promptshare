@@ -1,6 +1,18 @@
 // Pixel sizes of each plate's media and its browse thumbnail: id → [width, height, thumbWidth, thumbHeight].
 // Generated 2026-10-17 from the files on promptshare.co. Plates missing here fall back to 16:9.
 export const MEDIA_DIMS: Record<string, [number, number, number, number]> = {
+  "seed_video_portraits_potter_window": [1920, 1080, 640, 360],
+  "seed_video_portraits_reflection_subway": [1920, 1080, 640, 360],
+  "seed_video_portraits_desert_wind_scarf": [1920, 1080, 640, 360],
+  "seed_video_portraits_violinist_backstage": [1920, 1080, 640, 360],
+  "seed_video_portraits_rain_umbrella_top": [1920, 1080, 640, 360],
+  "seed_video_portraits_fisherwoman_mist": [1920, 1080, 640, 360],
+  "seed_video_portraits_dancer_chalk": [1920, 1080, 640, 360],
+  "seed_video_portraits_greenhouse_botanist": [1920, 1080, 640, 360],
+  "seed_video_portraits_mirror_shards": [1920, 1080, 640, 360],
+  "seed_video_portraits_blacksmith_sparks": [1920, 1080, 640, 360],
+  "seed_video_portraits_snow_lashes": [1920, 1080, 640, 360],
+  "seed_video_portraits_library_ladder": [1920, 1080, 640, 360],
   "seed_video_cyberpunk_rooftop_rice_paddies": [1920, 1080, 640, 360],
   "seed_video_cyberpunk_memory_tailor": [1920, 1080, 640, 360],
   "seed_video_cyberpunk_desert_data_oasis": [1920, 1080, 640, 360],

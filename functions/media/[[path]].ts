@@ -2418,6 +2418,102 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/cyberpunk-v-bioluminescent-tattoo.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/portraits-v-potter-window.mp4": {
+    key: "media/video/portraits-v-potter-window.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-potter-window.jpg": {
+    key: "media/posters/portraits-v-potter-window.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-reflection-subway.mp4": {
+    key: "media/video/portraits-v-reflection-subway.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-reflection-subway.jpg": {
+    key: "media/posters/portraits-v-reflection-subway.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-desert-wind-scarf.mp4": {
+    key: "media/video/portraits-v-desert-wind-scarf.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-desert-wind-scarf.jpg": {
+    key: "media/posters/portraits-v-desert-wind-scarf.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-violinist-backstage.mp4": {
+    key: "media/video/portraits-v-violinist-backstage.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-violinist-backstage.jpg": {
+    key: "media/posters/portraits-v-violinist-backstage.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-rain-umbrella-top.mp4": {
+    key: "media/video/portraits-v-rain-umbrella-top.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-rain-umbrella-top.jpg": {
+    key: "media/posters/portraits-v-rain-umbrella-top.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-fisherwoman-mist.mp4": {
+    key: "media/video/portraits-v-fisherwoman-mist.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-fisherwoman-mist.jpg": {
+    key: "media/posters/portraits-v-fisherwoman-mist.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-dancer-chalk.mp4": {
+    key: "media/video/portraits-v-dancer-chalk.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-dancer-chalk.jpg": {
+    key: "media/posters/portraits-v-dancer-chalk.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-greenhouse-botanist.mp4": {
+    key: "media/video/portraits-v-greenhouse-botanist.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-greenhouse-botanist.jpg": {
+    key: "media/posters/portraits-v-greenhouse-botanist.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-mirror-shards.mp4": {
+    key: "media/video/portraits-v-mirror-shards.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-mirror-shards.jpg": {
+    key: "media/posters/portraits-v-mirror-shards.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-blacksmith-sparks.mp4": {
+    key: "media/video/portraits-v-blacksmith-sparks.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-blacksmith-sparks.jpg": {
+    key: "media/posters/portraits-v-blacksmith-sparks.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-snow-lashes.mp4": {
+    key: "media/video/portraits-v-snow-lashes.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-snow-lashes.jpg": {
+    key: "media/posters/portraits-v-snow-lashes.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/portraits-v-library-ladder.mp4": {
+    key: "media/video/portraits-v-library-ladder.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/portraits-v-library-ladder.jpg": {
+    key: "media/posters/portraits-v-library-ladder.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 

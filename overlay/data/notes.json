@@ -12777,5 +12777,504 @@
    "kind": "constraint",
    "means": "Keeps captions, logos and watermarks out of the clip."
   }
+ ],
+ "seed_video_portraits_potter_window": [
+  {
+   "phrase": "Gentle cinematic slow push-in on a woman in her sixties with silver braids",
+   "kind": "camera",
+   "means": "A slow approach builds intimacy."
+  },
+  {
+   "phrase": "she looks up from her potter's wheel with clay on her hands and smiles softly",
+   "kind": "subject",
+   "means": "A real moment, not a pose."
+  },
+  {
+   "phrase": "north window light falls across her face",
+   "kind": "light",
+   "means": "Classic soft painter's light."
+  },
+  {
+   "phrase": "dust motes float in the warm studio air",
+   "kind": "detail",
+   "means": "Air you can see."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_reflection_subway": [
+  {
+   "phrase": "Gentle cinematic shot through a train window at night",
+   "kind": "camera",
+   "means": "Looking through glass layers face and city."
+  },
+  {
+   "phrase": "a man in his thirties with a short beard is reflected over the passing city lights",
+   "kind": "subject",
+   "means": "Portrait doubled by reflection."
+  },
+  {
+   "phrase": "lights stream across his face as he turns toward the glass",
+   "kind": "motion",
+   "means": "The city paints him."
+  },
+  {
+   "phrase": "cool blue interior with warm streaks outside",
+   "kind": "light",
+   "means": "Color contrast frames the face."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_desert_wind_scarf": [
+  {
+   "phrase": "Low-angle slow-motion portrait in red sand dunes at golden hour",
+   "kind": "camera",
+   "means": "Low angle makes the figure monumental."
+  },
+  {
+   "phrase": "a woman in her twenties with deep brown skin and a saffron silk scarf",
+   "kind": "subject",
+   "means": "Strong color and presence."
+  },
+  {
+   "phrase": "the scarf ripples and streams in the wind behind her",
+   "kind": "motion",
+   "means": "Fabric carries the movement."
+  },
+  {
+   "phrase": "warm sun rims her profile",
+   "kind": "light",
+   "means": "A glowing edge outlines her face."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_violinist_backstage": [
+  {
+   "phrase": "Gentle cinematic over-the-shoulder shot that slowly circles to the front",
+   "kind": "camera",
+   "means": "Reveals the face gradually."
+  },
+  {
+   "phrase": "a violinist in his fifties closes his eyes and breathes before a performance",
+   "kind": "subject",
+   "means": "A private moment of focus."
+  },
+  {
+   "phrase": "a single bare bulb and velvet curtains behind him",
+   "kind": "setting",
+   "means": "Theater texture without the stage."
+  },
+  {
+   "phrase": "warm tungsten light and deep shadows",
+   "kind": "light",
+   "means": "Chiaroscuro for drama."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_rain_umbrella_top": [
+  {
+   "phrase": "Top-down shot looking down through a clear umbrella in light rain",
+   "kind": "camera",
+   "means": "An unusual angle for a portrait."
+  },
+  {
+   "phrase": "a woman in her forties with short gray hair looks up and smiles",
+   "kind": "subject",
+   "means": "She meets the camera from below."
+  },
+  {
+   "phrase": "raindrops bead and slide on the umbrella between us",
+   "kind": "detail",
+   "means": "The umbrella becomes a lens."
+  },
+  {
+   "phrase": "soft overcast light and wet cobblestones around her",
+   "kind": "light",
+   "means": "Even light flatters the face."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_fisherwoman_mist": [
+  {
+   "phrase": "Gentle cinematic slow drift beside a wooden boat on a misty lake at dawn",
+   "kind": "camera",
+   "means": "Gliding alongside keeps it calm."
+  },
+  {
+   "phrase": "an elderly fisherwoman in a wool cap coils a net and glances toward the light",
+   "kind": "subject",
+   "means": "Weathered face, quiet strength."
+  },
+  {
+   "phrase": "mist rolls over the water around her",
+   "kind": "motion",
+   "means": "Soft movement in the frame."
+  },
+  {
+   "phrase": "pale pink dawn light on her face",
+   "kind": "light",
+   "means": "Gentle, early colors."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_dancer_chalk": [
+  {
+   "phrase": "Slow-motion portrait against a black studio backdrop",
+   "kind": "camera",
+   "means": "Time slows to see every particle."
+  },
+  {
+   "phrase": "a male dancer in his twenties claps his hands and a cloud of white chalk bursts around him",
+   "kind": "subject",
+   "means": "A moment of energy frozen."
+  },
+  {
+   "phrase": "chalk swirls and catches a single hard side light",
+   "kind": "light",
+   "means": "Rim light sculpts the particles."
+  },
+  {
+   "phrase": "he looks calmly into the lens through the haze",
+   "kind": "detail",
+   "means": "Stillness inside the motion."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_greenhouse_botanist": [
+  {
+   "phrase": "Gentle cinematic rack focus from dewy leaves to a face",
+   "kind": "camera",
+   "means": "The plants frame and reveal her."
+  },
+  {
+   "phrase": "a South Asian botanist in her fifties with reading glasses examines an orchid",
+   "kind": "subject",
+   "means": "Curiosity as the expression."
+  },
+  {
+   "phrase": "condensation drips down the glass behind her",
+   "kind": "detail",
+   "means": "Humid, living atmosphere."
+  },
+  {
+   "phrase": "diffused green-gold light through the panes",
+   "kind": "light",
+   "means": "The greenhouse colors her skin."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_mirror_shards": [
+  {
+   "phrase": "Slow arc around a man in his forties standing among hanging mirror shards",
+   "kind": "camera",
+   "means": "Moving reveals many angles at once."
+  },
+  {
+   "phrase": "his face appears in dozens of fragments, each catching a different color",
+   "kind": "subject",
+   "means": "One person seen many ways."
+  },
+  {
+   "phrase": "the shards turn slowly on threads",
+   "kind": "motion",
+   "means": "Reflections shift and recombine."
+  },
+  {
+   "phrase": "soft colored gels of amber and teal",
+   "kind": "light",
+   "means": "Color separates the fragments."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_blacksmith_sparks": [
+  {
+   "phrase": "Gentle cinematic close-up on a blacksmith in her thirties at the forge",
+   "kind": "camera",
+   "means": "Close enough to feel the heat."
+  },
+  {
+   "phrase": "she lowers her hammer and wipes her brow, freckles lit by the fire",
+   "kind": "subject",
+   "means": "A pause after work."
+  },
+  {
+   "phrase": "sparks drift past her face in slow motion",
+   "kind": "motion",
+   "means": "Embers float like fireflies."
+  },
+  {
+   "phrase": "orange forge glow against a dark smithy",
+   "kind": "light",
+   "means": "Firelight carves the face."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_snow_lashes": [
+  {
+   "phrase": "Extreme close-up of an Inuit man in his seventies in a fur-trimmed hood",
+   "kind": "camera",
+   "means": "Macro makes the details epic."
+  },
+  {
+   "phrase": "snowflakes land and melt on his eyelashes as he blinks",
+   "kind": "subject",
+   "means": "A tiny, delicate event."
+  },
+  {
+   "phrase": "his breath fogs softly in the cold air",
+   "kind": "motion",
+   "means": "Life and warmth in the frame."
+  },
+  {
+   "phrase": "blue arctic twilight with a warm glint in his eyes",
+   "kind": "light",
+   "means": "Cold world, warm person."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_portraits_library_ladder": [
+  {
+   "phrase": "Slow crane down from tall shelves to a reader on a rolling ladder",
+   "kind": "camera",
+   "means": "Descends from books to face."
+  },
+  {
+   "phrase": "a young East Asian man in his twenties looks up from an open book with a quiet smile",
+   "kind": "subject",
+   "means": "Absorbed and content."
+  },
+  {
+   "phrase": "a shaft of afternoon light through a high window",
+   "kind": "light",
+   "means": "A spotlight from nature."
+  },
+  {
+   "phrase": "dust motes drift through the beam",
+   "kind": "detail",
+   "means": "Stillness made visible."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal portrait cinematography",
+   "kind": "style",
+   "means": "Real skin, real light, shallow focus, like a film still."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }
