@@ -2130,6 +2130,198 @@ const OBJECTS: Record<string, { key: string; contentType: string }> = {
     key: "media/posters/fictional-animals-v-kelp-horse.jpg",
     contentType: "image/jpeg",
   },
+  "/media/video/fantasy-v-ember-boats.mp4": {
+    key: "media/video/fantasy-v-ember-boats.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-ember-boats.jpg": {
+    key: "media/posters/fantasy-v-ember-boats.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-sky-tea-terraces.mp4": {
+    key: "media/video/fantasy-v-sky-tea-terraces.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-sky-tea-terraces.jpg": {
+    key: "media/posters/fantasy-v-sky-tea-terraces.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-glowworm-trunk-city.mp4": {
+    key: "media/video/fantasy-v-glowworm-trunk-city.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-glowworm-trunk-city.jpg": {
+    key: "media/posters/fantasy-v-glowworm-trunk-city.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-starfall-forge.mp4": {
+    key: "media/video/fantasy-v-starfall-forge.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-starfall-forge.jpg": {
+    key: "media/posters/fantasy-v-starfall-forge.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-living-map.mp4": {
+    key: "media/video/fantasy-v-living-map.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-living-map.jpg": {
+    key: "media/posters/fantasy-v-living-map.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-glass-dunes.mp4": {
+    key: "media/video/fantasy-v-glass-dunes.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-glass-dunes.jpg": {
+    key: "media/posters/fantasy-v-glass-dunes.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-sleeping-giant.mp4": {
+    key: "media/video/fantasy-v-sleeping-giant.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-sleeping-giant.jpg": {
+    key: "media/posters/fantasy-v-sleeping-giant.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-moonlight-harbor.mp4": {
+    key: "media/video/fantasy-v-moonlight-harbor.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-moonlight-harbor.jpg": {
+    key: "media/posters/fantasy-v-moonlight-harbor.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-seasons-arch.mp4": {
+    key: "media/video/fantasy-v-seasons-arch.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-seasons-arch.jpg": {
+    key: "media/posters/fantasy-v-seasons-arch.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-opal-dragon.mp4": {
+    key: "media/video/fantasy-v-opal-dragon.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-opal-dragon.jpg": {
+    key: "media/posters/fantasy-v-opal-dragon.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-sunken-cathedral.mp4": {
+    key: "media/video/fantasy-v-sunken-cathedral.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-sunken-cathedral.jpg": {
+    key: "media/posters/fantasy-v-sunken-cathedral.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/fantasy-v-aurora-loom.mp4": {
+    key: "media/video/fantasy-v-aurora-loom.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/fantasy-v-aurora-loom.jpg": {
+    key: "media/posters/fantasy-v-aurora-loom.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-forest-towers.mp4": {
+    key: "media/video/futuristic-v-forest-towers.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-forest-towers.jpg": {
+    key: "media/posters/futuristic-v-forest-towers.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-mars-blue-sunset.mp4": {
+    key: "media/video/futuristic-v-mars-blue-sunset.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-mars-blue-sunset.jpg": {
+    key: "media/posters/futuristic-v-mars-blue-sunset.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-abyss-habitat.mp4": {
+    key: "media/video/futuristic-v-abyss-habitat.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-abyss-habitat.jpg": {
+    key: "media/posters/futuristic-v-abyss-habitat.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-hex-ocean-city.mp4": {
+    key: "media/video/futuristic-v-hex-ocean-city.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-hex-ocean-city.jpg": {
+    key: "media/posters/futuristic-v-hex-ocean-city.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-holo-mammoth.mp4": {
+    key: "media/video/futuristic-v-holo-mammoth.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-holo-mammoth.jpg": {
+    key: "media/posters/futuristic-v-holo-mammoth.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-solar-airships.mp4": {
+    key: "media/video/futuristic-v-solar-airships.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-solar-airships.jpg": {
+    key: "media/posters/futuristic-v-solar-airships.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-lunar-reading-room.mp4": {
+    key: "media/video/futuristic-v-lunar-reading-room.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-lunar-reading-room.jpg": {
+    key: "media/posters/futuristic-v-lunar-reading-room.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-rewilded-highway.mp4": {
+    key: "media/video/futuristic-v-rewilded-highway.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-rewilded-highway.jpg": {
+    key: "media/posters/futuristic-v-rewilded-highway.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-space-elevator.mp4": {
+    key: "media/video/futuristic-v-space-elevator.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-space-elevator.jpg": {
+    key: "media/posters/futuristic-v-space-elevator.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-glowing-street-trees.mp4": {
+    key: "media/video/futuristic-v-glowing-street-trees.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-glowing-street-trees.jpg": {
+    key: "media/posters/futuristic-v-glowing-street-trees.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-robot-bonsai.mp4": {
+    key: "media/video/futuristic-v-robot-bonsai.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-robot-bonsai.jpg": {
+    key: "media/posters/futuristic-v-robot-bonsai.jpg",
+    contentType: "image/jpeg",
+  },
+  "/media/video/futuristic-v-europa-station.mp4": {
+    key: "media/video/futuristic-v-europa-station.mp4",
+    contentType: "video/mp4",
+  },
+  "/media/posters/futuristic-v-europa-station.jpg": {
+    key: "media/posters/futuristic-v-europa-station.jpg",
+    contentType: "image/jpeg",
+  },
 };
 
 

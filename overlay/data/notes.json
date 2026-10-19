@@ -11415,5 +11415,918 @@
    "kind": "constraint",
    "means": "Keeps captions, logos and watermarks out of the clip."
   }
+ ],
+ "seed_video_fantasy_ember_boats": [
+  {
+   "phrase": "Gentle cinematic low drift at water level down a misty river gorge at dusk",
+   "kind": "camera",
+   "means": "At water level the boats feel like a procession."
+  },
+  {
+   "phrase": "hundreds of paper boats each carry a tiny flame spirit with curious eyes",
+   "kind": "subject",
+   "means": "Small characters make the scene charming instead of solemn."
+  },
+  {
+   "phrase": "their glow reflects in dark water",
+   "kind": "light",
+   "means": "Every boat is doubled in the river."
+  },
+  {
+   "phrase": "ferns and stone walls rise into fog",
+   "kind": "setting",
+   "means": "The gorge frames the procession."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_sky_tea_terraces": [
+  {
+   "phrase": "Slow aerial glide between floating islands carved into green tea terraces",
+   "kind": "camera",
+   "means": "Moving between islands shows their height."
+  },
+  {
+   "phrase": "waterfalls spill from their edges and dissolve into cloud",
+   "kind": "motion",
+   "means": "Water that never lands sells the impossibility."
+  },
+  {
+   "phrase": "tea pickers in conical hats work the rows",
+   "kind": "detail",
+   "means": "Ordinary work in an extraordinary place."
+  },
+  {
+   "phrase": "soft morning sun and drifting mist",
+   "kind": "light",
+   "means": "Gentle light for a calm world."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_glowworm_trunk_city": [
+  {
+   "phrase": "Gentle cinematic slow rising shot inside a hollow colossal tree",
+   "kind": "camera",
+   "means": "Rising reveals level after level of the city."
+  },
+  {
+   "phrase": "a spiral town of carved balconies and rope bridges on the inner walls",
+   "kind": "subject",
+   "means": "A whole settlement inside one trunk."
+  },
+  {
+   "phrase": "thousands of blue glowworms light the ceiling like stars",
+   "kind": "light",
+   "means": "A natural, magical light source."
+  },
+  {
+   "phrase": "wooden counterweight lifts rise and fall on ropes",
+   "kind": "motion",
+   "means": "Small machines that make the city feel lived in."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_starfall_forge": [
+  {
+   "phrase": "Gentle cinematic slow push-in on a mountain forge at night",
+   "kind": "camera",
+   "means": "Closes in on the moment of creation."
+  },
+  {
+   "phrase": "a blacksmith in her forties hammers a blade of glowing blue star-metal on the anvil",
+   "kind": "subject",
+   "means": "Clear character, action and impossible material."
+  },
+  {
+   "phrase": "each strike throws pale blue sparks like tiny comets",
+   "kind": "motion",
+   "means": "Ties the sparks to the star theme."
+  },
+  {
+   "phrase": "snowy peaks visible through the open forge door",
+   "kind": "setting",
+   "means": "A cold, vast world outside the hot room."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_living_map": [
+  {
+   "phrase": "Macro shot gliding low over an old parchment map on a candlelit desk",
+   "kind": "camera",
+   "means": "So close the map becomes a landscape."
+  },
+  {
+   "phrase": "ink rivers begin to flow and tiny mountains rise from the paper",
+   "kind": "subject",
+   "means": "The drawing turning real is the event."
+  },
+  {
+   "phrase": "miniature clouds form over the painted sea",
+   "kind": "detail",
+   "means": "A small magical touch that rewards attention."
+  },
+  {
+   "phrase": "warm candlelight flickers across the parchment",
+   "kind": "light",
+   "means": "Old-world light for an old map."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_glass_dunes": [
+  {
+   "phrase": "Wide tracking shot beside a caravan crossing dunes made of pale green glass",
+   "kind": "camera",
+   "means": "A long, side-on view of the procession."
+  },
+  {
+   "phrase": "camels carry prism lanterns that split sunset into rainbows",
+   "kind": "detail",
+   "means": "A creative light source unique to this world."
+  },
+  {
+   "phrase": "wind ripples the glass sand with a faint shimmer",
+   "kind": "motion",
+   "means": "The ground itself catches the light."
+  },
+  {
+   "phrase": "a huge low sun turns everything amber",
+   "kind": "light",
+   "means": "Warm, dramatic backlight."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_sleeping_giant": [
+  {
+   "phrase": "Gentle cinematic slow push across a mossy hillside at dawn",
+   "kind": "camera",
+   "means": "Approaching slowly lets the reveal land."
+  },
+  {
+   "phrase": "the hill is the face of a sleeping stone giant, and its eyes slowly open",
+   "kind": "subject",
+   "means": "The landscape is a character."
+  },
+  {
+   "phrase": "a shepherd and flock graze on its cheek, unbothered",
+   "kind": "detail",
+   "means": "Scale and a touch of humor."
+  },
+  {
+   "phrase": "mist pours from its nostrils as it breathes",
+   "kind": "motion",
+   "means": "A gentle sign of life."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_moonlight_harbor": [
+  {
+   "phrase": "Gentle cinematic slow pan along a stone harbor at night",
+   "kind": "camera",
+   "means": "A walk along the quay past the work."
+  },
+  {
+   "phrase": "an enormous moon hangs just above the sea",
+   "kind": "subject",
+   "means": "Moved close enough to touch, it rewrites the world."
+  },
+  {
+   "phrase": "dockworkers ladle silver moonlight from the water into glass jars",
+   "kind": "detail",
+   "means": "A poetic job that only exists here."
+  },
+  {
+   "phrase": "jars glow on stacked crates",
+   "kind": "light",
+   "means": "Collected light becomes the scene's lamps."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_seasons_arch": [
+  {
+   "phrase": "Steady forward dolly through a mossy stone arch in a forest",
+   "kind": "camera",
+   "means": "Passing through the arch is the transition."
+  },
+  {
+   "phrase": "on this side snow falls, through the arch an autumn wood glows red and gold",
+   "kind": "subject",
+   "means": "Two seasons in one frame."
+  },
+  {
+   "phrase": "snowflakes turn into falling leaves as they cross the threshold",
+   "kind": "motion",
+   "means": "A single magical rule, clearly stated."
+  },
+  {
+   "phrase": "cold blue light meets warm amber light",
+   "kind": "light",
+   "means": "Color tells you which side is which."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_opal_dragon": [
+  {
+   "phrase": "Slow aerial orbit around a lighthouse on a sea stack at blue hour",
+   "kind": "camera",
+   "means": "Circling reveals how long the dragon is."
+  },
+  {
+   "phrase": "a sleeping opal-scaled dragon is coiled around the tower",
+   "kind": "subject",
+   "means": "Gentle and asleep, not menacing."
+  },
+  {
+   "phrase": "the lighthouse beam slides across its iridescent scales",
+   "kind": "light",
+   "means": "The beam reveals the colors in the scales."
+  },
+  {
+   "phrase": "its slow breath fogs the cold air",
+   "kind": "motion",
+   "means": "A quiet sign of life."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_sunken_cathedral": [
+  {
+   "phrase": "Gentle cinematic underwater glide down the nave of a sunken cathedral",
+   "kind": "camera",
+   "means": "Moving down the aisle like a visitor."
+  },
+  {
+   "phrase": "kelp hangs from the vaulted arches",
+   "kind": "detail",
+   "means": "The sea has made the building its own."
+  },
+  {
+   "phrase": "glowing jellyfish drift where chandeliers once hung",
+   "kind": "subject",
+   "means": "Living lights replacing the old ones."
+  },
+  {
+   "phrase": "sunbeams pour through the rose window",
+   "kind": "light",
+   "means": "The classic cathedral light, now underwater."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_fantasy_aurora_loom": [
+  {
+   "phrase": "Gentle cinematic slow arc around a wooden loom on a snowy rooftop at night",
+   "kind": "camera",
+   "means": "Circling shows both the weaver and the sky."
+  },
+  {
+   "phrase": "an elderly weaver draws threads of green aurora down from the sky into the loom",
+   "kind": "subject",
+   "means": "The northern lights as raw material."
+  },
+  {
+   "phrase": "the woven cloth glows and ripples",
+   "kind": "motion",
+   "means": "The finished fabric still behaves like aurora."
+  },
+  {
+   "phrase": "village roofs and chimneys glow below",
+   "kind": "setting",
+   "means": "A cozy place beneath a cosmic act."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "cinematic fantasy realism",
+   "kind": "style",
+   "means": "Keeps the magic grounded in real light and texture rather than cartoon."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_forest_towers": [
+  {
+   "phrase": "Slow aerial glide between residential towers wrapped in living forest",
+   "kind": "camera",
+   "means": "Flying past shows how green the city is."
+  },
+  {
+   "phrase": "tiny pollinator drones hover between flowering branches",
+   "kind": "detail",
+   "means": "Technology helping nature instead of replacing it."
+  },
+  {
+   "phrase": "clean morning light and a clear sky",
+   "kind": "light",
+   "means": "A hopeful, optimistic look."
+  },
+  {
+   "phrase": "birds weave between balconies",
+   "kind": "motion",
+   "means": "Wildlife living alongside people."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_mars_blue_sunset": [
+  {
+   "phrase": "Gentle cinematic low shot across rust-colored Martian dust at sunset",
+   "kind": "camera",
+   "means": "Low to the ground, it stresses the strange land."
+  },
+  {
+   "phrase": "the sun sets blue, as it truly does on Mars",
+   "kind": "light",
+   "means": "A real scientific detail that feels alien."
+  },
+  {
+   "phrase": "a glowing glass-domed colony with green gardens inside",
+   "kind": "subject",
+   "means": "Life and warmth inside a cold world."
+  },
+  {
+   "phrase": "a small rover rolls home leaving tracks",
+   "kind": "motion",
+   "means": "A tiny story beat at day's end."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_abyss_habitat": [
+  {
+   "phrase": "Gentle cinematic slow push down a glass corridor of a deep-sea research habitat",
+   "kind": "camera",
+   "means": "Walking through the station gives the viewpoint."
+  },
+  {
+   "phrase": "a whale shark glides past outside the curved glass",
+   "kind": "subject",
+   "means": "A gentle giant puts the scale in view."
+  },
+  {
+   "phrase": "researchers in navy jumpsuits pause to watch",
+   "kind": "detail",
+   "means": "People react, which makes the moment feel real."
+  },
+  {
+   "phrase": "cool blue ambient light and soft interior strip lights",
+   "kind": "light",
+   "means": "Two light sources, inside and out."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_hex_ocean_city": [
+  {
+   "phrase": "Slow descending aerial shot over a floating city of linked hexagonal platforms at sunrise",
+   "kind": "camera",
+   "means": "Descending shows the pattern, then the life on it."
+  },
+  {
+   "phrase": "each platform holds gardens, homes and solar canopies",
+   "kind": "detail",
+   "means": "A full, self-sufficient town."
+  },
+  {
+   "phrase": "small electric boats trace wakes between the hexes",
+   "kind": "motion",
+   "means": "Traffic on water instead of roads."
+  },
+  {
+   "phrase": "pink and gold sunrise on calm sea",
+   "kind": "light",
+   "means": "A warm, hopeful palette."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_holo_mammoth": [
+  {
+   "phrase": "Gentle cinematic slow tracking shot through a dim natural history hall",
+   "kind": "camera",
+   "means": "Moves with the visitors."
+  },
+  {
+   "phrase": "a life-size translucent holographic woolly mammoth walks among visitors",
+   "kind": "subject",
+   "means": "An extinct animal returned as light."
+  },
+  {
+   "phrase": "its glow lights the faces of people looking up",
+   "kind": "light",
+   "means": "The hologram is also the room's light."
+  },
+  {
+   "phrase": "fine particles shimmer inside its silhouette",
+   "kind": "detail",
+   "means": "A visual cue that it's projected light."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_solar_airships": [
+  {
+   "phrase": "Wide slow pan across a cliffside airship port high in the mountains",
+   "kind": "camera",
+   "means": "A wide move shows the whole port."
+  },
+  {
+   "phrase": "long airships with solar-panel skins dock at slender towers",
+   "kind": "subject",
+   "means": "Quiet, clean transport in the sky."
+  },
+  {
+   "phrase": "cargo pods lower on cables",
+   "kind": "motion",
+   "means": "The work of the port happening."
+  },
+  {
+   "phrase": "clouds drift below the docks",
+   "kind": "detail",
+   "means": "Shows how high the port is."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_lunar_reading_room": [
+  {
+   "phrase": "Gentle cinematic slow push toward a huge round window in a lunar library",
+   "kind": "camera",
+   "means": "Moves toward the view like someone walking up."
+  },
+  {
+   "phrase": "the blue Earth rises over a grey crater rim",
+   "kind": "subject",
+   "means": "Earthrise as the room's view."
+  },
+  {
+   "phrase": "a few readers in soft armchairs, low-gravity dust drifting slowly",
+   "kind": "detail",
+   "means": "A quiet daily scene with a hint of low gravity."
+  },
+  {
+   "phrase": "warm reading lamps against black space",
+   "kind": "light",
+   "means": "Cozy light inside, cold space outside."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_rewilded_highway": [
+  {
+   "phrase": "Slow aerial drift over a retired eight-lane highway turned meadow",
+   "kind": "camera",
+   "means": "Overhead shows the shape of the old road under the plants."
+  },
+  {
+   "phrase": "deer cross faded lane lines through wildflowers",
+   "kind": "subject",
+   "means": "Nature reclaiming space."
+  },
+  {
+   "phrase": "young trees grow through the cracks",
+   "kind": "detail",
+   "means": "Time passing, shown in the road."
+  },
+  {
+   "phrase": "wind turbines turn slowly on the horizon",
+   "kind": "motion",
+   "means": "Clean energy in the background."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_space_elevator": [
+  {
+   "phrase": "POV from the window of a space elevator climber",
+   "kind": "camera",
+   "means": "Riding up gives the viewer the journey."
+  },
+  {
+   "phrase": "the ribbon cable stretches up into black sky",
+   "kind": "subject",
+   "means": "The elevator itself, vanishing into space."
+  },
+  {
+   "phrase": "clouds fall away below and the curve of the Earth appears",
+   "kind": "motion",
+   "means": "Height shown by what drops away."
+  },
+  {
+   "phrase": "the sky darkens from blue to star-filled black",
+   "kind": "light",
+   "means": "A full change of sky over the climb."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_glowing_street_trees": [
+  {
+   "phrase": "Gentle cinematic slow tracking shot along a quiet city avenue at night",
+   "kind": "camera",
+   "means": "Moves with the cyclists."
+  },
+  {
+   "phrase": "bioluminescent trees glow soft cyan instead of streetlights",
+   "kind": "subject",
+   "means": "Living lights replacing lamps."
+  },
+  {
+   "phrase": "cyclists glide past in silence",
+   "kind": "motion",
+   "means": "Quiet transport in a calm future."
+  },
+  {
+   "phrase": "light pools on the pavement under each tree",
+   "kind": "light",
+   "means": "Each tree lights its own patch of street."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "adults only",
+   "kind": "guard",
+   "means": "A safety guardrail that keeps every person clearly grown up."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_robot_bonsai": [
+  {
+   "phrase": "Macro close-up in a sunlit workshop",
+   "kind": "camera",
+   "means": "Close on hands at work."
+  },
+  {
+   "phrase": "slender white robotic fingers prune a tiny juniper bonsai with silver scissors",
+   "kind": "subject",
+   "means": "Precision technology doing gentle, patient work."
+  },
+  {
+   "phrase": "a single snipped needle falls",
+   "kind": "motion",
+   "means": "One tiny action that shows the care."
+  },
+  {
+   "phrase": "soft morning window light",
+   "kind": "light",
+   "means": "Calm, natural light."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
+ ],
+ "seed_video_futuristic_europa_station": [
+  {
+   "phrase": "Slow wide push across the cracked ice plains of Europa",
+   "kind": "camera",
+   "means": "A slow approach to the outpost."
+  },
+  {
+   "phrase": "a drill station glows amber on the ice",
+   "kind": "subject",
+   "means": "A small human outpost."
+  },
+  {
+   "phrase": "Jupiter fills half the sky, its storms slowly turning",
+   "kind": "detail",
+   "means": "The giant planet makes the scene unforgettable."
+  },
+  {
+   "phrase": "plumes of vapor vent from the cracks",
+   "kind": "motion",
+   "means": "Real geysers that give the ice life."
+  },
+  {
+   "phrase": "steady camera",
+   "kind": "camera",
+   "means": "Keeps the frame calm so the motion in the scene does the work."
+  },
+  {
+   "phrase": "photoreal",
+   "kind": "style",
+   "means": "Keeps surfaces and light realistic so the clip reads as filmed, not drawn."
+  },
+  {
+   "phrase": "no text, no watermark",
+   "kind": "constraint",
+   "means": "Keeps captions, logos and watermarks out of the clip."
+  }
  ]
 }
