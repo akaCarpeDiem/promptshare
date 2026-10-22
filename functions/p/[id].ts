@@ -52,7 +52,9 @@ export const onRequest = async (context: {
   const imageAbs =
     creation.mediaKind === "image"
       ? new URL(creation.mediaUrl, CANONICAL).toString()
-      : `${CANONICAL}/og.png`;
+      : creation.mediaKind === "video"
+        ? new URL(appPosterUrl(creation), CANONICAL).toString()
+        : `${CANONICAL}/og.png`;
   const alt = escapeHtml(creation.title || creation.prompt.slice(0, 120) || "Plate image");
 
   const asset = await context.env.ASSETS.fetch(new URL("/index.html", pageUrl));
@@ -521,7 +523,8 @@ function appPosterUrl(creation: Pick<Creation, "mediaKind" | "mediaUrl">): strin
   if (creation.mediaUrl === "/media/video/people-bookstore.mp4") {
     return "/media/posters/people-bookstore.jpg?v=20261003peoplebook60";
   }
-  return creation.mediaUrl.replace("/media/video/", "/media/posters/").replace(/\.(webm|mp4|mov)$/i, ".jpg");
+  // Keep any ?v= cache-buster: the old /\.(mp4)$/ test missed URLs that carry one and left ".mp4" posters (404).
+  return creation.mediaUrl.replace("/media/video/", "/media/posters/").replace(/\.(webm|mp4|mov)(\?|$)/i, ".jpg$2");
 }
 
 /** Default inline playback = 720p@60 proxy (R2 media/video-preview/). Master stays in data-ps-master
