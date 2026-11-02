@@ -504,6 +504,31 @@ a.note:hover .note-more { color: var(--text); text-decoration: underline; }
 
 .game-card .card-media { aspect-ratio: 4 / 3; }
 .game-card .card-media img { object-fit: cover; }
+
+/* A quiet window onto PromptArcade, beside the Games blurb. */
+.arcade-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 360px); gap: 14px 28px; align-items: center; margin-top: 10px; }
+.arcade-row .lede { margin-top: 0; }
+.arcade-note { margin-top: 8px; max-width: 62ch; color: var(--muted); font-size: 0.95rem; }
+.arcade-note a { color: var(--text); font-weight: 600; }
+.arcade-window { position: relative; container-type: inline-size; min-width: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+.arcade-window:hover { border-color: var(--line-strong); box-shadow: var(--shadow-lift); }
+.arcade-window:focus-within { outline: 2px solid var(--focus); outline-offset: 3px; }
+.arcade-chrome { display: flex; align-items: center; gap: 8px; height: 28px; padding: 0 10px; border-bottom: 1px solid var(--line); background: color-mix(in oklab, var(--sunken) 65%, var(--surface)); color: var(--faint); font: 500 0.72rem/1 var(--font-mono); }
+.arcade-dots { display: flex; gap: 4px; flex: none; }
+.arcade-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); }
+.arcade-url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arcade-view { position: relative; height: 168px; background: #05051a; overflow: hidden; }
+.arcade-shot, .arcade-view iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.arcade-shot { object-fit: cover; object-position: top center; }
+.arcade-view iframe { width: 1120px; height: 760px; transform-origin: 0 0; transform: scale(calc(100cqw / 1120 / 1px)); pointer-events: none; opacity: 0; }
+.arcade-window.is-live .arcade-view iframe { opacity: 1; }
+.arcade-open { position: absolute; inset: 0; z-index: 2; }
+.arcade-open:focus-visible { outline: none; }
+@media (max-width: 860px) {
+  .arcade-row { grid-template-columns: 1fr; align-items: stretch; }
+  .arcade-window { max-width: 440px; }
+  .arcade-view { height: 156px; }
+}
 .diff { --role: var(--r-detail); }
 .diff[data-diff="mid"] { --role: var(--r-light); }
 .diff[data-diff="advanced"] { --role: var(--r-subject); }

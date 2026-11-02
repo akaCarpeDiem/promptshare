@@ -334,7 +334,20 @@ write("games/index.html", page({
         <button type="button" data-diff="" aria-pressed="true">All</button><button type="button" data-diff="simple" aria-pressed="false">Simple</button><button type="button" data-diff="mid" aria-pressed="false">Mid</button><button type="button" data-diff="advanced" aria-pressed="false">Advanced</button>
       </div></div>
     </div>
-    <p class="lede">Small browser games, each written by an AI model from a single prompt. Play one, then read the prompt that made it.</p>
+    <div class="arcade-row">
+      <div>
+        <p class="lede">Small browser games, each written by an AI model from a single prompt. Play one, then read the prompt that made it.</p>
+        <p class="arcade-note">See and play more advanced games made through prompting on <a href="https://promptarcade.games/" target="_blank" rel="noopener">PromptArcade.Games</a>.</p>
+      </div>
+      <div class="arcade-window">
+        <div class="arcade-chrome" aria-hidden="true"><span class="arcade-dots"><i></i><i></i><i></i></span><span class="arcade-url">promptarcade.games</span></div>
+        <div class="arcade-view">
+          <img class="arcade-shot" src="/games/promptarcade-home.webp" alt="" width="960" height="600" decoding="async">
+          <iframe src="https://promptarcade.games/" title="PromptArcade.Games homepage" tabindex="-1" loading="eager" scrolling="no" sandbox referrerpolicy="no-referrer" aria-hidden="true"></iframe>
+        </div>
+        <a class="arcade-open" href="https://promptarcade.games/" target="_blank" rel="noopener"><span class="sr">Open PromptArcade.Games</span></a>
+      </div>
+    </div>
   </header>
   <div class="grid">${games.map(gameCard).join("\n")}</div>
 </main>`,

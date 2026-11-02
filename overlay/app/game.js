@@ -18,6 +18,31 @@ if (seg) {
   apply(["simple", "mid", "advanced"].includes(initial) ? initial : "");
 }
 
+/* The framed glimpse is the live homepage when that site allows embedding.
+   Until it loads — and if framing is blocked — the still underneath stays. */
+const arcade = $(".arcade-window");
+if (arcade) {
+  const frame = $("iframe", arcade);
+  const settle = () => {
+    let live = false;
+    try {
+      const doc = frame.contentDocument;
+      // A cross-origin document that loaded comes back as null. A blocked
+      // frame stays an about:blank document this page can read.
+      if (!doc) live = true;
+      else {
+        const url = doc.URL || "";
+        live = url !== "about:blank" && (doc.body?.children.length || 0) > 0;
+      }
+    } catch {
+      live = true;
+    }
+    arcade.classList.toggle("is-live", live);
+  };
+  frame?.addEventListener("load", settle);
+  frame?.addEventListener("error", () => arcade.classList.remove("is-live"));
+}
+
 /* ---- game page ---- */
 const stage = $("[data-game]");
 if (stage) {
