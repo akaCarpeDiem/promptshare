@@ -36,15 +36,15 @@
     <meta name="twitter:image" content="https://promptshare.co/og.png" />
     <link rel="preload" href="/fonts/outfit-normal-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/fraunces-normal-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/app/app.css?v=92d8ce2c09" />
-    <link rel="modulepreload" href="/app/app.js?v=92d8ce2c09" />
+    <link rel="stylesheet" href="/app/app.css?v=280709dcb4" />
+    <link rel="modulepreload" href="/app/app.js?v=280709dcb4" />
     <link rel="modulepreload" href="/app/data.js" />
     <link rel="modulepreload" href="/app/ui.js" />
     <link rel="modulepreload" href="/app/card.js" />
     <link rel="modulepreload" href="/app/carousel.js" />
     <link rel="modulepreload" href="/app/marks.js" />
     <link rel="modulepreload" href="/app/roles.js" />
-    <script type="module" src="/app/app.js?v=92d8ce2c09"></script>
+    <script type="module" src="/app/app.js?v=280709dcb4"></script>
   </head>
   <body data-shell="page" data-page="games">
 <a class="skip" href="#main">Skip to content</a>
@@ -79,7 +79,20 @@
         <button type="button" data-diff="" aria-pressed="true">All</button><button type="button" data-diff="simple" aria-pressed="false">Simple</button><button type="button" data-diff="mid" aria-pressed="false">Mid</button><button type="button" data-diff="advanced" aria-pressed="false">Advanced</button>
       </div></div>
     </div>
-    <p class="lede">Small browser games, each written by an AI model from a single prompt. Play one, then read the prompt that made it.</p>
+    <div class="arcade-row">
+      <div>
+        <p class="lede">Small browser games, each written by an AI model from a single prompt. Play one, then read the prompt that made it.</p>
+        <p class="arcade-note">See and play more advanced games made through prompting on <a href="https://promptarcade.games/" target="_blank" rel="noopener">PromptArcade.Games</a>.</p>
+      </div>
+      <div class="arcade-window">
+        <div class="arcade-chrome" aria-hidden="true"><span class="arcade-dots"><i></i><i></i><i></i></span><span class="arcade-url">promptarcade.games</span></div>
+        <div class="arcade-view">
+          <img class="arcade-shot" src="/games/promptarcade-home.webp" alt="" width="960" height="600" decoding="async">
+          <iframe src="https://promptarcade.games/" title="PromptArcade.Games homepage" tabindex="-1" loading="eager" scrolling="no" sandbox referrerpolicy="no-referrer" aria-hidden="true"></iframe>
+        </div>
+        <a class="arcade-open" href="https://promptarcade.games/" target="_blank" rel="noopener"><span class="sr">Open PromptArcade.Games</span></a>
+      </div>
+    </div>
   </header>
   <div class="grid"><a class="card game-card" href="/games/paper-moths/" data-diff="simple">
   <div class="card-media"><img src="/games/posters/paper-moths.svg" alt="" width="640" height="480" loading="lazy" decoding="async"><span class="card-kind"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z"/></svg>Play</span></div>
