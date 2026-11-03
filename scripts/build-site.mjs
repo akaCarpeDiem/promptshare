@@ -227,8 +227,14 @@ const VIEW_MODULES = ["views/home.js", "views/browse.js", "views/plate.js"];
  * until then (and what search engines read). `functions/p/[id].ts` reuses the home document as
  * the shell for plate pages and swaps the #root…</noscript> block, so that block keeps this exact shape.
  */
-function page({ path, title, description, root, app = false, bodyAttrs = "", htmlAttrs = "", robots = "index,follow", canonical = path, image = "/og.png", extraHead = "" }) {
+function page({ path, title, description, root, app = false, bodyAttrs = "", htmlAttrs = "", robots = "index,follow", canonical = path, image = "/og.png", extraHead = "", ads = true }) {
   const url = ORIGIN + canonical;
+  // 404 and /search/ pass ads: false. Every other document keeps the loader.
+  const adsense = ads
+    ? `    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4059575347806121"
+     crossorigin="anonymous"></script>
+`
+    : "";
   return `<!doctype html>
 <html lang="en"${htmlAttrs}>
   <head>
@@ -241,9 +247,7 @@ function page({ path, title, description, root, app = false, bodyAttrs = "", htm
 
   gtag('config', 'G-3NENPL8C1E');
 </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4059575347806121"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8" />
+${adsense}    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="${robots}" />
     <title>${esc(title)}</title>
@@ -312,8 +316,8 @@ write("panels/index.html", page({ ...homeMeta, path: "/panels/", canonical: "/",
 write("images/index.html", page({ path: "/images/", app: true, title: "Images — PromptShare", description: "Curated AI images, each with the exact prompt that made it and notes on which phrases did the work.", root: browseFirst("image") }));
 write("videos/index.html", page({ path: "/videos/", app: true, title: "Videos — PromptShare", description: "Curated AI video clips, each with the exact prompt that made it and notes on which phrases did the work.", root: browseFirst("video") }));
 write("words/index.html", page({ path: "/words/", app: true, title: "Words — PromptShare", description: "The phrases that turn up again and again in AI prompts, what each one tends to change, and every image and video here that used it.", root: wordsFirst }));
-write("search/index.html", page({ path: "/search/", app: true, robots: "noindex,follow", title: "Search — PromptShare", description: "Search PromptShare by prompt, title, category or model.", root: browseRoot("Search", "Search titles, prompts, categories and model names.") }));
-write("404.html", page({ path: "/404", robots: "noindex", title: "Not found — PromptShare", description: "That page isn't here.", root: `<main class="wrap" id="main"><div class="status"><h1 class="h2">That page isn't here</h1><p>Try <a href="/images/">Images</a>, <a href="/videos/">Videos</a> or <a href="/games/">Games</a>.</p></div></main>` }));
+write("search/index.html", page({ path: "/search/", app: true, ads: false, robots: "noindex,follow", title: "Search — PromptShare", description: "Search PromptShare by prompt, title, category or model.", root: browseRoot("Search", "Search titles, prompts, categories and model names.") }));
+write("404.html", page({ path: "/404", ads: false, robots: "noindex", title: "Not found — PromptShare", description: "That page isn't here.", root: `<main class="wrap" id="main"><div class="status"><h1 class="h2">That page isn't here</h1><p>Try <a href="/images/">Images</a>, <a href="/videos/">Videos</a> or <a href="/games/">Games</a>.</p></div></main>` }));
 
 /* -------------------------------------------------------------- games */
 
