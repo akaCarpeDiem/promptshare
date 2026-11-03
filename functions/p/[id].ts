@@ -9,6 +9,7 @@ import { compileLexicon, segment, renderPrompt } from "../../overlay/app/marks.j
 import { ROLES, ROLE } from "../../overlay/app/roles.js";
 import NOTES from "../../overlay/data/notes.json" with { type: "json" };
 import LEXICON from "../../overlay/data/lexicon.json" with { type: "json" };
+import { plateServesAds, stripAdSense } from "../lib/plateAds.js";
 
 let matcher: ReturnType<typeof compileLexicon> | null = null;
 function marksFor(id: string, prompt: string) {
@@ -46,6 +47,10 @@ export const onRequest = async (context: {
 
   const author = await store.getUserById(creation.userId);
   const isUnlisted = creation.visibility === "unlisted";
+  // Short notes: no AdSense, and noindex so the page is not an ad landing page.
+  // Unlisted plates are already noindex, so they omit the loader as well.
+  const ownNotes = (NOTES as Record<string, Array<{ means?: string }>>)[creation.id] || [];
+  const allowAds = !isUnlisted && plateServesAds(ownNotes);
   const titleBase = (creation.title || creation.prompt.slice(0, 60) || "Plate").trim();
   const docTitle = `${titleBase} — PromptShare`;
   const description = buildDescription(creation, author);
@@ -59,6 +64,7 @@ export const onRequest = async (context: {
 
   const asset = await context.env.ASSETS.fetch(new URL("/index.html", pageUrl));
   let html = await asset.text();
+  if (!allowAds) html = stripAdSense(html);
 
   // Strip default homepage title/description/canonical/og so plate tags win
   html = html
@@ -75,7 +81,7 @@ export const onRequest = async (context: {
     .replace(/<meta\s+name="twitter:description"[^>]*>/i, "")
     .replace(/<meta\s+name="twitter:image"[^>]*>/i, "");
 
-  const robots = isUnlisted ? "noindex,nofollow" : "index,follow";
+  const robots = isUnlisted ? "noindex,nofollow" : allowAds ? "index,follow" : "noindex,follow";
   const jsonLd = buildJsonLd(creation, author, canonical, imageAbs);
   const headInject = `
     <title>${escapeHtml(docTitle)}</title>
@@ -119,6 +125,7 @@ async function notFound(
 ): Promise<Response> {
   const asset = await context.env.ASSETS.fetch(new URL("/index.html", pageUrl));
   let html = await asset.text();
+  html = stripAdSense(html);
   html = html
     .replace(/<title>[\s\S]*?<\/title>/i, "<title>Not found — PromptShare</title>")
     .replace(/<meta\s+name="robots"[^>]*>/i, '<meta name="robots" content="noindex" />');
