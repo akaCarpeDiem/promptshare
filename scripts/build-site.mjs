@@ -161,7 +161,7 @@ const demoHtml = demo0 ? (() => {
   const prompt = demo0.segments.map((s) => (s.note ? `<span class="mk${k === 0 ? " is-on" : ""}" data-role="${s.role}" data-k="${k++}">${esc(s.text)}</span>` : esc(s.text))).join("");
   const m = demoMarks[0];
   return `<div class="demo" aria-label="Example: a prompt read phrase by phrase">
-        <div class="demo-shot"><img class="is-on" src="${esc(demo0.mediaUrl)}" alt="${esc(demo0.title)}" width="${demo0.width || 1280}" height="${demo0.height || 720}" fetchpriority="high" decoding="async"><a href="/p/${encodeURIComponent(demo0.id)}" aria-label="Open this plate"></a></div>
+        <div class="demo-shot"><img class="is-on" src="${esc(demo0.mediaKind === "image" ? String(demo0.mediaUrl).replace("/media/images/", "/demo/") : demo0.mediaUrl)}" alt="${esc(demo0.title)}" width="${demo0.width || 1280}" height="${demo0.height || 720}" fetchpriority="high" decoding="async"><a href="/p/${encodeURIComponent(demo0.id)}" aria-label="Open this plate"></a></div>
         <div class="demo-read">
           <p class="prompt">${prompt}</p>
           <p class="demo-note" aria-live="off"${m ? ` data-role="${m.role}"` : ""}>${m ? `<b>${esc(ROLE[m.role].name)}</b><span>${esc(m.note.means)}</span>` : ""}</p>
@@ -346,8 +346,7 @@ write("games/index.html", page({
       <div class="arcade-window">
         <div class="arcade-chrome" aria-hidden="true"><span class="arcade-dots"><i></i><i></i><i></i></span><span class="arcade-url">promptarcade.games</span></div>
         <div class="arcade-view">
-          <img class="arcade-shot" src="/games/promptarcade-home.webp" alt="" width="960" height="600" decoding="async">
-          <iframe src="https://promptarcade.games/" title="PromptArcade.Games homepage" tabindex="-1" loading="eager" scrolling="no" sandbox referrerpolicy="no-referrer" aria-hidden="true"></iframe>
+          <img class="arcade-shot" src="/games/promptarcade-home-2026-11.webp" alt="" width="960" height="600" decoding="async">
         </div>
         <a class="arcade-open" href="https://promptarcade.games/" target="_blank" rel="noopener"><span class="sr">Open PromptArcade.Games</span></a>
       </div>

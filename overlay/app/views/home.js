@@ -11,6 +11,9 @@ import { mountDoorSnake } from "../door-snake.js";
 const DEMOS = ["seed_cities_q_istanbul_bosphorus", "seed_landscapes_q_red_mesa", "seed_portrait_teal_hoops", "seed_comic_q_rooftop_courier"];
 
 /** The plates the home page reads out: the chosen ones if present, otherwise the best-annotated images. */
+/* The demo pictures are shown at most about 640px wide: serve 1280px copies from /demo/ instead of the 1920px originals. */
+const demoSrc = (p) => (p.mediaKind === "image" && /^\/media\/images\/[\w.-]+\.webp$/.test(p.mediaUrl || "") ? p.mediaUrl.replace("/media/images/", "/demo/") : p.mediaUrl);
+
 function demoPlates(n = 4) {
   const chosen = DEMOS.map((id) => db.byId.get(id)).filter((p) => p && p.segments.some((s) => s.note));
   if (chosen.length >= 2) return chosen.slice(0, n);
@@ -80,7 +83,7 @@ export function home(root) {
         <p class="hero-counts num"><span><b>${fmt(images.length)}</b> images</span><span><b>${fmt(videos.length)}</b> videos</span><span><b>${fmt(db.games.length)}</b> games</span><span><b>${fmt(Object.values(db.notes).reduce((n, list) => n + list.length, 0))}</b> prompt notes</span></p>
       </div>
       ${demos.length ? `<div class="demo" aria-label="Example: a prompt read phrase by phrase">
-        <div class="demo-shot">${demos.map((p, i) => `<img src="${esc(p.mediaUrl)}" alt="${esc(p.title)}" width="${p.width || 1280}" height="${p.height || 720}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async">`).join("")}<a href="#" aria-label="Open this plate"></a></div>
+        <div class="demo-shot">${demos.map((p, i) => `<img src="${esc(demoSrc(p))}" alt="${esc(p.title)}" width="${p.width || 1280}" height="${p.height || 720}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async">`).join("")}<a href="#" aria-label="Open this plate"></a></div>
         <div class="demo-read">
           <p class="prompt"></p>
           <p class="demo-note" aria-live="off"></p>
